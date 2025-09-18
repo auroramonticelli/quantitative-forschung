@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testing – Quantitative Forschung</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Statistical Testing</h1>
+  <p>Applying tests in R</p>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="visualization.html">Visualization</a>
+  <a href="testing.html">Testing</a>
+  <a href="materials.html">Materials</a>
+</nav>
+
+<main>
+  <section>
+    <h2>Overview</h2>
+    <p>
+      We focus on three essential statistical tests:
+    </p>
+    <ul>
+      <li><code>t.test()</code> — comparing means</li>
+      <li><code>cor.test()</code> — correlations</li>
+      <li><code>chisq.test()</code> — categorical data</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Example: t-test</h2>
+    <pre><code class="language-r">
+t.test(mpg ~ am, data = mtcars)
+    </code></pre>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 Quantitative Forschung | Hosted on GitHub Pages</p>
+</footer>
+
+</body>
+</html>
