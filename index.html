@@ -80,6 +80,7 @@
       margin-top: 0;
       color: #6a11cb;
       font-size: 1.8rem;
+      font-weight: 600;
     }
 
     ul {
@@ -112,7 +113,7 @@
 
   <header>
     <h1>Quantitative Forschung</h1>
-    <p>Learn R for Visualization & Testing – Gen-Z Edition ✨📊</p>
+    <p>Learn R for Visualization & Testing</p>
   </header>
 
   <nav>
@@ -125,23 +126,24 @@
 
   <main>
     <section id="description">
-      <h2>🚀 What’s this about?</h2>
+      <h2>Course Overview</h2>
       <p>
         This one-session crash course introduces the essentials of <strong>quantitative research</strong> 
-        with <strong>R</strong>. You’ll learn how to make data look 🔥 through <em>visualizations</em> 
-        and how to answer questions with <em>statistical tests</em>.
+        with <strong>R</strong>. You will learn how to create effective <em>visualizations</em> 
+        and how to apply basic <em>statistical tests</em> to answer research questions.
       </p>
     </section>
 
     <section id="visualization">
-      <h2>🎨 Visualization</h2>
+      <h2>Visualization</h2>
       <p>
-        Data is boring until you <strong>make it pop</strong>. We’ll use <code>ggplot2</code> to create visuals:
+        Data becomes meaningful when it is well presented. We will use <code>ggplot2</code> to create clear, 
+        professional visualizations such as:
       </p>
       <ul>
-        <li>Scatterplots with style</li>
-        <li>Boxplots that actually look nice</li>
-        <li>Histograms that don’t scream Excel 2003</li>
+        <li>Scatterplots</li>
+        <li>Boxplots</li>
+        <li>Histograms</li>
       </ul>
       <pre><code class="language-r">
 library(ggplot2)
@@ -149,20 +151,19 @@ library(ggplot2)
 ggplot(mtcars, aes(x = hp, y = mpg)) +
   geom_point(color = "#ff5c8d") +
   geom_smooth(method = "lm", se = FALSE, color = "#6a11cb") +
-  labs(title = "Horsepower vs. MPG 🚗")
+  labs(title = "Horsepower vs. MPG")
       </code></pre>
     </section>
 
     <section id="testing">
-      <h2>🧪 Testing</h2>
+      <h2>Statistical Testing</h2>
       <p>
-        Once you’ve visualized, you gotta <strong>test</strong>. 
-        We’ll learn the R functions every researcher should know:
+        To complement visualization, we will cover basic statistical tests in R:
       </p>
       <ul>
-        <li><code>t.test()</code> → Compare means</li>
-        <li><code>cor.test()</code> → Find relationships</li>
-        <li><code>chisq.test()</code> → Work with categories</li>
+        <li><code>t.test()</code> — Compare means</li>
+        <li><code>cor.test()</code> — Assess correlations</li>
+        <li><code>chisq.test()</code> — Work with categorical data</li>
       </ul>
       <pre><code class="language-r">
 # Example: t-test
@@ -171,17 +172,17 @@ t.test(mpg ~ am, data = mtcars)
     </section>
 
     <section id="materials">
-      <h2>📂 Materials</h2>
-      <p>Slides + datasets will drop here (stay tuned):</p>
+      <h2>Materials</h2>
+      <p>Slides and datasets will be made available here:</p>
       <ul>
-        <li><a href="#">✨ Slides (PDF)</a></li>
-        <li><a href="#">📊 Dataset (CSV)</a></li>
+        <li><a href="#">Slides (PDF)</a></li>
+        <li><a href="#">Dataset (CSV)</a></li>
       </ul>
     </section>
 
     <section id="contact">
-      <h2>📧 Contact</h2>
-      <p>Hit me up if you’ve got questions:</p>
+      <h2>Contact</h2>
+      <p>If you have questions, please reach out:</p>
       <ul>
         <li><strong>Instructor:</strong> Your Name</li>
         <li><strong>Email:</strong> your.email@example.com</li>
@@ -190,7 +191,7 @@ t.test(mpg ~ am, data = mtcars)
   </main>
 
   <footer>
-    <p>&copy; 2025 Quantitative Forschung | Made with 💜 on GitHub Pages</p>
+    <p>&copy; 2025 Quantitative Forschung | Hosted on GitHub Pages</p>
   </footer>
 
 </body>
