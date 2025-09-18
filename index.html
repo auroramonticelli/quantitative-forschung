@@ -1,198 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quantitative Forschung – Course Website</title>
-  <style>
-    /* Fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
-      color: #333;
-    }
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f9f9fb;
+  color: #333;
+  line-height: 1.6;
+}
 
-    header {
-      text-align: center;
-      padding: 80px 20px 60px;
-      color: white;
-    }
+header {
+  background: #1e3a8a; /* professional navy blue */
+  color: white;
+  padding: 50px 20px;
+  text-align: center;
+}
 
-    header h1 {
-      font-size: 3rem;
-      margin: 0;
-      font-weight: 700;
-      letter-spacing: -1px;
-    }
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
 
-    header p {
-      margin-top: 10px;
-      font-size: 1.2rem;
-      opacity: 0.9;
-    }
+header p {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
 
-    nav {
-      text-align: center;
-      margin-bottom: 40px;
-    }
+nav {
+  text-align: center;
+  background: #f1f5f9;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
 
-    nav a {
-      display: inline-block;
-      margin: 0 15px;
-      padding: 10px 18px;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 25px;
-      color: white;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #1e3a8a; /* main navy */
+  transition: color 0.3s;
+}
 
-    nav a:hover {
-      background: white;
-      color: #333;
-    }
+nav a:hover {
+  color: #9b8cba; /* subtle lilac accent on hover */
+}
 
-    main {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 20px;
-    }
+main {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+}
 
-    section {
-      background: white;
-      margin-bottom: 40px;
-      padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      transition: transform 0.2s ease;
-    }
+section {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  margin-bottom: 30px;
+  transition: transform 0.2s;
+}
 
-    section:hover {
-      transform: translateY(-5px);
-    }
+section:hover {
+  transform: translateY(-3px);
+}
 
-    h2 {
-      margin-top: 0;
-      color: #6a11cb;
-      font-size: 1.8rem;
-      font-weight: 600;
-    }
+h2 {
+  color: #1e3a8a; /* main navy */
+  font-weight: 600;
+}
 
-    ul {
-      padding-left: 20px;
-    }
+pre {
+  background: #f4f4f9;
+  padding: 15px;
+  border-radius: 8px;
+  overflow-x: auto;
+}
 
-    pre {
-      background: #f4f4f9;
-      padding: 15px;
-      border-radius: 8px;
-      overflow-x: auto;
-    }
+code {
+  font-family: Consolas, monospace;
+  color: #9b8cba; /* subtle lilac for code */
+}
 
-    code {
-      font-family: Consolas, monospace;
-      color: #d63384;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: rgba(255,255,255,0.2);
-      color: white;
-      margin-top: 60px;
-      font-size: 0.9rem;
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    <h1>Quantitative Forschung</h1>
-    <p>Learn R for Visualization & Testing</p>
-  </header>
-
-  <nav>
-    <a href="#description">Description</a>
-    <a href="#visualization">Visualization</a>
-    <a href="#testing">Testing</a>
-    <a href="#materials">Materials</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <main>
-    <section id="description">
-      <h2>Course Overview</h2>
-      <p>
-        This one-session crash course introduces the essentials of <strong>quantitative research</strong> 
-        with <strong>R</strong>. You will learn how to create effective <em>visualizations</em> 
-        and how to apply basic <em>statistical tests</em> to answer research questions.
-      </p>
-    </section>
-
-    <section id="visualization">
-      <h2>Visualization</h2>
-      <p>
-        Data becomes meaningful when it is well presented. We will use <code>ggplot2</code> to create clear, 
-        professional visualizations such as:
-      </p>
-      <ul>
-        <li>Scatterplots</li>
-        <li>Boxplots</li>
-        <li>Histograms</li>
-      </ul>
-      <pre><code class="language-r">
-library(ggplot2)
-
-ggplot(mtcars, aes(x = hp, y = mpg)) +
-  geom_point(color = "#ff5c8d") +
-  geom_smooth(method = "lm", se = FALSE, color = "#6a11cb") +
-  labs(title = "Horsepower vs. MPG")
-      </code></pre>
-    </section>
-
-    <section id="testing">
-      <h2>Statistical Testing</h2>
-      <p>
-        To complement visualization, we will cover basic statistical tests in R:
-      </p>
-      <ul>
-        <li><code>t.test()</code> — Compare means</li>
-        <li><code>cor.test()</code> — Assess correlations</li>
-        <li><code>chisq.test()</code> — Work with categorical data</li>
-      </ul>
-      <pre><code class="language-r">
-# Example: t-test
-t.test(mpg ~ am, data = mtcars)
-      </code></pre>
-    </section>
-
-    <section id="materials">
-      <h2>Materials</h2>
-      <p>Slides and datasets will be made available here:</p>
-      <ul>
-        <li><a href="#">Slides (PDF)</a></li>
-        <li><a href="#">Dataset (CSV)</a></li>
-      </ul>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>If you have questions, please reach out:</p>
-      <ul>
-        <li><strong>Instructor:</strong> Your Name</li>
-        <li><strong>Email:</strong> your.email@example.com</li>
-      </ul>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 Quantitative Forschung | Hosted on GitHub Pages</p>
-  </footer>
-
-</body>
-</html>
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #1e3a8a;
+  color: white;
+  margin-top: 40px;
+  font-size: 0.9rem;
+}
