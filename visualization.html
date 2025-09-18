@@ -11,11 +11,10 @@
 <div class="page-wrapper">
   <div class="sidebar">
     <h3>Inhaltsverzeichnis</h3>
-    <a href="#section1">Daten prüfen</a>
-    <a href="#section2">Warum Visualisieren?</a>
-    <a href="#section3">ggplot2 & Cheatsheet</a>
-    <a href="#section4">Plots: Barplot, Boxplot, Histogram</a>
-    <a href="#section5">Ästhetische Anpassungen</a>
+    <a href="#section1">Datenexploration & Visualisierungsgrundlagen</a>
+    <a href="#section2">ggplot2 & Cheatsheet</a>
+    <a href="#section3">Plots: Barplot, Boxplot, Histogram</a>
+    <a href="#section4">Ästhetische Anpassungen</a>
   </div>
 
   <div class="main-content">
@@ -34,44 +33,126 @@
 
     <main>
       <section id="section1">
-        <h2>Daten prüfen</h2>
-        <p>Bevor wir visualisieren, überprüfen wir die Daten auf fehlende Werte und typische Fehler.<span class="badge">Tipp</span></p>
-        <button class="collapsible">Try Out: Daten prüfen</button>
-        <div class="content">
-          <pre><code class="language-r">
-# Daten anschauen
-head(mtcars)
-summary(mtcars)
-          </code></pre>
+        <h2>Datenexploration & Visualisierungsgrundlagen</h2>
+        
+        <div class="educational-content">
+          <p>Bevor wir mit der Visualisierung beginnen, ist es entscheidend, ein grundlegendes Verständnis unserer Daten zu entwickeln. Die Datenexploration hilft uns, Probleme zu identifizieren und die richtigen Visualisierungsmethoden auszuwählen.</p>
+          
+          <div class="key-point">
+            <h4>Warum Datenprüfung wichtig ist</h4>
+            <p>Daten können verschiedene Probleme aufweisen, die Ihre Visualisierungen und Analysen beeinträchtigen können:</p>
+            <ul>
+              <li><strong>Fehlende Werte</strong> - Können zu verzerrten Ergebnissen führen</li>
+              <li><strong>Ausreißer</strong> - Extreme Werte, die die Interpretation verfälschen können</li>
+              <li><strong>Datentyp-Probleme</strong> - Zahlen, die als Text gespeichert sind</li>
+              <li><strong>Skalenunterschiede</strong> - Variablen in unterschiedlichen Maßstäben</li>
+            </ul>
+          </div>
+          
+          <div class="key-point">
+            <h4>Grundlegende Datenexploration in R</h4>
+            <p>Bevor Sie visualisieren, sollten Sie diese grundlegenden Funktionen verwenden:</p>
+            
+            <div class="example-box">
+              <code># Datenstruktur untersuchen<br>str(mtcars)<br><br># Erste Zeilen anzeigen<br>head(mtcars)<br><br># Zusammenfassende Statistiken<br>summary(mtcars)<br><br># Fehlende Werte identifizieren<br>sum(is.na(mtcars))</code>
+            </div>
+          </div>
+          
+          <div class="key-point">
+            <h4>Warum Visualisierung?</h4>
+            <p>Visualisierung transformiert Rohdaten in verständliche Muster und Insights:</p>
+            <ul>
+              <li><strong>Muster erkennen</strong> - Trends, Cluster oder Zyklen identifizieren</li>
+              <li><strong>Ausreißer entdecken</strong> - Ungewöhnliche Datenpunkte visualisieren</li>
+              <li><strong>Zusammenhänge verstehen</strong> - Beziehungen zwischen Variablen erkennen</li>
+              <li><strong>Kommunikation verbessern</strong> - Komplexe Ergebnisse einfach darstellen</li>
+            </ul>
+          </div>
+          
+          <div class="key-point">
+            <h4>Der Visualisierungsprozess</h4>
+            <p>Ein effektiver Workflow für Datenvisualisierung:</p>
+            <ol>
+              <li>Daten bereinigen und vorbereiten</li>
+              <li>Forschungsfrage definieren</li>
+              <li>Passenden Visualisierungstyp auswählen</li>
+              <li>Grafik erstellen und anpassen</li>
+              <li>Interpretieren und Insights ableiten</li>
+            </ol>
+          </div>
+          
+          <p class="tip"><span class="info-icon">i</span> <strong>Tipp:</strong> Investieren Sie mindestens 20% Ihrer Zeit in die Datenexploration und -bereinigung. Dies spart später Zeit und verbessert die Qualität Ihrer Analysen.</p>
         </div>
       </section>
 
       <section id="section2">
-        <h2>Warum visualisieren?</h2>
-        <p>Visualisierung hilft, Muster, Ausreißer und Zusammenhänge zu erkennen.<span class="badge">Tipp</span></p>
-        <button class="collapsible">Try Out: Visualisierung entdecken</button>
+        <h2>ggplot2 & Cheatsheet</h2>
+        <p>Wir nutzen <code>ggplot2</code> für ansprechende Grafiken. Cheatsheets helfen, schnell Funktionen zu finden.<span class="badge">Tipp</span></p>
+        
+        <div class="educational-content">
+          <p>ggplot2 ist ein mächtiges R-Paket für die Erstellung von Grafiken basierend auf der Grammatik der Grafiken. Jede Visualisierung besteht aus:</p>
+          
+          <ul>
+            <li><strong>Daten</strong> - Der Datensatz, den Sie visualisieren möchten</li>
+            <li><strong>Ästhetik</strong> - Wie Variablen visualisiert werden (x, y, Farbe, Größe)</li>
+            <li><strong>Geometrien</strong> - Die Art der Visualisierung (Punkte, Linien, Balken)</li>
+            <li><strong>Skalen</strong> - Wie Werte in visuelle Elemente übersetzt werden</li>
+            <li><strong>Facets</strong> - Mehrere kleine Grafiken zur Vergleich</li>
+            <li><strong>Theme</strong> - Visuelle Details ohne Datenbezug</li>
+          </ul>
+          
+          <div class="example-box">
+            <code># Grundlegende Syntax von ggplot2<br>ggplot(data = &lt;DATA&gt;) + <br>  &lt;GEOM_FUNCTION&gt;(mapping = aes(&lt;MAPPINGS&gt;))</code>
+          </div>
+          
+          <p>Für den Einstieg empfehlen wir das ggplot2 Cheatsheet von RStudio, das eine ausgezeichnete Referenz für die häufigsten Visualisierungsaufgaben bietet.</p>
+        </div>
+        
+        <button class="collapsible">Try Out: ggplot starten</button>
         <div class="content">
           <pre><code class="language-r">
-# Beispiel: Scatterplot erkennen Muster
-plot(mtcars$hp, mtcars$mpg)
+# ggplot2 laden
+library(ggplot2)
+
+# Einfaches Beispiel
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point()
           </code></pre>
         </div>
       </section>
 
       <section id="section3">
-        <h2>ggplot2 & Cheatsheet</h2>
-        <p>Wir nutzen <code>ggplot2</code> für ansprechende Grafiken. Cheatsheets helfen, schnell Funktionen zu finden.<span class="badge">Tipp</span></p>
-        <button class="collapsible">Try Out: ggplot starten</button>
-        <div class="content">
-          <pre><code class="language-r">
-library(ggplot2)
-          </code></pre>
-        </div>
-      </section>
-
-      <section id="section4">
         <h2>Plots: Barplot, Boxplot, Histogram</h2>
         <p>Wir erstellen verschiedene Plottypen, um Daten zu erkunden.<span class="badge">Tipp</span></p>
+        
+        <div class="educational-content">
+          <p>Die Auswahl des richtigen Diagrammtyps hängt von der Art Ihrer Daten und der Frage ab, die Sie beantworten möchten:</p>
+          
+          <div class="key-point">
+            <h4>Barplot (Balkendiagramm)</h4>
+            <p>Für kategorische Daten: Zeigt Häufigkeiten oder Mittelwerte für verschiedene Kategorien.</p>
+            <div class="example-box">
+              <code># Barplot für Zylinderanzahlen<br>ggplot(mtcars, aes(x = factor(cyl))) + <br>  geom_bar(fill = "#b9aadf") +<br>  labs(title = "Anzahl der Autos nach Zylinderzahl", x = "Zylinder", y = "Anzahl")</code>
+            </div>
+          </div>
+          
+          <div class="key-point">
+            <h4>Boxplot (Boxplot)</h4>
+            <p>Für Verteilungen: Zeigt Median, Quartile und Ausreißer einer Verteilung.</p>
+            <div class="example-box">
+              <code># Boxplot für MPG nach Zylinderzahl<br>ggplot(mtcars, aes(x = factor(cyl), y = mpg)) + <br>  geom_boxplot(fill = "#b9aadf") +<br>  labs(title = "MPG Verteilung nach Zylinderzahl", x = "Zylinder", y = "MPG")</code>
+            </div>
+          </div>
+          
+          <div class="key-point">
+            <h4>Histogram (Histogramm)</h4>
+            <p>Für Verteilungen kontinuierlicher Daten: Zeigt die Häufigkeitsverteilung einer Variable.</p>
+            <div class="example-box">
+              <code># Histogram für MPG<br>ggplot(mtcars, aes(x = mpg)) + <br>  geom_histogram(fill = "#b9aadf", bins = 10, color = "white") +<br>  labs(title = "Verteilung der MPG Werte", x = "MPG", y = "Häufigkeit")</code>
+            </div>
+          </div>
+        </div>
+        
         <button class="collapsible">Try Out: Plottypen</button>
         <div class="content">
           <pre><code class="language-r">
@@ -87,9 +168,27 @@ ggplot(mtcars, aes(x = mpg)) + geom_histogram(fill = "#b9aadf", bins = 10)
         </div>
       </section>
 
-      <section id="section5">
+      <section id="section4">
         <h2>Ästhetische Anpassungen</h2>
         <p>Wir passen Titel, Farben und Positionen an, um Grafiken klarer zu gestalten.<span class="badge">Tipp</span></p>
+        
+        <div class="educational-content">
+          <p>Eine effektive Visualisierung ist nicht nur korrekt, sondern auch ästhetisch ansprechend und leicht verständlich. ggplot2 bietet umfangreiche Anpassungsmöglichkeiten:</p>
+          
+          <div class="key-point">
+            <h4>Gute Praxis für Visualisierungen</h4>
+            <ul>
+              <li><strong>Klare Titel und Beschriftungen</strong> - Jede Grafik sollte selbsterklärend sein</li>
+              <li><strong>Angemessene Skalierung</strong> - Vermeiden Sie irreführende Darstellungen</li>
+              <li><strong>Farben mit Bedeutung</strong> - Verwenden Sie Farben konsistent und zugänglich</li>
+              <li><strong>Vermeiden von Chartjunk</strong> - Entfernen Sie unnötige decorative Elemente</li>
+              <li><strong>Hervorhebung wichtiger Punkte</strong> - Lenken Sie die Aufmerksamkeit auf Schlüsselelemente</li>
+            </ul>
+          </div>
+          
+          <p>Die Anpassung des Erscheinungsbilds erfolgt in ggplot2 hauptsächlich durch das theme()-Argument und verschiedene Skalenfunktionen.</p>
+        </div>
+        
         <button class="collapsible">Try Out: Ästhetik ändern</button>
         <div class="content">
           <pre><code class="language-r">
