@@ -5,62 +5,106 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quantitative Forschung – Course Website</title>
   <style>
+    /* Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
     body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
+      font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
-      background: #f9f9f9;
+      background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
       color: #333;
     }
+
     header {
-      background: #2c3e50;
-      color: #fff;
-      padding: 20px 40px;
       text-align: center;
+      padding: 80px 20px 60px;
+      color: white;
     }
+
     header h1 {
+      font-size: 3rem;
       margin: 0;
-      font-size: 2em;
+      font-weight: 700;
+      letter-spacing: -1px;
     }
+
+    header p {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
     nav {
-      background: #34495e;
-      padding: 10px;
       text-align: center;
+      margin-bottom: 40px;
     }
+
     nav a {
-      color: #fff;
+      display: inline-block;
       margin: 0 15px;
+      padding: 10px 18px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 25px;
+      color: white;
+      font-weight: 600;
       text-decoration: none;
-      font-weight: bold;
+      transition: all 0.3s ease;
     }
+
     nav a:hover {
-      text-decoration: underline;
+      background: white;
+      color: #333;
     }
+
     main {
-      max-width: 900px;
-      margin: 20px auto;
+      max-width: 1000px;
+      margin: 0 auto;
       padding: 20px;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
+
+    section {
+      background: white;
+      margin-bottom: 40px;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease;
+    }
+
+    section:hover {
+      transform: translateY(-5px);
+    }
+
     h2 {
-      color: #2c3e50;
-      margin-top: 30px;
+      margin-top: 0;
+      color: #6a11cb;
+      font-size: 1.8rem;
     }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    pre {
+      background: #f4f4f9;
+      padding: 15px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+
     code {
-      background: #eee;
-      padding: 2px 6px;
-      border-radius: 4px;
       font-family: Consolas, monospace;
+      color: #d63384;
     }
+
     footer {
       text-align: center;
       padding: 20px;
-      background: #2c3e50;
-      color: #fff;
-      margin-top: 40px;
+      background: rgba(255,255,255,0.2);
+      color: white;
+      margin-top: 60px;
+      font-size: 0.9rem;
     }
   </style>
 </head>
@@ -68,7 +112,7 @@
 
   <header>
     <h1>Quantitative Forschung</h1>
-    <p>Course Website</p>
+    <p>Learn R for Visualization & Testing – Gen-Z Edition ✨📊</p>
   </header>
 
   <nav>
@@ -81,49 +125,45 @@
 
   <main>
     <section id="description">
-      <h2>Course Description</h2>
+      <h2>🚀 What’s this about?</h2>
       <p>
-        This session introduces students to the fundamentals of quantitative research 
-        using <strong>R</strong>. We will focus on two key aspects: creating clear 
-        and informative <strong>visualizations</strong>, and conducting 
-        <strong>statistical tests</strong> to answer research questions.
+        This one-session crash course introduces the essentials of <strong>quantitative research</strong> 
+        with <strong>R</strong>. You’ll learn how to make data look 🔥 through <em>visualizations</em> 
+        and how to answer questions with <em>statistical tests</em>.
       </p>
     </section>
 
     <section id="visualization">
-      <h2>Visualization</h2>
+      <h2>🎨 Visualization</h2>
       <p>
-        Students will learn the basics of data visualization in R. We will use 
-        <code>ggplot2</code> to create plots such as:
+        Data is boring until you <strong>make it pop</strong>. We’ll use <code>ggplot2</code> to create visuals:
       </p>
       <ul>
-        <li>Histograms and bar charts</li>
-        <li>Boxplots and scatterplots</li>
-        <li>Adding titles, labels, and themes</li>
+        <li>Scatterplots with style</li>
+        <li>Boxplots that actually look nice</li>
+        <li>Histograms that don’t scream Excel 2003</li>
       </ul>
-      <p>Example in R:</p>
       <pre><code class="language-r">
 library(ggplot2)
 
-# Example: Scatterplot with regression line
 ggplot(mtcars, aes(x = hp, y = mpg)) +
-  geom_point() +
-  geom_smooth(method = "lm", col = "blue") +
-  labs(title = "Horsepower vs. MPG")
+  geom_point(color = "#ff5c8d") +
+  geom_smooth(method = "lm", se = FALSE, color = "#6a11cb") +
+  labs(title = "Horsepower vs. MPG 🚗")
       </code></pre>
     </section>
 
     <section id="testing">
-      <h2>Testing</h2>
+      <h2>🧪 Testing</h2>
       <p>
-        We will introduce basic statistical tests in R, focusing on how to apply them and interpret the results:
+        Once you’ve visualized, you gotta <strong>test</strong>. 
+        We’ll learn the R functions every researcher should know:
       </p>
       <ul>
-        <li><code>t.test()</code> for comparing means</li>
-        <li><code>cor.test()</code> for correlations</li>
-        <li><code>chisq.test()</code> for categorical data</li>
+        <li><code>t.test()</code> → Compare means</li>
+        <li><code>cor.test()</code> → Find relationships</li>
+        <li><code>chisq.test()</code> → Work with categories</li>
       </ul>
-      <p>Example in R:</p>
       <pre><code class="language-r">
 # Example: t-test
 t.test(mpg ~ am, data = mtcars)
@@ -131,17 +171,17 @@ t.test(mpg ~ am, data = mtcars)
     </section>
 
     <section id="materials">
-      <h2>Materials</h2>
-      <p>Slides and datasets will be uploaded here:</p>
+      <h2>📂 Materials</h2>
+      <p>Slides + datasets will drop here (stay tuned):</p>
       <ul>
-        <li><a href="#">Slides (PDF)</a></li>
-        <li><a href="#">Practice dataset (CSV)</a></li>
+        <li><a href="#">✨ Slides (PDF)</a></li>
+        <li><a href="#">📊 Dataset (CSV)</a></li>
       </ul>
     </section>
 
     <section id="contact">
-      <h2>Contact</h2>
-      <p>If you have questions, feel free to reach out:</p>
+      <h2>📧 Contact</h2>
+      <p>Hit me up if you’ve got questions:</p>
       <ul>
         <li><strong>Instructor:</strong> Your Name</li>
         <li><strong>Email:</strong> your.email@example.com</li>
@@ -150,7 +190,7 @@ t.test(mpg ~ am, data = mtcars)
   </main>
 
   <footer>
-    <p>&copy; 2025 Quantitative Forschung | Built with GitHub Pages</p>
+    <p>&copy; 2025 Quantitative Forschung | Made with 💜 on GitHub Pages</p>
   </footer>
 
 </body>
