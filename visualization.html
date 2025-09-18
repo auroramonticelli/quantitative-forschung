@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visualization – Quantitative Forschung</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Visualization</h1>
+  <p>Data made clear with R</p>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="visualization.html">Visualization</a>
+  <a href="testing.html">Testing</a>
+  <a href="materials.html">Materials</a>
+</nav>
+
+<main>
+  <section>
+    <h2>Overview</h2>
+    <p>
+      We use <code>ggplot2</code> in R to create professional and insightful graphics. 
+      This section covers scatterplots, boxplots, and histograms.
+    </p>
+  </section>
+
+  <section>
+    <h2>Example: Scatterplot</h2>
+    <pre><code class="language-r">
+library(ggplot2)
+
+ggplot(mtcars, aes(x = hp, y = mpg)) +
+  geom_point(color = "#0ea5e9") +
+  geom_smooth(method = "lm", se = FALSE, color = "#1e3a8a") +
+  labs(title = "Horsepower vs. MPG")
+    </code></pre>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 Quantitative Forschung | Hosted on GitHub Pages</p>
+</footer>
+
+</body>
+</html>
