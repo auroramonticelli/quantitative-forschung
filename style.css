@@ -4,13 +4,13 @@ body {
   font-family: 'Inter', sans-serif;
   margin: 0;
   padding: 0;
-  background: #f9f9fb; /* light neutral background */
+  background: #f9f9fb;
   color: #333;
   line-height: 1.6;
 }
 
 header {
-  background: #8c82a6; /* muted lilac */
+  background: #8c82a6; /* subtle lilac */
   color: white;
   padding: 50px 20px;
   text-align: center;
@@ -30,21 +30,24 @@ header p {
 
 nav {
   text-align: center;
-  background: #f1f1f5; /* very light neutral */
-  padding: 15px;
-  border-bottom: 1px solid #ddd;
+  margin: 30px 0;
 }
 
 nav a {
+  display: inline-block;
   margin: 0 15px;
+  padding: 10px 20px;
   text-decoration: none;
   font-weight: 600;
-  color: #8c82a6; /* subtle lilac */
-  transition: color 0.3s;
+  color: #8c82a6;
+  border: 2px solid #8c82a6;
+  border-radius: 25px;
+  transition: all 0.3s;
 }
 
 nav a:hover {
-  color: #b9aadf; /* lighter lilac accent on hover */
+  background: #b9aadf; /* lighter lilac hover */
+  color: white;
 }
 
 main {
@@ -67,7 +70,7 @@ section:hover {
 }
 
 h2 {
-  color: #8c82a6; /* lilac for headings */
+  color: #8c82a6;
   font-weight: 600;
 }
 
@@ -80,13 +83,13 @@ pre {
 
 code {
   font-family: Consolas, monospace;
-  color: #b9aadf; /* lighter lilac for code */
+  color: #b9aadf;
 }
 
 footer {
   text-align: center;
   padding: 20px;
-  background: #8c82a6; /* lilac footer */
+  background: #8c82a6;
   color: white;
   margin-top: 40px;
   font-size: 0.9rem;
