@@ -54,17 +54,21 @@
               <pre><code class="language-r">
 # Erstellen einer Kreuztabelle
 tabelle <- table(mtcars$vs, mtcars$am)
+print("Kreuztabelle:")
 print(tabelle)
 
 # Chi-Quadrat Test durchführen
 ergebnis <- chisq.test(tabelle)
+print("Chi-Quadrat Test Ergebnisse:")
 print(ergebnis)
 
 # Erwartete Häufigkeiten anzeigen
-ergebnis$expected
+print("Erwartete Häufigkeiten:")
+print(ergebnis$expected)
 
 # Residuen analysieren (für Zellen mit signifikanten Abweichungen)
-ergebnis$residuals
+print("Standardisierte Residuen:")
+print(ergebnis$residuals)
               </code></pre>
             </div>
           </div>
@@ -99,13 +103,220 @@ ergebnis$residuals
             <div class="code-example">
               <pre><code class="language-r">
 # Ein-Stichproben Test gegen theoretischen Wert (p0 = 0.5)
-prop.test(x = 35, n = 50, p = 0.5, alternative = "two.sided")
+print("Ein-Stichproben Test gegen p=0.5:")
+ergebnis1 <- prop.test(x = 35, n = 50, p = 0.5, alternative = "two.sided")
+print(ergebnis1)
 
 # Zwei-Stichproben Test (Vergleich zweier Proportionen)
-prop.test(x = c(30, 40), n = c(50, 50))
+print("Zwei-Stichproben Test:")
+ergebnis2 <- prop.test(x = c(30, 40), n = c(50, 50))
+print(ergebnis2)
 
 # Exakter Test nach Fisher (für kleine Stichproben)
-fisher.test(matrix(c(10, 5, 20, 25), nrow = 2))
+print("Fisher's exakter Test:")
+ergebnis3 <- fisher.test(matrix(c(10, 5, 20, 25), nrow = 2))
+print(ergebnis3)
 
 # Beispiel mit mtcars-Daten: Anteil automatischer Getriebe (am=0)
-auto_ant
+print("Anteil automatischer Getriebe in mtcars:")
+auto_anteil <- sum(mtcars$am == 0)
+gesamt <- nrow(mtcars)
+prop.test(auto_anteil, gesamt)
+              </code></pre>
+            </div>
+          </div>
+          
+          <div class="interpretation-box">
+            <h4>Interpretation der Ergebnisse</h4>
+            <p><strong>p-Wert:</strong> Wenn p &lt; 0.05, unterscheiden sich die Proportionen signifikant.</p>
+            <p><strong>Konfidenzintervall:</strong> Enthält der CI den Nullwert (0 bei Differenzen, 1 bei Odds Ratios)? Wenn nein, signifikant.</p>
+            <p><strong>Effektstärke:</strong> Die Differenz der Proportionen oder das Odds Ratio gibt die Stärke des Effekts an.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="section3" class="test-section">
+        <h2 class="test-header">t-Test & Mann-Whitney U-Test</h2>
+        
+        <div class="educational-content">
+          <p>Diese Tests vergleichen Mittelwerte bzw. Verteilungen zwischen zwei Gruppen.</p>
+          
+          <div class="conditions-box">
+            <h4>Anwendungsbedingungen: t-Test</h4>
+            <ul>
+              <li>Intervallskalierte abhängige Variable</li>
+              <li>Normalverteilung in beiden Gruppen (oder große Stichprobe)</li>
+              <li>Varianzhomogenität (ggf. Welch-Korrektur verwenden)</li>
+              <li>Unabhängige Beobachtungen</li>
+            </ul>
+            
+            <h4>Anwendungsbedingungen: Mann-Whitney U-Test</h4>
+            <ul>
+              <li>Ordinal- oder intervallskalierte Variable</li>
+              <li>Keine Normalverteilungsannahme notwendig</li>
+              <li>Unabhängige Beobachtungen</li>
+              <li>Gleiche Verteilungsform in beiden Gruppen (Voraussetzung für Medianevergleich)</li>
+            </ul>
+          </div>
+          
+          <button class="collapsible">R Code: t-Test und Mann-Whitney</button>
+          <div class="content">
+            <div class="code-example">
+              <pre><code class="language-r">
+# t-Test für unabhängige Stichproben
+print("t-Test für mpg nach Getriebetyp (0=automatisch, 1=manuell):")
+t_test_ergebnis <- t.test(mpg ~ am, data = mtcars)
+print(t_test_ergebnis)
+
+# Überprüfung der Normalverteilung mit Shapiro-Wilk-Test
+print("Normalverteilungstest für beide Gruppen:")
+print(shapiro.test(mtcars$mpg[mtcars$am == 0]))
+print(shapiro.test(mtcars$mpg[mtcars$am == 1]))
+
+# Überprüfung der Varianzhomogenität mit F-Test
+print("Varianzhomogenitätstest:")
+print(var.test(mpg ~ am, data = mtcars))
+
+# Mann-Whitney U-Test (Wilcoxon-Rangsummentest)
+print("Mann-Whitney U-Test für mpg nach Getriebetyp:")
+mw_test_ergebnis <- wilcox.test(mpg ~ am, data = mtcars)
+print(mw_test_ergebnis)
+
+# Effektstärke berechnen (Cohen's d für t-Test)
+library(effectsize)
+print("Effektstärke (Cohen's d):")
+print(cohens_d(mpg ~ am, data = mtcars))
+              </code></pre>
+            </div>
+          </div>
+          
+          <div class="interpretation-box">
+            <h4>Interpretation der Ergebnisse</h4>
+            <p><strong>t-Test:</strong></p>
+            <ul>
+              <li>p-Wert &lt; 0.05: Signifikanter Mittelwertunterschied</li>
+              <li>t-Wert: Stärke und Richtung des Unterschieds</li>
+              <li>Konfidenzintervall: Enthält es 0? Wenn nein, signifikant</li>
+              <li>Cohen's d: 0.2=kleiner, 0.5=mittlerer, 0.8=großer Effekt</li>
+            </ul>
+            
+            <p><strong>Mann-Whitney U-Test:</strong></p>
+            <ul>
+              <li>p-Wert &lt; 0.05: Signifikante Unterschiede in den Verteilungen</li>
+              <li>U-Wert: Teststatistik für Rangsummentest</li>
+              <li>Effektstärke r: r = Z/√N (0.1=kleiner, 0.3=mittlerer, 0.5=großer Effekt)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="section4" class="test-section">
+        <h2 class="test-header">Testauswahl und Entscheidungsbaum</h2>
+        
+        <div class="educational-content">
+          <p>Die Wahl des richtigen statistischen Tests hängt von Ihren Daten und Forschungsfragen ab.</p>
+          
+          <div class="decision-guide">
+            <div class="decision-tree">
+              <h3>Entscheidungsbaum für statistische Tests</h3>
+              
+              <div class="tree-node">
+                <p><strong>1. Welche Art von Variablen haben Sie?</strong></p>
+                <div class="tree-branch">
+                  <p>Kategoriale Variablen → Chi-Quadrat Test oder Fisher's exakter Test</p>
+                  <p>Stetige Variablen → Weiter zu Frage 2</p>
+                </div>
+              </div>
+              
+              <div class="tree-node">
+                <p><strong>2. Wie viele Gruppen vergleichen Sie?</strong></p>
+                <div class="tree-branch">
+                  <p>Zwei Gruppen → Weiter zu Frage 3</p>
+                  <p>Drei oder mehr Gruppen → ANOVA oder Kruskal-Wallis Test</p>
+                </div>
+              </div>
+              
+              <div class="tree-node">
+                <p><strong>3. Sind die Daten normalverteilt?</strong></p>
+                <div class="tree-branch">
+                  <p>Ja → t-Test für unabhängige Stichproben</p>
+                  <p>Nein → Mann-Whitney U-Test</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="tip">
+            <h4><span class="tip-icon">!</span> Wichtiger Hinweis</h4>
+            <p>Statistische Signifikanz (p-Wert) ist nicht dasselbe wie praktische Signifikanz (Effektstärke). Ein kleiner p-Wert sagt nichts über die Stärke oder Bedeutung eines Effekts aus. Berichten Sie immer Effektstärken zusammen mit p-Werten.</p>
+          </div>
+          
+          <button class="collapsible">R Code: Testauswahl und Voraussetzungsprüfung</button>
+          <div class="content">
+            <div class="code-example">
+              <pre><code class="language-r">
+# Funktion zur Überprüfung von Testvoraussetzungen
+check_test_assumptions <- function(data, group_var, measure_var) {
+  # Gruppieren
+  groups <- split(data[[measure_var]], data[[group_var]])
+  
+  # Normalverteilung prüfen (Shapiro-Wilk Test)
+  normality <- sapply(groups, function(x) shapiro.test(x)$p.value)
+  
+  # Varianzhomogenität prüfen (Levene-Test)
+  library(car)
+  levene <- leveneTest(data[[measure_var]] ~ data[[group_var]])$`Pr(>F)`[1]
+  
+  # Ergebnisse ausgeben
+  cat("Normalverteilung (p-Werte):", normality, "\n")
+  cat("Varianzhomogenität (Levene-Test p-Wert):", levene, "\n")
+  
+  # Empfehlung geben
+  if(all(normality > 0.05) & levene > 0.05) {
+    cat("Empfehlung: t-Test\n")
+  } else if(levene > 0.05) {
+    cat("Empfehlung: Welch-t-Test (Normalverteilung verletzt, aber Varianzhomogenität gegeben)\n")
+  } else {
+    cat("Empfehlung: Mann-Whitney U-Test (Voraussetzungen für t-Test nicht erfüllt)\n")
+  }
+}
+
+# Beispielaufruf mit mtcars-Daten
+check_test_assumptions(mtcars, "am", "mpg")
+              </code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Quantitative Forschung | Gehostet auf GitHub Pages</p>
+    </footer>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var coll = document.getElementsByClassName("collapsible");
+  
+  for (let i = 0; i < coll.length; i++) {
+    // Initially hide all content sections
+    coll[i].nextElementSibling.style.display = "none";
+    
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+});
+</script>
+
+</body>
+</html>
