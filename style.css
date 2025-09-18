@@ -4,13 +4,13 @@ body {
   font-family: 'Inter', sans-serif;
   margin: 0;
   padding: 0;
-  background: #f9f9fb;
+  background: #f9f9fb; /* light neutral background */
   color: #333;
   line-height: 1.6;
 }
 
 header {
-  background: #1e3a8a; /* professional navy blue */
+  background: #8c82a6; /* muted lilac */
   color: white;
   padding: 50px 20px;
   text-align: center;
@@ -30,7 +30,7 @@ header p {
 
 nav {
   text-align: center;
-  background: #f1f5f9;
+  background: #f1f1f5; /* very light neutral */
   padding: 15px;
   border-bottom: 1px solid #ddd;
 }
@@ -39,12 +39,12 @@ nav a {
   margin: 0 15px;
   text-decoration: none;
   font-weight: 600;
-  color: #1e3a8a; /* main navy */
+  color: #8c82a6; /* subtle lilac */
   transition: color 0.3s;
 }
 
 nav a:hover {
-  color: #9b8cba; /* subtle lilac accent on hover */
+  color: #b9aadf; /* lighter lilac accent on hover */
 }
 
 main {
@@ -67,7 +67,7 @@ section:hover {
 }
 
 h2 {
-  color: #1e3a8a; /* main navy */
+  color: #8c82a6; /* lilac for headings */
   font-weight: 600;
 }
 
@@ -80,13 +80,13 @@ pre {
 
 code {
   font-family: Consolas, monospace;
-  color: #9b8cba; /* subtle lilac for code */
+  color: #b9aadf; /* lighter lilac for code */
 }
 
 footer {
   text-align: center;
   padding: 20px;
-  background: #1e3a8a;
+  background: #8c82a6; /* lilac footer */
   color: white;
   margin-top: 40px;
   font-size: 0.9rem;
