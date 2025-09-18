@@ -8,10 +8,9 @@
   <style>
     body {
       display: flex;
-      flex-direction: row;
+      margin: 0;
       font-family: 'Inter', sans-serif;
       background: #f7f6fa;
-      margin: 0;
     }
 
     /* Sidebar */
@@ -19,8 +18,9 @@
       width: 220px;
       background: #f4f4f9;
       padding: 20px;
-      position: sticky;
+      position: fixed; /* Fixed sidebar */
       top: 0;
+      left: 0;
       height: 100vh;
       border-right: 1px solid #e0e0e0;
     }
@@ -46,8 +46,31 @@
     /* Main content */
     main {
       flex: 1;
+      margin-left: 240px; /* offset for fixed sidebar */
       padding: 20px 40px;
       max-width: 900px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #9b7bb5 0%, #d1c2e5 100%);
+      color: white;
+      padding: 80px 20px 40px;
+      text-align: center;
+      border-bottom-left-radius: 50% 20%;
+      border-bottom-right-radius: 50% 20%;
+      margin-left: 240px; /* align with sidebar */
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    header p {
+      margin-top: 12px;
+      font-size: 1.3rem;
+      opacity: 0.9;
     }
 
     section {
@@ -96,28 +119,12 @@
       margin-left: 5px;
     }
 
-    .nav-buttons {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 20px;
-    }
-    .nav-buttons a {
-      text-decoration: none;
-      background: #9b7bb5;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 25px;
-      font-weight: 600;
-      transition: background 0.3s;
-    }
-    .nav-buttons a:hover { background: #d1c2e5; }
-
     /* Top navigation bar */
     nav {
       position: fixed;
       top: 0;
-      left: 0;
-      width: 100%;
+      left: 240px; /* next to sidebar */
+      right: 0;
       background: white;
       border-bottom: 1px solid #e0e0e0;
       padding: 10px 0;
@@ -133,10 +140,24 @@
     }
     nav a:hover { color: #d1c2e5; }
 
-    main { margin-top: 60px; }
+    main { margin-top: 60px; } /* offset for top nav */
   </style>
 </head>
 <body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+  <h3>Inhaltsverzeichnis</h3>
+  <a href="#section1">Gute Gewohnheiten</a>
+  <a href="#section2">R-Skript</a>
+  <a href="#section3">Daten & Pakete laden</a>
+</div>
+
+<!-- Header -->
+<header>
+  <h1>Quantitative Forschung</h1>
+  <p>Good Practices und R-Coding Schritt für Schritt</p>
+</header>
 
 <!-- Top navigation bar -->
 <nav>
@@ -146,14 +167,6 @@
   <a href="tests.html">Tests</a>
   <a href="materialien.html">Materialien</a>
 </nav>
-
-<!-- Sidebar -->
-<div class="sidebar">
-  <h3>Inhaltsverzeichnis</h3>
-  <a href="#section1">Gute Gewohnheiten</a>
-  <a href="#section2">R-Skript</a>
-  <a href="#section3">Daten & Pakete laden</a>
-</div>
 
 <main>
   <!-- Section 1 -->
@@ -171,11 +184,6 @@
 # Hier importieren wir unseren Datensatz
 daten <- read.csv("meine_daten.csv")
       </code></pre>
-    </div>
-
-    <div class="nav-buttons">
-      <span></span>
-      <a href="#section2">Next Step →</a>
     </div>
   </section>
 
@@ -197,11 +205,6 @@ ggplot(daten, aes(x = Variable1, y = Variable2)) +
   geom_point()
       </code></pre>
     </div>
-
-    <div class="nav-buttons">
-      <a href="#section1">← Previous Step</a>
-      <a href="#section3">Next Step →</a>
-    </div>
   </section>
 
   <!-- Section 3 -->
@@ -219,11 +222,6 @@ install.packages("tidyverse")
 library(tidyverse)
 daten <- read.csv("meine_daten.csv")
       </code></pre>
-    </div>
-
-    <div class="nav-buttons">
-      <a href="#section2">← Previous Step</a>
-      <span></span>
     </div>
   </section>
 </main>
