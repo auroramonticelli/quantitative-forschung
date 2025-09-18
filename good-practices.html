@@ -88,11 +88,11 @@
     <section id="section1">
       <h2>Gute Gewohnheiten beim Codieren</h2>
       <p>
-        Wenn Sie mit R anfangen, wirkt vieles vielleicht kompliziert. 
-        Eine der wichtigsten Gewohnheiten ist: **Schreiben Sie Kommentare**.  
-        Ein Kommentar ist eine Zeile, die mit <code>#</code> beginnt.  
-        Er wird von R nicht ausgeführt, sondern dient nur als Erklärung für Sie oder andere.  
-        So behalten Sie leichter den Überblick, wenn Sie Ihren Code später noch einmal lesen.
+        Beim Einstieg in R wirkt vieles komplex. Eine einfache, aber sehr hilfreiche Gewohnheit ist das Verwenden von <strong>Kommentaren</strong>.  
+        Kommentare beginnen mit einem <code>#</code> und werden von R ignoriert.  
+        Sie dienen ausschließlich zur Erklärung des Codes.  
+        So wird deutlich, welcher Schritt gemacht wird und warum er wichtig ist.  
+        Dadurch bleibt der Code auch nach längerer Zeit verständlich.
       </p>
       <button class="collapsible">Try Out: Kommentare hinzufügen</button>
       <div class="content">
@@ -106,8 +106,8 @@
             <span>R Console</span>
           </div>
           <div class="r-content">
-<pre class="r-code"><span class="r-comment"># 1. Daten laden</span>
-<span class="r-comment"># Hier importieren wir unseren Datensatz</span>
+<pre class="r-code"><span class="r-comment"># Schritt 1: Daten laden</span>
+<span class="r-comment"># Ein Datensatz wird von der Festplatte eingelesen</span>
 daten <span class="r-operator"><-</span> read.csv(<span class="r-string">"meine_daten.csv"</span>)</pre>
           </div>
         </div>
@@ -117,10 +117,10 @@ daten <span class="r-operator"><-</span> read.csv(<span class="r-string">"meine_
     <section id="section2">
       <h2>R-Skripte</h2>
       <p>
-        In R schreiben Sie Ihren Code meistens in **Skripten**.  
-        Das sind einfache Textdateien mit der Endung <code>.R</code>.  
-        Der Vorteil: Sie können Ihren Code speichern, später erneut ausführen und Schritt für Schritt verbessern.  
-        Statt alles immer neu einzutippen, bauen Sie sich so ein wiederverwendbares „Rezept“ für Ihre Analyse.
+        In R wird Code meist in <strong>Skripten</strong> geschrieben.  
+        Ein Skript ist eine einfache Textdatei mit der Endung <code>.R</code>.  
+        Der Vorteil: Code kann gespeichert, jederzeit wieder ausgeführt und schrittweise verbessert werden.  
+        So entsteht eine Art „Rezeptbuch“ für Analysen, das immer wieder nutzbar bleibt.
       </p>
       <button class="collapsible">Try Out: Skript erstellen</button>
       <div class="content">
@@ -146,10 +146,10 @@ ggplot(daten, aes(x <span class="r-operator">=</span> Variable1, y <span class="
     <section id="section3">
       <h2>Daten & Pakete laden</h2>
       <p>
-        Bevor Sie Daten analysieren können, müssen Sie zwei Dinge tun:  
-        1. **Pakete installieren und laden** – das sind Zusatzfunktionen für R, ähnlich wie Apps auf Ihrem Handy.  
-        2. **Ihre Daten importieren** – z. B. eine CSV-Datei, in der Ihre Tabellen gespeichert sind.  
-        Danach können Sie direkt loslegen und die Daten untersuchen.
+        Vor einer Analyse müssen zunächst die <strong>benötigten Pakete</strong> installiert und geladen werden.  
+        Pakete sind Zusatzsammlungen von Funktionen – vergleichbar mit Apps auf einem Smartphone.  
+        Danach werden die <strong>Daten importiert</strong>, meist aus einer CSV-Datei.  
+        Erst dann kann mit den eigentlichen Analyseschritten begonnen werden.
       </p>
       <button class="collapsible">Try Out: Pakete & Daten laden</button>
       <div class="content">
