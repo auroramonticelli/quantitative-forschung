@@ -6,40 +6,16 @@
 <title>Good Practices & Code Schreiben – Quantitative Forschung</title>
 <link rel="stylesheet" href="style.css">
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
 body {
-  margin: 0;
   font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
   background: #f7f6fa;
-  display: flex;
-}
-
-/* Sidebar */
-.sidebar {
-  width: 240px;
-  background: #f4f4f9;
-  padding: 20px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  border-right: 1px solid #e0e0e0;
-}
-
-.sidebar h3 { color: #9b7bb5; margin-top: 0; }
-.sidebar a {
-  display: block;
-  margin: 10px 0;
-  text-decoration: none;
   color: #333;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-.sidebar a:hover { color: #9b7bb5; }
-
-/* Main container (header + content + footer) */
-.container {
-  margin-left: 240px; /* offset for sidebar */
-  flex: 1;
+  line-height: 1.65;
+  display: flex;
 }
 
 /* Header */
@@ -52,28 +28,88 @@ header {
   border-bottom-right-radius: 50% 20%;
 }
 
+header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+header p {
+  margin-top: 12px;
+  font-size: 1.3rem;
+  opacity: 0.9;
+}
+
 /* Top nav bar */
 nav {
-  background: white;
-  border-bottom: 1px solid #e0e0e0;
-  padding: 10px 0;
-  text-align: center;
-  position: sticky;
-  top: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 20px auto 40px;
+  background: transparent; /* transparent over header */
+  position: relative;
   z-index: 100;
 }
+
 nav a {
-  margin: 0 15px;
   text-decoration: none;
-  color: #9b7bb5;
   font-weight: 600;
+  color: white;
+  border: 2px solid white;
+  border-radius: 30px;
+  padding: 12px 25px;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+nav a:hover {
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  border-color: #fff;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  background: #f4f4f9;
+  padding: 20px;
+  position: fixed;
+  top: 180px; /* start below header */
+  left: 0;
+  height: calc(100vh - 180px);
+  border-right: 1px solid #e0e0e0;
+  overflow-y: auto;
+}
+
+.sidebar h3 {
+  color: #9b7bb5;
+  margin-top: 0;
+}
+
+.sidebar a {
+  display: block;
+  margin: 10px 0;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
   transition: color 0.3s;
 }
-nav a:hover { color: #d1c2e5; }
 
-/* Main content */
+.sidebar a:hover {
+  color: #9b7bb5;
+}
+
+/* Main container */
+.container {
+  margin-left: 240px;
+  flex: 1;
+}
+
 main {
-  padding: 20px 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
 }
 
 section {
@@ -82,9 +118,37 @@ section {
   padding: 30px 25px;
   margin-bottom: 40px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.07);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-h2 { color: #9b7bb5; margin-top: 0; }
+section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+h2 {
+  color: #9b7bb5;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+ul { padding-left: 20px; }
+
+pre {
+  background: #f4f4f9;
+  padding: 20px;
+  border-radius: 12px;
+  overflow-x: auto;
+  font-size: 0.95rem;
+  margin-top: 15px;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+}
+
+code {
+  font-family: 'Consolas', monospace;
+  color: #9b7bb5;
+}
 
 .collapsible {
   background-color: #f4f4f9;
@@ -110,12 +174,14 @@ h2 { color: #9b7bb5; margin-top: 0; }
   margin-left: 5px;
 }
 
-/* Footer */
 footer {
-  padding: 20px 40px;
+  background: #9b7bb5;
+  color: white;
   text-align: center;
-  background: white;
-  border-top: 1px solid #e0e0e0;
+  padding: 25px 20px;
+  font-size: 0.9rem;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 </style>
 </head>
