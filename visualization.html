@@ -1,50 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
-  <link rel="stylesheet" href="style.css">
+<html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Visualization – Quantitative Forschung</title>
+  <title>Visualisierung – Quantitative Forschung</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-  <h1>Visualization</h1>
-  <p>Data made clear with R</p>
+  <h1>Quantitative Forschung</h1>
+  <p>Lernen Sie R für Visualisierung und statistische Tests</p>
 </header>
 
 <nav>
-  <a href="index.html">Home</a>
-  <a href="visualization.html">Visualization</a>
-  <a href="testing.html">Testing</a>
-  <a href="materials.html">Materials</a>
+  <a href="index.html">Startseite</a>
+  <a href="visualisierung.html">Visualisierung</a>
+  <a href="tests.html">Tests</a>
+  <a href="materialien.html">Materialien</a>
 </nav>
 
 <main>
   <section>
-    <h2>Overview</h2>
+    <h2>Visualisierung</h2>
     <p>
-      We use <code>ggplot2</code> in R to create professional and insightful graphics. 
-      This section covers scatterplots, boxplots, and histograms.
+      Wir verwenden <code>ggplot2</code>, um professionelle Datenvisualisierungen zu erstellen:
     </p>
+    <ul>
+      <li>Streudiagramme (Scatterplots)</li>
+      <li>Boxplots</li>
+      <li>Histogramme</li>
+    </ul>
   </section>
 
   <section>
-    <h2>Example: Scatterplot</h2>
+    <h2>Beispielcode</h2>
     <pre><code class="language-r">
 library(ggplot2)
 
 ggplot(mtcars, aes(x = hp, y = mpg)) +
-  geom_point(color = "#0ea5e9") +
-  geom_smooth(method = "lm", se = FALSE, color = "#1e3a8a") +
+  geom_point(color = "#b9aadf") +
+  geom_smooth(method = "lm", se = FALSE, color = "#9b7bb5") +
   labs(title = "Horsepower vs. MPG")
     </code></pre>
   </section>
 </main>
 
 <footer>
-  <p>&copy; 2025 Quantitative Forschung | Hosted on GitHub Pages</p>
+  <p>&copy; 2025 Quantitative Forschung | Gehostet auf GitHub Pages</p>
 </footer>
 
 </body>
