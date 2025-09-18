@@ -8,47 +8,123 @@
 </head>
 <body>
 
-<header>
-  <h1>Quantitative Forschung</h1>
-  <p>Lernen Sie R für Visualisierung und statistische Tests</p>
-</header>
+<div class="sidebar">
+  <h3>Inhaltsverzeichnis</h3>
+  <a href="#section1">Daten prüfen</a>
+  <a href="#section2">Warum Visualisieren?</a>
+  <a href="#section3">ggplot2 & Cheatsheet</a>
+  <a href="#section4">Plots: Barplot, Boxplot, Histogram</a>
+  <a href="#section5">Ästhetische Anpassungen</a>
+</div>
 
-<nav>
-  <a href="index.html">Startseite</a>
-  <a href="visualisierung.html">Visualisierung</a>
-  <a href="tests.html">Tests</a>
-  <a href="materialien.html">Materialien</a>
-</nav>
+<div class="container">
+  <header>
+    <h1>Quantitative Forschung</h1>
+    <p>Lernen Sie R für Visualisierung und statistische Tests</p>
+  </header>
 
-<main>
-  <section>
-    <h2>Visualisierung</h2>
-    <p>
-      Wir verwenden <code>ggplot2</code>, um professionelle Datenvisualisierungen zu erstellen:
-    </p>
-    <ul>
-      <li>Streudiagramme (Scatterplots)</li>
-      <li>Boxplots</li>
-      <li>Histogramme</li>
-    </ul>
-  </section>
+  <nav>
+    <a href="index.html">Startseite</a>
+    <a href="good-practices.html">Good Practices</a>
+    <a href="visualization.html">Visualisierung</a>
+    <a href="testing.html">Tests</a>
+    <a href="materials.html">Materialien</a>
+  </nav>
 
-  <section>
-    <h2>Beispielcode</h2>
-    <pre><code class="language-r">
+  <main>
+    <section id="section1">
+      <h2>Daten prüfen</h2>
+      <p>Bevor wir visualisieren, überprüfen wir die Daten auf fehlende Werte und typische Fehler.<span class="badge">Tipp</span></p>
+      <button class="collapsible">Try Out: Daten prüfen</button>
+      <div class="content">
+        <pre><code class="language-r">
+# Daten anschauen
+head(mtcars)
+summary(mtcars)
+        </code></pre>
+      </div>
+    </section>
+
+    <section id="section2">
+      <h2>Warum visualisieren?</h2>
+      <p>Visualisierung hilft, Muster, Ausreißer und Zusammenhänge zu erkennen.<span class="badge">Tipp</span></p>
+      <button class="collapsible">Try Out: Visualisierung entdecken</button>
+      <div class="content">
+        <pre><code class="language-r">
+# Beispiel: Scatterplot erkennen Muster
+plot(mtcars$hp, mtcars$mpg)
+        </code></pre>
+      </div>
+    </section>
+
+    <section id="section3">
+      <h2>ggplot2 & Cheatsheet</h2>
+      <p>Wir nutzen <code>ggplot2</code> für ansprechende Grafiken. Cheatsheets helfen, schnell Funktionen zu finden.<span class="badge">Tipp</span></p>
+      <button class="collapsible">Try Out: ggplot starten</button>
+      <div class="content">
+        <pre><code class="language-r">
 library(ggplot2)
+        </code></pre>
+      </div>
+    </section>
 
+    <section id="section4">
+      <h2>Plots: Barplot, Boxplot, Histogram</h2>
+      <p>Wir erstellen verschiedene Plottypen, um Daten zu erkunden.<span class="badge">Tipp</span></p>
+      <button class="collapsible">Try Out: Plottypen</button>
+      <div class="content">
+        <pre><code class="language-r">
+# Barplot
+ggplot(mtcars, aes(x = factor(cyl))) + geom_bar(fill = "#b9aadf")
+
+# Boxplot
+ggplot(mtcars, aes(x = factor(cyl), y = mpg)) + geom_boxplot(fill = "#b9aadf")
+
+# Histogram
+ggplot(mtcars, aes(x = mpg)) + geom_histogram(fill = "#b9aadf", bins = 10)
+        </code></pre>
+      </div>
+    </section>
+
+    <section id="section5">
+      <h2>Ästhetische Anpassungen</h2>
+      <p>Wir passen Titel, Farben und Positionen an, um Grafiken klarer zu gestalten.<span class="badge">Tipp</span></p>
+      <button class="collapsible">Try Out: Ästhetik ändern</button>
+      <div class="content">
+        <pre><code class="language-r">
 ggplot(mtcars, aes(x = hp, y = mpg)) +
   geom_point(color = "#b9aadf") +
   geom_smooth(method = "lm", se = FALSE, color = "#9b7bb5") +
-  labs(title = "Horsepower vs. MPG")
-    </code></pre>
-  </section>
-</main>
+  labs(
+    title = "Horsepower vs. MPG",
+    subtitle = "Beispiel mit angepasster Schriftgröße",
+    x = "Horsepower (HP)",
+    y = "Miles per Gallon (MPG)"
+  ) +
+  theme(
+    plot.title = element_text(size = 20, face = "bold", color = "#9b7bb5"),
+    plot.subtitle = element_text(size = 16, face = "italic", color = "#b9aadf")
+  )
+        </code></pre>
+      </div>
+    </section>
+  </main>
 
-<footer>
-  <p>&copy; 2025 Quantitative Forschung | Gehostet auf GitHub Pages</p>
-</footer>
+  <footer>
+    <p>&copy; 2025 Quantitative Forschung | Gehostet auf GitHub Pages</p>
+  </footer>
+</div>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+for (let i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    content.style.display = content.style.display === "block" ? "none" : "block";
+  });
+}
+</script>
 
 </body>
 </html>
