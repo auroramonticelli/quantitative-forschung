@@ -1,828 +1,326 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Science Best Practices</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-        
-        :root {
-            --primary: #345c7d;
-            --secondary: #eb8b6e;
-            --accent: #6c4d7a;
-            --light: #f8f5f2;
-            --dark: #2a2a3c;
-            --success: #5cb85c;
-            --warning: #f0ad4e;
-            --danger: #d9534f;
-            --gray-100: #f8f9fa;
-            --gray-200: #e9ecef;
-            --gray-300: #dee2e6;
-            --gray-600: #6c757d;
-            --gray-800: #343a40;
-            --gradient-primary: linear-gradient(135deg, #345c7d, #4a7fa4);
-            --gradient-secondary: linear-gradient(135deg, #eb8b6e, #f39ab5);
-            --gradient-accent: linear-gradient(135deg, #6c4d7a, #8f6599);
-            --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 5px 20px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
-            --border-radius: 12px;
-            --transition: all 0.3s ease;
-        }
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--light);
-            color: var(--dark);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-        
-        .page-wrapper {
-            display: flex;
-            min-height: 100vh;
-        }
-        
-        /* Sidebar */
-        .sidebar {
-            width: 280px;
-            background: var(--gradient-primary);
-            padding: 30px 20px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100vh;
-            overflow-y: auto;
-            z-index: 100;
-            box-shadow: var(--shadow-md);
-            transition: var(--transition);
-        }
-        
-        .sidebar-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .logo {
-            width: 50px;
-            height: 50px;
-            background: white;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            font-weight: 700;
-            color: var(--primary);
-            font-size: 20px;
-        }
-        
-        .sidebar h3 {
-            color: white;
-            margin-bottom: 25px;
-            font-size: 1.3rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-        }
-        
-        .sidebar h3 i {
-            margin-right: 10px;
-            font-size: 1.2rem;
-        }
-        
-        .sidebar-nav {
-            list-style: none;
-        }
-        
-        .sidebar-nav li {
-            margin-bottom: 8px;
-        }
-        
-        .sidebar-nav a {
-            display: flex;
-            align-items: center;
-            padding: 12px 15px;
-            text-decoration: none;
-            color: rgba(255, 255, 255, 0.85);
-            font-weight: 500;
-            border-radius: 10px;
-            transition: var(--transition);
-        }
-        
-        .sidebar-nav a:hover, .sidebar-nav a.active {
-            background: rgba(255, 255, 255, 0.15);
-            color: white;
-            transform: translateX(5px);
-        }
-        
-        .sidebar-nav i {
-            margin-right: 12px;
-            font-size: 1.1rem;
-            width: 24px;
-            text-align: center;
-        }
-        
-        /* Main content */
-        .main-content {
-            flex: 1;
-            margin-left: 280px;
-            background: var(--light);
-        }
-        
-        /* Header */
-        header {
-            background: var(--gradient-secondary);
-            color: white;
-            padding: 100px 40px 60px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        .header-content {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-        
-        header h1 {
-            font-size: 3.2rem;
-            font-weight: 800;
-            margin: 0 0 15px;
-            line-height: 1.2;
-        }
-        
-        header p {
-            font-size: 1.4rem;
-            opacity: 0.9;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            font-weight: 300;
-        }
-        
-        .header-shape {
-            position: absolute;
-            bottom: -1px;
-            left: 0;
-            width: 100%;
-            height: 80px;
-            fill: var(--light);
-            z-index: 1;
-        }
-        
-        /* Top navigation bar */
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin: 30px auto 40px;
-            position: relative;
-            z-index: 100;
-        }
-        
-        nav a {
-            text-decoration: none;
-            font-weight: 600;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-            border-radius: 30px;
-            padding: 12px 25px;
-            transition: var(--transition);
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            display: flex;
-            align-items: center;
-        }
-        
-        nav a:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
-        }
-        
-        nav a i {
-            margin-right: 8px;
-        }
-        
-        /* Main content */
-        main {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 30px 60px;
-        }
-        
-        section {
-            background: white;
-            border-radius: var(--border-radius);
-            padding: 35px 30px;
-            margin-bottom: 40px;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-            scroll-margin-top: 120px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
-            height: 100%;
-            background: var(--gradient-secondary);
-        }
-        
-        section:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        h2 {
-            color: var(--primary);
-            font-weight: 700;
-            margin-top: 0;
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-            display: flex;
-            align-items: center;
-        }
-        
-        h2 i {
-            margin-right: 12px;
-            color: var(--secondary);
-        }
-        
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            background: var(--gradient-primary);
-            color: white;
-            padding: 6px 15px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin-left: 15px;
-            font-weight: 500;
-        }
-        
-        .badge i {
-            margin-right: 5px;
-            font-size: 0.8rem;
-        }
-        
-        /* Collapsible */
-        .collapsible {
-            background: var(--gradient-primary);
-            color: white;
-            cursor: pointer;
-            padding: 16px 20px;
-            width: 100%;
-            border: none;
-            text-align: left;
-            outline: none;
-            font-size: 1.1rem;
-            border-radius: 10px;
-            margin: 20px 0;
-            transition: var(--transition);
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        
-        .collapsible:hover {
-            background: var(--primary);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .collapsible i {
-            transition: var(--transition);
-        }
-        
-        .collapsible.active i {
-            transform: rotate(180deg);
-        }
-        
-        .content {
-            padding: 0;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out;
-            background-color: var(--gray-100);
-            border-radius: 0 0 10px 10px;
-        }
-        
-        .content-inner {
-            padding: 25px;
-        }
-        
-        .content pre {
-            margin: 0;
-            padding: 20px;
-            background: var(--gray-100);
-            border-radius: 10px;
-            overflow-x: auto;
-            font-size: 0.95rem;
-            box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
-            border-left: 4px solid var(--secondary);
-        }
-        
-        code {
-            font-family: 'Consolas', monospace;
-            color: var(--primary);
-        }
-        
-        /* R console container */
-        .r-console {
-            background: #2d2d2d;
-            border-radius: 12px;
-            overflow: hidden;
-            margin: 20px 0;
-            box-shadow: var(--shadow-md);
-            font-family: 'Consolas', 'Courier New', monospace;
-        }
-        
-        /* Header bar */
-        .r-header {
-            background: #3c3c3c;
-            color: #e0e0e0;
-            padding: 10px 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-        
-        .r-window-controls {
-            display: flex;
-            gap: 8px;
-        }
-        
-        .r-window-control {
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-        }
-        
-        .r-control-close { background: #ff5f56; }
-        .r-control-minimize { background: #ffbd2e; }
-        .r-control-maximize { background: #27c93f; }
-        
-        /* Code content */
-        .r-content {
-            padding: 20px;
-            overflow-x: auto;
-        }
-        
-        .r-code {
-            margin: 0;
-            color: #eaeaea;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-        
-        /* Syntax highlighting */
-        .r-comment { color: #9ca3af; font-style: italic; }
-        .r-function { color: #56b6c2; }
-        .r-operator { color: #f78c6c; }
-        .r-number   { color: #d19a66; }
-        .r-string   { color: #98c379; }
-        
-        /* Best Practices Cards */
-        .cards-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            margin: 30px 0;
-        }
-        
-        .card {
-            background: white;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-            border-top: 5px solid var(--secondary);
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .card-header {
-            padding: 20px;
-            background: var(--gray-100);
-            border-bottom: 1px solid var(--gray-300);
-        }
-        
-        .card-header h3 {
-            margin: 0;
-            color: var(--primary);
-            font-size: 1.3rem;
-            display: flex;
-            align-items: center;
-        }
-        
-        .card-header h3 i {
-            margin-right: 10px;
-            color: var(--secondary);
-        }
-        
-        .card-body {
-            padding: 20px;
-        }
-        
-        .card-body ul {
-            padding-left: 20px;
-            margin-bottom: 0;
-        }
-        
-        .card-body li {
-            margin-bottom: 10px;
-            color: var(--gray-800);
-        }
-        
-        .card-body li:last-child {
-            margin-bottom: 0;
-        }
-        
-        footer {
-            background: var(--gradient-primary);
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-            font-size: 1rem;
-            margin-top: 60px;
-        }
-        
-        .footer-content {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            margin: 20px 0;
-        }
-        
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        .footer-links a:hover {
-            color: white;
-        }
-        
-        .copyright {
-            margin-top: 20px;
-            opacity: 0.8;
-            font-size: 0.9rem;
-        }
-        
-        /* Responsive design */
-        @media screen and (max-width: 1024px) {
-            .sidebar {
-                width: 240px;
-            }
-            
-            .main-content {
-                margin-left: 240px;
-            }
-        }
-        
-        @media screen and (max-width: 900px) {
-            .page-wrapper {
-                flex-direction: column;
-            }
-            
-            .sidebar {
-                position: relative;
-                width: 100%;
-                height: auto;
-                padding: 20px;
-                margin-bottom: 0;
-            }
-            
-            .sidebar-header {
-                margin-bottom: 20px;
-            }
-            
-            .main-content {
-                margin-left: 0;
-            }
-            
-            header {
-                padding: 80px 20px 50px;
-            }
-            
-            header h1 {
-                font-size: 2.5rem;
-            }
-            
-            header p {
-                font-size: 1.2rem;
-            }
-            
-            nav {
-                flex-direction: column;
-                align-items: center;
-                gap: 12px;
-            }
-            
-            nav a {
-                width: 100%;
-                text-align: center;
-                justify-content: center;
-            }
-            
-            .cards-container {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        @media screen and (max-width: 600px) {
-            main {
-                padding: 0 20px 40px;
-            }
-            
-            section {
-                padding: 25px 20px;
-            }
-            
-            header h1 {
-                font-size: 2.2rem;
-            }
-            
-            header p {
-                font-size: 1.1rem;
-            }
-            
-            h2 {
-                font-size: 1.6rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="page-wrapper">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <div class="logo">DS</div>
-                <h3>Data Science Guide</h3>
-            </div>
-            
-            <h3><i class="fas fa-book"></i> Documentation</h3>
-            <ul class="sidebar-nav">
-                <li><a href="#" class="active"><i class="fas fa-play-circle"></i> Getting Started</a></li>
-                <li><a href="#"><i class="fas fa-code"></i> R Programming</a></li>
-                <li><a href="#"><i class="fas fa-chart-bar"></i> Data Visualization</a></li>
-                <li><a href="#"><i class="fas fa-calculator"></i> Statistical Methods</a></li>
-                <li><a href="#"><i class="fas fa-brain"></i> Machine Learning</a></li>
-                <li><a href="#"><i class="fas fa-database"></i> Data Wrangling</a></li>
-                <li><a href="#"><i class="fas fa-flask"></i> Experimental Design</a></li>
-            </ul>
-            
-            <h3><i class="fas fa-graduation-cap"></i> Resources</h3>
-            <ul class="sidebar-nav">
-                <li><a href="#"><i class="fas fa-book-open"></i> Tutorials</a></li>
-                <li><a href="#"><i class="fas fa-video"></i> Video Courses</a></li>
-                <li><a href="#"><i class="fas fa-file-alt"></i> Cheat Sheets</a></li>
-                <li><a href="#"><i class="fas fa-project-diagram"></i> Projects</a></li>
-            </ul>
-        </aside>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
-        <!-- Main content -->
-        <div class="main-content">
-            <header>
-                <div class="header-content">
-                    <h1>Data Science Best Practices</h1>
-                    <p>Professional guidelines for effective data analysis and reproducible research</p>
-                    
-                    <nav>
-                        <a href="#"><i class="fas fa-code"></i> Code Standards</a>
-                        <a href="#"><i class="fas fa-chart-line"></i> Data Visualization</a>
-                        <a href="#"><i class="fas fa-cogs"></i> Workflow</a>
-                        <a href="#"><i class="fas fa-file-alt"></i> Documentation</a>
-                    </nav>
-                </div>
-                
-                <svg class="header-shape" viewBox="0 0 1000 100" preserveAspectRatio="none">
-                    <path d="M0,0 L0,100 L1000,100 L1000,0 Q500,150 0,0 Z" fill="white"></path>
-                </svg>
-            </header>
+* {
+  box-sizing: border-box;
+}
 
-            <main>
-                <section id="introduction">
-                    <h2>Introduction to Best Practices <span class="badge"><i class="fas fa-star"></i> Essential</span></h2>
-                    <p>Adopting best practices in data science is crucial for producing reliable, reproducible, and maintainable work. This guide covers the most important practices that every data scientist should follow.</p>
-                    
-                    <div class="cards-container">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3><i class="fas fa-code"></i> Code Quality</h3>
-                            </div>
-                            <div class="card-body">
-                                <ul>
-                                    <li>Write readable, well-commented code</li>
-                                    <li>Follow consistent naming conventions</li>
-                                    <li>Use version control (Git) for all projects</li>
-                                    <li>Modularize code into functions</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="card">
-                            <div class="card-header">
-                                <h3><i class="fas fa-chart-bar"></i> Visualization</h3>
-                            </div>
-                            <div class="card-body">
-                                <ul>
-                                    <li>Choose appropriate chart types</li>
-                                    <li>Ensure accessibility (color contrast)</li>
-                                    <li>Label axes and provide legends</li>
-                                    <li>Keep visualizations simple and clear</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="card">
-                            <div class="card-header">
-                                <h3><i class="fas fa-cogs"></i> Reproducibility</h3>
-                            </div>
-                            <div class="card-body">
-                                <ul>
-                                    <li>Use dependency management</li>
-                                    <li>Set random seeds for stochastic processes</li>
-                                    <li>Document all steps of analysis</li>
-                                    <li>Share code and data when possible</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fbf6f0;
+  color: #333;
+  line-height: 1.65;
+}
 
-                <section id="r-programming">
-                    <h2><i class="fas fa-code"></i> R Programming Guidelines</h2>
-                    <p>Follow these practices to write clean, efficient, and maintainable R code.</p>
-                    
-                    <button class="collapsible">Code Organization <i class="fas fa-chevron-down"></i></button>
-                    <div class="content">
-                        <div class="content-inner">
-                            <p>Organize your R code following these principles:</p>
-                            <ul>
-                                <li>Use a consistent project structure</li>
-                                <li>Separate data processing, analysis, and visualization</li>
-                                <li>Use RStudio projects for better organization</li>
-                                <li>Create reusable functions for repeated tasks</li>
-                            </ul>
-                            
-                            <div class="r-console">
-                                <div class="r-header">
-                                    <span>R Code Example</span>
-                                    <div class="r-window-controls">
-                                        <div class="r-window-control r-control-close"></div>
-                                        <div class="r-window-control r-control-minimize"></div>
-                                        <div class="r-window-control r-control-maximize"></div>
-                                    </div>
-                                </div>
-                                <div class="r-content">
-                                    <pre class="r-code"><code><span class="r-comment"># Good practice: Well-organized code</span>
-<span class="r-function">process_data</span> <span class="r-operator">&lt;-</span> <span class="r-function">function</span><span class="r-operator">(</span>raw_data<span class="r-operator">)</span> <span class="r-operator">{</span>
-  <span class="r-comment"># Data cleaning steps</span>
-  cleaned <span class="r-operator">&lt;-</span> raw_data <span class="r-operator">%&gt;%</span>
-    <span class="r-function">filter</span><span class="r-operator">(</span><span class="r-operator">!</span><span class="r-function">is.na</span><span class="r-operator">(</span>value<span class="r-operator">)</span><span class="r-operator">)</span> <span class="r-operator">%&gt;%</span>
-    <span class="r-function">mutate</span><span class="r-operator">(</span>value <span class="r-operator">=</span> <span class="r-function">scale</span><span class="r-operator">(</span>value<span class="r-operator">)</span><span class="r-operator">)</span>
-  
-  <span class="r-function">return</span><span class="r-operator">(</span>cleaned<span class="r-operator">)</span>
-<span class="r-operator">}</span></code></pre>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <button class="collapsible">Documentation Standards <i class="fas fa-chevron-down"></i></button>
-                    <div class="content">
-                        <div class="content-inner">
-                            <p>Proper documentation ensures that your code is understandable and maintainable.</p>
-                            <ul>
-                                <li>Use Roxygen2 for function documentation</li>
-                                <li>Provide examples for complex functions</li>
-                                <li>Include a README with project overview</li>
-                                <li>Document data sources and processing steps</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
+.page-wrapper {
+  display: flex;
+  min-height: 100vh;
+}
 
-                <section id="visualization">
-                    <h2><i class="fas fa-chart-bar"></i> Data Visualization Principles</h2>
-                    <p>Create effective and ethical visualizations that communicate insights clearly.</p>
-                    
-                    <button class="collapsible">Color Selection <i class="fas fa-chevron-down"></i></button>
-                    <div class="content">
-                        <div class="content-inner">
-                            <p>Choose colors that are accessible and appropriate for your data:</p>
-                            <ul>
-                                <li>Use colorblind-friendly palettes (viridis, ColorBrewer)</li>
-                                <li>Consider cultural connotations of colors</li>
-                                <li>Use contrasting colors for important elements</li>
-                                <li>Test your visualizations in grayscale</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-            </main>
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  background: #fff;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  border-right: 1px solid #f0e0d6;
+  overflow-y: auto;
+  z-index: 100;
+  padding-top: 180px;
+}
 
-            <footer>
-                <div class="footer-content">
-                    <p>Data Science Best Practices Guide</p>
-                    <div class="footer-links">
-                        <a href="#">About</a>
-                        <a href="#">Resources</a>
-                        <a href="#">Contribute</a>
-                        <a href="#">Contact</a>
-                    </div>
-                    <p class="copyright">© 2023 Data Science Best Practices. All rights reserved.</p>
-                </div>
-            </footer>
-        </div>
-    </div>
+.sidebar h3 {
+  color: #345c7d;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  border-bottom: 2px solid #eb8b6e;
+  padding-bottom: 10px;
+}
 
-    <script>
-        // Collapsible functionality
-        document.querySelectorAll('.collapsible').forEach(button => {
-            button.addEventListener('click', function() {
-                this.classList.toggle('active');
-                const content = this.nextElementSibling;
-                
-                if (content.style.maxHeight) {
-                    content.style.maxHeight = null;
-                } else {
-                    content.style.maxHeight = content.scrollHeight + "px";
-                }
-            });
-        });
-        
-        // Simple animation for page elements
-        document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.card');
-            const sections = document.querySelectorAll('section');
-            
-            // Animate cards on page load
-            cards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.style.opacity = 1;
-                    card.style.transform = 'translateY(0)';
-                }, 100 + (index * 100));
-            });
-            
-            // Add intersection observer for sections
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = 1;
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, observerOptions);
-            
-            sections.forEach(section => {
-                section.style.opacity = 0;
-                section.style.transform = 'translateY(20px)';
-                section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                observer.observe(section);
-            });
-        });
-    </script>
-</body>
-</html>
+.sidebar a {
+  display: block;
+  margin: 10px 0;
+  text-decoration: none;
+  color: #345c7d;
+  font-weight: 500;
+  transition: all 0.3s;
+  padding: 8px 12px;
+  border-radius: 10px;
+}
+
+.sidebar a:hover {
+  background-color: #eb8b6e;
+  color: #fff;
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+  margin-left: 240px;
+}
+
+/* Header */
+header {
+  background: linear-gradient(135deg, #eb8b6e, #f39ab5);
+  color: white;
+  padding: 80px 20px 40px;
+  text-align: center;
+  border-bottom-left-radius: 50% 20%;
+  border-bottom-right-radius: 50% 20%;
+  position: relative;
+  z-index: 90;
+}
+
+header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+header p {
+  margin-top: 12px;
+  font-size: 1.3rem;
+  opacity: 0.9;
+}
+
+/* Top navigation bar */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 20px auto 40px;
+  position: relative;
+  z-index: 100;
+}
+
+nav a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 30px;
+  padding: 12px 25px;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+nav a:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+/* Main content */
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px 60px;
+}
+
+section {
+  background: #fff;
+  border-radius: 20px;
+  padding: 30px 25px;
+  margin-bottom: 40px;
+  box-shadow: 0 8px 25px rgba(52, 92, 125, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  scroll-margin-top: 180px;
+}
+
+section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(52, 92, 125, 0.15);
+}
+
+h2 {
+  color: #eb8b6e;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.badge {
+  display: inline-block;
+  background-color: #345c7d;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 14px;
+  font-size: 0.8rem;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+/* Collapsible */
+.collapsible {
+  background-color: #eb8b6e;
+  color: white;
+  cursor: pointer;
+  padding: 12px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 1rem;
+  border-radius: 10px;
+  margin: 15px 0;
+  transition: background-color 0.3s;
+  font-weight: 600;
+}
+
+.collapsible:hover {
+  background-color: #d87458;
+}
+
+.collapsible::after {
+  content: '\002B';
+  float: right;
+  font-weight: bold;
+}
+
+.collapsible.active::after {
+  content: "\2212";
+}
+
+.content {
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  background-color: #fdf3ef;
+  border-radius: 0 0 10px 10px;
+}
+
+.content pre {
+  margin: 0;
+  padding: 20px;
+  background: #fbf6f0;
+  border-radius: 10px;
+  overflow-x: auto;
+  font-size: 0.95rem;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+}
+
+code {
+  font-family: 'Consolas', monospace;
+  color: #345c7d;
+}
+/* R console container */
+.r-console {
+  background: #2d2d2d; /* dark grey background */
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 20px 0;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  font-family: 'Consolas', 'Courier New', monospace;
+}
+
+/* Header bar */
+.r-header {
+  background: #3c3c3c;
+  color: #e0e0e0;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.r-window-controls {
+  display: flex;
+  gap: 6px;
+}
+
+.r-window-control {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.r-control-close { background: #ff5f56; }
+.r-control-minimize { background: #ffbd2e; }
+.r-control-maximize { background: #27c93f; }
+
+/* Code content */
+.r-content {
+  padding: 16px;
+  overflow-x: auto;
+}
+
+.r-code {
+  margin: 0;
+  color: #eaeaea;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Syntax highlighting */
+.r-comment { color: #9ca3af; font-style: italic; }
+.r-function { color: #56b6c2; }
+.r-operator { color: #f78c6c; }
+.r-number   { color: #d19a66; }
+.r-string   { color: #98c379; }
+
+footer {
+  background: #345c7d;
+  color: white;
+  text-align: center;
+  padding: 25px 20px;
+  font-size: 0.9rem;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  margin-top: 40px;
+}
+
+/* Responsive design */
+@media screen and (max-width: 900px) {
+  .page-wrapper {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-right: none;
+    border-bottom: 1px solid #f0e0d6;
+  }
+
+  .sidebar h3 {
+    text-align: center;
+  }
+
+  .sidebar a {
+    display: inline-block;
+    margin: 5px;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  header {
+    padding: 60px 20px 30px;
+  }
+
+  header h1 {
+    font-size: 2.2rem;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  nav a {
+    width: 80%;
+    text-align: center;
+  }
+}
