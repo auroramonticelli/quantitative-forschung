@@ -1,248 +1,398 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Science Best Practices</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gute Praktiken in R - Quantitative Forschung</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="page-wrapper">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <div class="logo">DS</div>
-                <h3>Data Science Guide</h3>
-            </div>
-            
-            <h3><i class="fas fa-book"></i> Documentation</h3>
-            <ul class="sidebar-nav">
-                <li><a href="#" class="active"><i class="fas fa-play-circle"></i> Getting Started</a></li>
-                <li><a href="#"><i class="fas fa-code"></i> R Programming</a></li>
-                <li><a href="#"><i class="fas fa-chart-bar"></i> Data Visualization</a></li>
-                <li><a href="#"><i class="fas fa-calculator"></i> Statistical Methods</a></li>
-                <li><a href="#"><i class="fas fa-brain"></i> Machine Learning</a></li>
-                <li><a href="#"><i class="fas fa-database"></i> Data Wrangling</a></li>
-                <li><a href="#"><i class="fas fa-flask"></i> Experimental Design</a></li>
-            </ul>
-            
-            <h3><i class="fas fa-graduation-cap"></i> Resources</h3>
-            <ul class="sidebar-nav">
-                <li><a href="#"><i class="fas fa-book-open"></i> Tutorials</a></li>
-                <li><a href="#"><i class="fas fa-video"></i> Video Courses</a></li>
-                <li><a href="#"><i class="fas fa-file-alt"></i> Cheat Sheets</a></li>
-                <li><a href="#"><i class="fas fa-project-diagram"></i> Projects</a></li>
-            </ul>
-        </aside>
 
-        <!-- Main content -->
-        <div class="main-content">
-            <header>
-                <div class="header-content">
-                    <h1>Data Science Best Practices</h1>
-                    <p>Professional guidelines for effective data analysis and reproducible research</p>
-                    
-                    <nav>
-                        <a href="#"><i class="fas fa-code"></i> Code Standards</a>
-                        <a href="#"><i class="fas fa-chart-line"></i> Data Visualization</a>
-                        <a href="#"><i class="fas fa-cogs"></i> Workflow</a>
-                        <a href="#"><i class="fas fa-file-alt"></i> Documentation</a>
-                    </nav>
-                </div>
-                
-                <svg class="header-shape" viewBox="0 0 1000 100" preserveAspectRatio="none">
-                    <path d="M0,0 L0,100 L1000,100 L1000,0 Q500,150 0,0 Z" fill="white"></path>
-                </svg>
-            </header>
+<div class="page-wrapper">
+  <div class="sidebar">
+    <h3>Inhaltsverzeichnis</h3>
+    <a href="#section1">Gute Gewohnheiten beim Programmieren</a>
+    <a href="#section2">R-Skripte verwenden</a>
+    <a href="#section3">Daten importieren</a>
+    <a href="#section4">Pakete laden und installieren</a>
+  </div>
 
-            <main>
-                <section id="introduction">
-                    <h2>Introduction to Best Practices <span class="badge"><i class="fas fa-star"></i> Essential</span></h2>
-                    <p>Adopting best practices in data science is crucial for producing reliable, reproducible, and maintainable work. This guide covers the most important practices that every data scientist should follow.</p>
-                    
-                    <div class="cards-container">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3><i class="fas fa-code"></i> Code Quality</h3>
-                            </div>
-                            <div class="card-body">
-                                <ul>
-                                    <li>Write readable, well-commented code</li>
-                                    <li>Follow consistent naming conventions</li>
-                                    <li>Use version control (Git) for all projects</li>
-                                    <li>Modularize code into functions</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="card">
-                            <div class="card-header">
-                                <h3><i class="fas fa-chart-bar"></i> Visualization</h3>
-                            </div>
-                            <div class="card-body">
-                                <ul>
-                                    <li>Choose appropriate chart types</li>
-                                    <li>Ensure accessibility (color contrast)</li>
-                                    <li>Label axes and provide legends</li>
-                                    <li>Keep visualizations simple and clear</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="card">
-                            <div class="card-header">
-                                <h3><i class="fas fa-cogs"></i> Reproducibility</h3>
-                            </div>
-                            <div class="card-body">
-                                <ul>
-                                    <li>Use dependency management</li>
-                                    <li>Set random seeds for stochastic processes</li>
-                                    <li>Document all steps of analysis</li>
-                                    <li>Share code and data when possible</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+  <div class="main-content">
+    <header>
+      <h1>Gute Praktiken in R</h1>
+      <p>Lernen Sie Best Practices für effektives und nachhaltiges Arbeiten mit R</p>
+    </header>
 
-                <section id="r-programming">
-                    <h2><i class="fas fa-code"></i> R Programming Guidelines</h2>
-                    <p>Follow these practices to write clean, efficient, and maintainable R code.</p>
-                    
-                    <button class="collapsible">Code Organization <i class="fas fa-chevron-down"></i></button>
-                    <div class="content">
-                        <div class="content-inner">
-                            <p>Organize your R code following these principles:</p>
-                            <ul>
-                                <li>Use a consistent project structure</li>
-                                <li>Separate data processing, analysis, and visualization</li>
-                                <li>Use RStudio projects for better organization</li>
-                                <li>Create reusable functions for repeated tasks</li>
-                            </ul>
-                            
-                            <div class="r-console">
-                                <div class="r-header">
-                                    <span>R Code Example</span>
-                                    <div class="r-window-controls">
-                                        <div class="r-window-control r-control-close"></div>
-                                        <div class="r-window-control r-control-minimize"></div>
-                                        <div class="r-window-control r-control-maximize"></div>
-                                    </div>
-                                </div>
-                                <div class="r-content">
-                                    <pre class="r-code"><code><span class="r-comment"># Good practice: Well-organized code</span>
-<span class="r-function">process_data</span> <span class="r-operator">&lt;-</span> <span class="r-function">function</span><span class="r-operator">(</span>raw_data<span class="r-operator">)</span> <span class="r-operator">{</span>
-  <span class="r-comment"># Data cleaning steps</span>
-  cleaned <span class="r-operator">&lt;-</span> raw_data <span class="r-operator">%&gt;%</span>
-    <span class="r-function">filter</span><span class="r-operator">(</span><span class="r-operator">!</span><span class="r-function">is.na</span><span class="r-operator">(</span>value<span class="r-operator">)</span><span class="r-operator">)</span> <span class="r-operator">%&gt;%</span>
-    <span class="r-function">mutate</span><span class="r-operator">(</span>value <span class="r-operator">=</span> <span class="r-function">scale</span><span class="r-operator">(</span>value<span class="r-operator">)</span><span class="r-operator">)</span>
-  
-  <span class="r-function">return</span><span class="r-operator">(</span>cleaned<span class="r-operator">)</span>
-<span class="r-operator">}</span></code></pre>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <button class="collapsible">Documentation Standards <i class="fas fa-chevron-down"></i></button>
-                    <div class="content">
-                        <div class="content-inner">
-                            <p>Proper documentation ensures that your code is understandable and maintainable.</p>
-                            <ul>
-                                <li>Use Roxygen2 for function documentation</li>
-                                <li>Provide examples for complex functions</li>
-                                <li>Include a README with project overview</li>
-                                <li>Document data sources and processing steps</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
+    <nav>
+      <a href="index.html">Startseite</a>
+      <a href="good-practices.html" style="background: #1c6ea4;">Good Practices</a>
+      <a href="visualization.html">Visualisierung</a>
+      <a href="testing.html">Tests</a>
+      <a href="materials.html">Materialien</a>
+    </nav>
 
-                <section id="visualization">
-                    <h2><i class="fas fa-chart-bar"></i> Data Visualization Principles</h2>
-                    <p>Create effective and ethical visualizations that communicate insights clearly.</p>
-                    
-                    <button class="collapsible">Color Selection <i class="fas fa-chevron-down"></i></button>
-                    <div class="content">
-                        <div class="content-inner">
-                            <p>Choose colors that are accessible and appropriate for your data:</p>
-                            <ul>
-                                <li>Use colorblind-friendly palettes (viridis, ColorBrewer)</li>
-                                <li>Consider cultural connotations of colors</li>
-                                <li>Use contrasting colors for important elements</li>
-                                <li>Test your visualizations in grayscale</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-            </main>
-
-            <footer>
-                <div class="footer-content">
-                    <p>Data Science Best Practices Guide</p>
-                    <div class="footer-links">
-                        <a href="#">About</a>
-                        <a href="#">Resources</a>
-                        <a href="#">Contribute</a>
-                        <a href="#">Contact</a>
-                    </div>
-                    <p class="copyright">© 2023 Data Science Best Practices. All rights reserved.</p>
-                </div>
-            </footer>
-        </div>
-    </div>
-
-    <script>
-        // Collapsible functionality
-        document.querySelectorAll('.collapsible').forEach(button => {
-            button.addEventListener('click', function() {
-                this.classList.toggle('active');
-                const content = this.nextElementSibling;
-                
-                if (content.style.maxHeight) {
-                    content.style.maxHeight = null;
-                } else {
-                    content.style.maxHeight = content.scrollHeight + "px";
-                }
-            });
-        });
+    <main>
+      <section id="section1" class="section">
+        <h2>Gute Gewohnheiten beim Programmieren</h2>
         
-        // Simple animation for page elements
-        document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.card');
-            const sections = document.querySelectorAll('section');
+        <div class="educational-content">
+          <p>Eine der wichtigsten Gewohnheiten beim Programmieren in R ist das Schreiben von gut dokumentiertem und nachvollziehbarem Code. Dies erleichtert nicht nur die Zusammenarbeit mit anderen, sondern hilft auch Ihnen selbst, wenn Sie nach einiger Zeit zu Ihrem Code zurückkehren.</p>
+          
+          <div class="tips-box">
+            <h4>Warum gute Gewohnheiten wichtig sind:</h4>
+            <ul>
+              <li>Code wird leichter verständlich und nachvollziehbar</li>
+              <li>Erleichtert die Fehlersuche (Debugging)</li>
+              <li>Ermöglicht die Wiederverwendung von Code</li>
+              <li>Fördert die Reproduzierbarkeit von Analysen</li>
+              <li>Spart langfristig Zeit und Mühe</li>
+            </ul>
+          </div>
+          
+          <h4>R Code: Kommentare und schrittweises Vorgehen</h4>
+          
+          <div class="r-console">
+            <div class="r-header">
+              <span>R Terminal</span>
+              <div class="r-window-controls">
+                <div class="r-window-control r-control-close"></div>
+                <div class="r-window-control r-control-minimize"></div>
+                <div class="r-window-control r-control-maximize"></div>
+              </div>
+            </div>
+            <div class="r-content">
+              <pre class="r-code"><span class="r-comment"># 1. Pakete laden ---------------------------------------</span>
+<span class="r-function">library</span>(dplyr)    <span class="r-comment"># Für Datenmanipulation</span>
+<span class="r-function">library</span>(ggplot2)  <span class="r-comment"># Für Visualisierungen</span>
+
+<span class="r-comment"># 2. Daten importieren ---------------------------------</span>
+<span class="r-comment"># Daten aus einer CSV-Datei laden</span>
+meine_daten <span class="r-operator">&lt;-</span> <span class="r-function">read.csv</span>(<span class="r-string">"meine_daten.csv"</span>)
+
+<span class="r-comment"># 3. Daten explorieren ---------------------------------</span>
+<span class="r-comment"># Erste Zeilen anzeigen</span>
+<span class="r-function">head</span>(meine_daten)
+
+<span class="r-comment"># Struktur der Daten anzeigen</span>
+<span class="r-function">str</span>(meine_daten)
+
+<span class="r-comment"># 4. Daten transformieren ------------------------------</span>
+<span class="r-comment"># Neue Variable berechnen</span>
+meine_daten<span class="r-operator">$</span>bmi <span class="r-operator">&lt;-</span> meine_daten<span class="r-operator">$</span>gewicht <span class="r-operator">/</span> (meine_daten<span class="r-operator">$</span>groesse<span class="r-operator">/</span><span class="r-number">100</span>)<span class="r-operator">^</span><span class="r-number">2</span>
+
+<span class="r-comment"># 5. Daten visualisieren -------------------------------</span>
+<span class="r-comment"># Einfaches Streudiagramm erstellen</span>
+<span class="r-function">plot</span>(meine_daten<span class="r-operator">$</span>alter, meine_daten<span class="r-operator">$</span>bmi)</pre>
+            </div>
+          </div>
+          
+          <div class="code-caption">Beispiel für gut kommentierten und strukturierten R-Code</div>
+          
+          <div class="tips-box">
+            <h4>Tipps für gutes Kommentieren:</h4>
+            <ul>
+              <li>Verwenden Sie Kommentare, um Abschnitte zu kennzeichnen (# 1. Abschnitt ----)</li>
+              <li>Erklären Sie den Zweck komplexerer Code-Blöcke</li>
+              <li>Halten Sie Kommentare kurz und prägnant</li>
+              <li>Aktualisieren Sie Kommentare, wenn Sie den Code ändern</li>
+              <li>Verwenden Sie aussagekräftige Variablennamen, die Kommentare teilweise überflüssig machen</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="section2" class="section">
+        <h2>R-Skripte verwenden</h2>
+        
+        <div class="educational-content">
+          <p>Ein R-Skript ist eine Textdatei mit der Endung .R, die R-Code enthält. Anstatt Code direkt in der Konsole einzugeben, sollten Sie ihn in Skripten speichern. Dies hat mehrere Vorteile:</p>
+          
+          <div class="tips-box">
+            <h4>Vorteile von R-Skripten:</h4>
+            <ul>
+              <li>Code ist dauerhaft gespeichert und kann später wieder verwendet werden</li>
+              <li>Einfaches Teilen von Code mit anderen</li>
+              <li>Nachvollziehbare und reproduzierbare Analysen</li>
+              <li>Einfacheres Debugging und Testen von Code</li>
+              <li>Versionierung mit Tools wie Git möglich</li>
+            </ul>
+          </div>
+          
+          <h4>R Code: Struktur eines typischen R-Skripts</h4>
+          
+          <div class="r-console">
+            <div class="r-header">
+              <span>R Terminal</span>
+              <div class="r-window-controls">
+                <div class="r-window-control r-control-close"></div>
+                <div class="r-window-control r-control-minimize"></div>
+                <div class="r-window-control r-control-maximize"></div>
+              </div>
+            </div>
+            <div class="r-content">
+              <pre class="r-code"><span class="r-comment"># Titel: Meine Datenanalyse</span>
+<span class="r-comment"># Autor: Max Mustermann</span>
+<span class="r-comment"># Datum: 2025-03-18</span>
+<span class="r-comment"># Beschreibung: Dieses Skript analysiert XYZ</span>
+
+<span class="r-comment"># 1. Pakete laden ---------------------------------------</span>
+<span class="r-function">library</span>(tidyverse)  <span class="r-comment"># Sammlung von Paketen für Datenwissenschaft</span>
+<span class="r-function">library</span>(readxl)     <span class="r-comment"># Für Excel-Dateien</span>
+
+<span class="r-comment"># 2. Daten importieren ---------------------------------</span>
+<span class="r-comment"># Daten aus CSV-Datei laden</span>
+umfragedaten <span class="r-operator">&lt;-</span> <span class="r-function">read.csv</span>(<span class="r-string">"data/umfrage_2025.csv"</span>)
+
+<span class="r-comment"># 3. Daten bereinigen und transformieren ----------------</span>
+<span class="r-comment"># Fehlende Werte behandeln</span>
+umfragedaten <span class="r-operator">&lt;-</span> umfragedaten <span class="r-operator">%&gt;%</span>
+  <span class="r-function">filter</span>(<span class="r-operator">!</span><span class="r-function">is.na</span>(alter)) <span class="r-operator">%&gt;%</span>
+  <span class="r-function">mutate</span>(
+    altersgruppe <span class="r-operator">=</span> <span class="r-function">case_when</span>(
+      alter <span class="r-operator">&lt;</span> <span class="r-number">30</span> <span class="r-operator">~</span> <span class="r-string">"jung"</span>,
+      alter <span class="r-operator">&gt;=</span> <span class="r-number">30</span> <span class="r-operator">&amp;</span> alter <span class="r-operator">&lt;</span> <span class="r-number">50</span> <span class="r-operator">~</span> <span class="r-string">"mittel"</span>,
+      <span class="r-function">TRUE</span> <span class="r-operator">~</span> <span class="r-string">"erfahren"</span>
+    )
+  )
+
+<span class="r-comment"># 4. Deskriptive Statistiken ---------------------------</span>
+<span class="r-comment"># Zusammenfassung der Daten</span>
+<span class="r-function">summary</span>(umfragedaten)
+
+<span class="r-comment"># 5. Visualisierung -------------------------------------</span>
+<span class="r-comment"># Balkendiagramm erstellen</span>
+ggplot(umfragedaten, <span class="r-function">aes</span>(x <span class="r-operator">=</span> altersgruppe)) <span class="r-operator">+</span>
+  <span class="r-function">geom_bar</span>() <span class="r-operator">+</span>
+  <span class="r-function">labs</span>(title <span class="r-operator">=</span> <span class="r-string">"Verteilung der Altersgruppen"</span>)
+
+<span class="r-comment"># 6. Statistische Tests ---------------------------------</span>
+<span class="r-comment"># t-Test durchführen</span>
+<span class="r-function">t.test</span>(punktzahl <span class="r-operator">~</span> geschlecht, data <span class="r-operator">=</span> umfragedaten)
+
+<span class="r-comment"># 7. Ergebnisse exportieren -----------------------------</span>
+<span class="r-function">write.csv</span>(umfragedaten, <span class="r-string">"output/bereinigte_daten.csv"</span>, row.names <span class="r-operator">=</span> <span class="r-function">FALSE</span>)</pre>
+            </div>
+          </div>
+          
+          <div class="code-caption">Beispiel für die Struktur eines gut organisierten R-Skripts</div>
+          
+          <div class="tips-box">
+            <h4>So arbeiten Sie mit R-Skripten:</h4>
+            <ul>
+              <li>Öffnen Sie RStudio und erstellen Sie ein neues Skript (File > New File > R Script)</li>
+              <li>Schreiben Sie Ihren Code im Skript-Editor</li>
+              <li>Führen Sie Codezeilen mit Strg+Enter (Windows) oder Cmd+Enter (Mac) aus</li>
+              <li>Speichern Sie Ihr Skript regelmäßig (mit der Endung .R)</li>
+              <li>Kommentieren Sie Code aus, den Sie vorübergehend deaktivieren möchten</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="section3" class="section">
+        <h2>Daten importieren</h2>
+        
+        <div class="educational-content">
+          <p>Der Import von Daten ist oft der erste Schritt in jeder Datenanalyse. R bietet verschiedene Möglichkeiten, Daten aus unterschiedlichen Quellen und Formaten zu importieren.</p>
+          
+          <div class="tips-box">
+            <h4>Häufig verwendete Datenformate:</h4>
+            <ul>
+              <li>CSV (Comma-Separated Values) - weit verbreitetes Textformat</li>
+              <li>Excel (.xlsx, .xls) - Tabellenkalkulationsdateien</li>
+              <li>SPSS (.sav), SAS (.sas7bdat), Stata (.dta) - Formate statistischer Software</li>
+              <li>JSON - Format für strukturierte Daten</li>
+              <li>Datenbanken - SQLite, MySQL, PostgreSQL etc.</li>
+            </ul>
+          </div>
+          
+          <h4>R Code: Daten aus verschiedenen Quellen importieren</h4>
+          
+          <div class="r-console">
+            <div class="r-header">
+              <span>R Terminal</span>
+              <div class="r-window-controls">
+                <div class="r-window-control r-control-close"></div>
+                <div class="r-window-control r-control-minimize"></div>
+                <div class="r-window-control r-control-maximize"></div>
+              </div>
+            </div>
+            <div class="r-content">
+              <pre class="r-code"><span class="r-comment"># 1. Aus CSV-Datei importieren (Basis R)</span>
+daten_csv <span class="r-operator">&lt;-</span> <span class="r-function">read.csv</span>(<span class="r-string">"meine_daten.csv"</span>)
+
+<span class="r-comment"># Alternative mit readr (teil von tidyverse)</span>
+<span class="r-function">library</span>(readr)
+daten_csv <span class="r-operator">&lt;-</span> <span class="r-function">read_csv</span>(<span class="r-string">"meine_daten.csv"</span>)
+
+<span class="r-comment"># 2. Aus Excel-Datei importieren</span>
+<span class="r-function">library</span>(readxl)
+daten_excel <span class="r-operator">&lt;-</span> <span class="r-function">read_excel</span>(<span class="r-string">"meine_daten.xlsx"</span>, sheet <span class="r-operator">=</span> <span class="r-number">1</span>)
+
+<span class="r-comment"># 3. Aus SPSS-Datei importieren</span>
+<span class="r-function">library</span>(haven)
+daten_spss <span class="r-operator">&lt;-</span> <span class="r-function">read_sav</span>(<span class="r-string">"meine_daten.sav"</span>)
+
+<span class="r-comment"># 4. Direkt aus URL importieren</span>
+daten_url <span class="r-operator">&lt;-</span> <span class="r-function">read.csv</span>(<span class="r-string">"https://example.com/data.csv"</span>)
+
+<span class="r-comment"># 5. Mit Dialogfeld Datei auswählen</span>
+daten <span class="r-operator">&lt;-</span> <span class="r-function">read.csv</span>(<span class="r-function">file.choose</span>())
+
+<span class="r-comment"># 6. Importoptionen anpassen</span>
+daten <span class="r-operator">&lt;-</span> <span class="r-function">read.csv</span>(
+  file <span class="r-operator">=</span> <span class="r-string">"meine_daten.csv"</span>,
+  header <span class="r-operator">=</span> <span class="r-function">TRUE</span>,         <span class="r-comment"># Erste Zeile enthält Spaltennamen</span>
+  sep <span class="r-operator">=</span> <span class="r-string">","</span>,             <span class="r-comment"># Trennzeichen ist Komma</span>
+  stringsAsFactors <span class="r-operator">=</span> <span class="r-function">TRUE</span>  <span class="r-comment"># Zeichenketten als Faktoren behandeln</span>
+)</pre>
+            </div>
+          </div>
+          
+          <div class="code-caption">Verschiedene Möglichkeiten, Daten in R zu importieren</div>
+          
+          <div class="code-output">
+            > daten_csv <- read.csv("meine_daten.csv")
+            > head(daten_csv)
+              ID Alter Geschlecht Punktzahl
+            1  1    23         m        85
+            2  2    31         w        92
+            3  3    45         m        78
+            4  4    29         w        88
+            5  5    38         m        95
+          </div>
+          
+          <div class="tips-box">
+            <h4>Tipps zum Datenimport:</h4>
+            <ul>
+              <li>Überprüfen Sie immer die Struktur der importierten Daten mit str()</li>
+              <li>Stellen Sie sicher, dass Dezimaltrennzeichen und Spaltentrennzeichen korrekt erkannt werden</li>
+              <li>Beachten Sie die Encoding-Einstellungen bei Umlauten (UTF-8 wird empfohlen)</li>
+              <li>Definieren Sie relative Pfade statt absoluter Pfade für bessere Portabilität</li>
+              <li>Speichern Sie importierte Daten als RData-Format für schnellere spätere Verwendung</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="section4" class="section">
+        <h2>Pakete laden und installieren</h2>
+        
+        <div class="educational-content">
+          <p>R-Pakete sind Sammlungen von Funktionen, Daten und Dokumentation, die die Funktionalität von R erweitern. Die Fähigkeit, Pakete zu installieren und zu laden, ist entscheidend für effektives Arbeiten mit R.</p>
+          
+          <div class="tips-box">
+            <h4>Wichtige R-Pakete für Einsteiger:</h4>
+            <ul>
+              <li>tidyverse - Sammlung von Paketen für Datenwissenschaft (dplyr, ggplot2, etc.)</li>
+              <li>haven - Import von Daten aus SPSS, SAS und Stata</li>
+              <li>readxl - Import von Excel-Dateien</li>
+              <li>ggplot2 - Erstellung anspruchsvoller Visualisierungen</li>
+              <li>dplyr - Datenmanipulation und -transformation</li>
+            </ul>
+          </div>
+          
+          <h4>R Code: Pakete installieren und laden</h4>
+          
+          <div class="r-console">
+            <div class="r-header">
+              <span>R Terminal</span>
+              <div class="r-window-controls">
+                <div class="r-window-control r-control-close"></div>
+                <div class="r-window-control r-control-minimize"></div>
+                <div class="r-window-control r-control-maximize"></div>
+              </div>
+            </div>
+            <div class="r-content">
+              <pre class="r-code"><span class="r-comment"># 1. Pakete von CRAN installieren</span>
+<span class="r-function">install.packages</span>(<span class="r-string">"tidyverse"</span>)   <span class="r-comment"># Einzelnes Paket</span>
+<span class="r-function">install.packages</span>(<span class="r-function">c</span>(<span class="r-string">"dplyr"</span>, <span class="r-string">"ggplot2"</span>))  <span class="r-comment"># Mehrere Pakete</span>
+
+<span class="r-comment"># 2. Pakete laden</span>
+<span class="r-function">library</span>(dplyr)     <span class="r-comment"># Paket laden</span>
+<span class="r-function">require</span>(ggplot2)   <span class="r-comment"># Alternative zum Laden</span>
+
+<span class="r-comment"># 3. Pakete von GitHub installieren (falls nicht auf CRAN)</span>
+<span class="r-comment"># install.packages("devtools")  # Zuerst devtools installieren</span>
+<span class="r-function">library</span>(devtools)
+<span class="r-function">install_github</span>(<span class="r-string">"username/packagename"</span>)
+
+<span class="r-comment"># 4. Verfügbare Pakete anzeigen</span>
+<span class="r-function">library</span>()          <span class="r-comment"># Alle verfügbaren Pakete</span>
+<span class="r-function">search</span>()          <span class="r-comment"># Derzeit geladene Pakete</span>
+
+<span class="r-comment"># 5. Hilfe zu einem Paket anzeigen</span>
+<span class="r-function">help</span>(package <span class="r-operator">=</span> <span class="r-string">"dplyr"</span>)   <span class="r-comment"># Übersicht über das Paket</span>
+
+<span class="r-comment"># 6. Paket von der Suche entfernen (selten benötigt)</span>
+<span class="r-function">detach</span>(<span class="r-string">"package:dplyr"</span>, unload <span class="r-operator">=</span> <span class="r-function">TRUE</span>)
+
+<span class="r-comment"># 7. Prüfen, ob ein Paket installiert ist, und es ggf. installieren</span>
+<span class="r-keyword">if</span> (<span class="r-operator">!</span><span class="r-function">require</span>(dplyr)) {
+  <span class="r-function">install.packages</span>(<span class="r-string">"dplyr"</span>)
+  <span class="r-function">library</span>(dplyr)
+}</pre>
+            </div>
+          </div>
+          
+          <div class="code-caption">Installation und Verwaltung von R-Paketen</div>
+          
+          <div class="code-output">
+            > install.packages("tidyverse")
+            Trying to determine binary automatically
+            also installing the dependencies 'colorspace', 'sys', 'farver', 'labeling', 'lifecycle', 'munsell', 'RColorBrewer', 'viridisLite', 'ellipsis', 'fansi', 'magrittr', 'pillar', 'pkgconfig', 'vctrs', 'backports', 'generics', 'glue', 'gtable', 'isoband', 'rlang', 'scales', 'tibble', 'withr'
             
-            // Animate cards on page load
-            cards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.style.opacity = 1;
-                    card.style.transform = 'translateY(0)';
-                }, 100 + (index * 100));
-            });
-            
-            // Add intersection observer for sections
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = 1;
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, observerOptions);
-            
-            sections.forEach(section => {
-                section.style.opacity = 0;
-                section.style.transform = 'translateY(20px)';
-                section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                observer.observe(section);
-            });
-        });
-    </script>
+            Package ‘tidyverse’ successfully unpacked and MD5 sums checked
+          </div>
+          
+          <div class="tips-box">
+            <h4>Bewährte Praktiken für Pakete:</h4>
+            <ul>
+              <li>Laden Sie nur die Pakete, die Sie tatsächlich benötigen</li>
+              <li>Aktualisieren Sie Pakete regelmäßig mit update.packages()</li>
+              <li>Verwenden Sie library() am Anfang Ihres Skripts</li>
+              <li>Notieren Sie die verwendeten Pakete in der Dokumentation</li>
+              <li>Beheben Sie Konflikte zwischen Paketen mit package::function()</li>
+            </ul>
+          </div>
+          
+          <h4>R Code: Umgang mit Paketkonflikten</h4>
+          
+          <div class="r-console">
+            <div class="r-header">
+              <span>R Terminal</span>
+              <div class="r-window-controls">
+                <div class="r-window-control r-control-close"></div>
+                <div class="r-window-control r-control-minimize"></div>
+                <div class="r-window-control r-control-maximize"></div>
+              </div>
+            </div>
+            <div class="r-content">
+              <pre class="r-code"><span class="r-comment"># Wenn zwei Pakete Funktionen mit demselben Namen haben:</span>
+<span class="r-function">library</span>(dplyr)
+<span class="r-function">library</span>(MASS)   <span class="r-comment"># Enthält ebenfalls eine select()-Funktion</span>
+
+<span class="r-comment"># Konfliktmeldung: Die select()-Funktion von MASS wird von dplyr maskiert</span>
+
+<span class="r-comment"># Explizite Verwendung einer Funktion aus einem bestimmten Paket:</span>
+dplyr<span class="r-operator">::</span>select(mtcars, mpg, cyl)   <span class="r-comment"># Verwende select() aus dplyr</span>
+MASS<span class="r-operator">::</span>select(mtcars, mpg, cyl)    <span class="r-comment"># Verwende select() aus MASS</span>
+
+<span class="r-comment"># Konflikte anzeigen:</span>
+<span class="r-function">conflicts</span>()</pre>
+            </div>
+          </div>
+          
+          <div class="code-caption">Umgang mit Namenskonflikten zwischen Paketen</div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Quantitative Forschung | Gehostet auf GitHub Pages</p>
+    </footer>
+  </div>
+</div>
+
 </body>
 </html>
