@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f9f9fb;
+  color: #333;
+  line-height: 1.6;
+}
+
+header {
+  background: #1e3a8a; /* professional navy blue */
+  color: white;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+header p {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+nav {
+  text-align: center;
+  background: #f1f5f9;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #1e3a8a; /* main navy */
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #9b8cba; /* subtle lilac accent on hover */
+}
+
+main {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+section {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  margin-bottom: 30px;
+  transition: transform 0.2s;
+}
+
+section:hover {
+  transform: translateY(-3px);
+}
+
+h2 {
+  color: #1e3a8a; /* main navy */
+  font-weight: 600;
+}
+
+pre {
+  background: #f4f4f9;
+  padding: 15px;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+code {
+  font-family: Consolas, monospace;
+  color: #9b8cba; /* subtle lilac for code */
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #1e3a8a;
+  color: white;
+  margin-top: 40px;
+  font-size: 0.9rem;
+}
