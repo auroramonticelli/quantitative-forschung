@@ -1,137 +1,248 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Good Practices & Code Schreiben – Quantitative Forschung</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Science Best Practices</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
-<div class="sidebar">
-  <h3>Inhaltsverzeichnis</h3>
-  <a href="#section1">Gute Gewohnheiten</a>
-  <a href="#section2">R-Skript</a>
-  <a href="#section3">Daten & Pakete laden</a>
-</div>
-
-<div class="container">
-  <header>
-    <h1>Quantitative Forschung</h1>
-    <p>Good Practices und R-Coding Schritt für Schritt</p>
-  </header>
-
-  <nav>
-    <a href="index.html">Startseite</a>
-    <a href="good-practices.html">Good Practices</a>
-    <a href="visualization.html">Visualisierung</a>
-    <a href="testing.html">Tests</a>
-    <a href="materials.html">Materialien</a>
-  </nav>
-
-  <main>
-    <section id="section1">
-      <h2>Gute Gewohnheiten beim Codieren</h2>
-      <p>
-        Beim Einstieg in R wirkt vieles komplex. Eine einfache, aber sehr hilfreiche Gewohnheit ist das Verwenden von <strong>Kommentaren</strong>.  
-        Kommentare beginnen mit einem <code>#</code> und werden von R ignoriert.  
-        Sie dienen ausschließlich zur Erklärung des Codes.  
-        So wird deutlich, welcher Schritt gemacht wird und warum er wichtig ist.  
-        Dadurch bleibt der Code auch nach längerer Zeit verständlich.
-      </p>
-      <button class="collapsible">Try Out: Kommentare hinzufügen</button>
-      <div class="content">
-        <div class="r-console">
-          <div class="r-header">
-            <div class="r-window-controls">
-              <div class="r-window-control r-control-close"></div>
-              <div class="r-window-control r-control-minimize"></div>
-              <div class="r-window-control r-control-maximize"></div>
+    <div class="page-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">DS</div>
+                <h3>Data Science Guide</h3>
             </div>
-            <span>R Console</span>
-          </div>
-          <div class="r-content">
-<pre class="r-code"><span class="r-comment"># Schritt 1: Daten laden</span>
-<span class="r-comment"># Ein Datensatz wird von der Festplatte eingelesen</span>
-daten <span class="r-operator"><-</span> read.csv(<span class="r-string">"meine_daten.csv"</span>)</pre>
-          </div>
+            
+            <h3><i class="fas fa-book"></i> Documentation</h3>
+            <ul class="sidebar-nav">
+                <li><a href="#" class="active"><i class="fas fa-play-circle"></i> Getting Started</a></li>
+                <li><a href="#"><i class="fas fa-code"></i> R Programming</a></li>
+                <li><a href="#"><i class="fas fa-chart-bar"></i> Data Visualization</a></li>
+                <li><a href="#"><i class="fas fa-calculator"></i> Statistical Methods</a></li>
+                <li><a href="#"><i class="fas fa-brain"></i> Machine Learning</a></li>
+                <li><a href="#"><i class="fas fa-database"></i> Data Wrangling</a></li>
+                <li><a href="#"><i class="fas fa-flask"></i> Experimental Design</a></li>
+            </ul>
+            
+            <h3><i class="fas fa-graduation-cap"></i> Resources</h3>
+            <ul class="sidebar-nav">
+                <li><a href="#"><i class="fas fa-book-open"></i> Tutorials</a></li>
+                <li><a href="#"><i class="fas fa-video"></i> Video Courses</a></li>
+                <li><a href="#"><i class="fas fa-file-alt"></i> Cheat Sheets</a></li>
+                <li><a href="#"><i class="fas fa-project-diagram"></i> Projects</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main content -->
+        <div class="main-content">
+            <header>
+                <div class="header-content">
+                    <h1>Data Science Best Practices</h1>
+                    <p>Professional guidelines for effective data analysis and reproducible research</p>
+                    
+                    <nav>
+                        <a href="#"><i class="fas fa-code"></i> Code Standards</a>
+                        <a href="#"><i class="fas fa-chart-line"></i> Data Visualization</a>
+                        <a href="#"><i class="fas fa-cogs"></i> Workflow</a>
+                        <a href="#"><i class="fas fa-file-alt"></i> Documentation</a>
+                    </nav>
+                </div>
+                
+                <svg class="header-shape" viewBox="0 0 1000 100" preserveAspectRatio="none">
+                    <path d="M0,0 L0,100 L1000,100 L1000,0 Q500,150 0,0 Z" fill="white"></path>
+                </svg>
+            </header>
+
+            <main>
+                <section id="introduction">
+                    <h2>Introduction to Best Practices <span class="badge"><i class="fas fa-star"></i> Essential</span></h2>
+                    <p>Adopting best practices in data science is crucial for producing reliable, reproducible, and maintainable work. This guide covers the most important practices that every data scientist should follow.</p>
+                    
+                    <div class="cards-container">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3><i class="fas fa-code"></i> Code Quality</h3>
+                            </div>
+                            <div class="card-body">
+                                <ul>
+                                    <li>Write readable, well-commented code</li>
+                                    <li>Follow consistent naming conventions</li>
+                                    <li>Use version control (Git) for all projects</li>
+                                    <li>Modularize code into functions</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <h3><i class="fas fa-chart-bar"></i> Visualization</h3>
+                            </div>
+                            <div class="card-body">
+                                <ul>
+                                    <li>Choose appropriate chart types</li>
+                                    <li>Ensure accessibility (color contrast)</li>
+                                    <li>Label axes and provide legends</li>
+                                    <li>Keep visualizations simple and clear</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <h3><i class="fas fa-cogs"></i> Reproducibility</h3>
+                            </div>
+                            <div class="card-body">
+                                <ul>
+                                    <li>Use dependency management</li>
+                                    <li>Set random seeds for stochastic processes</li>
+                                    <li>Document all steps of analysis</li>
+                                    <li>Share code and data when possible</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="r-programming">
+                    <h2><i class="fas fa-code"></i> R Programming Guidelines</h2>
+                    <p>Follow these practices to write clean, efficient, and maintainable R code.</p>
+                    
+                    <button class="collapsible">Code Organization <i class="fas fa-chevron-down"></i></button>
+                    <div class="content">
+                        <div class="content-inner">
+                            <p>Organize your R code following these principles:</p>
+                            <ul>
+                                <li>Use a consistent project structure</li>
+                                <li>Separate data processing, analysis, and visualization</li>
+                                <li>Use RStudio projects for better organization</li>
+                                <li>Create reusable functions for repeated tasks</li>
+                            </ul>
+                            
+                            <div class="r-console">
+                                <div class="r-header">
+                                    <span>R Code Example</span>
+                                    <div class="r-window-controls">
+                                        <div class="r-window-control r-control-close"></div>
+                                        <div class="r-window-control r-control-minimize"></div>
+                                        <div class="r-window-control r-control-maximize"></div>
+                                    </div>
+                                </div>
+                                <div class="r-content">
+                                    <pre class="r-code"><code><span class="r-comment"># Good practice: Well-organized code</span>
+<span class="r-function">process_data</span> <span class="r-operator">&lt;-</span> <span class="r-function">function</span><span class="r-operator">(</span>raw_data<span class="r-operator">)</span> <span class="r-operator">{</span>
+  <span class="r-comment"># Data cleaning steps</span>
+  cleaned <span class="r-operator">&lt;-</span> raw_data <span class="r-operator">%&gt;%</span>
+    <span class="r-function">filter</span><span class="r-operator">(</span><span class="r-operator">!</span><span class="r-function">is.na</span><span class="r-operator">(</span>value<span class="r-operator">)</span><span class="r-operator">)</span> <span class="r-operator">%&gt;%</span>
+    <span class="r-function">mutate</span><span class="r-operator">(</span>value <span class="r-operator">=</span> <span class="r-function">scale</span><span class="r-operator">(</span>value<span class="r-operator">)</span><span class="r-operator">)</span>
+  
+  <span class="r-function">return</span><span class="r-operator">(</span>cleaned<span class="r-operator">)</span>
+<span class="r-operator">}</span></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="collapsible">Documentation Standards <i class="fas fa-chevron-down"></i></button>
+                    <div class="content">
+                        <div class="content-inner">
+                            <p>Proper documentation ensures that your code is understandable and maintainable.</p>
+                            <ul>
+                                <li>Use Roxygen2 for function documentation</li>
+                                <li>Provide examples for complex functions</li>
+                                <li>Include a README with project overview</li>
+                                <li>Document data sources and processing steps</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="visualization">
+                    <h2><i class="fas fa-chart-bar"></i> Data Visualization Principles</h2>
+                    <p>Create effective and ethical visualizations that communicate insights clearly.</p>
+                    
+                    <button class="collapsible">Color Selection <i class="fas fa-chevron-down"></i></button>
+                    <div class="content">
+                        <div class="content-inner">
+                            <p>Choose colors that are accessible and appropriate for your data:</p>
+                            <ul>
+                                <li>Use colorblind-friendly palettes (viridis, ColorBrewer)</li>
+                                <li>Consider cultural connotations of colors</li>
+                                <li>Use contrasting colors for important elements</li>
+                                <li>Test your visualizations in grayscale</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <footer>
+                <div class="footer-content">
+                    <p>Data Science Best Practices Guide</p>
+                    <div class="footer-links">
+                        <a href="#">About</a>
+                        <a href="#">Resources</a>
+                        <a href="#">Contribute</a>
+                        <a href="#">Contact</a>
+                    </div>
+                    <p class="copyright">© 2023 Data Science Best Practices. All rights reserved.</p>
+                </div>
+            </footer>
         </div>
-      </div>
-    </section>
+    </div>
 
-    <section id="section2">
-      <h2>R-Skripte</h2>
-      <p>
-        In R wird Code meist in <strong>Skripten</strong> geschrieben.  
-        Ein Skript ist eine einfache Textdatei mit der Endung <code>.R</code>.  
-        Der Vorteil: Code kann gespeichert, jederzeit wieder ausgeführt und schrittweise verbessert werden.  
-        So entsteht eine Art „Rezeptbuch“ für Analysen, das immer wieder nutzbar bleibt.
-      </p>
-      <button class="collapsible">Try Out: Skript erstellen</button>
-      <div class="content">
-        <div class="r-console">
-          <div class="r-header">
-            <div class="r-window-controls">
-              <div class="r-window-control r-control-close"></div>
-              <div class="r-window-control r-control-minimize"></div>
-              <div class="r-window-control r-control-maximize"></div>
-            </div>
-            <span>R Console</span>
-          </div>
-          <div class="r-content">
-<pre class="r-code">library(ggplot2) 
-daten <span class="r-operator"><-</span> read.csv(<span class="r-string">"meine_daten.csv"</span>)
-ggplot(daten, aes(x <span class="r-operator">=</span> Variable1, y <span class="r-operator">=</span> Variable2)) <span class="r-operator">+</span>
-  geom_point()</pre>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="section3">
-      <h2>Daten & Pakete laden</h2>
-      <p>
-        Vor einer Analyse müssen zunächst die <strong>benötigten Pakete</strong> installiert und geladen werden.  
-        Pakete sind Zusatzsammlungen von Funktionen – vergleichbar mit Apps auf einem Smartphone.  
-        Danach werden die <strong>Daten importiert</strong>, meist aus einer CSV-Datei.  
-        Erst dann kann mit den eigentlichen Analyseschritten begonnen werden.
-      </p>
-      <button class="collapsible">Try Out: Pakete & Daten laden</button>
-      <div class="content">
-        <div class="r-console">
-          <div class="r-header">
-            <div class="r-window-controls">
-              <div class="r-window-control r-control-close"></div>
-              <div class="r-window-control r-control-minimize"></div>
-              <div class="r-window-control r-control-maximize"></div>
-            </div>
-            <span>R Console</span>
-          </div>
-          <div class="r-content">
-<pre class="r-code">install.packages(<span class="r-string">"tidyverse"</span>)
-library(tidyverse)
-daten <span class="r-operator"><-</span> read.csv(<span class="r-string">"meine_daten.csv"</span>)</pre>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 Quantitative Forschung | Gehostet auf GitHub Pages</p>
-  </footer>
-</div>
-
-<script>
-var coll = document.getElementsByClassName("collapsible");
-for (let i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    content.style.display = content.style.display === "block" ? "none" : "block";
-  });
-}
-</script>
-
+    <script>
+        // Collapsible functionality
+        document.querySelectorAll('.collapsible').forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        });
+        
+        // Simple animation for page elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card');
+            const sections = document.querySelectorAll('section');
+            
+            // Animate cards on page load
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = 1;
+                    card.style.transform = 'translateY(0)';
+                }, 100 + (index * 100));
+            });
+            
+            // Add intersection observer for sections
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            sections.forEach(section => {
+                section.style.opacity = 0;
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(section);
+            });
+        });
+    </script>
 </body>
 </html>
