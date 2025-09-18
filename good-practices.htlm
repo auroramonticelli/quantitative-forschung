@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Good Practices & Code Schreiben – Quantitative Forschung</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Quantitative Forschung</h1>
+  <p>Good Practices und R-Coding Schritt für Schritt</p>
+</header>
+
+<nav>
+  <a href="index.html">Startseite</a>
+  <a href="visualisierung.html">Visualisierung</a>
+  <a href="tests.html">Tests</a>
+  <a href="materialien.html">Materialien</a>
+  <a href="good-practices.html">Good Practices</a>
+</nav>
+
+<main>
+  <!-- Section 1: Good Habits -->
+  <section>
+    <h2>Gute Gewohnheiten beim Codieren</h2>
+    <p>
+      Wenn Sie R-Code schreiben, ist es wichtig, klare Strukturen und Kommentare zu verwenden. 
+      Dies hilft Ihnen und anderen, den Code später nachzuvollziehen.
+    </p>
+    
+    <h3>Try Out: Kommentare hinzufügen</h3>
+    <p>Fügen Sie <code>#</code> vor einem Kommentar oder Titel für einen Codeabschnitt ein:</p>
+    <pre><code class="language-r">
+# 1. Daten laden
+# Hier importieren wir unseren Datensatz
+daten <- read.csv("meine_daten.csv")
+    </code></pre>
+
+    <h3>Weitere Tipps</h3>
+    <ul>
+      <li>Arbeiten Sie Schritt für Schritt – testen Sie jeden Schritt bevor Sie weitermachen</li>
+      <li>Vergeben Sie aussagekräftige Variablennamen</li>
+      <li>Kommentieren Sie komplexe Berechnungen oder Transformationen</li>
+    </ul>
+  </section>
+
+  <!-- Section 2: R-Skript -->
+  <section>
+    <h2>R-Skripte</h2>
+    <p>
+      Ein R-Skript ist eine Datei, die Ihren Code enthält. Sie können Skripte speichern und später wieder ausführen oder mit anderen teilen.
+    </p>
+
+    <h3>Try Out: Ein R-Skript erstellen</h3>
+    <p>Speichern Sie Ihren Code in einer Datei mit der Endung <code>.R</code> und führen Sie ihn in RStudio aus:</p>
+    <pre><code class="language-r">
+# Speichern Sie diesen Code als "mein_skript.R"
+# Laden von Paketen
+library(ggplot2)
+
+# Daten importieren
+daten <- read.csv("meine_daten.csv")
+
+# Einfache Visualisierung
+ggplot(daten, aes(x = Variable1, y = Variable2)) +
+  geom_point()
+    </code></pre>
+    <p>So können Sie jederzeit den Code erneut ausführen oder teilen.</p>
+  </section>
+
+  <!-- Section 3: Pakete und Daten -->
+  <section>
+    <h2>Daten und Pakete laden</h2>
+    <p>
+      Bevor Sie arbeiten, müssen Sie Pakete installieren (nur einmal) und laden (jederzeit), sowie die Daten importieren.
+    </p>
+
+    <h3>Try Out: Pakete und Daten laden</h3>
+    <pre><code class="language-r">
+# Paket installieren (nur einmal)
+install.packages("tidyverse")
+
+# Paket laden
+library(tidyverse)
+
+# Daten importieren
+daten <- read.csv("meine_daten.csv")
+    </code></pre>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 Quantitative Forschung | Gehostet auf GitHub Pages</p>
+</footer>
+
+</body>
+</html>
