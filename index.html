@@ -67,7 +67,8 @@
 
   <nav>
     <a href="#description">Description</a>
-    <a href="#schedule">Schedule</a>
+    <a href="#visualization">Visualization</a>
+    <a href="#testing">Testing</a>
     <a href="#materials">Materials</a>
     <a href="#contact">Contact</a>
   </nav>
@@ -76,32 +77,59 @@
     <section id="description">
       <h2>Course Description</h2>
       <p>
-        This course introduces students to the fundamentals of quantitative research. 
-        We will cover research design, data collection, statistical analysis, and interpretation. 
-        By the end, students will be able to design, conduct, and critically assess quantitative studies.
+        This session introduces students to the fundamentals of quantitative research 
+        using <strong>R</strong>. We will focus on two key aspects: creating clear 
+        and informative <strong>visualizations</strong>, and conducting 
+        <strong>statistical tests</strong> to answer research questions.
       </p>
     </section>
 
-    <section id="schedule">
-      <h2>Schedule</h2>
+     <section id="visualization">
+      <h2>Visualization</h2>
+      <p>
+        Students will learn the basics of data visualization in R. We will use 
+        <code>ggplot2</code> to create plots such as:
+      </p>
       <ul>
-        <li><strong>Week 1:</strong> Introduction to Quantitative Research</li>
-        <li><strong>Week 2:</strong> Research Design & Hypotheses</li>
-        <li><strong>Week 3:</strong> Data Collection Methods</li>
-        <li><strong>Week 4:</strong> Descriptive Statistics</li>
-        <li><strong>Week 5:</strong> Inferential Statistics</li>
-        <li><strong>Week 6:</strong> Regression Analysis</li>
-        <li><strong>Week 7:</strong> Validity, Reliability, and Ethics</li>
-        <li><strong>Week 8:</strong> Student Presentations</li>
+        <li>Histograms and bar charts</li>
+        <li>Boxplots and scatterplots</li>
+        <li>Adding titles, labels, and themes</li>
       </ul>
+      <p>Example in R:</p>
+      <pre><code class="language-r">
+library(ggplot2)
+
+# Example: Scatterplot with regression line
+ggplot(mtcars, aes(x = hp, y = mpg)) +
+  geom_point() +
+  geom_smooth(method = "lm", col = "blue") +
+  labs(title = "Horsepower vs. MPG")
+      </code></pre>
+    </section>
+
+    <section id="testing">
+      <h2>Testing</h2>
+      <p>
+        We will introduce basic statistical tests in R, focusing on how to apply them and interpret the results:
+      </p>
+      <ul>
+        <li><code>t.test()</code> for comparing means</li>
+        <li><code>cor.test()</code> for correlations</li>
+        <li><code>chisq.test()</code> for categorical data</li>
+      </ul>
+      <p>Example in R:</p>
+      <pre><code class="language-r">
+# Example: t-test
+t.test(mpg ~ am, data = mtcars)
+      </code></pre>
     </section>
 
     <section id="materials">
       <h2>Materials</h2>
-      <p>Lecture slides, readings, and datasets will be uploaded here weekly.</p>
+      <p>Slides and datasets will be uploaded here:</p>
       <ul>
-        <li><a href="#">Week 1 Slides (PDF)</a></li>
-        <li><a href="#">Dataset Example (CSV)</a></li>
+        <li><a href="#">Slides (PDF)</a></li>
+        <li><a href="#">Practice dataset (CSV)</a></li>
       </ul>
     </section>
 
@@ -111,7 +139,6 @@
       <ul>
         <li><strong>Instructor:</strong> Aurora Monticelli</li>
         <li><strong>Email:</strong> aurora.monticelli@unibas.ch</li>
-        <li><strong>Office Hours:</strong> TBD</li>
       </ul>
     </section>
   </main>
