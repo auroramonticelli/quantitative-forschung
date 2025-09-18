@@ -8,43 +8,104 @@
 </head>
 <body>
 
-<header>
-  <h1>Quantitative Forschung</h1>
-  <p>Lernen Sie R für Visualisierung und statistische Tests</p>
-</header>
+<div class="page-wrapper">
+  <div class="sidebar">
+    <h3>Inhaltsverzeichnis</h3>
+    <a href="#section1">Chi-Quadrat Test</a>
+    <a href="#section2">Test für Proportionen</a>
+    <a href="#section3">t-Test & Mann-Whitney</a>
+    <a href="#section4">Testauswahl</a>
+  </div>
 
-<nav>
-  <a href="index.html">Startseite</a>
-  <a href="good-practices.html">Good Practices</a>
-  <a href="visualization.html">Visualisierung</a>
-  <a href="testing.html">Tests</a>
-  <a href="materials.html">Materialien</a>
-</nav>
+  <div class="main-content">
+    <header>
+      <h1>Quantitative Forschung</h1>
+      <p>Lernen Sie R für Visualisierung und statistische Tests</p>
+    </header>
 
-<main>
-  <section>
-    <h2>Statistische Tests</h2>
-    <p>
-      Wir behandeln grundlegende statistische Tests in R:
-    </p>
-    <ul>
-      <li><code>t.test()</code> — Mittelwertvergleiche</li>
-      <li><code>cor.test()</code> — Korrelationen</li>
-      <li><code>chisq.test()</code> — Kategorien</li>
-    </ul>
-  </section>
+    <nav>
+      <a href="index.html">Startseite</a>
+      <a href="good-practices.html">Good Practices</a>
+      <a href="visualization.html">Visualisierung</a>
+      <a href="testing.html">Tests</a>
+      <a href="materials.html">Materialien</a>
+    </nav>
 
-  <section>
-    <h2>Beispielcode</h2>
-    <pre><code class="language-r">
-t.test(mpg ~ am, data = mtcars)
-    </code></pre>
-  </section>
-</main>
+    <main>
+      <section id="section1" class="test-section">
+        <h2 class="test-header">Chi-Quadrat Test</h2>
+        
+        <div class="educational-content">
+          <p>Der Chi-Quadrat Test wird verwendet, um Zusammenhänge zwischen kategorialen Variablen zu untersuchen.</p>
+          
+          <div class="conditions-box">
+            <h4>Anwendungsbedingungen</h4>
+            <ul>
+              <li>Zwei oder mehr kategoriale Variablen</li>
+              <li>Unabhängige Beobachtungen</li>
+              <li>Erwartete Häufigkeiten pro Zelle ≥ 5 (für zuverlässige Ergebnisse)</li>
+              <li>Nominalskalierte Daten</li>
+            </ul>
+          </div>
+          
+          <button class="collapsible">R Code: Chi-Quadrat Test</button>
+          <div class="content">
+            <div class="code-example">
+              <pre><code class="language-r">
+# Erstellen einer Kreuztabelle
+tabelle <- table(mtcars$vs, mtcars$am)
+print(tabelle)
 
-<footer>
-  <p>&copy; 2025 Quantitative Forschung | Gehostet auf GitHub Pages</p>
-</footer>
+# Chi-Quadrat Test durchführen
+ergebnis <- chisq.test(tabelle)
+print(ergebnis)
 
-</body>
-</html>
+# Erwartete Häufigkeiten anzeigen
+ergebnis$expected
+
+# Residuen analysieren (für Zellen mit signifikanten Abweichungen)
+ergebnis$residuals
+              </code></pre>
+            </div>
+          </div>
+          
+          <div class="interpretation-box">
+            <h4>Interpretation der Ergebnisse</h4>
+            <p><strong>p-Wert:</strong> Wenn p &lt; 0.05, gibt es einen signifikanten Zusammenhang zwischen den Variablen.</p>
+            <p><strong>χ²-Wert:</strong> Je höher der Wert, desto stärker die Abweichung von der Unabhängigkeit.</p>
+            <p><strong>Residuen:</strong> Standardisierte Residuen über ±2 zeigen Zellen mit signifikanten Abweichungen an.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="section2" class="test-section">
+        <h2 class="test-header">Test für Proportionen</h2>
+        
+        <div class="educational-content">
+          <p>Tests für Proportionen vergleichen Anteilswerte zwischen Gruppen oder mit einem theoretischen Wert.</p>
+          
+          <div class="conditions-box">
+            <h4>Anwendungsbedingungen</h4>
+            <ul>
+              <li>Binomialverteilte Daten (Erfolg/Misserfolg)</li>
+              <li>Unabhängige Beobachtungen</li>
+              <li>Ausreichend große Stichprobe (np ≥ 5 und n(1-p) ≥ 5)</li>
+              <li>Für zwei Stichproben: unabhängige Gruppen</li>
+            </ul>
+          </div>
+          
+          <button class="collapsible">R Code: Test für Proportionen</button>
+          <div class="content">
+            <div class="code-example">
+              <pre><code class="language-r">
+# Ein-Stichproben Test gegen theoretischen Wert (p0 = 0.5)
+prop.test(x = 35, n = 50, p = 0.5, alternative = "two.sided")
+
+# Zwei-Stichproben Test (Vergleich zweier Proportionen)
+prop.test(x = c(30, 40), n = c(50, 50))
+
+# Exakter Test nach Fisher (für kleine Stichproben)
+fisher.test(matrix(c(10, 5, 20, 25), nrow = 2))
+
+# Beispiel mit mtcars-Daten: Anteil automatischer Getriebe (am=0)
+auto_ant
