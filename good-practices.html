@@ -1,151 +1,126 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Good Practices & Code Schreiben – Quantitative Forschung</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      display: flex;
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: #f7f6fa;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Good Practices & Code Schreiben – Quantitative Forschung</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #f7f6fa;
+  display: flex;
+}
 
-    /* Sidebar */
-    .sidebar {
-      width: 220px;
-      background: #f4f4f9;
-      padding: 20px;
-      position: fixed; /* Fixed sidebar */
-      top: 0;
-      left: 0;
-      height: 100vh;
-      border-right: 1px solid #e0e0e0;
-    }
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  background: #f4f4f9;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  border-right: 1px solid #e0e0e0;
+}
 
-    .sidebar h3 {
-      color: #9b7bb5;
-      margin-top: 0;
-    }
+.sidebar h3 { color: #9b7bb5; margin-top: 0; }
+.sidebar a {
+  display: block;
+  margin: 10px 0;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.sidebar a:hover { color: #9b7bb5; }
 
-    .sidebar a {
-      display: block;
-      margin: 10px 0;
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
+/* Main container (header + content + footer) */
+.container {
+  margin-left: 240px; /* offset for sidebar */
+  flex: 1;
+}
 
-    .sidebar a:hover {
-      color: #9b7bb5;
-    }
+/* Header */
+header {
+  background: linear-gradient(135deg, #9b7bb5 0%, #d1c2e5 100%);
+  color: white;
+  padding: 80px 20px 40px;
+  text-align: center;
+  border-bottom-left-radius: 50% 20%;
+  border-bottom-right-radius: 50% 20%;
+}
 
-    /* Main content */
-    main {
-      flex: 1;
-      margin-left: 240px; /* offset for fixed sidebar */
-      padding: 20px 40px;
-      max-width: 900px;
-    }
+/* Top nav bar */
+nav {
+  background: white;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 10px 0;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #9b7bb5;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+nav a:hover { color: #d1c2e5; }
 
-    header {
-      background: linear-gradient(135deg, #9b7bb5 0%, #d1c2e5 100%);
-      color: white;
-      padding: 80px 20px 40px;
-      text-align: center;
-      border-bottom-left-radius: 50% 20%;
-      border-bottom-right-radius: 50% 20%;
-      margin-left: 240px; /* align with sidebar */
-    }
+/* Main content */
+main {
+  padding: 20px 40px;
+}
 
-    header h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      margin: 0;
-    }
+section {
+  background: white;
+  border-radius: 16px;
+  padding: 30px 25px;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.07);
+}
 
-    header p {
-      margin-top: 12px;
-      font-size: 1.3rem;
-      opacity: 0.9;
-    }
+h2 { color: #9b7bb5; margin-top: 0; }
 
-    section {
-      background: white;
-      border-radius: 16px;
-      padding: 30px 25px;
-      margin-bottom: 40px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+.collapsible {
+  background-color: #f4f4f9;
+  border-radius: 12px;
+  padding: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #9b7bb5;
+  border: 1px solid #9b7bb5;
+}
+.collapsible:hover { background-color: #e4d9f1; }
 
-    section:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
-    }
+.content { padding: 0 10px; display: none; overflow: hidden; margin-top: 10px; }
 
-    h2 {
-      color: #9b7bb5;
-      font-weight: 700;
-      margin-top: 0;
-      margin-bottom: 20px;
-    }
+.badge {
+  display: inline-block;
+  background: #b9aadf;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  margin-left: 5px;
+}
 
-    .collapsible {
-      background-color: #f4f4f9;
-      border-radius: 12px;
-      padding: 10px;
-      margin-top: 10px;
-      cursor: pointer;
-      font-weight: 600;
-      color: #9b7bb5;
-      border: 1px solid #9b7bb5;
-      transition: background 0.3s;
-    }
-    .collapsible:hover { background-color: #e4d9f1; }
-
-    .content { padding: 0 10px; display: none; overflow: hidden; margin-top: 10px; }
-
-    .badge {
-      display: inline-block;
-      background: #b9aadf;
-      color: white;
-      padding: 2px 8px;
-      border-radius: 12px;
-      font-size: 0.85rem;
-      margin-left: 5px;
-    }
-
-    /* Top navigation bar */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 240px; /* next to sidebar */
-      right: 0;
-      background: white;
-      border-bottom: 1px solid #e0e0e0;
-      padding: 10px 0;
-      z-index: 1000;
-      text-align: center;
-    }
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #9b7bb5;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-    nav a:hover { color: #d1c2e5; }
-
-    main { margin-top: 60px; } /* offset for top nav */
-  </style>
+/* Footer */
+footer {
+  padding: 20px 40px;
+  text-align: center;
+  background: white;
+  border-top: 1px solid #e0e0e0;
+}
+</style>
 </head>
 <body>
 
-<!-- Sidebar -->
 <div class="sidebar">
   <h3>Inhaltsverzeichnis</h3>
   <a href="#section1">Gute Gewohnheiten</a>
@@ -153,93 +128,76 @@
   <a href="#section3">Daten & Pakete laden</a>
 </div>
 
-<!-- Header -->
-<header>
-  <h1>Quantitative Forschung</h1>
-  <p>Good Practices und R-Coding Schritt für Schritt</p>
-</header>
+<div class="container">
+  <header>
+    <h1>Quantitative Forschung</h1>
+    <p>Good Practices und R-Coding Schritt für Schritt</p>
+  </header>
 
-<!-- Top navigation bar -->
-<nav>
-  <a href="index.html">Startseite</a>
-  <a href="good-practices.html">Good Practices</a>
-  <a href="visualisierung.html">Visualisierung</a>
-  <a href="tests.html">Tests</a>
-  <a href="materialien.html">Materialien</a>
-</nav>
+  <nav>
+    <a href="index.html">Startseite</a>
+    <a href="good-practices.html">Good Practices</a>
+    <a href="visualisierung.html">Visualisierung</a>
+    <a href="tests.html">Tests</a>
+    <a href="materialien.html">Materialien</a>
+  </nav>
 
-<main>
-  <!-- Section 1 -->
-  <section id="section1">
-    <h2>Gute Gewohnheiten beim Codieren</h2>
-    <p>
-      Kommentare helfen Ihnen und anderen, den Code zu verstehen. Arbeiten Sie Schritt für Schritt und testen Sie jeden Abschnitt.
-      <span class="badge">Tipp</span>
-    </p>
-
-    <button class="collapsible">Try Out: Kommentare hinzufügen</button>
-    <div class="content">
-      <pre><code class="language-r">
+  <main>
+    <section id="section1">
+      <h2>Gute Gewohnheiten beim Codieren</h2>
+      <p>Kommentare helfen Ihnen und anderen, den Code zu verstehen. Arbeiten Sie Schritt für Schritt.<span class="badge">Tipp</span></p>
+      <button class="collapsible">Try Out: Kommentare hinzufügen</button>
+      <div class="content">
+        <pre><code class="language-r">
 # 1. Daten laden
 # Hier importieren wir unseren Datensatz
 daten <- read.csv("meine_daten.csv")
-      </code></pre>
-    </div>
-  </section>
+        </code></pre>
+      </div>
+    </section>
 
-  <!-- Section 2 -->
-  <section id="section2">
-    <h2>R-Skripte</h2>
-    <p>
-      Ein R-Skript speichert Ihren Code in einer Datei (.R). Sie können ihn später erneut ausführen oder teilen.
-      <span class="badge">Tipp</span>
-    </p>
-
-    <button class="collapsible">Try Out: Skript erstellen</button>
-    <div class="content">
-      <pre><code class="language-r">
-# Speichern Sie diesen Code als "mein_skript.R"
+    <section id="section2">
+      <h2>R-Skripte</h2>
+      <p>Ein R-Skript speichert Ihren Code in einer Datei (.R).<span class="badge">Tipp</span></p>
+      <button class="collapsible">Try Out: Skript erstellen</button>
+      <div class="content">
+        <pre><code class="language-r">
 library(ggplot2)
 daten <- read.csv("meine_daten.csv")
 ggplot(daten, aes(x = Variable1, y = Variable2)) +
   geom_point()
-      </code></pre>
-    </div>
-  </section>
+        </code></pre>
+      </div>
+    </section>
 
-  <!-- Section 3 -->
-  <section id="section3">
-    <h2>Daten & Pakete laden</h2>
-    <p>
-      Vor jeder Analyse müssen Pakete geladen und Daten importiert werden.
-      <span class="badge">Tipp</span>
-    </p>
-
-    <button class="collapsible">Try Out: Pakete & Daten laden</button>
-    <div class="content">
-      <pre><code class="language-r">
+    <section id="section3">
+      <h2>Daten & Pakete laden</h2>
+      <p>Vor jeder Analyse müssen Pakete geladen und Daten importiert werden.<span class="badge">Tipp</span></p>
+      <button class="collapsible">Try Out: Pakete & Daten laden</button>
+      <div class="content">
+        <pre><code class="language-r">
 install.packages("tidyverse")
 library(tidyverse)
 daten <- read.csv("meine_daten.csv")
-      </code></pre>
-    </div>
-  </section>
-</main>
+        </code></pre>
+      </div>
+    </section>
+  </main>
 
-<footer>
-  <p>&copy; 2025 Quantitative Forschung | Gehostet auf GitHub Pages</p>
-</footer>
+  <footer>
+    <p>&copy; 2025 Quantitative Forschung | Gehostet auf GitHub Pages</p>
+  </footer>
+</div>
 
 <script>
-  // Collapsible code sections
-  var coll = document.getElementsByClassName("collapsible");
-  for (let i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function() {
-      this.classList.toggle("active");
-      var content = this.nextElementSibling;
-      content.style.display = content.style.display === "block" ? "none" : "block";
-    });
-  }
+var coll = document.getElementsByClassName("collapsible");
+for (let i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    content.style.display = content.style.display === "block" ? "none" : "block";
+  });
+}
 </script>
 
 </body>
