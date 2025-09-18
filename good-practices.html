@@ -5,6 +5,61 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Good Practices & Code Schreiben – Quantitative Forschung</title>
 <link rel="stylesheet" href="style.css">
+<style>
+/* ====== R Console Style ====== */
+.r-console {
+  background: #2d2d2d; 
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 20px 0;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  font-family: 'Consolas', 'Courier New', monospace;
+}
+
+.r-header {
+  background: #3c3c3c;
+  color: #e0e0e0;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.r-window-controls {
+  display: flex;
+  gap: 6px;
+}
+
+.r-window-control {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.r-control-close { background: #ff5f56; }
+.r-control-minimize { background: #ffbd2e; }
+.r-control-maximize { background: #27c93f; }
+
+.r-content {
+  padding: 16px;
+  overflow-x: auto;
+}
+
+.r-code {
+  margin: 0;
+  color: #eaeaea;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.r-comment { color: #9ca3af; font-style: italic; }
+.r-function { color: #56b6c2; }
+.r-operator { color: #f78c6c; }
+.r-number   { color: #d19a66; }
+.r-string   { color: #98c379; }
+</style>
 </head>
 <body>
 
@@ -22,51 +77,97 @@
   </header>
 
   <nav>
-  <a href="index.html">Startseite</a>
-  <a href="good-practices.html">Good Practices</a>
-  <a href="visualization.html">Visualisierung</a>
-  <a href="testing.html">Tests</a>
-  <a href="materials.html">Materialien</a>
-</nav>
+    <a href="index.html">Startseite</a>
+    <a href="good-practices.html">Good Practices</a>
+    <a href="visualization.html">Visualisierung</a>
+    <a href="testing.html">Tests</a>
+    <a href="materials.html">Materialien</a>
+  </nav>
 
   <main>
     <section id="section1">
       <h2>Gute Gewohnheiten beim Codieren</h2>
-      <p>Kommentare helfen Ihnen und anderen, den Code zu verstehen. Arbeiten Sie Schritt für Schritt.<span class="badge">Tipp</span></p>
+      <p>
+        Wenn Sie mit R anfangen, wirkt vieles vielleicht kompliziert. 
+        Eine der wichtigsten Gewohnheiten ist: **Schreiben Sie Kommentare**.  
+        Ein Kommentar ist eine Zeile, die mit <code>#</code> beginnt.  
+        Er wird von R nicht ausgeführt, sondern dient nur als Erklärung für Sie oder andere.  
+        So behalten Sie leichter den Überblick, wenn Sie Ihren Code später noch einmal lesen.
+      </p>
       <button class="collapsible">Try Out: Kommentare hinzufügen</button>
       <div class="content">
-        <pre><code class="language-r">
-# 1. Daten laden
-# Hier importieren wir unseren Datensatz
-daten <- read.csv("meine_daten.csv")
-        </code></pre>
+        <div class="r-console">
+          <div class="r-header">
+            <div class="r-window-controls">
+              <div class="r-window-control r-control-close"></div>
+              <div class="r-window-control r-control-minimize"></div>
+              <div class="r-window-control r-control-maximize"></div>
+            </div>
+            <span>R Console</span>
+          </div>
+          <div class="r-content">
+<pre class="r-code"><span class="r-comment"># 1. Daten laden</span>
+<span class="r-comment"># Hier importieren wir unseren Datensatz</span>
+daten <span class="r-operator"><-</span> read.csv(<span class="r-string">"meine_daten.csv"</span>)</pre>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="section2">
       <h2>R-Skripte</h2>
-      <p>Ein R-Skript speichert Ihren Code in einer Datei (.R).<span class="badge">Tipp</span></p>
+      <p>
+        In R schreiben Sie Ihren Code meistens in **Skripten**.  
+        Das sind einfache Textdateien mit der Endung <code>.R</code>.  
+        Der Vorteil: Sie können Ihren Code speichern, später erneut ausführen und Schritt für Schritt verbessern.  
+        Statt alles immer neu einzutippen, bauen Sie sich so ein wiederverwendbares „Rezept“ für Ihre Analyse.
+      </p>
       <button class="collapsible">Try Out: Skript erstellen</button>
       <div class="content">
-        <pre><code class="language-r">
-library(ggplot2)
-daten <- read.csv("meine_daten.csv")
-ggplot(daten, aes(x = Variable1, y = Variable2)) +
-  geom_point()
-        </code></pre>
+        <div class="r-console">
+          <div class="r-header">
+            <div class="r-window-controls">
+              <div class="r-window-control r-control-close"></div>
+              <div class="r-window-control r-control-minimize"></div>
+              <div class="r-window-control r-control-maximize"></div>
+            </div>
+            <span>R Console</span>
+          </div>
+          <div class="r-content">
+<pre class="r-code">library(ggplot2) 
+daten <span class="r-operator"><-</span> read.csv(<span class="r-string">"meine_daten.csv"</span>)
+ggplot(daten, aes(x <span class="r-operator">=</span> Variable1, y <span class="r-operator">=</span> Variable2)) <span class="r-operator">+</span>
+  geom_point()</pre>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="section3">
       <h2>Daten & Pakete laden</h2>
-      <p>Vor jeder Analyse müssen Pakete geladen und Daten importiert werden.<span class="badge">Tipp</span></p>
+      <p>
+        Bevor Sie Daten analysieren können, müssen Sie zwei Dinge tun:  
+        1. **Pakete installieren und laden** – das sind Zusatzfunktionen für R, ähnlich wie Apps auf Ihrem Handy.  
+        2. **Ihre Daten importieren** – z. B. eine CSV-Datei, in der Ihre Tabellen gespeichert sind.  
+        Danach können Sie direkt loslegen und die Daten untersuchen.
+      </p>
       <button class="collapsible">Try Out: Pakete & Daten laden</button>
       <div class="content">
-        <pre><code class="language-r">
-install.packages("tidyverse")
+        <div class="r-console">
+          <div class="r-header">
+            <div class="r-window-controls">
+              <div class="r-window-control r-control-close"></div>
+              <div class="r-window-control r-control-minimize"></div>
+              <div class="r-window-control r-control-maximize"></div>
+            </div>
+            <span>R Console</span>
+          </div>
+          <div class="r-content">
+<pre class="r-code">install.packages(<span class="r-string">"tidyverse"</span>)
 library(tidyverse)
-daten <- read.csv("meine_daten.csv")
-        </code></pre>
+daten <span class="r-operator"><-</span> read.csv(<span class="r-string">"meine_daten.csv"</span>)</pre>
+          </div>
+        </div>
       </div>
     </section>
   </main>
