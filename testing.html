@@ -48,10 +48,9 @@
             </ul>
           </div>
           
-          <button class="collapsible">R Code: Chi-Quadrat Test</button>
-          <div class="content">
-            <div class="code-example">
-              <pre><code class="language-r">
+          <h4>R Code: Chi-Quadrat Test</h4>
+          <div class="code-example">
+            <pre><code class="language-r">
 # Erstellen einer Kreuztabelle
 tabelle <- table(mtcars$vs, mtcars$am)
 print("Kreuztabelle:")
@@ -69,8 +68,7 @@ print(ergebnis$expected)
 # Residuen analysieren (für Zellen mit signifikanten Abweichungen)
 print("Standardisierte Residuen:")
 print(ergebnis$residuals)
-              </code></pre>
-            </div>
+            </code></pre>
           </div>
           
           <div class="interpretation-box">
@@ -98,10 +96,9 @@ print(ergebnis$residuals)
             </ul>
           </div>
           
-          <button class="collapsible">R Code: Test für Proportionen</button>
-          <div class="content">
-            <div class="code-example">
-              <pre><code class="language-r">
+          <h4>R Code: Test für Proportionen</h4>
+          <div class="code-example">
+            <pre><code class="language-r">
 # Ein-Stichproben Test gegen theoretischen Wert (p0 = 0.5)
 print("Ein-Stichproben Test gegen p=0.5:")
 ergebnis1 <- prop.test(x = 35, n = 50, p = 0.5, alternative = "two.sided")
@@ -122,8 +119,7 @@ print("Anteil automatischer Getriebe in mtcars:")
 auto_anteil <- sum(mtcars$am == 0)
 gesamt <- nrow(mtcars)
 prop.test(auto_anteil, gesamt)
-              </code></pre>
-            </div>
+            </code></pre>
           </div>
           
           <div class="interpretation-box">
@@ -159,10 +155,9 @@ prop.test(auto_anteil, gesamt)
             </ul>
           </div>
           
-          <button class="collapsible">R Code: t-Test und Mann-Whitney</button>
-          <div class="content">
-            <div class="code-example">
-              <pre><code class="language-r">
+          <h4>R Code: t-Test und Mann-Whitney</h4>
+          <div class="code-example">
+            <pre><code class="language-r">
 # t-Test für unabhängige Stichproben
 print("t-Test für mpg nach Getriebetyp (0=automatisch, 1=manuell):")
 t_test_ergebnis <- t.test(mpg ~ am, data = mtcars)
@@ -186,8 +181,7 @@ print(mw_test_ergebnis)
 library(effectsize)
 print("Effektstärke (Cohen's d):")
 print(cohens_d(mpg ~ am, data = mtcars))
-              </code></pre>
-            </div>
+            </code></pre>
           </div>
           
           <div class="interpretation-box">
@@ -246,15 +240,9 @@ print(cohens_d(mpg ~ am, data = mtcars))
             </div>
           </div>
           
-          <div class="tip">
-            <h4><span class="tip-icon">!</span> Wichtiger Hinweis</h4>
-            <p>Statistische Signifikanz (p-Wert) ist nicht dasselbe wie praktische Signifikanz (Effektstärke). Ein kleiner p-Wert sagt nichts über die Stärke oder Bedeutung eines Effekts aus. Berichten Sie immer Effektstärken zusammen mit p-Werten.</p>
-          </div>
-          
-          <button class="collapsible">R Code: Testauswahl und Voraussetzungsprüfung</button>
-          <div class="content">
-            <div class="code-example">
-              <pre><code class="language-r">
+          <h4>R Code: Testauswahl und Voraussetzungsprüfung</h4>
+          <div class="code-example">
+            <pre><code class="language-r">
 # Funktion zur Überprüfung von Testvoraussetzungen
 check_test_assumptions <- function(data, group_var, measure_var) {
   # Gruppieren
@@ -283,8 +271,12 @@ check_test_assumptions <- function(data, group_var, measure_var) {
 
 # Beispielaufruf mit mtcars-Daten
 check_test_assumptions(mtcars, "am", "mpg")
-              </code></pre>
-            </div>
+            </code></pre>
+          </div>
+          
+          <div class="tip">
+            <h4>Wichtiger Hinweis</h4>
+            <p>Statistische Signifikanz (p-Wert) ist nicht dasselbe wie praktische Signifikanz (Effektstärke). Ein kleiner p-Wert sagt nichts über die Stärke oder Bedeutung eines Effekts aus. Berichten Sie immer Effektstärken zusammen mit p-Werten.</p>
           </div>
         </div>
       </section>
@@ -295,28 +287,6 @@ check_test_assumptions(mtcars, "am", "mpg")
     </footer>
   </div>
 </div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var coll = document.getElementsByClassName("collapsible");
-  
-  for (let i = 0; i < coll.length; i++) {
-    // Initially hide all content sections
-    coll[i].nextElementSibling.style.display = "none";
-    
-    coll[i].addEventListener("click", function() {
-      this.classList.toggle("active");
-      var content = this.nextElementSibling;
-      
-      if (content.style.display === "block") {
-        content.style.display = "none";
-      } else {
-        content.style.display = "block";
-      }
-    });
-  }
-});
-</script>
 
 </body>
 </html>
