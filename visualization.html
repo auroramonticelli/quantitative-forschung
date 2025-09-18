@@ -53,8 +53,30 @@
             <h4>Grundlegende Datenexploration in R</h4>
             <p>Bevor Sie visualisieren, sollten Sie diese grundlegenden Funktionen verwenden:</p>
             
-            <div class="example-box">
-              <code># Datenstruktur untersuchen<br>str(mtcars)<br><br># Erste Zeilen anzeigen<br>head(mtcars)<br><br># Zusammenfassende Statistiken<br>summary(mtcars)<br><br># Fehlende Werte identifizieren<br>sum(is.na(mtcars))</code>
+            <div class="r-console">
+              <div class="r-header">
+                <div class="r-window-controls">
+                  <span class="r-window-control r-control-close"></span>
+                  <span class="r-window-control r-control-minimize"></span>
+                  <span class="r-window-control r-control-maximize"></span>
+                </div>
+                <span>R Console</span>
+              </div>
+              <div class="r-content">
+                <pre class="r-code">
+# Datenstruktur untersuchen
+str(mtcars)
+
+# Erste Zeilen anzeigen
+head(mtcars)
+
+# Zusammenfassende Statistiken
+summary(mtcars)
+
+# Fehlende Werte identifizieren
+sum(is.na(mtcars))
+                </pre>
+              </div>
             </div>
           </div>
           
@@ -80,8 +102,6 @@
               <li>Interpretieren und Insights ableiten</li>
             </ol>
           </div>
-          
-  
         </div>
       </section>
 
@@ -101,8 +121,22 @@
             <li><strong>Theme</strong> - Visuelle Details ohne Datenbezug</li>
           </ul>
           
-          <div class="example-box">
-            <code># Grundlegende Syntax von ggplot2<br>ggplot(data = &lt;DATA&gt;) + <br>  &lt;GEOM_FUNCTION&gt;(mapping = aes(&lt;MAPPINGS&gt;))</code>
+          <div class="r-console">
+            <div class="r-header">
+              <div class="r-window-controls">
+                <span class="r-window-control r-control-close"></span>
+                <span class="r-window-control r-control-minimize"></span>
+                <span class="r-window-control r-control-maximize"></span>
+              </div>
+              <span>R Console</span>
+            </div>
+            <div class="r-content">
+              <pre class="r-code">
+# Grundlegende Syntax von ggplot2
+ggplot(data = &lt;DATA&gt;) + 
+  &lt;GEOM_FUNCTION&gt;(mapping = aes(&lt;MAPPINGS&gt;))
+              </pre>
+            </div>
           </div>
           
           <p>Für den Einstieg empfehlen wir das ggplot2 Cheatsheet von RStudio, das eine ausgezeichnete Referenz für die häufigsten Visualisierungsaufgaben bietet.</p>
@@ -110,14 +144,26 @@
         
         <button class="collapsible">Try Out: ggplot starten</button>
         <div class="content">
-          <pre><code class="language-r">
+          <div class="r-console">
+            <div class="r-header">
+              <div class="r-window-controls">
+                <span class="r-window-control r-control-close"></span>
+                <span class="r-window-control r-control-minimize"></span>
+                <span class="r-window-control r-control-maximize"></span>
+              </div>
+              <span>R Console</span>
+            </div>
+            <div class="r-content">
+              <pre class="r-code">
 # ggplot2 laden
 library(ggplot2)
 
 # Einfaches Beispiel
 ggplot(mtcars, aes(x = wt, y = mpg)) +
   geom_point()
-          </code></pre>
+              </pre>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -131,31 +177,89 @@ ggplot(mtcars, aes(x = wt, y = mpg)) +
           <div class="key-point">
             <h4>Barplot (Balkendiagramm)</h4>
             <p>Für kategorische Daten: Zeigt Häufigkeiten oder Mittelwerte für verschiedene Kategorien.</p>
-            <div class="example-box">
-              <code># Barplot für Zylinderanzahlen<br>ggplot(mtcars, aes(x = factor(cyl))) + <br>  geom_bar(fill = "#b9aadf") +<br>  labs(title = "Anzahl der Autos nach Zylinderzahl", x = "Zylinder", y = "Anzahl")</code>
+            <div class="r-console">
+              <div class="r-header">
+                <div class="r-window-controls">
+                  <span class="r-window-control r-control-close"></span>
+                  <span class="r-window-control r-control-minimize"></span>
+                  <span class="r-window-control r-control-maximize"></span>
+                </div>
+                <span>R Console</span>
+              </div>
+              <div class="r-content">
+                <pre class="r-code">
+# Barplot für Zylinderanzahlen
+ggplot(mtcars, aes(x = factor(cyl))) + 
+  geom_bar(fill = "#b9aadf") +
+  labs(title = "Anzahl der Autos nach Zylinderzahl", 
+       x = "Zylinder", y = "Anzahl")
+                </pre>
+              </div>
             </div>
           </div>
           
           <div class="key-point">
             <h4>Boxplot (Boxplot)</h4>
             <p>Für Verteilungen: Zeigt Median, Quartile und Ausreißer einer Verteilung.</p>
-            <div class="example-box">
-              <code># Boxplot für MPG nach Zylinderzahl<br>ggplot(mtcars, aes(x = factor(cyl), y = mpg)) + <br>  geom_boxplot(fill = "#b9aadf") +<br>  labs(title = "MPG Verteilung nach Zylinderzahl", x = "Zylinder", y = "MPG")</code>
+            <div class="r-console">
+              <div class="r-header">
+                <div class="r-window-controls">
+                  <span class="r-window-control r-control-close"></span>
+                  <span class="r-window-control r-control-minimize"></span>
+                  <span class="r-window-control r-control-maximize"></span>
+                </div>
+                <span>R Console</span>
+              </div>
+              <div class="r-content">
+                <pre class="r-code">
+# Boxplot für MPG nach Zylinderzahl
+ggplot(mtcars, aes(x = factor(cyl), y = mpg)) + 
+  geom_boxplot(fill = "#b9aadf") +
+  labs(title = "MPG Verteilung nach Zylinderzahl", 
+       x = "Zylinder", y = "MPG")
+                </pre>
+              </div>
             </div>
           </div>
           
           <div class="key-point">
             <h4>Histogram (Histogramm)</h4>
             <p>Für Verteilungen kontinuierlicher Daten: Zeigt die Häufigkeitsverteilung einer Variable.</p>
-            <div class="example-box">
-              <code># Histogram für MPG<br>ggplot(mtcars, aes(x = mpg)) + <br>  geom_histogram(fill = "#b9aadf", bins = 10, color = "white") +<br>  labs(title = "Verteilung der MPG Werte", x = "MPG", y = "Häufigkeit")</code>
+            <div class="r-console">
+              <div class="r-header">
+                <div class="r-window-controls">
+                  <span class="r-window-control r-control-close"></span>
+                  <span class="r-window-control r-control-minimize"></span>
+                  <span class="r-window-control r-control-maximize"></span>
+                </div>
+                <span>R Console</span>
+              </div>
+              <div class="r-content">
+                <pre class="r-code">
+# Histogram für MPG
+ggplot(mtcars, aes(x = mpg)) + 
+  geom_histogram(fill = "#b9aadf", bins = 10, color = "white") +
+  labs(title = "Verteilung der MPG Werte", 
+       x = "MPG", y = "Häufigkeit")
+                </pre>
+              </div>
             </div>
           </div>
         </div>
         
         <button class="collapsible">R Code</button>
         <div class="content">
-          <pre><code class="language-r">
+          <div class="r-console">
+            <div class="r-header">
+              <div class="r-window-controls">
+                <span class="r-window-control r-control-close"></span>
+                <span class="r-window-control r-control-minimize"></span>
+                <span class="r-window-control r-control-maximize"></span>
+              </div>
+              <span>R Console</span>
+            </div>
+            <div class="r-content">
+              <pre class="r-code">
 # Barplot
 ggplot(mtcars, aes(x = factor(cyl))) + geom_bar(fill = "#b9aadf")
 
@@ -164,7 +268,9 @@ ggplot(mtcars, aes(x = factor(cyl), y = mpg)) + geom_boxplot(fill = "#b9aadf")
 
 # Histogram
 ggplot(mtcars, aes(x = mpg)) + geom_histogram(fill = "#b9aadf", bins = 10)
-          </code></pre>
+              </pre>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -191,7 +297,17 @@ ggplot(mtcars, aes(x = mpg)) + geom_histogram(fill = "#b9aadf", bins = 10)
         
         <button class="collapsible">R Code</button>
         <div class="content">
-          <pre><code class="language-r">
+          <div class="r-console">
+            <div class="r-header">
+              <div class="r-window-controls">
+                <span class="r-window-control r-control-close"></span>
+                <span class="r-window-control r-control-minimize"></span>
+                <span class="r-window-control r-control-maximize"></span>
+              </div>
+              <span>R Console</span>
+            </div>
+            <div class="r-content">
+              <pre class="r-code">
 ggplot(mtcars, aes(x = hp, y = mpg)) +
   geom_point(color = "#b9aadf") +
   geom_smooth(method = "lm", se = FALSE, color = "#9b7bb5") +
@@ -205,7 +321,9 @@ ggplot(mtcars, aes(x = hp, y = mpg)) +
     plot.title = element_text(size = 20, face = "bold", color = "#9b7bb5"),
     plot.subtitle = element_text(size = 16, face = "italic", color = "#b9aadf")
   )
-          </code></pre>
+              </pre>
+            </div>
+          </div>
         </div>
       </section>
     </main>
