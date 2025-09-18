@@ -49,33 +49,45 @@
           </div>
           
           <h4>R Code: Chi-Quadrat Test</h4>
-          <div class="code-example">
-            <pre><code class="language-r">
-# Erstellen einer Kreuztabelle
-tabelle <- table(mtcars$vs, mtcars$am)
-print("Kreuztabelle:")
-print(tabelle)
+          
+          <div class="r-console">
+            <div class="r-header">
+              <span>R Terminal</span>
+              <div class="r-window-controls">
+                <div class="r-window-control r-control-close"></div>
+                <div class="r-window-control r-control-minimize"></div>
+                <div class="r-window-control r-control-maximize"></div>
+              </div>
+            </div>
+            <div class="r-content">
+              <pre class="r-code"><span class="r-comment"># Erstellen einer Kreuztabelle</span>
+<span class="r-function">table</span>(mtcars<span class="r-operator">$</span>vs, mtcars<span class="r-operator">$</span>am)
 
-# Chi-Quadrat Test durchführen
-ergebnis <- chisq.test(tabelle)
-print("Chi-Quadrat Test Ergebnisse:")
-print(ergebnis)
+<span class="r-comment"># Chi-Quadrat Test durchführen</span>
+<span class="r-function">chisq.test</span>(<span class="r-function">table</span>(mtcars<span class="r-operator">$</span>vs, mtcars<span class="r-operator">$</span>am))
 
-# Erwartete Häufigkeiten anzeigen
-print("Erwartete Häufigkeiten:")
-print(ergebnis$expected)
+<span class="r-comment"># Erwartete Häufigkeiten anzeigen</span>
+chisq<span class="r-operator">.</span>result <span class="r-operator">&lt;-</span> <span class="r-function">chisq.test</span>(<span class="r-function">table</span>(mtcars<span class="r-operator">$</span>vs, mtcars<span class="r-operator">$</span>am))
+chisq<span class="r-operator">.</span>result<span class="r-operator">$</span>expected
 
-# Residuen analysieren (für Zellen mit signifikanten Abweichungen)
-print("Standardisierte Residuen:")
-print(ergebnis$residuals)
-            </code></pre>
+<span class="r-comment"># Residuen analysieren</span>
+chisq<span class="r-operator">.</span>result<span class="r-operator">$</span>residuals</pre>
+            </div>
+          </div>
+          
+          <div class="code-caption">Ausführung des Chi-Quadrat Tests in R mit mtcars Daten</div>
+          
+          <div class="code-output">
+            > chisq.test(table(mtcars$vs, mtcars$am))<br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Pearson's Chi-squared test with Yates' continuity correction<br><br>
+            data:  table(mtcars$vs, mtcars$am)<br>
+            X-squared = 0.34754, df = 1, p-value = 0.5555
           </div>
           
           <div class="interpretation-box">
             <h4>Interpretation der Ergebnisse</h4>
-            <p><strong>p-Wert:</strong> Wenn p &lt; 0.05, gibt es einen signifikanten Zusammenhang zwischen den Variablen.</p>
-            <p><strong>χ²-Wert:</strong> Je höher der Wert, desto stärker die Abweichung von der Unabhängigkeit.</p>
-            <p><strong>Residuen:</strong> Standardisierte Residuen über ±2 zeigen Zellen mit signifikanten Abweichungen an.</p>
+            <p><strong>p-Wert:</strong> p = 0.5555 > 0.05 → Kein signifikanter Zusammenhang zwischen Motorform (vs) und Getriebetyp (am)</p>
+            <p><strong>χ²-Wert:</strong> 0.34754 zeigt eine geringe Abweichung von der Unabhängigkeit</p>
           </div>
         </div>
       </section>
@@ -97,36 +109,52 @@ print(ergebnis$residuals)
           </div>
           
           <h4>R Code: Test für Proportionen</h4>
-          <div class="code-example">
-            <pre><code class="language-r">
-# Ein-Stichproben Test gegen theoretischen Wert (p0 = 0.5)
-print("Ein-Stichproben Test gegen p=0.5:")
-ergebnis1 <- prop.test(x = 35, n = 50, p = 0.5, alternative = "two.sided")
-print(ergebnis1)
+          
+          <div class="r-console">
+            <div class="r-header">
+              <span>R Terminal</span>
+              <div class="r-window-controls">
+                <div class="r-window-control r-control-close"></div>
+                <div class="r-window-control r-control-minimize"></div>
+                <div class="r-window-control r-control-maximize"></div>
+              </div>
+            </div>
+            <div class="r-content">
+              <pre class="r-code"><span class="r-comment"># Ein-Stichproben Test gegen theoretischen Wert (p0 = 0.5)</span>
+<span class="r-function">prop.test</span>(<span class="r-number">35</span>, <span class="r-number">50</span>, p <span class="r-operator">=</span> <span class="r-number">0.5</span>, alternative <span class="r-operator">=</span> <span class="r-string">"two.sided"</span>)
 
-# Zwei-Stichproben Test (Vergleich zweier Proportionen)
-print("Zwei-Stichproben Test:")
-ergebnis2 <- prop.test(x = c(30, 40), n = c(50, 50))
-print(ergebnis2)
+<span class="r-comment"># Zwei-Stichproben Test (Vergleich zweier Proportionen)</span>
+<span class="r-function">prop.test</span>(<span class="r-function">c</span>(<span class="r-number">30</span>, <span class="r-number">40</span>), <span class="r-function">c</span>(<span class="r-number">50</span>, <span class="r-number">50</span>))
 
-# Exakter Test nach Fisher (für kleine Stichproben)
-print("Fisher's exakter Test:")
-ergebnis3 <- fisher.test(matrix(c(10, 5, 20, 25), nrow = 2))
-print(ergebnis3)
+<span class="r-comment"># Exakter Test nach Fisher (für kleine Stichproben)</span>
+<span class="r-function">fisher.test</span>(<span class="r-function">matrix</span>(<span class="r-function">c</span>(<span class="r-number">10</span>, <span class="r-number">5</span>, <span class="r-number">20</span>, <span class="r-number">25</span>), nrow <span class="r-operator">=</span> <span class="r-number">2</span>))
 
-# Beispiel mit mtcars-Daten: Anteil automatischer Getriebe (am=0)
-print("Anteil automatischer Getriebe in mtcars:")
-auto_anteil <- sum(mtcars$am == 0)
-gesamt <- nrow(mtcars)
-prop.test(auto_anteil, gesamt)
-            </code></pre>
+<span class="r-comment"># Beispiel mit mtcars-Daten: Anteil automatischer Getriebe (am=0)</span>
+auto_anteil <span class="r-operator">&lt;-</span> <span class="r-function">sum</span>(mtcars<span class="r-operator">$</span>am <span class="r-operator">==</span> <span class="r-number">0</span>)
+gesamt <span class="r-operator">&lt;-</span> <span class="r-function">nrow</span>(mtcars)
+<span class="r-function">prop.test</span>(auto_anteil, gesamt)</pre>
+            </div>
+          </div>
+          
+          <div class="code-caption">Verschiedene Tests für Proportionen in R</div>
+          
+          <div class="code-output">
+            > prop.test(35, 50, p = 0.5, alternative = "two.sided")<br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;1-sample proportions test with continuity correction<br><br>
+            data:  35 out of 50, null probability 0.5<br>
+            X-squared = 7.22, df = 1, p-value = 0.00722<br>
+            alternative hypothesis: true p is not equal to 0.5<br>
+            95 percent confidence interval:<br>
+            &nbsp;&nbsp;0.5538758 0.8081152<br>
+            sample estimates:<br>
+            &nbsp;&nbsp;p <br>
+            0.7
           </div>
           
           <div class="interpretation-box">
             <h4>Interpretation der Ergebnisse</h4>
-            <p><strong>p-Wert:</strong> Wenn p &lt; 0.05, unterscheiden sich die Proportionen signifikant.</p>
-            <p><strong>Konfidenzintervall:</strong> Enthält der CI den Nullwert (0 bei Differenzen, 1 bei Odds Ratios)? Wenn nein, signifikant.</p>
-            <p><strong>Effektstärke:</strong> Die Differenz der Proportionen oder das Odds Ratio gibt die Stärke des Effekts an.</p>
+            <p><strong>p-Wert:</strong> p = 0.007 < 0.05 → Der Anteil (0.7) unterscheidet sich signifikant vom theoretischen Wert 0.5</p>
+            <p><strong>Konfidenzintervall:</strong> [0.55, 0.81] enthält nicht 0.5 → signifikant</p>
           </div>
         </div>
       </section>
@@ -156,127 +184,56 @@ prop.test(auto_anteil, gesamt)
           </div>
           
           <h4>R Code: t-Test und Mann-Whitney</h4>
-          <div class="code-example">
-            <pre><code class="language-r">
-# t-Test für unabhängige Stichproben
-print("t-Test für mpg nach Getriebetyp (0=automatisch, 1=manuell):")
-t_test_ergebnis <- t.test(mpg ~ am, data = mtcars)
-print(t_test_ergebnis)
+          
+          <div class="r-console">
+            <div class="r-header">
+              <span>R Terminal</span>
+              <div class="r-window-controls">
+                <div class="r-window-control r-control-close"></div>
+                <div class="r-window-control r-control-minimize"></div>
+                <div class="r-window-control r-control-maximize"></div>
+              </div>
+            </div>
+            <div class="r-content">
+              <pre class="r-code"><span class="r-comment"># t-Test für unabhängige Stichproben</span>
+<span class="r-function">t.test</span>(mpg <span class="r-operator">~</span> am, data <span class="r-operator">=</span> mtcars)
 
-# Überprüfung der Normalverteilung mit Shapiro-Wilk-Test
-print("Normalverteilungstest für beide Gruppen:")
-print(shapiro.test(mtcars$mpg[mtcars$am == 0]))
-print(shapiro.test(mtcars$mpg[mtcars$am == 1]))
+<span class="r-comment"># Überprüfung der Normalverteilung mit Shapiro-Wilk-Test</span>
+<span class="r-function">shapiro.test</span>(mtcars<span class="r-operator">$</span>mpg[mtcars<span class="r-operator">$</span>am <span class="r-operator">==</span> <span class="r-number">0</span>])
+<span class="r-function">shapiro.test</span>(mtcars<span class="r-operator">$</span>mpg[mtcars<span class="r-operator">$</span>am <span class="r-operator">==</span> <span class="r-number">1</span>])
 
-# Überprüfung der Varianzhomogenität mit F-Test
-print("Varianzhomogenitätstest:")
-print(var.test(mpg ~ am, data = mtcars))
+<span class="r-comment"># Überprüfung der Varianzhomogenität mit F-Test</span>
+<span class="r-function">var.test</span>(mpg <span class="r-operator">~</span> am, data <span class="r-operator">=</span> mtcars)
 
-# Mann-Whitney U-Test (Wilcoxon-Rangsummentest)
-print("Mann-Whitney U-Test für mpg nach Getriebetyp:")
-mw_test_ergebnis <- wilcox.test(mpg ~ am, data = mtcars)
-print(mw_test_ergebnis)
+<span class="r-comment"># Mann-Whitney U-Test (Wilcoxon-Rangsummentest)</span>
+<span class="r-function">wilcox.test</span>(mpg <span class="r-operator">~</span> am, data <span class="r-operator">=</span> mtcars)
 
-# Effektstärke berechnen (Cohen's d für t-Test)
-library(effectsize)
-print("Effektstärke (Cohen's d):")
-print(cohens_d(mpg ~ am, data = mtcars))
-            </code></pre>
+<span class="r-comment"># Effektstärke berechnen (Cohen's d für t-Test)</span>
+<span class="r-function">library</span>(effectsize)
+<span class="r-function">cohens_d</span>(mpg <span class="r-operator">~</span> am, data <span class="r-operator">=</span> mtcars)</pre>
+            </div>
+          </div>
+          
+          <div class="code-caption">Vergleich von t-Test und Mann-Whitney U-Test in R</div>
+          
+          <div class="code-output">
+            > t.test(mpg ~ am, data = mtcars)<br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Welch Two Sample t-test<br><br>
+            data:  mpg by am<br>
+            t = -3.7671, df = 18.332, p-value = 0.001374<br>
+            alternative hypothesis: true difference in means is not equal to 0<br>
+            95 percent confidence interval:<br>
+            &nbsp;&nbsp;-11.280194  -3.209684<br>
+            sample estimates:<br>
+            &nbsp;&nbsp;mean in group 0 mean in group 1 <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;17.14737       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;24.39231
           </div>
           
           <div class="interpretation-box">
             <h4>Interpretation der Ergebnisse</h4>
-            <p><strong>t-Test:</strong></p>
-            <ul>
-              <li>p-Wert &lt; 0.05: Signifikanter Mittelwertunterschied</li>
-              <li>t-Wert: Stärke und Richtung des Unterschieds</li>
-              <li>Konfidenzintervall: Enthält es 0? Wenn nein, signifikant</li>
-              <li>Cohen's d: 0.2=kleiner, 0.5=mittlerer, 0.8=großer Effekt</li>
-            </ul>
-            
-            <p><strong>Mann-Whitney U-Test:</strong></p>
-            <ul>
-              <li>p-Wert &lt; 0.05: Signifikante Unterschiede in den Verteilungen</li>
-              <li>U-Wert: Teststatistik für Rangsummentest</li>
-              <li>Effektstärke r: r = Z/√N (0.1=kleiner, 0.3=mittlerer, 0.5=großer Effekt)</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section id="section4" class="test-section">
-        <h2 class="test-header">Testauswahl und Entscheidungsbaum</h2>
-        
-        <div class="educational-content">
-          <p>Die Wahl des richtigen statistischen Tests hängt von Ihren Daten und Forschungsfragen ab.</p>
-          
-          <div class="decision-guide">
-            <div class="decision-tree">
-              <h3>Entscheidungsbaum für statistische Tests</h3>
-              
-              <div class="tree-node">
-                <p><strong>1. Welche Art von Variablen haben Sie?</strong></p>
-                <div class="tree-branch">
-                  <p>Kategoriale Variablen → Chi-Quadrat Test oder Fisher's exakter Test</p>
-                  <p>Stetige Variablen → Weiter zu Frage 2</p>
-                </div>
-              </div>
-              
-              <div class="tree-node">
-                <p><strong>2. Wie viele Gruppen vergleichen Sie?</strong></p>
-                <div class="tree-branch">
-                  <p>Zwei Gruppen → Weiter zu Frage 3</p>
-                  <p>Drei oder mehr Gruppen → ANOVA oder Kruskal-Wallis Test</p>
-                </div>
-              </div>
-              
-              <div class="tree-node">
-                <p><strong>3. Sind die Daten normalverteilt?</strong></p>
-                <div class="tree-branch">
-                  <p>Ja → t-Test für unabhängige Stichproben</p>
-                  <p>Nein → Mann-Whitney U-Test</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <h4>R Code: Testauswahl und Voraussetzungsprüfung</h4>
-          <div class="code-example">
-            <pre><code class="language-r">
-# Funktion zur Überprüfung von Testvoraussetzungen
-check_test_assumptions <- function(data, group_var, measure_var) {
-  # Gruppieren
-  groups <- split(data[[measure_var]], data[[group_var]])
-  
-  # Normalverteilung prüfen (Shapiro-Wilk Test)
-  normality <- sapply(groups, function(x) shapiro.test(x)$p.value)
-  
-  # Varianzhomogenität prüfen (Levene-Test)
-  library(car)
-  levene <- leveneTest(data[[measure_var]] ~ data[[group_var]])$`Pr(>F)`[1]
-  
-  # Ergebnisse ausgeben
-  cat("Normalverteilung (p-Werte):", normality, "\n")
-  cat("Varianzhomogenität (Levene-Test p-Wert):", levene, "\n")
-  
-  # Empfehlung geben
-  if(all(normality > 0.05) & levene > 0.05) {
-    cat("Empfehlung: t-Test\n")
-  } else if(levene > 0.05) {
-    cat("Empfehlung: Welch-t-Test (Normalverteilung verletzt, aber Varianzhomogenität gegeben)\n")
-  } else {
-    cat("Empfehlung: Mann-Whitney U-Test (Voraussetzungen für t-Test nicht erfüllt)\n")
-  }
-}
-
-# Beispielaufruf mit mtcars-Daten
-check_test_assumptions(mtcars, "am", "mpg")
-            </code></pre>
-          </div>
-          
-          <div class="tip">
-            <h4>Wichtiger Hinweis</h4>
-            <p>Statistische Signifikanz (p-Wert) ist nicht dasselbe wie praktische Signifikanz (Effektstärke). Ein kleiner p-Wert sagt nichts über die Stärke oder Bedeutung eines Effekts aus. Berichten Sie immer Effektstärken zusammen mit p-Werten.</p>
+            <p><strong>p-Wert:</strong> p = 0.0014 < 0.05 → Signifikanter Mittelwertunterschied zwischen den Gruppen</p>
+            <p><strong>Mittelwerte:</strong> Automatik (17.15) vs. Manuell (24.39) MPG</p>
+            <p><strong>Effektstärke:</strong> Cohen's d = 1.48 → Großer Effekt</p>
           </div>
         </div>
       </section>
