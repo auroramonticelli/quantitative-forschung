@@ -106,68 +106,6 @@ sum(is.na(mtcars))
       </section>
 
       <section id="section2">
-        <h2>ggplot2 & Cheatsheet</h2>
-        <p>Wir nutzen <code>ggplot2</code> für ansprechende Grafiken. Cheatsheets helfen, schnell Funktionen zu finden.<span class="badge">Tipp</span></p>
-        
-        <div class="educational-content">
-          <p>ggplot2 ist ein mächtiges R-Paket für die Erstellung von Grafiken basierend auf der Grammatik der Grafiken. Jede Visualisierung besteht aus:</p>
-          
-          <ul>
-            <li><strong>Daten</strong> - Der Datensatz, den Sie visualisieren möchten</li>
-            <li><strong>Ästhetik</strong> - Wie Variablen visualisiert werden (x, y, Farbe, Größe)</li>
-            <li><strong>Geometrien</strong> - Die Art der Visualisierung (Punkte, Linien, Balken)</li>
-            <li><strong>Skalen</strong> - Wie Werte in visuelle Elemente übersetzt werden</li>
-            <li><strong>Facets</strong> - Mehrere kleine Grafiken zur Vergleich</li>
-            <li><strong>Theme</strong> - Visuelle Details ohne Datenbezug</li>
-          </ul>
-          
-          <div class="r-console">
-            <div class="r-header">
-              <div class="r-window-controls">
-                <span class="r-window-control r-control-close"></span>
-                <span class="r-window-control r-control-minimize"></span>
-                <span class="r-window-control r-control-maximize"></span>
-              </div>
-              <span>R Console</span>
-            </div>
-            <div class="r-content">
-              <pre class="r-code">
-# Grundlegende Syntax von ggplot2
-ggplot(data = &lt;DATA&gt;) + 
-  &lt;GEOM_FUNCTION&gt;(mapping = aes(&lt;MAPPINGS&gt;))
-              </pre>
-            </div>
-          </div>
-          
-          <p>Für den Einstieg empfehlen wir das ggplot2 Cheatsheet von RStudio, das eine ausgezeichnete Referenz für die häufigsten Visualisierungsaufgaben bietet.</p>
-        </div>
-        
-        <button class="collapsible">Try Out: ggplot starten</button>
-        <div class="content">
-          <div class="r-console">
-            <div class="r-header">
-              <div class="r-window-controls">
-                <span class="r-window-control r-control-close"></span>
-                <span class="r-window-control r-control-minimize"></span>
-                <span class="r-window-control r-control-maximize"></span>
-              </div>
-              <span>R Console</span>
-            </div>
-            <div class="r-content">
-              <pre class="r-code">
-# ggplot2 laden
-library(ggplot2)
-
-# Einfaches Beispiel
-ggplot(mtcars, aes(x = wt, y = mpg)) +
-  geom_point()
-              </pre>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="section3">
         <h2>Plots: Barplot, Boxplot, Histogram</h2>
         <p>Wir erstellen verschiedene Plottypen, um Daten zu erkunden.<span class="badge">Tipp</span></p>
         
@@ -274,7 +212,7 @@ ggplot(mtcars, aes(x = mpg)) + geom_histogram(fill = "#b9aadf", bins = 10)
         </div>
       </section>
 
-      <section id="section4">
+      <section id="section3">
         <h2>Ästhetische Anpassungen</h2>
         <p>Wir passen Titel, Farben und Positionen an, um Grafiken klarer zu gestalten.<span class="badge">Tipp</span></p>
         
