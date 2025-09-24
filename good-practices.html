@@ -116,11 +116,10 @@
 
 <span class="r-comment"># 1. Pakete laden ---------------------------------------</span>
 <span class="r-function">library</span>(tidyverse)  <span class="r-comment"># Sammlung von Paketen für Datenwissenschaft</span>
-<span class="r-function">library</span>(readxl)     <span class="r-comment"># Für Excel-Dateien</span>
 
 <span class="r-comment"># 2. Daten importieren ---------------------------------</span>
 <span class="r-comment"># Daten aus CSV-Datei laden</span>
-umfragedaten <span class="r-operator">&lt;-</span> <span class="r-function">read.csv</span>(<span class="r-string">"data/umfrage_2025.csv"</span>)</pre>
+data <span class="r-operator">&lt;-</span> <span class="r-function">read.csv</span>(<span class="r-string">"Desktop/healthcare_job_satisfaction.csv"</span>)</pre>
       </div>
     </div>
     
@@ -210,11 +209,9 @@ daten_csv <span class="r-operator">&lt;-</span> <span class="r-function">read.cs
             <div class="r-content">
               <pre class="r-code"><span class="r-comment"># 1. Pakete installieren</span>
 <span class="r-function">install.packages</span>(<span class="r-string">"tidyverse"</span>)   <span class="r-comment"># Einzelnes Paket</span>
-<span class="r-function">install.packages</span>(<span class="r-function">c</span>(<span class="r-string">"dplyr"</span>, <span class="r-string">"ggplot2"</span>))  <span class="r-comment"># Mehrere Pakete</span>
 
 <span class="r-comment"># 2. Pakete laden</span>
-<span class="r-function">library</span>(dplyr)     <span class="r-comment"># Paket laden</span>
-<span class="r-function">require</span>(ggplot2)   <span class="r-comment"># Alternative zum Laden</span>
+<span class="r-function">library</span>(tidyverse)     <span class="r-comment"># Paket laden</span>
 </pre>
             </div>
           </div>
