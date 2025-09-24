@@ -5,6 +5,167 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Materialien – Quantitative Forschung</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f7fa;
+      color: #333;
+    }
+    
+    header {
+      background: linear-gradient(135deg, #1c6ea4 0%, #2a88bd 100%);
+      color: white;
+      padding: 2rem 0;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    
+    header p {
+      margin: 0.5rem 0 0;
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+    
+    nav {
+      background-color: #2c3e50;
+      display: flex;
+      justify-content: center;
+      padding: 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 1rem 1.5rem;
+      transition: background-color 0.3s;
+    }
+    
+    nav a:hover {
+      background-color: #34495e;
+    }
+    
+    nav a[href="materials.html"] {
+      background-color: #1c6ea4;
+      font-weight: bold;
+    }
+    
+    main {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+    
+    section {
+      background: white;
+      border-radius: 8px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    
+    h2 {
+      color: #2c3e50;
+      border-bottom: 2px solid #1c6ea4;
+      padding-bottom: 0.5rem;
+      margin-top: 0;
+    }
+    
+    h3 {
+      color: #1c6ea4;
+      margin-top: 1.5rem;
+    }
+    
+    ul {
+      padding-left: 1.5rem;
+    }
+    
+    li {
+      margin-bottom: 0.8rem;
+    }
+    
+    a {
+      color: #1c6ea4;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    
+    a:hover {
+      color: #144a6d;
+      text-decoration: underline;
+    }
+    
+    .download-box {
+      background-color: #e8f4fc;
+      border-left: 4px solid #1c6ea4;
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+    
+    .download-box h4 {
+      margin-top: 0;
+      color: #1c6ea4;
+    }
+    
+    .file-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    
+    .file-list li {
+      padding: 0.7rem;
+      background-color: #f8f9fa;
+      margin-bottom: 0.5rem;
+      border-radius: 4px;
+      border-left: 3px solid #1c6ea4;
+    }
+    
+    .file-list li:before {
+      content: "📄 ";
+      margin-right: 0.5rem;
+    }
+    
+    .r-logo {
+      color: #1c6ea4;
+      font-weight: bold;
+    }
+    
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 1.5rem 0;
+      margin-top: 2rem;
+    }
+    
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+      }
+      
+      nav a {
+        text-align: center;
+        padding: 0.8rem;
+      }
+      
+      main {
+        padding: 0 1rem;
+      }
+      
+      section {
+        padding: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -23,14 +184,54 @@
 
 <main>
   <section>
-    <h2>Downloads</h2>
-    <p>Hier finden sich nützliche Materialien für den Einstieg in R und die Datenanalyse.</p>
+    <h2>Materialien zum Download</h2>
+    <p>Hier finden Sie alle notwendigen Ressourcen für den Einstieg in R und die Datenanalyse. Laden Sie die Software, Cheatsheets und Beispielmaterialien herunter, um direkt loszulegen.</p>
+    
+    <div class="download-box">
+      <h3><span class="r-logo">R</span> und RStudio installieren</h3>
+      <p>Bevor Sie mit der Datenanalyse beginnen können, müssen Sie R und RStudio installieren:</p>
+      <ul>
+        <li><a href="https://cran.r-project.org/" target="_blank">R herunterladen (CRAN)</a> - Die Programmiersprache R</li>
+        <li><a href="https://posit.co/download/rstudio-desktop/" target="_blank">RStudio Desktop herunterladen</a> - Die integrierte Entwicklungsumgebung für R</li>
+        <li><a href="https://cran.r-project.org/doc/contrib/Short-refcard.pdf" target="_blank">R Reference Card (PDF)</a> - Kurzreferenz für R-Befehle</li>
+      </ul>
+    </div>
+    
+    <h3>R Cheatsheets</h3>
+    <p>Diese praktischen Übersichten helfen Ihnen, die wichtigsten Funktionen und Pakete schnell zu erlernen:</p>
+    <ul class="file-list">
+      <li><a href="https://rstudio.github.io/cheatsheets/data-visualization.pdf" target="_blank">Data Visualization with ggplot2</a> - Erstellung von Grafiken</li>
+      <li><a href="https://rstudio.github.io/cheatsheets/data-transformation.pdf" target="_blank">Data Transformation with dplyr</a> - Datenmanipulation</li>
+      <li><a href="https://rstudio.github.io/cheatsheets/data-import.pdf" target="_blank">Data Import with tidyverse</a> - Datenimport und -aufbereitung</li>
+      <li><a href="https://rstudio.github.io/cheatsheets/base-r.pdf" target="_blank">Base R Cheatsheet</a> - Grundlegende R-Funktionen</li>
+      <li><a href="https://posit.co/resources/cheatsheets/" target="_blank">Alle RStudio Cheatsheets</a> - Vollständige Übersicht</li>
+    </ul>
+    
+    <h3>Beispielmaterialien</h3>
+    <p>Laden Sie diese Beispieldateien herunter, um die gelernten Konzepte praktisch zu üben:</p>
+    <ul class="file-list">
+      <li><a href="healthcare_job_satisfaction.csv" download>Beispieldaten: Healthcare Job Satisfaction (CSV)</a> - Datensatz mit ID, Geschlecht, Beruf und Arbeitszufriedenheit</li>
+      <li><a href="example_analysis.R" download>Beispielskript: Datenanalyse in R (R-Skript)</a> - Vollständige Analyse des Beispieldatensatzes</li>
+      <li><a href="data_dictionary.txt" download>Datenbeschreibung (TXT)</a> - Erklärung der Variablen im Datensatz</li>
+    </ul>
+    
+    <div class="download-box">
+      <h4>Wie verwende ich die Beispielmaterialien?</h4>
+      <ol>
+        <li>Laden Sie die CSV-Datei und das R-Skript herunter</li>
+        <li>Speichern Sie beide Dateien im selben Ordner</li>
+        <li>Öffnen Sie RStudio und dann das R-Skript (File > Open File)</li>
+        <li>Führen Sie den Code Schritt für Schritt aus (Strg+Enter)</li>
+        <li>Experimentieren Sie mit dem Code und passen Sie ihn an</li>
+      </ol>
+    </div>
+    
+    <h3>Zusätzliche Lernressourcen</h3>
     <ul>
-      <li><a href="https://cran.r-project.org/" target="_blank">Download R (CRAN)</a></li>
-      <li><a href="https://posit.co/resources/cheatsheets/" target="_blank">RStudio Cheatsheets – Übersicht</a></li>
-      <li><a href="https://rstudio.github.io/cheatsheets/data-visualization.pdf" target="_blank">ggplot2 Cheatsheet (PDF)</a></li>
-      <li><a href="https://rstudio.github.io/cheatsheets/data-transformation.pdf" target="_blank">dplyr Cheatsheet (PDF)</a></li>
-      <li><a href="https://rstudio.github.io/cheatsheets/data-import.pdf" target="_blank">Tidyverse Cheatsheet (PDF)</a></li>
+      <li><a href="https://www.r-bloggers.com/" target="_blank">R-Bloggers</a> - Blog mit Tutorials und Neuigkeiten</li>
+      <li><a href="https://stackoverflow.com/questions/tagged/r" target="_blank">Stack Overflow R Tag</a> - Hilfreiche Community für Fragen</li>
+      <li><a href="https://www.r-project.org/other-docs.html" target="_blank">Offizielle R-Dokumentation</a> - Umfassende Referenz</li>
+      <li><a href="https://cran.r-project.org/web/views/" target="_blank">CRAN Task Views</a> - Übersicht nach Themengebieten</li>
     </ul>
   </section>
 </main>
