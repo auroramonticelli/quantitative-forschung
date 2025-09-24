@@ -336,33 +336,6 @@ daten <span class="r-operator">&lt;-</span> <span class="r-function">read.csv</s
             </ul>
           </div>
           
-          <h4>R Code: Umgang mit Paketkonflikten</h4>
-          
-          <div class="r-console">
-            <div class="r-header">
-              <span>R Terminal</span>
-              <div class="r-window-controls">
-                <div class="r-window-control r-control-close"></div>
-                <div class="r-window-control r-control-minimize"></div>
-                <div class="r-window-control r-control-maximize"></div>
-              </div>
-            </div>
-            <div class="r-content">
-              <pre class="r-code"><span class="r-comment"># Wenn zwei Pakete Funktionen mit demselben Namen haben:</span>
-<span class="r-function">library</span>(dplyr)
-<span class="r-function">library</span>(MASS)   <span class="r-comment"># Enthält ebenfalls eine select()-Funktion</span>
-
-<span class="r-comment"># Konfliktmeldung: Die select()-Funktion von MASS wird von dplyr maskiert</span>
-
-<span class="r-comment"># Explizite Verwendung einer Funktion aus einem bestimmten Paket:</span>
-dplyr<span class="r-operator">::</span>select(mtcars, mpg, cyl)   <span class="r-comment"># Verwende select() aus dplyr</span>
-MASS<span class="r-operator">::</span>select(mtcars, mpg, cyl)    <span class="r-comment"># Verwende select() aus MASS</span>
-
-<span class="r-comment"># Konflikte anzeigen:</span>
-<span class="r-function">conflicts</span>()</pre>
-            </div>
-          </div>
-          
           <div class="code-caption">Umgang mit Namenskonflikten zwischen Paketen</div>
         </div>
       </section>
