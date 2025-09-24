@@ -258,27 +258,7 @@ daten <span class="r-operator">&lt;-</span> <span class="r-function">read.csv</s
 <span class="r-comment"># 2. Pakete laden</span>
 <span class="r-function">library</span>(dplyr)     <span class="r-comment"># Paket laden</span>
 <span class="r-function">require</span>(ggplot2)   <span class="r-comment"># Alternative zum Laden</span>
-
-<span class="r-comment"># 3. Pakete von GitHub installieren (falls nicht auf CRAN)</span>
-<span class="r-comment"># install.packages("devtools")  # Zuerst devtools installieren</span>
-<span class="r-function">library</span>(devtools)
-<span class="r-function">install_github</span>(<span class="r-string">"username/packagename"</span>)
-
-<span class="r-comment"># 4. Verfügbare Pakete anzeigen</span>
-<span class="r-function">library</span>()          <span class="r-comment"># Alle verfügbaren Pakete</span>
-<span class="r-function">search</span>()          <span class="r-comment"># Derzeit geladene Pakete</span>
-
-<span class="r-comment"># 5. Hilfe zu einem Paket anzeigen</span>
-<span class="r-function">help</span>(package <span class="r-operator">=</span> <span class="r-string">"dplyr"</span>)   <span class="r-comment"># Übersicht über das Paket</span>
-
-<span class="r-comment"># 6. Paket von der Suche entfernen (selten benötigt)</span>
-<span class="r-function">detach</span>(<span class="r-string">"package:dplyr"</span>, unload <span class="r-operator">=</span> <span class="r-function">TRUE</span>)
-
-<span class="r-comment"># 7. Prüfen, ob ein Paket installiert ist, und es ggf. installieren</span>
-<span class="r-keyword">if</span> (<span class="r-operator">!</span><span class="r-function">require</span>(dplyr)) {
-  <span class="r-function">install.packages</span>(<span class="r-string">"dplyr"</span>)
-  <span class="r-function">library</span>(dplyr)
-}</pre>
+</pre>
             </div>
           </div>
           
