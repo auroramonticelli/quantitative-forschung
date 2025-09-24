@@ -122,39 +122,6 @@
 <span class="r-comment"># 2. Daten importieren ---------------------------------</span>
 <span class="r-comment"># Daten aus CSV-Datei laden</span>
 umfragedaten <span class="r-operator">&lt;-</span> <span class="r-function">read.csv</span>(<span class="r-string">"data/umfrage_2025.csv"</span>)
-
-<span class="r-comment"># 3. Daten bereinigen und transformieren ----------------</span>
-<span class="r-comment"># Fehlende Werte behandeln</span>
-umfragedaten <span class="r-operator">&lt;-</span> umfragedaten <span class="r-operator">%&gt;%</span>
-  <span class="r-function">filter</span>(<span class="r-operator">!</span><span class="r-function">is.na</span>(alter)) <span class="r-operator">%&gt;%</span>
-  <span class="r-function">mutate</span>(
-    altersgruppe <span class="r-operator">=</span> <span class="r-function">case_when</span>(
-      alter <span class="r-operator">&lt;</span> <span class="r-number">30</span> <span class="r-operator">~</span> <span class="r-string">"jung"</span>,
-      alter <span class="r-operator">&gt;=</span> <span class="r-number">30</span> <span class="r-operator">&amp;</span> alter <span class="r-operator">&lt;</span> <span class="r-number">50</span> <span class="r-operator">~</span> <span class="r-string">"mittel"</span>,
-      <span class="r-function">TRUE</span> <span class="r-operator">~</span> <span class="r-string">"erfahren"</span>
-    )
-  )
-
-<span class="r-comment"># 4. Deskriptive Statistiken ---------------------------</span>
-<span class="r-comment"># Zusammenfassung der Daten</span>
-<span class="r-function">summary</span>(umfragedaten)
-
-<span class="r-comment"># 5. Visualisierung -------------------------------------</span>
-<span class="r-comment"># Balkendiagramm erstellen</span>
-ggplot(umfragedaten, <span class="r-function">aes</span>(x <span class="r-operator">=</span> altersgruppe)) <span class="r-operator">+</span>
-  <span class="r-function">geom_bar</span>() <span class="r-operator">+</span>
-  <span class="r-function">labs</span>(title <span class="r-operator">=</span> <span class="r-string">"Verteilung der Altersgruppen"</span>)
-
-<span class="r-comment"># 6. Statistische Tests ---------------------------------</span>
-<span class="r-comment"># t-Test durchführen</span>
-<span class="r-function">t.test</span>(punktzahl <span class="r-operator">~</span> geschlecht, data <span class="r-operator">=</span> umfragedaten)
-
-<span class="r-comment"># 7. Ergebnisse exportieren -----------------------------</span>
-<span class="r-function">write.csv</span>(umfragedaten, <span class="r-string">"output/bereinigte_daten.csv"</span>, row.names <span class="r-operator">=</span> <span class="r-function">FALSE</span>)</pre>
-            </div>
-          </div>
-          
-          <div class="code-caption">Beispiel für die Struktur eines gut organisierten R-Skripts</div>
           
           <div class="tips-box">
             <h4>So arbeiten Sie mit R-Skripten:</h4>
