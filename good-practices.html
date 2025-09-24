@@ -167,33 +167,7 @@ umfragedaten <span class="r-operator">&lt;-</span> <span class="r-function">read
             </div>
             <div class="r-content">
               <pre class="r-code"><span class="r-comment"># 1. Aus CSV-Datei importieren (Basis R)</span>
-daten_csv <span class="r-operator">&lt;-</span> <span class="r-function">read.csv</span>(<span class="r-string">"meine_daten.csv"</span>)
-
-<span class="r-comment"># Alternative mit readr (teil von tidyverse)</span>
-<span class="r-function">library</span>(readr)
-daten_csv <span class="r-operator">&lt;-</span> <span class="r-function">read_csv</span>(<span class="r-string">"meine_daten.csv"</span>)
-
-<span class="r-comment"># 2. Aus Excel-Datei importieren</span>
-<span class="r-function">library</span>(readxl)
-daten_excel <span class="r-operator">&lt;-</span> <span class="r-function">read_excel</span>(<span class="r-string">"meine_daten.xlsx"</span>, sheet <span class="r-operator">=</span> <span class="r-number">1</span>)
-
-<span class="r-comment"># 3. Aus SPSS-Datei importieren</span>
-<span class="r-function">library</span>(haven)
-daten_spss <span class="r-operator">&lt;-</span> <span class="r-function">read_sav</span>(<span class="r-string">"meine_daten.sav"</span>)
-
-<span class="r-comment"># 4. Direkt aus URL importieren</span>
-daten_url <span class="r-operator">&lt;-</span> <span class="r-function">read.csv</span>(<span class="r-string">"https://example.com/data.csv"</span>)
-
-<span class="r-comment"># 5. Mit Dialogfeld Datei auswählen</span>
-daten <span class="r-operator">&lt;-</span> <span class="r-function">read.csv</span>(<span class="r-function">file.choose</span>())
-
-<span class="r-comment"># 6. Importoptionen anpassen</span>
-daten <span class="r-operator">&lt;-</span> <span class="r-function">read.csv</span>(
-  file <span class="r-operator">=</span> <span class="r-string">"meine_daten.csv"</span>,
-  header <span class="r-operator">=</span> <span class="r-function">TRUE</span>,         <span class="r-comment"># Erste Zeile enthält Spaltennamen</span>
-  sep <span class="r-operator">=</span> <span class="r-string">","</span>,             <span class="r-comment"># Trennzeichen ist Komma</span>
-  stringsAsFactors <span class="r-operator">=</span> <span class="r-function">TRUE</span>  <span class="r-comment"># Zeichenketten als Faktoren behandeln</span>
-)</pre>
+daten_csv <span class="r-operator">&lt;-</span> <span class="r-function">read.csv</span>(<span class="r-string">"meine_daten.csv"</span>)</pre>
             </div>
           </div>
           
