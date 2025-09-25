@@ -132,10 +132,10 @@ table(data$gender)
               <div class="r-content">
                 <pre class="r-code">
 # Barplot für Zylinderanzahlen
-ggplot(mtcars, aes(x = factor(cyl))) + 
+ggplot(data, aes(x = factor(gender))) + 
   geom_bar(fill = "#b9aadf") +
-  labs(title = "Anzahl der Autos nach Zylinderzahl", 
-       x = "Zylinder", y = "Anzahl")
+  labs(title = "Anzahl von TeilnehmerInnen nach Geschlecht", 
+       x = "Geschlecht", y = "Anzahl")
                 </pre>
               </div>
             </div>
@@ -156,10 +156,10 @@ ggplot(mtcars, aes(x = factor(cyl))) +
               <div class="r-content">
                 <pre class="r-code">
 # Boxplot für MPG nach Zylinderzahl
-ggplot(mtcars, aes(x = factor(cyl), y = mpg)) + 
+ggplot(data, aes(x = factor(gender), y = job_satisfaction)) + 
   geom_boxplot(fill = "#b9aadf") +
-  labs(title = "MPG Verteilung nach Zylinderzahl", 
-       x = "Zylinder", y = "MPG")
+  labs(title = "Arbeitszufriedenheit Verteilung nach Geschlecht", 
+       x = "Geschlecht", y = "Arbeitszufriedenheit")
                 </pre>
               </div>
             </div>
@@ -180,10 +180,10 @@ ggplot(mtcars, aes(x = factor(cyl), y = mpg)) +
               <div class="r-content">
                 <pre class="r-code">
 # Histogram für MPG
-ggplot(mtcars, aes(x = mpg)) + 
+ggplot(data, aes(x = job_satisfaction)) + 
   geom_histogram(fill = "#b9aadf", bins = 10, color = "white") +
-  labs(title = "Verteilung der MPG Werte", 
-       x = "MPG", y = "Häufigkeit")
+  labs(title = "Verteilung der Arbeitszufriedenheit", 
+       x = "Arbeitszufriedenheit", y = "Häufigkeit")
                 </pre>
               </div>
             </div>
@@ -204,13 +204,13 @@ ggplot(mtcars, aes(x = mpg)) +
             <div class="r-content">
               <pre class="r-code">
 # Barplot
-ggplot(mtcars, aes(x = factor(cyl))) + geom_bar(fill = "#b9aadf")
+ggplot(data, aes(x = factor(cyl))) + geom_bar(fill = "#b9aadf")
 
 # Boxplot
-ggplot(mtcars, aes(x = factor(cyl), y = mpg)) + geom_boxplot(fill = "#b9aadf")
+ggplot(data, aes(x = factor(cyl), y = mpg)) + geom_boxplot(fill = "#b9aadf")
 
 # Histogram
-ggplot(mtcars, aes(x = mpg)) + geom_histogram(fill = "#b9aadf", bins = 10)
+ggplot(data, aes(x = job_satisfaction)) + geom_histogram(fill = "#b9aadf", bins = 10)
               </pre>
             </div>
           </div>
