@@ -25,7 +25,7 @@
     <nav>
       <a href="index.html">Startseite</a>
       <a href="good-practices.html">Good Practices</a>
-      <a href="visualization.html">Visualisierung</a>
+      <a href="visualization.html" style="background: #1c6ea4;">Visualisierung</a>
       <a href="testing.html">Tests</a>
       <a href="materials.html">Materialien</a>
     </nav>
@@ -48,41 +48,107 @@
             </ul>
           </div>
           
-          <div class="key-point">
-            <h4>Grundlegende Datenexploration in R</h4>
-            <p>Bevor Sie visualisieren, sollten Sie diese grundlegenden Funktionen verwenden:</p>
-            
-            <div class="r-console">
-              <div class="r-header">
-                <div class="r-window-controls">
-                  <span class="r-window-control r-control-close"></span>
-                  <span class="r-window-control r-control-minimize"></span>
-                  <span class="r-window-control r-control-maximize"></span>
-                </div>
-                <span>R Console</span>
+          <h3>Grundlegende Datenexploration in R</h3>
+          <p>Bevor Sie visualisieren, sollten Sie diese grundlegenden Funktionen verwenden:</p>
+          
+          <!-- First R Console: Data Structure -->
+          <div class="r-console">
+            <div class="r-header">
+              <div class="r-window-controls">
+                <span class="r-window-control r-control-close"></span>
+                <span class="r-window-control r-control-minimize"></span>
+                <span class="r-window-control r-control-maximize"></span>
               </div>
-              <div class="r-content">
-                <pre class="r-code">
-# Datenstruktur untersuchen
-str(data)
-
-# Erste Zeilen anzeigen
-head(data)
-
-# Zusammenfassende Statistiken
-summary(data)
-
-# Fehlende Werte identifizieren
-sum(is.na(data))
-                  
-# Häufigkeiten anschauen
-# Vor dem "$" Zeichen, gibt man sein Datenset an
-# Nach dem "$" Zeichen, gibt man die gewünschte Variable angeben
-# deren Häufigkeit man wissen möchte 
-table(data$gender)
-                </pre>
-              </div>
+              <span>R Console</span>
             </div>
+            <div class="r-content">
+              <pre class="r-code"><span class="r-comment"># Datenstruktur untersuchen</span>
+<span class="r-function">str</span>(data)</pre>
+            </div>
+          </div>
+          
+          <div class="code-explanation">
+            <strong>Erklärung:</strong> Die <code>str()</code> Funktion zeigt die Struktur des Datensatzes an - welche Variablen enthalten sind, ihre Datentypen und die ersten paar Werte.
+          </div>
+          
+          <!-- Second R Console: First Rows -->
+          <div class="r-console">
+            <div class="r-header">
+              <div class="r-window-controls">
+                <span class="r-window-control r-control-close"></span>
+                <span class="r-window-control r-control-minimize"></span>
+                <span class="r-window-control r-control-maximize"></span>
+              </div>
+              <span>R Console</span>
+            </div>
+            <div class="r-content">
+              <pre class="r-code"><span class="r-comment"># Erste Zeilen anzeigen</span>
+<span class="r-function">head</span>(data)</pre>
+            </div>
+          </div>
+          
+          <div class="code-explanation">
+            <strong>Erklärung:</strong> <code>head()</code> zeigt die ersten 6 Zeilen des Datensatzes an, um einen ersten Eindruck von den Daten zu bekommen.
+          </div>
+          
+          <!-- Third R Console: Summary Statistics -->
+          <div class="r-console">
+            <div class="r-header">
+              <div class="r-window-controls">
+                <span class="r-window-control r-control-close"></span>
+                <span class="r-window-control r-control-minimize"></span>
+                <span class="r-window-control r-control-maximize"></span>
+              </div>
+              <span>R Console</span>
+            </div>
+            <div class="r-content">
+              <pre class="r-code"><span class="r-comment"># Zusammenfassende Statistiken</span>
+<span class="r-function">summary</span>(data)</pre>
+            </div>
+          </div>
+          
+          <div class="code-explanation">
+            <strong>Erklärung:</strong> <code>summary()</code> berechnet deskriptive Statistiken für alle Variablen im Datensatz (Mittelwert, Median, Min, Max, Quartile).
+          </div>
+          
+          <!-- Fourth R Console: Missing Values -->
+          <div class="r-console">
+            <div class="r-header">
+              <div class="r-window-controls">
+                <span class="r-window-control r-control-close"></span>
+                <span class="r-window-control r-control-minimize"></span>
+                <span class="r-window-control r-control-maximize"></span>
+              </div>
+              <span>R Console</span>
+            </div>
+            <div class="r-content">
+              <pre class="r-code"><span class="r-comment"># Fehlende Werte identifizieren</span>
+<span class="r-function">sum</span>(<span class="r-function">is.na</span>(data))</pre>
+            </div>
+          </div>
+          
+          <div class="code-explanation">
+            <strong>Erklärung:</strong> Dieser Code zählt die Gesamtzahl der fehlenden Werte (NA) im gesamten Datensatz.
+          </div>
+          
+          <!-- Fifth R Console: Frequencies -->
+          <div class="r-console">
+            <div class="r-header">
+              <div class="r-window-controls">
+                <span class="r-window-control r-control-close"></span>
+                <span class="r-window-control r-control-minimize"></span>
+                <span class="r-window-control r-control-maximize"></span>
+              </div>
+              <span>R Console</span>
+            </div>
+            <div class="r-content">
+              <pre class="r-code"><span class="r-comment"># Häufigkeiten einer kategorialen Variable</span>
+<span class="r-function">table</span>(data$gender)</pre>
+            </div>
+          </div>
+          
+          <div class="code-explanation">
+            <strong>Erklärung:</strong> <code>table()</code> erstellt eine Häufigkeitstabelle für kategoriale Variablen. Vor dem "$" gibt man den Datensatz an, nach dem "$" die gewünschte Variable.
           </div>
           
           <div class="key-point">
@@ -109,29 +175,6 @@ table(data$gender)
           </div>
         </div>
       </section>
-      <div class="key-point">
-            <h4>Warum Visualisierung?</h4>
-            <p>Visualisierung transformiert Rohdaten in verständliche Muster und Insights:</p>
-            <ul>
-              <li><strong>Muster erkennen</strong> - Trends, Cluster oder Zyklen identifizieren</li>
-              <li><strong>Ausreißer entdecken</strong> - Ungewöhnliche Datenpunkte visualisieren</li>
-              <li><strong>Zusammenhänge verstehen</strong> - Beziehungen zwischen Variablen erkennen</li>
-              <li><strong>Kommunikation verbessern</strong> - Komplexe Ergebnisse einfach darstellen</li>
-            </ul>
-          </div>
-          
-          <div class="key-point">
-            <h4>Der Visualisierungsprozess</h4>
-            <p>Ein effektiver Workflow für Datenvisualisierung:</p>
-            <ol>
-              <li>Daten bereinigen und vorbereiten</li>
-              <li>Forschungsfrage definieren</li>
-              <li>Passenden Visualisierungstyp auswählen</li>
-              <li>Grafik erstellen und anpassen</li>
-              <li>Interpretieren und Insights ableiten</li>
-            </ol>
-          </div>
-        </div>
       <section id="section2">
         <h2>Plots: Barplot, Boxplot, Histogram</h2>
         <p>Wir erstellen verschiedene Plottypen, um Daten zu erkunden.<span class="badge">Tipp</span></p>
