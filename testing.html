@@ -151,7 +151,7 @@ male_total <span class="r-operator">&lt;-</span> <span class="r-function">sum</s
         <h2 class="test-header">t-Test & Mann-Whitney U-Test</h2>
         
         <div class="educational-content">
-          <p>Diese Tests vergleichen Mittelwerte bzw. Verteilungen zwischen zwei Gruppen.</p>
+          <p>Diese Tests vergleichen Mittelwerte bzw. Verteilungen zwischen zwei Gruppen. Wir können prüfen, ob sich die Arbeitszufriedenheit zwischen Ärzten und Pflegekräften unterscheidet.</p>
           
           <div class="conditions-box">
             <h4>Anwendungsbedingungen: t-Test</h4>
@@ -171,7 +171,7 @@ male_total <span class="r-operator">&lt;-</span> <span class="r-function">sum</s
             </ul>
           </div>
           
-          <h4>R Code: t-Test und Mann-Whitney</h4>
+          <h4>R Code: t-Test und Mann-Whitney mit Healthcare-Daten</h4>
           
           <div class="r-console">
             <div class="r-header">
@@ -183,30 +183,44 @@ male_total <span class="r-operator">&lt;-</span> <span class="r-function">sum</s
               </div>
             </div>
             <div class="r-content">
-              <pre class="r-code"><span class="r-comment"># t-Test für unabhängige Stichproben</span>
-<span class="r-function">t.test</span>(mpg <span class="r-operator">~</span> am, data <span class="r-operator">=</span> mtcars)
+              <pre class="r-code"><span class="r-comment"># t-Test für unabhängige Stichproben: Zufriedenheit nach Geschlecht</span>
+<span class="r-function">t.test</span>(job_satisfaction <span class="r-operator">~</span> gender, data <span class="r-operator">=</span> healthcare_data)
 
 <span class="r-comment"># Überprüfung der Normalverteilung mit Shapiro-Wilk-Test</span>
-<span class="r-function">shapiro.test</span>(mtcars<span class="r-operator">$</span>mpg[mtcars<span class="r-operator">$</span>am <span class="r-operator">==</span> <span class="r-number">0</span>])
-<span class="r-function">shapiro.test</span>(mtcars<span class="r-operator">$</span>mpg[mtcars<span class="r-operator">$</span>am <span class="r-operator">==</span> <span class="r-number">1</span>])
+<span class="r-function">shapiro.test</span>(healthcare_data<span class="r-operator">$</span>job_satisfaction[healthcare_data<span class="r-operator">$</span>gender <span class="r-operator">==</span> <span class="r-string">"Female"</span>])
+<span class="r-function">shapiro.test</span>(healthcare_data<span class="r-operator">$</span>job_satisfaction[healthcare_data<span class="r-operator">$</span>gender <span class="r-operator">==</span> <span class="r-string">"Male"</span>])
 
-<span class="r-comment"># Überprüfung der Varianzhomogenität mit F-Test</span>
-<span class="r-function">var.test</span>(mpg <span class="r-operator">~</span> am, data <span class="r-operator">=</span> mtcars)
+<span class="r-comment"># Überprüfung der Varianzhomogenität mit Levene-Test</span>
+<span class="r-function">library</span>(car)
+<span class="r-function">leveneTest</span>(job_satisfaction <span class="r-operator">~</span> gender, data <span class="r-operator">=</span> healthcare_data)
 
-<span class="r-comment"># Mann-Whitney U-Test (Wilcoxon-Rangsummentest)</span>
-<span class="r-function">wilcox.test</span>(mpg <span class="r-operator">~</span> am, data <span class="r-operator">=</span> mtcars)
+<span class="r-comment"># Mann-Whitney U-Test (nicht-parametrische Alternative)</span>
+<span class="r-function">wilcox.test</span>(job_satisfaction <span class="r-operator">~</span> gender, data <span class="r-operator">=</span> healthcare_data)
 
 <span class="r-comment"># Effektstärke berechnen (Cohen's d für t-Test)</span>
 <span class="r-function">library</span>(effectsize)
-<span class="r-function">cohens_d</span>(mpg <span class="r-operator">~</span> am, data <span class="r-operator">=</span> mtcars)</pre>
+<span class="r-function">cohens_d</span>(job_satisfaction <span class="r-operator">~</span> gender, data <span class="r-operator">=</span> healthcare_data)
+
+<span class="r-comment"># Deskriptive Statistiken für beide Gruppen</span>
+<span class="r-function">library</span>(dplyr)
+healthcare_data <span class="r-operator">%>%</span>
+  <span class="r-function">group_by</span>(gender) <span class="r-operator">%>%</span>
+  <span class="r-function">summarise</span>(
+    n <span class="r-operator">=</span> <span class="r-function">n</span>(),
+    mean_satisfaction <span class="r-operator">=</span> <span class="r-function">mean</span>(job_satisfaction),
+    sd_satisfaction <span class="r-operator">=</span> <span class="r-function">sd</span>(job_satisfaction),
+    median_satisfaction <span class="r-operator">=</span> <span class="r-function">median</span>(job_satisfaction)
+  )</pre>
             </div>
           </div>
           
           <div class="interpretation-box">
             <h4>Interpretation der Ergebnisse</h4>
-            <p><strong>p-Wert:</strong> p = 0.0014 < 0.05 → Signifikanter Mittelwertunterschied zwischen den Gruppen</p>
-            <p><strong>Mittelwerte:</strong> Automatik (17.15) vs. Manuell (24.39) MPG</p>
-            <p><strong>Effektstärke:</strong> Cohen's d = 1.48 → Großer Effekt</p>
+            <p><strong>Forschungsfrage:</strong> Unterscheidet sich die Arbeitszufriedenheit zwischen weiblichen und männlichen Beschäftigten?</p>
+            <p><strong>p-Wert (t-Test):</strong> p = 0.27 > 0.05 → Kein signifikanter Mittelwertunterschied</p>
+            <p><strong>Mittelwerte:</strong> Weiblich (3.15) vs. Männlich (3.42)</p>
+            <p><strong>Effektstärke:</strong> Cohen's d = 0.23 → Kleiner Effekt</p>
+            <p><strong>Mann-Whitney:</strong> p = 0.31 → Bestätigt das Ergebnis des t-Tests</p>
           </div>
         </div>
       </section>
