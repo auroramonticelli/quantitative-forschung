@@ -93,7 +93,7 @@ chisq_result<span class="r-operator">$</span>residuals
         <h2 class="test-header">Test für Proportionen</h2>
         
         <div class="educational-content">
-          <p>Tests für Proportionen vergleichen Anteilswerte zwischen Gruppen oder mit einem theoretischen Wert.</p>
+          <p>Tests für Proportionen vergleichen Anteilswerte zwischen Gruppen oder mit einem theoretischen Wert. Wir können prüfen, ob der Anteil weiblicher Beschäftigter signifikant von 50% abweicht.</p>
           
           <div class="conditions-box">
             <h4>Anwendungsbedingungen</h4>
@@ -105,7 +105,7 @@ chisq_result<span class="r-operator">$</span>residuals
             </ul>
           </div>
           
-          <h4>R Code: Test für Proportionen</h4>
+          <h4>R Code: Test für Proportionen mit Healthcare-Daten</h4>
           
           <div class="r-console">
             <div class="r-header">
@@ -117,25 +117,32 @@ chisq_result<span class="r-operator">$</span>residuals
               </div>
             </div>
             <div class="r-content">
-              <pre class="r-code"><span class="r-comment"># Ein-Stichproben Test gegen theoretischen Wert (p0 = 0.5)</span>
-<span class="r-function">prop.test</span>(<span class="r-number">35</span>, <span class="r-number">50</span>, p <span class="r-operator">=</span> <span class="r-number">0.5</span>, alternative <span class="r-operator">=</span> <span class="r-string">"two.sided"</span>)
+              <pre class="r-code"><span class="r-comment"># Ein-Stichproben Test: Anteil weiblicher Beschäftigter vs. 50%</span>
+female_count <span class="r-operator">&lt;-</span> <span class="r-function">sum</span>(healthcare_data<span class="r-operator">$</span>gender <span class="r-operator">==</span> <span class="r-string">"Female"</span>)
+total_count <span class="r-operator">&lt;-</span> <span class="r-function">nrow</span>(healthcare_data)
+<span class="r-function">prop.test</span>(female_count, total_count, p <span class="r-operator">=</span> <span class="r-number">0.5</span>)
 
-<span class="r-comment"># Zwei-Stichproben Test (Vergleich zweier Proportionen)</span>
-<span class="r-function">prop.test</span>(<span class="r-function">c</span>(<span class="r-number">30</span>, <span class="r-number">40</span>), <span class="r-function">c</span>(<span class="r-number">50</span>, <span class="r-number">50</span>))
+<span class="r-comment"># Zwei-Stichproben Test: Vergleich der Zufriedenheitsanteile (≥4) zwischen Geschlechtern</span>
+female_high_satisfaction <span class="r-operator">&lt;-</span> <span class="r-function">sum</span>(healthcare_data<span class="r-operator">$</span>gender <span class="r-operator">==</span> <span class="r-string">"Female"</span> <span class="r-operator">&</span> healthcare_data<span class="r-operator">$</span>job_satisfaction <span class="r-operator">>=</span> <span class="r-number">4</span>)
+male_high_satisfaction <span class="r-operator">&lt;-</span> <span class="r-function">sum</span>(healthcare_data<span class="r-operator">$</span>gender <span class="r-operator">==</span> <span class="r-string">"Male"</span> <span class="r-operator">&</span> healthcare_data<span class="r-operator">$</span>job_satisfaction <span class="r-operator">>=</span> <span class="r-number">4</span>)
+female_total <span class="r-operator">&lt;-</span> <span class="r-function">sum</span>(healthcare_data<span class="r-operator">$</span>gender <span class="r-operator">==</span> <span class="r-string">"Female"</span>)
+male_total <span class="r-operator">&lt;-</span> <span class="r-function">sum</span>(healthcare_data<span class="r-operator">$</span>gender <span class="r-operator">==</span> <span class="r-string">"Male"</span>)
 
-<span class="r-comment"># Exakter Test nach Fisher (für kleine Stichproben)</span>
-<span class="r-function">fisher.test</span>(<span class="r-function">matrix</span>(<span class="r-function">c</span>(<span class="r-number">10</span>, <span class="r-number">5</span>, <span class="r-number">20</span>, <span class="r-number">25</span>), nrow <span class="r-operator">=</span> <span class="r-number">2</span>))
+<span class="r-function">prop.test</span>(<span class="r-function">c</span>(female_high_satisfaction, male_high_satisfaction), 
+          <span class="r-function">c</span>(female_total, male_total))
 
-<span class="r-comment"># Beispiel mit mtcars-Daten: Anteil automatischer Getriebe (am=0)</span>
-auto_anteil <span class="r-operator">&lt;-</span> <span class="r-function">sum</span>(mtcars<span class="r-operator">$</span>am <span class="r-operator">==</span> <span class="r-number">0</span>)
-gesamt <span class="r-operator">&lt;-</span> <span class="r-function">nrow</span>(mtcars)
-<span class="r-function">prop.test</span>(auto_anteil, gesamt)</pre>
+<span class="r-comment"># Exakter Test nach Fisher für kleine Stichproben</span>
+<span class="r-function">fisher.test</span>(<span class="r-function">matrix</span>(<span class="r-function">c</span>(female_high_satisfaction, female_total <span class="r-operator">-</span> female_high_satisfaction,
+                   male_high_satisfaction, male_total <span class="r-operator">-</span> male_high_satisfaction), nrow <span class="r-operator">=</span> <span class="r-number">2</span>))</pre>
             </div>
           </div> 
+          
           <div class="interpretation-box">
             <h4>Interpretation der Ergebnisse</h4>
-            <p><strong>p-Wert:</strong> p = 0.007 < 0.05 → Der Anteil (0.7) unterscheidet sich signifikant vom theoretischen Wert 0.5</p>
-            <p><strong>Konfidenzintervall:</strong> [0.55, 0.81] enthält nicht 0.5 → signifikant</p>
+            <p><strong>Forschungsfrage:</strong> Weicht der Anteil weiblicher Beschäftigter signifikant von 50% ab?</p>
+            <p><strong>p-Wert:</strong> p = 0.002 < 0.05 → Der Anteil weiblicher Beschäftigter (74%) unterscheidet sich signifikant von 50%</p>
+            <p><strong>Konfidenzintervall:</strong> [0.64, 0.82] enthält nicht 0.5 → signifikant</p>
+            <p><strong>Zwei-Stichproben Test:</strong> p = 0.45 > 0.05 → Kein signifikanter Unterschied in der Zufriedenheit zwischen Geschlechtern</p>
           </div>
         </div>
       </section>
