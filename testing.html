@@ -134,23 +134,7 @@ auto_anteil <span class="r-operator">&lt;-</span> <span class="r-function">sum</
 gesamt <span class="r-operator">&lt;-</span> <span class="r-function">nrow</span>(mtcars)
 <span class="r-function">prop.test</span>(auto_anteil, gesamt)</pre>
             </div>
-          </div>
-          
-          <div class="code-caption">Verschiedene Tests für Proportionen in R</div>
-          
-          <div class="code-output">
-            > prop.test(35, 50, p = 0.5, alternative = "two.sided")<br><br>
-            &nbsp;&nbsp;&nbsp;&nbsp;1-sample proportions test with continuity correction<br><br>
-            data:  35 out of 50, null probability 0.5<br>
-            X-squared = 7.22, df = 1, p-value = 0.00722<br>
-            alternative hypothesis: true p is not equal to 0.5<br>
-            95 percent confidence interval:<br>
-            &nbsp;&nbsp;0.5538758 0.8081152<br>
-            sample estimates:<br>
-            &nbsp;&nbsp;p <br>
-            0.7
-          </div>
-          
+          </div> 
           <div class="interpretation-box">
             <h4>Interpretation der Ergebnisse</h4>
             <p><strong>p-Wert:</strong> p = 0.007 < 0.05 → Der Anteil (0.7) unterscheidet sich signifikant vom theoretischen Wert 0.5</p>
@@ -212,21 +196,6 @@ gesamt <span class="r-operator">&lt;-</span> <span class="r-function">nrow</span
 <span class="r-function">library</span>(effectsize)
 <span class="r-function">cohens_d</span>(mpg <span class="r-operator">~</span> am, data <span class="r-operator">=</span> mtcars)</pre>
             </div>
-          </div>
-          
-          <div class="code-caption">Vergleich von t-Test und Mann-Whitney U-Test in R</div>
-          
-          <div class="code-output">
-            > t.test(mpg ~ am, data = mtcars)<br><br>
-            &nbsp;&nbsp;&nbsp;&nbsp;Welch Two Sample t-test<br><br>
-            data:  mpg by am<br>
-            t = -3.7671, df = 18.332, p-value = 0.001374<br>
-            alternative hypothesis: true difference in means is not equal to 0<br>
-            95 percent confidence interval:<br>
-            &nbsp;&nbsp;-11.280194  -3.209684<br>
-            sample estimates:<br>
-            &nbsp;&nbsp;mean in group 0 mean in group 1 <br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;17.14737       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;24.39231
           </div>
           
           <div class="interpretation-box">
