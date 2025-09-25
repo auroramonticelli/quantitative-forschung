@@ -64,16 +64,22 @@
               <div class="r-content">
                 <pre class="r-code">
 # Datenstruktur untersuchen
-str(mtcars)
+str(data)
 
 # Erste Zeilen anzeigen
-head(mtcars)
+head(data)
 
 # Zusammenfassende Statistiken
-summary(mtcars)
+summary(data)
 
 # Fehlende Werte identifizieren
-sum(is.na(mtcars))
+sum(is.na(data))
+                  
+# Häufigkeiten anschauen
+# Vor dem "$" Zeichen, gibt man sein Datenset an
+# Nach dem "$" Zeichen, gibt man die gewünschte Variable angeben
+# deren Häufigkeit man wissen möchte 
+table(data$gender)
                 </pre>
               </div>
             </div>
