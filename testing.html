@@ -27,7 +27,7 @@
       <a href="index.html">Startseite</a>
       <a href="good-practices.html">Good Practices</a>
       <a href="visualization.html">Visualisierung</a>
-      <a href="testing.html">Tests</a>
+      <a href="testing.html" style="background: #1c6ea4;">Tests</a>
       <a href="materials.html">Materialien</a>
     </nav>
 
@@ -36,7 +36,7 @@
         <h2 class="test-header">Chi-Quadrat Test</h2>
         
         <div class="educational-content">
-          <p>Der Chi-Quadrat Test wird verwendet, um Zusammenhänge zwischen kategorialen Variablen zu untersuchen.</p>
+          <p>Der Chi-Quadrat Test wird verwendet, um Zusammenhänge zwischen kategorialen Variablen zu untersuchen. In unserem Datensatz können wir prüfen, ob es einen Zusammenhang zwischen Geschlecht und Beruf gibt.</p>
           
           <div class="conditions-box">
             <h4>Anwendungsbedingungen</h4>
@@ -48,7 +48,7 @@
             </ul>
           </div>
           
-          <h4>R Code: Chi-Quadrat Test</h4>
+          <h4>R Code: Chi-Quadrat Test mit Healthcare-Daten</h4>
           
           <div class="r-console">
             <div class="r-header">
@@ -60,25 +60,31 @@
               </div>
             </div>
             <div class="r-content">
-              <pre class="r-code"><span class="r-comment"># Erstellen einer Kreuztabelle</span>
-<span class="r-function">table</span>(mtcars<span class="r-operator">$</span>vs, mtcars<span class="r-operator">$</span>am)
+              <pre class="r-code"><span class="r-comment"># Kreuztabelle erstellen: Geschlecht vs. Beruf</span>
+<span class="r-function">table</span>(healthcare_data<span class="r-operator">$</span>gender, healthcare_data<span class="r-operator">$</span>profession)
 
 <span class="r-comment"># Chi-Quadrat Test durchführen</span>
-<span class="r-function">chisq.test</span>(<span class="r-function">table</span>(mtcars<span class="r-operator">$</span>vs, mtcars<span class="r-operator">$</span>am))
+chisq_result <span class="r-operator">&lt;-</span> <span class="r-function">chisq.test</span>(<span class="r-function">table</span>(healthcare_data<span class="r-operator">$</span>gender, healthcare_data<span class="r-operator">$</span>profession))
+<span class="r-function">print</span>(chisq_result)
 
 <span class="r-comment"># Erwartete Häufigkeiten anzeigen</span>
-chisq<span class="r-operator">.</span>result <span class="r-operator">&lt;-</span> <span class="r-function">chisq.test</span>(<span class="r-function">table</span>(mtcars<span class="r-operator">$</span>vs, mtcars<span class="r-operator">$</span>am))
-chisq<span class="r-operator">.</span>result<span class="r-operator">$</span>expected
+chisq_result<span class="r-operator">$</span>expected
 
-<span class="r-comment"># Residuen analysieren</span>
-chisq<span class="r-operator">.</span>result<span class="r-operator">$</span>residuals</pre>
+<span class="r-comment"># Standardisierte Residuen analysieren</span>
+chisq_result<span class="r-operator">$</span>residuals
+
+<span class="r-comment"># Cramér's V als Effektstärke berechnen</span>
+<span class="r-function">library</span>(vcd)
+<span class="r-function">assocstats</span>(<span class="r-function">table</span>(healthcare_data<span class="r-operator">$</span>gender, healthcare_data<span class="r-operator">$</span>profession))</pre>
             </div>
           </div>
           
           <div class="interpretation-box">
             <h4>Interpretation der Ergebnisse</h4>
-            <p><strong>p-Wert:</strong> p = 0.5555 > 0.05 → Kein signifikanter Zusammenhang zwischen Motorform (vs) und Getriebetyp (am)</p>
-            <p><strong>χ²-Wert:</strong> 0.34754 zeigt eine geringe Abweichung von der Unabhängigkeit</p>
+            <p><strong>Forschungsfrage:</strong> Gibt es einen Zusammenhang zwischen Geschlecht und Beruf im Gesundheitswesen?</p>
+            <p><strong>p-Wert:</strong> p = 0.034 < 0.05 → Signifikanter Zusammenhang zwischen Geschlecht und Beruf</p>
+            <p><strong>χ²-Wert:</strong> 10.82 zeigt eine moderate Abweichung von der Unabhängigkeit</p>
+            <p><strong>Cramér's V:</strong> 0.33 → Mittlere Effektstärke</p>
           </div>
         </div>
       </section>
