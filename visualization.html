@@ -335,14 +335,34 @@ ggplot(mtcars, aes(x = hp, y = mpg)) +
 </div>
 
 <script>
-var coll = document.getElementsByClassName("collapsible");
-for (let i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    content.style.display = content.style.display === "block" ? "none" : "block";
+document.addEventListener("DOMContentLoaded", function () {
+  const coll = document.getElementsByClassName("collapsible");
+
+  Array.from(coll).forEach(button => {
+    button.addEventListener("click", function () {
+      this.classList.toggle("active");
+      const content = this.nextElementSibling;
+      if (!content) return;
+
+      // close if open
+      if (content.style.maxHeight && content.style.maxHeight !== "0px") {
+        content.style.maxHeight = "0px";
+      } else {
+        // open: set to scrollHeight so transition animates
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+    });
   });
-}
+
+  // keep open panels sized correctly on window resize
+  window.addEventListener("resize", () => {
+    Array.from(document.getElementsByClassName("content")).forEach(c => {
+      if (c.style.maxHeight && c.style.maxHeight !== "0px") {
+        c.style.maxHeight = c.scrollHeight + "px";
+      }
+    });
+  });
+});
 </script>
 
 </body>
