@@ -33,6 +33,206 @@
     </nav>
 
     <main>
+      <section id="section0" class="test-section">
+        <h2 class="test-header">Deskriptive Statistiken</h2>
+        
+        <div class="educational-content">
+          <p>Bevor wir mit statistischen Tests beginnen, ist es wichtig, die Daten deskriptiv zu analysieren. Dies gibt uns einen Überblick über die Verteilung unserer Variablen und hilft bei der Auswahl geeigneter Tests.</p>
+          
+          <h3>Schritt 1: Datenstruktur verstehen</h3>
+          <p>Zuerst schauen wir uns an, wie unsere Daten aufgebaut sind:</p>
+          
+          <div class="r-console">
+            <div class="r-header">
+              <span>R Terminal</span>
+              <div class="r-window-controls">
+                <div class="r-window-control r-control-close"></div>
+                <div class="r-window-control r-control-minimize"></div>
+                <div class="r-window-control r-control-maximize"></div>
+              </div>
+            </div>
+            <div class="r-content">
+              <pre class="r-code"><span class="r-comment"># Zeigt die Struktur des Datensatzes an</span>
+<span class="r-function">str</span>(data)</pre>
+            </div>
+          </div>
+          
+          <div class="code-explanation">
+            <strong>Erklärung:</strong> Die Funktion <code>str()</code> zeigt uns, welche Variablen in unserem Datensatz enthalten sind und welchen Datentyp sie haben. Das ist wie ein Inhaltsverzeichnis für unsere Daten.
+          </div>
+          
+          <div class="r-console">
+            <div class="r-header">
+              <span>R Terminal</span>
+              <div class="r-window-controls">
+                <div class="r-window-control r-control-close"></div>
+                <div class="r-window-control r-control-minimize"></div>
+                <div class="r-window-control r-control-maximize"></div>
+              </div>
+            </div>
+            <div class="r-content">
+              <pre class="r-code"><span class="r-comment"># Zeigt die ersten 6 Zeilen der Daten</span>
+<span class="r-function">head</span>(data)</pre>
+            </div>
+          </div>
+          
+          <div class="code-explanation">
+            <strong>Erklärung:</strong> <code>head()</code> zeigt uns die ersten paar Zeilen unserer Daten. So können wir einen ersten Eindruck davon bekommen, wie die Daten aussehen.
+          </div>
+          
+          <h3>Schritt 2: Übersichtliche Zusammenfassung</h3>
+          <p>Jetzt lassen wir uns eine kompakte Zusammenfassung aller Variablen anzeigen:</p>
+          
+          <div class="r-console">
+            <div class="r-header">
+              <span>R Terminal</span>
+              <div class="r-window-controls">
+                <div class="r-window-control r-control-close"></div>
+                <div class="r-window-control r-control-minimize"></div>
+                <div class="r-window-control r-control-maximize"></div>
+              </div>
+            </div>
+            <div class="r-content">
+              <pre class="r-code"><span class="r-comment"># Zusammenfassende Statistiken für alle Variablen</span>
+<span class="r-function">summary</span>(data)</pre>
+            </div>
+          </div>
+          
+          <div class="code-explanation">
+            <strong>Erklärung:</strong> <code>summary()</code> berechnet für jede Variable passende Statistiken. Für Zahlen werden Mittelwert und Quartile angezeigt, für Text werden Häufigkeiten gezeigt.
+          </div>
+          
+          <h3>Schritt 3: Häufigkeiten kategorialer Variablen</h3>
+          <p>Für unsere Text-Variablen (Geschlecht und Beruf) zählen wir aus, wie oft jede Kategorie vorkommt:</p>
+          
+          <div class="r-console">
+            <div class="r-header">
+              <span>R Terminal</span>
+              <div class="r-window-controls">
+                <div class="r-window-control r-control-close"></div>
+                <div class="r-window-control r-control-minimize"></div>
+                <div class="r-window-control r-control-maximize"></div>
+              </div>
+            </div>
+            <div class="r-content">
+              <pre class="r-code"><span class="r-comment"># Häufigkeiten für Geschlecht</span>
+<span class="r-function">table</span>(data<span class="r-operator">$</span>gender)</pre>
+            </div>
+          </div>
+          
+          <div class="code-explanation">
+            <strong>Erklärung:</strong> <code>table()</code> zählt, wie oft jede Kategorie vorkommt. Das Dollar-Zeichen <code>$</code> wählt eine bestimmte Variable aus dem Datensatz aus.
+          </div>
+          
+          <div class="r-console">
+            <div class="r-header">
+              <span>R Terminal</span>
+              <div class="r-window-controls">
+                <div class="r-window-control r-control-close"></div>
+                <div class="r-window-control r-control-minimize"></div>
+                <div class="r-window-control r-control-maximize"></div>
+              </div>
+            </div>
+            <div class="r-content">
+              <pre class="r-code"><span class="r-comment"># Häufigkeiten für Beruf</span>
+<span class="r-function">table</span>(data<span class="r-operator">$</span>profession)</pre>
+            </div>
+          </div>
+          
+          <h3>Schritt 4: Deskriptive Statistiken für Job-Zufriedenheit</h3>
+          <p>Für unsere Zahlen-Variable (Job-Zufriedenheit) berechnen wir verschiedene Kennzahlen:</p>
+          
+          <div class="r-console">
+            <div class="r-header">
+              <span>R Terminal</span>
+              <div class="r-window-controls">
+                <div class="r-window-control r-control-close"></div>
+                <div class="r-window-control r-control-minimize"></div>
+                <div class="r-window-control r-control-maximize"></div>
+              </div>
+            </div>
+            <div class="r-content">
+              <pre class="r-code"><span class="r-comment"># Durchschnittliche Zufriedenheit</span>
+<span class="r-function">mean</span>(data<span class="r-operator">$</span>job_satisfaction)</pre>
+            </div>
+          </div>
+          
+          <div class="code-explanation">
+            <strong>Erklärung:</strong> <code>mean()</code> berechnet den Durchschnittswert. Das ist der arithmetische Mittelwert aller Zufriedenheitswerte.
+          </div>
+          
+          <div class="r-console">
+            <div class="r-header">
+              <span>R Terminal</span>
+              <div class="r-window-controls">
+                <div class="r-window-control r-control-close"></div>
+                <div class="r-window-control r-control-minimize"></div>
+                <div class="r-window-control r-control-maximize"></div>
+              </div>
+            </div>
+            <div class="r-content">
+              <pre class="r-code"><span class="r-comment"># Standardabweichung (Streuung der Werte)</span>
+<span class="r-function">sd</span>(data<span class="r-operator">$</span>job_satisfaction)</pre>
+            </div>
+          </div>
+          
+          <div class="code-explanation">
+            <strong>Erklärung:</strong> <code>sd()</code> berechnet die Standardabweichung. Sie zeigt, wie stark die Werte um den Mittelwert streuen. Größere Werte bedeuten mehr Variation.
+          </div>
+          
+          <div class="r-console">
+            <div class="r-header">
+              <span>R Terminal</span>
+              <div class="r-window-controls">
+                <div class="r-window-control r-control-close"></div>
+                <div class="r-window-control r-control-minimize"></div>
+                <div class="r-window-control r-control-maximize"></div>
+              </div>
+            </div>
+            <div class="r-content">
+              <pre class="r-code"><span class="r-comment"># Median (mittlerer Wert)</span>
+<span class="r-function">median</span>(data<span class="r-operator">$</span>job_satisfaction)</pre>
+            </div>
+          </div>
+          
+          <div class="code-explanation">
+            <strong>Erklärung:</strong> Der <code>median()</code> ist der Wert in der Mitte, wenn man alle Werte der Größe nach sortiert. Er ist robuster gegenüber Ausreißern als der Mittelwert.
+          </div>
+          
+          <h3>Schritt 5: Datenqualität prüfen</h3>
+          <p>Wir prüfen, ob es fehlende Werte in unseren Daten gibt:</p>
+          
+          <div class="r-console">
+            <div class="r-header">
+              <span>R Terminal</span>
+              <div class="r-window-controls">
+                <div class="r-window-control r-control-close"></div>
+                <div class="r-window-control r-control-minimize"></div>
+                <div class="r-window-control r-control-maximize"></div>
+              </div>
+            </div>
+            <div class="r-content">
+              <pre class="r-code"><span class="r-comment"># Zählt fehlende Werte (NA = Not Available)</span>
+<span class="r-function">sum</span>(<span class="r-function">is.na</span>(data))</pre>
+            </div>
+          </div>
+          
+          <div class="code-explanation">
+            <strong>Erklärung:</strong> <code>is.na()</code> prüft für jeden Wert, ob er fehlt. <code>sum()</code> zählt dann, wie viele fehlende Werte es insgesamt gibt.
+          </div>
+          
+          <div class="interpretation-box">
+            <h4>Zusammenfassung unserer deskriptiven Analyse</h4>
+            <p><strong>Stichprobengröße:</strong> Wir haben Daten von 100 Beschäftigten im Gesundheitswesen</p>
+            <p><strong>Geschlechterverteilung:</strong> 74 Frauen und 26 Männer (74% weiblich)</p>
+            <p><strong>Berufsverteilung:</strong> Die meisten sind Pflegekräfte (44), gefolgt von Ärzten (20)</p>
+            <p><strong>Job-Zufriedenheit:</strong> Durchschnittlich 3.23 von 5 Punkten, mit mittlerer Streuung (SD = 1.42)</p>
+            <p><strong>Datenqualität:</strong> Keine fehlenden Werte - unsere Daten sind vollständig</p>
+            <p><strong>Erste Erkenntnisse:</strong> Die Stichprobe ist überwiegend weiblich, was typisch für Gesundheitsberufe ist. Die Zufriedenheit liegt im mittleren Bereich.</p>
+          </div>
+        </div>
+      </section>
+      
       <section id="section1" class="test-section">
         <h2 class="test-header">Chi-Quadrat Test</h2>
         
