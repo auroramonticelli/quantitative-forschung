@@ -196,7 +196,7 @@
               </div>
               <div class="r-content">
                 <pre class="r-code">
-# Barplot für Zylinderanzahlen
+# Barplot für Anzahlt TeilnehmerInnen nach Geschlecht
 ggplot(data, aes(x = factor(gender))) + 
   geom_bar(fill = "#b9aadf") +
   labs(title = "Anzahl von TeilnehmerInnen nach Geschlecht", 
@@ -220,7 +220,7 @@ ggplot(data, aes(x = factor(gender))) +
               </div>
               <div class="r-content">
                 <pre class="r-code">
-# Boxplot für MPG nach Zylinderzahl
+# Boxplot für Arbeitszufriedenheit nach Geschlecht
 ggplot(data, aes(x = factor(gender), y = job_satisfaction)) + 
   geom_boxplot(fill = "#b9aadf") +
   labs(title = "Arbeitszufriedenheit Verteilung nach Geschlecht", 
@@ -244,7 +244,7 @@ ggplot(data, aes(x = factor(gender), y = job_satisfaction)) +
               </div>
               <div class="r-content">
                 <pre class="r-code">
-# Histogram für MPG
+# Histogram für Arbeitszufriedenheit
 ggplot(data, aes(x = job_satisfaction)) + 
   geom_histogram(fill = "#b9aadf", bins = 10, color = "white") +
   labs(title = "Verteilung der Arbeitszufriedenheit", 
@@ -268,14 +268,6 @@ ggplot(data, aes(x = job_satisfaction)) +
             </div>
             <div class="r-content">
               <pre class="r-code">
-# Barplot
-ggplot(data, aes(x = factor(cyl))) + geom_bar(fill = "#b9aadf")
-
-# Boxplot
-ggplot(data, aes(x = factor(cyl), y = mpg)) + geom_boxplot(fill = "#b9aadf")
-
-# Histogram
-ggplot(data, aes(x = job_satisfaction)) + geom_histogram(fill = "#b9aadf", bins = 10)
               </pre>
             </div>
           </div>
