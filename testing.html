@@ -434,5 +434,18 @@ healthcare_data <span class="r-operator">%>%</span>
     </footer>
 </div>
   </div>
+<script>
+  document.querySelectorAll(".collapsible").forEach(button => {
+    button.addEventListener("click", () => {
+      button.classList.toggle("active");
+      let content = button.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  });
+</script>
 </body>
 </html>
