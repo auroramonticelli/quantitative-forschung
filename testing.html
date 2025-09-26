@@ -61,10 +61,10 @@
             </div>
             <div class="r-content">
               <pre class="r-code"><span class="r-comment"># Kreuztabelle erstellen: Geschlecht vs. Beruf</span>
-<span class="r-function">table</span>(healthcare_data<span class="r-operator">$</span>gender, healthcare_data<span class="r-operator">$</span>profession)
+<span class="r-function">table</span>(data<span class="r-operator">$</span>gender, healthcare_data<span class="r-operator">$</span>profession)
 
 <span class="r-comment"># Chi-Quadrat Test durchführen</span>
-chisq_result <span class="r-operator">&lt;-</span> <span class="r-function">chisq.test</span>(<span class="r-function">table</span>(healthcare_data<span class="r-operator">$</span>gender, healthcare_data<span class="r-operator">$</span>profession))
+chisq_result <span class="r-operator">&lt;-</span> <span class="r-function">chisq.test</span>(<span class="r-function">table</span>(data<span class="r-operator">$</span>gender, healthcare_data<span class="r-operator">$</span>profession))
 <span class="r-function">print</span>(chisq_result)
 
 <span class="r-comment"># Erwartete Häufigkeiten anzeigen</span>
@@ -100,7 +100,7 @@ chisq_result<span class="r-operator">$</span>residuals
             <ul>
               <li>Binomialverteilte Daten (Erfolg/Misserfolg)</li>
               <li>Unabhängige Beobachtungen</li>
-              <li>Ausreichend große Stichprobe (np ≥ 5 und n(1-p) ≥ 5)</li>
+              <li>Ausreichend grosse Stichprobe (np ≥ 5 und n(1-p) ≥ 5)</li>
               <li>Für zwei Stichproben: unabhängige Gruppen</li>
             </ul>
           </div>
@@ -118,15 +118,15 @@ chisq_result<span class="r-operator">$</span>residuals
             </div>
             <div class="r-content">
               <pre class="r-code"><span class="r-comment"># Ein-Stichproben Test: Anteil weiblicher Beschäftigter vs. 50%</span>
-female_count <span class="r-operator">&lt;-</span> <span class="r-function">sum</span>(healthcare_data<span class="r-operator">$</span>gender <span class="r-operator">==</span> <span class="r-string">"Female"</span>)
-total_count <span class="r-operator">&lt;-</span> <span class="r-function">nrow</span>(healthcare_data)
+female_count <span class="r-operator">&lt;-</span> <span class="r-function">sum</span>(data<span class="r-operator">$</span>gender <span class="r-operator">==</span> <span class="r-string">"Female"</span>)
+total_count <span class="r-operator">&lt;-</span> <span class="r-function">nrow</span>(data)
 <span class="r-function">prop.test</span>(female_count, total_count, p <span class="r-operator">=</span> <span class="r-number">0.5</span>)
 
 <span class="r-comment"># Zwei-Stichproben Test: Vergleich der Zufriedenheitsanteile (≥4) zwischen Geschlechtern</span>
-female_high_satisfaction <span class="r-operator">&lt;-</span> <span class="r-function">sum</span>(healthcare_data<span class="r-operator">$</span>gender <span class="r-operator">==</span> <span class="r-string">"Female"</span> <span class="r-operator">&</span> healthcare_data<span class="r-operator">$</span>job_satisfaction <span class="r-operator">>=</span> <span class="r-number">4</span>)
-male_high_satisfaction <span class="r-operator">&lt;-</span> <span class="r-function">sum</span>(healthcare_data<span class="r-operator">$</span>gender <span class="r-operator">==</span> <span class="r-string">"Male"</span> <span class="r-operator">&</span> healthcare_data<span class="r-operator">$</span>job_satisfaction <span class="r-operator">>=</span> <span class="r-number">4</span>)
-female_total <span class="r-operator">&lt;-</span> <span class="r-function">sum</span>(healthcare_data<span class="r-operator">$</span>gender <span class="r-operator">==</span> <span class="r-string">"Female"</span>)
-male_total <span class="r-operator">&lt;-</span> <span class="r-function">sum</span>(healthcare_data<span class="r-operator">$</span>gender <span class="r-operator">==</span> <span class="r-string">"Male"</span>)
+female_high_satisfaction <span class="r-operator">&lt;-</span> <span class="r-function">sum</span>(data<span class="r-operator">$</span>gender <span class="r-operator">==</span> <span class="r-string">"Female"</span> <span class="r-operator">&</span> data<span class="r-operator">$</span>job_satisfaction <span class="r-operator">>=</span> <span class="r-number">4</span>)
+male_high_satisfaction <span class="r-operator">&lt;-</span> <span class="r-function">sum</span>(data<span class="r-operator">$</span>gender <span class="r-operator">==</span> <span class="r-string">"Male"</span> <span class="r-operator">&</span> data<span class="r-operator">$</span>job_satisfaction <span class="r-operator">>=</span> <span class="r-number">4</span>)
+female_total <span class="r-operator">&lt;-</span> <span class="r-function">sum</span>(data<span class="r-operator">$</span>gender <span class="r-operator">==</span> <span class="r-string">"Female"</span>)
+male_total <span class="r-operator">&lt;-</span> <span class="r-function">sum</span>(data<span class="r-operator">$</span>gender <span class="r-operator">==</span> <span class="r-string">"Male"</span>)
 
 <span class="r-function">prop.test</span>(<span class="r-function">c</span>(female_high_satisfaction, male_high_satisfaction), 
           <span class="r-function">c</span>(female_total, male_total))
@@ -184,22 +184,22 @@ male_total <span class="r-operator">&lt;-</span> <span class="r-function">sum</s
             </div>
             <div class="r-content">
               <pre class="r-code"><span class="r-comment"># t-Test für unabhängige Stichproben: Zufriedenheit nach Geschlecht</span>
-<span class="r-function">t.test</span>(job_satisfaction <span class="r-operator">~</span> gender, data <span class="r-operator">=</span> healthcare_data)
+<span class="r-function">t.test</span>(job_satisfaction <span class="r-operator">~</span> gender, data <span class="r-operator">=</span> data)
 
 <span class="r-comment"># Überprüfung der Normalverteilung mit Shapiro-Wilk-Test</span>
-<span class="r-function">shapiro.test</span>(healthcare_data<span class="r-operator">$</span>job_satisfaction[healthcare_data<span class="r-operator">$</span>gender <span class="r-operator">==</span> <span class="r-string">"Female"</span>])
-<span class="r-function">shapiro.test</span>(healthcare_data<span class="r-operator">$</span>job_satisfaction[healthcare_data<span class="r-operator">$</span>gender <span class="r-operator">==</span> <span class="r-string">"Male"</span>])
+<span class="r-function">shapiro.test</span>(data<span class="r-operator">$</span>job_satisfaction[healthcare_data<span class="r-operator">$</span>gender <span class="r-operator">==</span> <span class="r-string">"Female"</span>])
+<span class="r-function">shapiro.test</span>(data<span class="r-operator">$</span>job_satisfaction[healthcare_data<span class="r-operator">$</span>gender <span class="r-operator">==</span> <span class="r-string">"Male"</span>])
 
 <span class="r-comment"># Überprüfung der Varianzhomogenität mit Levene-Test</span>
 <span class="r-function">library</span>(car)
-<span class="r-function">leveneTest</span>(job_satisfaction <span class="r-operator">~</span> gender, data <span class="r-operator">=</span> healthcare_data)
+<span class="r-function">leveneTest</span>(job_satisfaction <span class="r-operator">~</span> gender, data <span class="r-operator">=</span> data)
 
 <span class="r-comment"># Mann-Whitney U-Test (nicht-parametrische Alternative)</span>
-<span class="r-function">wilcox.test</span>(job_satisfaction <span class="r-operator">~</span> gender, data <span class="r-operator">=</span> healthcare_data)
+<span class="r-function">wilcox.test</span>(job_satisfaction <span class="r-operator">~</span> gender, data <span class="r-operator">=</span> data)
 
 <span class="r-comment"># Effektstärke berechnen (Cohen's d für t-Test)</span>
 <span class="r-function">library</span>(effectsize)
-<span class="r-function">cohens_d</span>(job_satisfaction <span class="r-operator">~</span> gender, data <span class="r-operator">=</span> healthcare_data)
+<span class="r-function">cohens_d</span>(job_satisfaction <span class="r-operator">~</span> gender, data <span class="r-operator">=</span> data)
 
 <span class="r-comment"># Deskriptive Statistiken für beide Gruppen</span>
 <span class="r-function">library</span>(dplyr)
