@@ -281,7 +281,6 @@ chisq_result<span class="r-operator">$</span>residuals
           <button class="collapsible">Interpretation der Ergebnisse</button>
             <div class="content">
               <div class="interpretation-box">
-                <h4>Interpretation der Ergebnisse</h4>
                 <p><strong>Forschungsfrage:</strong> Gibt es einen Zusammenhang zwischen Geschlecht und Beruf im Gesundheitswesen?</p>
                 <p><strong>p-Wert:</strong> p = 0.034 < 0.05 → Signifikanter Zusammenhang zwischen Geschlecht und Beruf</p>
                 <p><strong>χ²-Wert:</strong> 10.82 zeigt eine moderate Abweichung von der Unabhängigkeit</p>
@@ -343,13 +342,13 @@ male_total <span class="r-operator">&lt;-</span> <span class="r-function">sum</s
           <button class="collapsible">Interpretation der Ergebnisse</button>
 <div class="content">
   <div class="interpretation-box">
-    <h4>Interpretation der Ergebnisse</h4>
     <p><strong>Forschungsfrage:</strong> Weicht der Anteil weiblicher Beschäftigter signifikant von 50% ab?</p>
     <p><strong>p-Wert:</strong> p = 0.002 < 0.05 → Der Anteil weiblicher Beschäftigter (74%) unterscheidet sich signifikant von 50%</p>
     <p><strong>Konfidenzintervall:</strong> [0.64, 0.82] enthält nicht 0.5 → signifikant</p>
     <p><strong>Zwei-Stichproben Test:</strong> p = 0.45 > 0.05 → Kein signifikanter Unterschied in der Zufriedenheit zwischen Geschlechtern</p>
   </div>
 </div>
+
 
       </section>
 
@@ -420,15 +419,17 @@ healthcare_data <span class="r-operator">%>%</span>
             </div>
           </div>
           
-          <div class="interpretation-box">
-            <h4>Interpretation der Ergebnisse</h4>
-            <p><strong>Forschungsfrage:</strong> Unterscheidet sich die Arbeitszufriedenheit zwischen weiblichen und männlichen Beschäftigten?</p>
-            <p><strong>p-Wert (t-Test):</strong> p = 0.27 > 0.05 → Kein signifikanter Mittelwertunterschied</p>
-            <p><strong>Mittelwerte:</strong> Weiblich (3.15) vs. Männlich (3.42)</p>
-            <p><strong>Effektstärke:</strong> Cohen's d = 0.23 → Kleiner Effekt</p>
-            <p><strong>Mann-Whitney:</strong> p = 0.31 → Bestätigt das Ergebnis des t-Tests</p>
-          </div>
-        </div>
+          <button class="collapsible">Interpretation der Ergebnisse</button>
+<div class="content">
+  <div class="interpretation-box">
+    <p><strong>Forschungsfrage:</strong> Unterscheidet sich die Arbeitszufriedenheit zwischen weiblichen und männlichen Beschäftigten?</p>
+    <p><strong>p-Wert (t-Test):</strong> p = 0.27 > 0.05 → Kein signifikanter Mittelwertunterschied</p>
+    <p><strong>Mittelwerte:</strong> Weiblich (3.15) vs. Männlich (3.42)</p>
+    <p><strong>Effektstärke:</strong> Cohen's d = 0.23 → Kleiner Effekt</p>
+    <p><strong>Mann-Whitney:</strong> p = 0.31 → Bestätigt das Ergebnis des t-Tests</p>
+  </div>
+</div>
+
       </section>
     </main>
 
