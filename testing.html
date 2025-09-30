@@ -382,18 +382,7 @@ male_total <span class="r-operator">&lt;-</span> <span class="r-function">sum</s
 
 <span class="r-comment"># Effektstärke berechnen (Cohen's d für t-Test)</span>
 <span class="r-function">library</span>(effectsize)
-<span class="r-function">cohens_d</span>(job_satisfaction <span class="r-operator">~</span> gender, data <span class="r-operator">=</span> data)
-
-<span class="r-comment"># Deskriptive Statistiken für beide Gruppen</span>
-<span class="r-function">library</span>(dplyr)
-healthcare_data <span class="r-operator">%>%</span>
-  <span class="r-function">group_by</span>(gender) <span class="r-operator">%>%</span>
-  <span class="r-function">summarise</span>(
-    n <span class="r-operator">=</span> <span class="r-function">n</span>(),
-    mean_satisfaction <span class="r-operator">=</span> <span class="r-function">mean</span>(job_satisfaction),
-    sd_satisfaction <span class="r-operator">=</span> <span class="r-function">sd</span>(job_satisfaction),
-    median_satisfaction <span class="r-operator">=</span> <span class="r-function">median</span>(job_satisfaction)
-  )</pre>
+<span class="r-function">cohens_d</span>(job_satisfaction <span class="r-operator">~</span> gender, data <span class="r-operator">=</span> data)</pre>
             </div>
           </div>
           
