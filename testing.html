@@ -417,17 +417,35 @@ healthcare_data <span class="r-operator">%>%</span>
 </div>
   </div>
 <script>
-  document.querySelectorAll(".collapsible").forEach(button => {
-    button.addEventListener("click", () => {
-      button.classList.toggle("active");
-      let content = button.nextElementSibling;
-      if (content.style.display === "block") {
-        content.style.display = "none";
+document.addEventListener("DOMContentLoaded", function () {
+  const coll = document.getElementsByClassName("collapsible");
+
+  Array.from(coll).forEach(button => {
+    button.addEventListener("click", function () {
+      this.classList.toggle("active");
+      const content = this.nextElementSibling;
+      if (!content) return;
+
+      // close if open
+      if (content.style.maxHeight && content.style.maxHeight !== "0px") {
+        content.style.maxHeight = "0px";
       } else {
-        content.style.display = "block";
+        // open: set to scrollHeight so transition animates
+        content.style.maxHeight = content.scrollHeight + "px";
       }
     });
   });
+
+  // keep open panels sized correctly on window resize
+  window.addEventListener("resize", () => {
+    Array.from(document.getElementsByClassName("content")).forEach(c => {
+      if (c.style.maxHeight && c.style.maxHeight !== "0px") {
+        c.style.maxHeight = c.scrollHeight + "px";
+      }
+    });
+  });
+});
 </script>
+
 </body>
 </html>
