@@ -197,28 +197,6 @@
             <strong>Erklärung:</strong> Der <code>median()</code> ist der Wert in der Mitte, wenn man alle Werte der Größe nach sortiert. Er ist robuster gegenüber Ausreißern als der Mittelwert.
           </div>
           
-          <h3>Schritt 5: Datenqualität prüfen</h3>
-          <p>Wir prüfen, ob es fehlende Werte in unseren Daten gibt:</p>
-          
-          <div class="r-console">
-            <div class="r-header">
-              <span>R Terminal</span>
-              <div class="r-window-controls">
-                <div class="r-window-control r-control-close"></div>
-                <div class="r-window-control r-control-minimize"></div>
-                <div class="r-window-control r-control-maximize"></div>
-              </div>
-            </div>
-            <div class="r-content">
-              <pre class="r-code"><span class="r-comment"># Zählt fehlende Werte (NA = Not Available)</span>
-<span class="r-function">sum</span>(<span class="r-function">is.na</span>(data))</pre>
-            </div>
-          </div>
-          
-          <div class="code-explanation">
-            <strong>Erklärung:</strong> <code>is.na()</code> prüft für jeden Wert, ob er fehlt. <code>sum()</code> zählt dann, wie viele fehlende Werte es insgesamt gibt.
-          </div>
-          
           <div class="interpretation-box">
             <h4>Zusammenfassung unserer deskriptiven Analyse</h4>
             <p><strong>Stichprobengröße:</strong> Wir haben Daten von 100 Beschäftigten im Gesundheitswesen</p>
