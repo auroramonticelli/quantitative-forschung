@@ -11,10 +11,10 @@
 <div class="page-wrapper">
   <div class="sidebar">
     <h3>Inhaltsverzeichnis</h3>
+    <a href="#section1">Warum Visualisierung?</a>
     <a href="#section0">Datenexploration</a>
-    <a href="#section1">Warum Visualisierung ?</a>
-    <a href="#section3">Plots: Barplot, Boxplot, Histogram</a>
-    <a href="#section4">Ästhetische Anpassungen</a>
+    <a href="#section2">Plots: Barplot, Boxplot, Histogram</a>
+    <a href="#section3">Ästhetische Anpassungen</a>
   </div>
 
   <div class="main-content">
@@ -32,6 +32,17 @@
     </nav>
 
     <main>
+      <section id="section1">
+        <h2>Warum Visualisierung?</h2>
+        <p>Visualisierung transformiert Rohdaten in verständliche Muster und Einblicke. Es hilft dabei:</p>
+        <ul>
+          <li><strong>Muster zu erkennen</strong> - Trends, Cluster oder Zyklen identifizieren</li>
+          <li><strong>Ausreisser zu entdecken</strong> - Ungewöhnliche Datenpunkte visualisieren</li>
+          <li><strong>Zusammenhänge zu verstehen</strong> - Beziehungen zwischen Variablen erkennen</li>
+          <li><strong>Kommunikation zu verbessern</strong> - Komplexe Ergebnisse einfach darstellen</li>
+        </ul>
+      </section>
+
       <section id="section0">
         <h2>Datenexploration</h2>
         
@@ -155,7 +166,7 @@
               <span>R Console</span>
             </div>
             <div class="r-content">
-              <pre class="r-code"><span class="r-comment"># Häufigkeiten einer kategorialen Variable</span>
+              <pre class="r-code"><span class="r-comment"># Häufigkeiten einer kategoriale Variable</span>
 <span class="r-function">table</span>(data$gender)</pre>
             </div>
           </div>
@@ -164,18 +175,6 @@
             <strong>Erklärung:</strong> <code>table()</code> erstellt eine Häufigkeitstabelle für kategoriale Variablen. Vor dem "$" gibt man den Datensatz an, nach dem "$" die gewünschte Variable.
           </div>
         </div>
-        <!-- This closing div was missing -->
-      </section>
-
-      <section id="section1">
-        <h2>Warum Visualisierung?</h2>
-        <p>Visualisierung transformiert Rohdaten in verständliche Muster und Einblicke. Es hilft dabei:</p>
-        <ul>
-          <li><strong>Muster zu erkennen</strong> - Trends, Cluster oder Zyklen identifizieren</li>
-          <li><strong>Ausreisser zu entdecken</strong> - Ungewöhnliche Datenpunkte visualisieren</li>
-          <li><strong>Zusammenhänge zu verstehen</strong> - Beziehungen zwischen Variablen erkennen</li>
-          <li><strong>Kommunikation zu verbessern</strong> - Komplexe Ergebnisse einfach darstellen</li>
-        </ul>
       </section>
 
       <section id="section2">
@@ -199,7 +198,7 @@
               </div>
               <div class="r-content">
                 <pre class="r-code">
-# Barplot für Anzahlt TeilnehmerInnen nach Geschlecht
+# Barplot für Anzahl TeilnehmerInnen nach Geschlecht
 ggplot(data, aes(x = factor(gender))) + 
   geom_bar(fill = "#b9aadf") +
   labs(title = "Anzahl von TeilnehmerInnen nach Geschlecht", 
@@ -257,24 +256,6 @@ ggplot(data, aes(x = job_satisfaction)) +
             </div>
           </div>
         </div>
-        
-        <button class="collapsible">R Code</button>
-        <div class="content">
-          <div class="r-console">
-            <div class="r-header">
-              <div class="r-window-controls">
-                <span class="r-window-control r-control-close"></span>
-                <span class="r-window-control r-control-minimize"></span>
-                <span class="r-window-control r-control-maximize"></span>
-              </div>
-              <span>R Console</span>
-            </div>
-            <div class="r-content">
-              <pre class="r-code">
-              </pre>
-            </div>
-          </div>
-        </div>
       </section>
 
       <section id="section3">
@@ -296,10 +277,8 @@ ggplot(data, aes(x = job_satisfaction)) +
           </div>
           
           <p>Die Anpassung des Erscheinungsbilds erfolgt in ggplot2 hauptsächlich durch das theme()-Argument und verschiedene Skalenfunktionen.</p>
-        </div>
-        
-        <button class="collapsible">R Code</button>
-        <div class="content">
+
+          <h4>Beispiel: Vollständiger ggplot2 Code mit Anpassungen</h4>
           <div class="r-console">
             <div class="r-header">
               <div class="r-window-controls">
