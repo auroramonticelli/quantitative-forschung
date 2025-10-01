@@ -408,44 +408,8 @@ ggplot(data, aes(x = profession)) +
             </ul>
         </div>
 
-        <button class="collapsible">Vollständiges Beispiel anzeigen</button>
-        <div class="content">
-            <div class="r-console">
-                <div class="r-header">
-                    <div class="r-window-controls">
-                        <span class="r-window-control r-control-close"></span>
-                        <span class="r-window-control r-control-minimize"></span>
-                        <span class="r-window-control r-control-maximize"></span>
-                    </div>
-                    <span>R Console</span>
-                </div>
-                <div class="r-content">
-                    <pre class="r-code">
-# Vollständiges Beispiel mit allen Anpassungen
-library(ggplot2)
-
-ggplot(data, aes(x = profession)) +
-  geom_bar(fill = "#b9aadf") +
-  labs(
-    title = "Verteilung der Berufe im Gesundheitswesen",
-    subtitle = "Daten von 100 Beschäftigten",
-    x = "Berufsgruppe",
-    y = "Anzahl der Beschäftigten"
-  ) +
-  theme(
-    plot.title = element_text(size = 18, face = "bold", color = "#2c3e50"),
-    plot.subtitle = element_text(size = 12, color = "#7f8c8d"),
-    axis.title.x = element_text(size = 14, face = "bold"),
-    axis.title.y = element_text(size = 14, face = "bold"),
-    axis.text = element_text(size = 11),
-    panel.background = element_rect(fill = "white"),
-    panel.grid.major = element_line(color = "grey90"),
-    panel.grid.minor = element_blank()
-  )
-                    </pre>
-                </div>
-            </div>
-        </div>
+        
+        
     </div>
 </section>
     </main>
