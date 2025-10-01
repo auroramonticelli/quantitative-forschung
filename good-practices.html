@@ -157,51 +157,55 @@ data <span class="r-operator">&lt;-</span> <span class="r-function">read.csv</sp
       </section>
 
       <section id="section4" class="section">
-        <h2>Pakete laden und installieren</h2>
+    <h2>Pakete laden und installieren</h2>
+    
+    <div class="educational-content">
+        <p>R-Pakete sind Sammlungen von Funktionen, Daten und Dokumentation, die die Funktionalität von R erweitern. Die Fähigkeit, Pakete zu installieren und zu laden, ist entscheidend für effektives Arbeiten mit R.</p>
         
-        <div class="educational-content">
-          <p>R-Pakete sind Sammlungen von Funktionen, Daten und Dokumentation, die die Funktionalität von R erweitern. Die Fähigkeit, Pakete zu installieren und zu laden, ist entscheidend für effektives Arbeiten mit R.</p>
-          
-          <div class="tips-box">
-            <h4>Wichtige R-Pakete für Einsteiger:</h4>
+        <div class="tips-box">
+            <h4>Das tidyverse-Paket für Datenanalyse</h4>
+            <p>Das <strong>tidyverse</strong> ist eine Sammlung von R-Paketen, die speziell für die Datenwissenschaft entwickelt wurden. Für Beginner ist es der ideale Einstieg, weil:</p>
             <ul>
-              <li>tidyverse - Sammlung von Paketen für Datenwissenschaft (dplyr, ggplot2, etc.)</li>
+                <li>Alle Pakete folgen den gleichen Prinzipien und Syntax-Regeln</li>
+                <li>Die Funktionen haben konsistente und leicht verständliche Namen</li>
+                <li>Es deckt den gesamten Datenanalyse-Workflow ab: Import, Aufbereitung, Visualisierung und Modellierung</li>
+                <li>Die Dokumentation und Community-Unterstützung ist ausgezeichnet</li>
             </ul>
-          </div>
-          
-          <h4>R Code: Pakete installieren und laden</h4>
-          
-          <div class="r-console">
+            <p>Zu den wichtigsten Paketen im tidyverse gehören <strong>dplyr</strong> für Datenmanipulation und <strong>ggplot2</strong> für Grafiken – beides werden wir in diesem Kurs intensiv nutzen.</p>
+        </div>
+        
+        <h4>R Code: Pakete installieren und laden</h4>
+        
+        <div class="r-console">
             <div class="r-header">
-              <span>R Terminal</span>
-              <div class="r-window-controls">
-                <div class="r-window-control r-control-close"></div>
-                <div class="r-window-control r-control-minimize"></div>
-                <div class="r-window-control r-control-maximize"></div>
-              </div>
+                <span>R Terminal</span>
+                <div class="r-window-controls">
+                    <div class="r-window-control r-control-close"></div>
+                    <div class="r-window-control r-control-minimize"></div>
+                    <div class="r-window-control r-control-maximize"></div>
+                </div>
             </div>
             <div class="r-content">
-              <pre class="r-code"><span class="r-comment"># 1. Pakete installieren</span>
-<span class="r-function">install.packages</span>(<span class="r-string">"tidyverse"</span>)   <span class="r-comment"># Einzelnes Paket</span>
+                <pre class="r-code"><span class="r-comment"># Paket installieren (nur einmal notwendig)</span>
+<span class="r-function">install.packages</span>(<span class="r-string">"tidyverse"</span>)
 
-<span class="r-comment"># 2. Pakete laden</span>
-<span class="r-function">library</span>(tidyverse)     <span class="r-comment"># Paket laden</span>
-</pre>
+<span class="r-comment"># Paket laden (in jeder R-Session notwendig)</span>
+<span class="r-function">library</span>(tidyverse)</pre>
             </div>
-          </div>
-          
-          <div class="tips-box">
-            <h4>Bewährte Praktiken für Pakete:</h4>
-            <ul>
-              <li>Laden Sie nur die Pakete, die Sie tatsächlich benötigen</li>
-              <li>Aktualisieren Sie Pakete regelmäßig mit update.packages()</li>
-              <li>Verwenden Sie library() am Anfang Ihres Skripts</li>
-              <li>Notieren Sie die verwendeten Pakete in der Dokumentation</li>
-              <li>Beheben Sie Konflikte zwischen Paketen mit package::function()</li>
-            </ul>
-          </div>
         </div>
-      </section>
+        
+        <div class="tips-box">
+            <h4>Wichtige Hinweise zur Paketverwaltung:</h4>
+            <ul>
+                <li>Pakete müssen nur einmal installiert werden, aber in jeder neuen R-Session geladen werden</li>
+                <li>Das Laden aller Pakete am Anfang eines Skripts ist empfehlenswert</li>
+                <li>Bei Funktionskonflikten zwischen Paketen kann package::function() verwendet werden</li>
+                <li>Regelmäßige Updates mit update.packages() halten die Pakete aktuell</li>
+                <li>Eine Dokumentation der verwendeten Pakete erleichtert die Reproduzierbarkeit</li>
+            </ul>
+        </div>
+    </div>
+</section>
     </main>
 
     <footer>
