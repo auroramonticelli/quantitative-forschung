@@ -275,57 +275,59 @@ ggplot(data, aes(x = job_satisfaction)) +
       </section>
 
       <section id="section3">
-        <h2>Ästhetische Anpassungen</h2>
-        <p>Wir passen Titel, Farben und Positionen an, um Grafiken klarer zu gestalten.<span class="badge">Tipp</span></p>
-        
-        <div class="educational-content">
-          <p>Eine effektive Visualisierung ist nicht nur korrekt, sondern auch ästhetisch ansprechend und leicht verständlich. ggplot2 bietet umfangreiche Anpassungsmöglichkeiten:</p>
-          
-          <div class="key-point">
-            <h4>Gute Praxis für Visualisierungen</h4>
-            <ul>
-              <li><strong>Klare Titel und Beschriftungen</strong> - Jede Grafik sollte selbsterklärend sein</li>
-              <li><strong>Angemessene Skalierung</strong> - Vermeiden Sie irreführende Darstellungen</li>
-              <li><strong>Farben mit Bedeutung</strong> - Verwenden Sie Farben konsistent und zugänglich</li>
-              <li><strong>Vermeiden von Chartjunk</strong> - Entfernen Sie unnötige decorative Elemente</li>
-              <li><strong>Hervorhebung wichtiger Punkte</strong> - Lenken Sie die Aufmerksamkeit auf Schlüsselelemente</li>
-            </ul>
-          </div>
-          
-          <p>Die Anpassung des Erscheinungsbilds erfolgt in ggplot2 hauptsächlich durch das theme()-Argument und verschiedene Skalenfunktionen.</p>
+  <h2>Ästhetische Anpassungen</h2>
+  <p>Wir passen Titel, Farben und Positionen an, um Grafiken klarer zu gestalten.<span class="badge">Tipp</span></p>
+  
+  <div class="educational-content">
+    <p>Eine effektive Visualisierung ist nicht nur korrekt, sondern auch ästhetisch ansprechend und leicht verständlich. ggplot2 bietet umfangreiche Anpassungsmöglichkeiten:</p>
+    
+    <div class="key-point">
+      <h4>Gute Praxis für Visualisierungen</h4>
+      <ul>
+        <li><strong>Klare Titel und Beschriftungen</strong> - Jede Grafik sollte selbsterklärend sein</li>
+        <li><strong>Angemessene Skalierung</strong> - Vermeiden Sie irreführende Darstellungen</li>
+        <li><strong>Farben mit Bedeutung</strong> - Verwenden Sie Farben konsistent und zugänglich</li>
+        <li><strong>Vermeiden von Chartjunk</strong> - Entfernen Sie unnötige decorative Elemente</li>
+        <li><strong>Hervorhebung wichtiger Punkte</strong> - Lenken Sie die Aufmerksamkeit auf Schlüsselelemente</li>
+      </ul>
+    </div>
+    
+    <p>Die Anpassung des Erscheinungsbilds erfolgt in ggplot2 hauptsächlich durch das theme()-Argument und verschiedene Skalenfunktionen.</p>
+  </div>
+  
+  <button class="collapsible">R Code</button>
+  <div class="content">
+    <div class="r-console">
+      <div class="r-header">
+        <div class="r-window-controls">
+          <span class="r-window-control r-control-close"></span>
+          <span class="r-window-control r-control-minimize"></span>
+          <span class="r-window-control r-control-maximize"></span>
         </div>
-        
-        <button class="collapsible">R Code</button>
-        <div class="content">
-          <div class="r-console">
-            <div class="r-header">
-              <div class="r-window-controls">
-                <span class="r-window-control r-control-close"></span>
-                <span class="r-window-control r-control-minimize"></span>
-                <span class="r-window-control r-control-maximize"></span>
-              </div>
-              <span>R Console</span>
-            </div>
-            <div class="r-content">
-              <pre class="r-code">
-ggplot(mtcars, aes(x = hp, y = mpg)) +
-  geom_point(color = "#b9aadf") +
-  geom_smooth(method = "lm", se = FALSE, color = "#9b7bb5") +
+        <span>R Console</span>
+      </div>
+      <div class="r-content">
+        <pre class="r-code">
+# Load the ggplot2 package
+library(ggplot2)
+
+# Create a scatterplot with aesthetics
+ggplot(mtcars, aes(x = hp, y = mpg)) +  # hp on x-axis, mpg on y-axis
+  
+  # Add points for each car
+  geom_point(color = "#b9aadf", size = 3) +  # color sets point color, size = point size
+  
+  # Add a regression line (trend line)
+  geom_smooth(method = "lm",     # "lm" = linear model
+              se = FALSE,        # se = FALSE removes shaded confidence area
+              color = "#9b7bb5", # line color
+              size = 1.2) +      # line thickness
+  
+  # Add titles and axis labels
   labs(
-    title = "Horsepower vs. MPG",
-    subtitle = "Beispiel mit angepasster Schriftgröße",
-    x = "Horsepower (HP)",
-    y = "Miles per Gallon (MPG)"
-  ) +
-  theme(
-    plot.title = element_text(size = 20, face = "bold", color = "#9b7bb5"),
-    plot.subtitle = element_text(size = 16, face = "italic", color = "#b9aadf")
-  )
-              </pre>
-            </div>
-          </div>
-        </div>
-      </section>
+    title = "Horsepower vs. MPG",    # main title of the plot
+    subtitle = "Beispiel für Anpassungen", # optional subt
+
     </main>
 
     <footer>
