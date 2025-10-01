@@ -259,87 +259,195 @@ ggplot(data, aes(x = job_satisfaction)) +
       </section>
 
       <section id="section3">
-        <h2>Ästhetische Anpassungen</h2>
-        <p>Wir passen Titel, Farben und Positionen an, um Grafiken klarer zu gestalten.<span class="badge">Tipp</span></p>
+    <h2>Ästhetische Anpassungen</h2>
+    <p>Wir passen Titel, Farben und Positionen an, um Grafiken klarer zu gestalten.<span class="badge">Tipp</span></p>
+    
+    <div class="educational-content">
+        <p>Eine effektive Visualisierung ist nicht nur korrekt, sondern auch ästhetisch ansprechend und leicht verständlich.</p>
         
-        <div class="educational-content">
-          <p>Eine effektive Visualisierung ist nicht nur korrekt, sondern auch ästhetisch ansprechend und leicht verständlich. ggplot2 bietet umfangreiche Anpassungsmöglichkeiten:</p>
-          
-          <div class="key-point">
-            <h4>Gute Praxis für Visualisierungen</h4>
-            <ul>
-              <li><strong>Klare Titel und Beschriftungen</strong> - Jede Grafik sollte selbsterklärend sein</li>
-              <li><strong>Angemessene Skalierung</strong> - Vermeiden Sie irreführende Darstellungen</li>
-              <li><strong>Farben mit Bedeutung</strong> - Verwenden Sie Farben konsistent und zugänglich</li>
-              <li><strong>Vermeiden von Chartjunk</strong> - Entfernen Sie unnötige decorative Elemente</li>
-              <li><strong>Hervorhebung wichtiger Punkte</strong> - Lenken Sie die Aufmerksamkeit auf Schlüsselelemente</li>
-            </ul>
-          </div>
-          
-          <p>Die Anpassung des Erscheinungsbilds erfolgt in ggplot2 hauptsächlich durch das theme()-Argument und verschiedene Skalenfunktionen.</p>
-
-          <h4>Beispiel: Vollständiger ggplot2 Code mit Anpassungen</h4>
-          <div class="r-console">
+        <h3>Schritt 1: Grundgerüst erstellen</h3>
+        <p>Zuerst erstellen wir ein einfaches Balkendiagramm für unsere Daten:</p>
+        
+        <div class="r-console">
             <div class="r-header">
-              <div class="r-window-controls">
-                <span class="r-window-control r-control-close"></span>
-                <span class="r-window-control r-control-minimize"></span>
-                <span class="r-window-control r-control-maximize"></span>
-              </div>
-              <span>R Console</span>
+                <div class="r-window-controls">
+                    <span class="r-window-control r-control-close"></span>
+                    <span class="r-window-control r-control-minimize"></span>
+                    <span class="r-window-control r-control-maximize"></span>
+                </div>
+                <span>R Console</span>
             </div>
             <div class="r-content">
-              <pre class="r-code">
-# Load the ggplot2 package
+                <pre class="r-code">
+# Einfaches Balkendiagramm erstellen
+ggplot(data, aes(x = profession)) +
+  geom_bar()
+                </pre>
+            </div>
+        </div>
+
+        <h3>Schritt 2: Farben hinzufügen</h3>
+        <p>Jetzt fügen wir Farben hinzu, um die Balken ansprechender zu gestalten:</p>
+        
+        <div class="r-console">
+            <div class="r-header">
+                <div class="r-window-controls">
+                    <span class="r-window-control r-control-close"></span>
+                    <span class="r-window-control r-control-minimize"></span>
+                    <span class="r-window-control r-control-maximize"></span>
+                </div>
+                <span>R Console</span>
+            </div>
+            <div class="r-content">
+                <pre class="r-code">
+# Balkendiagramm mit Farbe
+ggplot(data, aes(x = profession)) +
+  geom_bar(fill = "#b9aadf")  # Lila Farbe für alle Balken
+                </pre>
+            </div>
+        </div>
+
+        <h3>Schritt 3: Titel und Achsen beschriften</h3>
+        <p>Titel und Achsenbeschriftungen machen die Grafik verständlich:</p>
+        
+        <div class="r-console">
+            <div class="r-header">
+                <div class="r-window-controls">
+                    <span class="r-window-control r-control-close"></span>
+                    <span class="r-window-control r-control-minimize"></span>
+                    <span class="r-window-control r-control-maximize"></span>
+                </div>
+                <span>R Console</span>
+            </div>
+            <div class="r-content">
+                <pre class="r-code">
+# Mit Titel und Achsenbeschriftungen
+ggplot(data, aes(x = profession)) +
+  geom_bar(fill = "#b9aadf") +
+  labs(
+    title = "Anzahl der Beschäftigten nach Beruf",
+    x = "Beruf",           # X-Achse beschriften
+    y = "Anzahl"           # Y-Achse beschriften
+  )
+                </pre>
+            </div>
+        </div>
+
+        <h3>Schritt 4: Textgrößen anpassen</h3>
+        <p>Mit theme() können wir die Textgrößen anpassen:</p>
+        
+        <div class="r-console">
+            <div class="r-header">
+                <div class="r-window-controls">
+                    <span class="r-window-control r-control-close"></span>
+                    <span class="r-window-control r-control-minimize"></span>
+                    <span class="r-window-control r-control-maximize"></span>
+                </div>
+                <span>R Console</span>
+            </div>
+            <div class="r-content">
+                <pre class="r-code">
+# Textgrößen anpassen
+ggplot(data, aes(x = profession)) +
+  geom_bar(fill = "#b9aadf") +
+  labs(
+    title = "Anzahl der Beschäftigten nach Beruf",
+    x = "Beruf",
+    y = "Anzahl"
+  ) +
+  theme(
+    plot.title = element_text(size = 16, face = "bold"),  # Titel größer und fett
+    axis.title = element_text(size = 12),                 # Achsentitel Größe
+    axis.text = element_text(size = 10)                   # Achsentext Größe
+  )
+                </pre>
+            </div>
+        </div>
+
+        <h3>Schritt 5: Hintergrund anpassen</h3>
+        <p>Wir können den Hintergrund der Grafik verbessern:</p>
+        
+        <div class="r-console">
+            <div class="r-header">
+                <div class="r-window-controls">
+                    <span class="r-window-control r-control-close"></span>
+                    <span class="r-window-control r-control-minimize"></span>
+                    <span class="r-window-control r-control-maximize"></span>
+                </div>
+                <span>R Console</span>
+            </div>
+            <div class="r-content">
+                <pre class="r-code">
+# Komplette Grafik mit allen Anpassungen
+ggplot(data, aes(x = profession)) +
+  geom_bar(fill = "#b9aadf") +
+  labs(
+    title = "Anzahl der Beschäftigten nach Beruf",
+    x = "Beruf",
+    y = "Anzahl"
+  ) +
+  theme(
+    plot.title = element_text(size = 16, face = "bold"),
+    axis.title = element_text(size = 12),
+    axis.text = element_text(size = 10),
+    panel.background = element_rect(fill = "white"),      # Weißer Hintergrund
+    panel.grid.major = element_line(color = "grey90")     # Helleres Gitternetz
+  )
+                </pre>
+            </div>
+        </div>
+
+        <div class="key-point">
+            <h4>Wichtige theme()-Elemente für Beginner</h4>
+            <ul>
+                <li><code>plot.title</code> - Stellt den Haupttitel ein</li>
+                <li><code>axis.title</code> - Stellt die Achsentitel ein</li>
+                <li><code>axis.text</code> - Stellt den Text an den Achsen ein</li>
+                <li><code>panel.background</code> - Ändert den Hintergrund</li>
+                <li><code>panel.grid</code> - Passt das Gitternetz an</li>
+            </ul>
+        </div>
+
+        <button class="collapsible">Vollständiges Beispiel anzeigen</button>
+        <div class="content">
+            <div class="r-console">
+                <div class="r-header">
+                    <div class="r-window-controls">
+                        <span class="r-window-control r-control-close"></span>
+                        <span class="r-window-control r-control-minimize"></span>
+                        <span class="r-window-control r-control-maximize"></span>
+                    </div>
+                    <span>R Console</span>
+                </div>
+                <div class="r-content">
+                    <pre class="r-code">
+# Vollständiges Beispiel mit allen Anpassungen
 library(ggplot2)
 
-# Create a scatterplot with aesthetics
-ggplot(mtcars, aes(x = hp, y = mpg)) +  # hp on x-axis, mpg on y-axis
-  
-  # Add points for each car
-  geom_point(color = "#b9aadf", size = 3) +  # color sets point color, size = point size
-  
-  # Add a regression line (trend line)
-  geom_smooth(method = "lm",     # "lm" = linear model
-              se = FALSE,        # se = FALSE removes shaded confidence area
-              color = "#9b7bb5", # line color
-              size = 1.2) +      # line thickness
-  
-  # Add titles and axis labels
+ggplot(data, aes(x = profession)) +
+  geom_bar(fill = "#b9aadf") +
   labs(
-    title = "Horsepower vs. MPG",    # main title of the plot
-    subtitle = "Beispiel für Anpassungen", # optional subtitle
-    x = "Horsepower (HP)",           # label for x-axis
-    y = "Miles per Gallon (MPG)"     # label for y-axis
+    title = "Verteilung der Berufe im Gesundheitswesen",
+    subtitle = "Daten von 100 Beschäftigten",
+    x = "Berufsgruppe",
+    y = "Anzahl der Beschäftigten"
   ) +
-  
-  # Use theme() to change appearance of text, axes, legend, etc.
   theme(
-    # Title and subtitle formatting
-    plot.title = element_text(size = 20, face = "bold", color = "#9b7bb5"),
-    plot.subtitle = element_text(size = 16, face = "italic", color = "#b9aadf"),
-    
-    # Axis labels
-    axis.title.x = element_text(size = 14, face = "bold"),   # x-axis title
-    axis.title.y = element_text(size = 14, face = "bold"),   # y-axis title
-    
-    # Axis text (numbers along axes)
-    axis.text = element_text(size = 12, color = "black"),
-    
-    # Background and grid
-    panel.background = element_rect(fill = "white"),         # plot background color
-    panel.grid.major = element_line(color = "grey80"),       # major grid lines
-    panel.grid.minor = element_blank(),                      # remove minor grid lines
-    
-    # Legend (only relevant if a color/fill aesthetic is mapped)
-    legend.position = "bottom",     # move legend to bottom
-    legend.background = element_rect(fill = "white", color = "black")
+    plot.title = element_text(size = 18, face = "bold", color = "#2c3e50"),
+    plot.subtitle = element_text(size = 12, color = "#7f8c8d"),
+    axis.title.x = element_text(size = 14, face = "bold"),
+    axis.title.y = element_text(size = 14, face = "bold"),
+    axis.text = element_text(size = 11),
+    panel.background = element_rect(fill = "white"),
+    panel.grid.major = element_line(color = "grey90"),
+    panel.grid.minor = element_blank()
   )
-              </pre>
+                    </pre>
+                </div>
             </div>
-          </div>
         </div>
-      </section>
+    </div>
+</section>
     </main>
 
     <footer>
