@@ -47,22 +47,23 @@
               <li><strong>Skalenunterschiede</strong> - Variablen in unterschiedlichen Maßstäben</li>
             </ul>
           </div>
+          
           <div class="key-point">
-    <button type="button" class="collapse-button" aria-expanded="false" aria-controls="visualization-process">
-        <span class="button-text">Der Visualisierungsprozess</span>
-        <span class="collapse-icon">+</span>
-    </button>
-    <div id="visualization-process" class="collapse-content" hidden>
-        <p>Ein effektiver Workflow für Datenvisualisierung:</p>
-        <ol>
-            <li>Daten bereinigen und vorbereiten</li>
-            <li>Forschungsfrage definieren</li>
-            <li>Passenden Visualisierungstyp auswählen</li>
-            <li>Grafik erstellen und anpassen</li>
-            <li>Interpretieren und Insights ableiten</li>
-        </ol>
-    </div>
-</div>
+            <button type="button" class="collapse-button" aria-expanded="false" aria-controls="visualization-process">
+                <span class="button-text">Der Visualisierungsprozess</span>
+                <span class="collapse-icon">+</span>
+            </button>
+            <div id="visualization-process" class="collapse-content" hidden>
+                <p>Ein effektiver Workflow für Datenvisualisierung:</p>
+                <ol>
+                    <li>Daten bereinigen und vorbereiten</li>
+                    <li>Forschungsfrage definieren</li>
+                    <li>Passenden Visualisierungstyp auswählen</li>
+                    <li>Grafik erstellen und anpassen</li>
+                    <li>Interpretieren und Insights ableiten</li>
+                </ol>
+            </div>
+          </div>
 
           <h3>Grundlegende Datenexploration in R</h3>
           
@@ -166,18 +167,20 @@
             <strong>Erklärung:</strong> <code>table()</code> erstellt eine Häufigkeitstabelle für kategoriale Variablen. Vor dem "$" gibt man den Datensatz an, nach dem "$" die gewünschte Variable.
           </div>
         </div>
-        </div>
+        <!-- This closing div was missing -->
       </section>
-            <section id="section1">
-            <h2>Warum Visualisierung?</h2>
-            <p>Visualisierung transformiert Rohdaten in verständliche Muster und Einblicke:</p>
-            <ul>
-              <li><strong>Muster erkennen</strong> - Trends, Cluster oder Zyklen identifizieren</li>
-              <li><strong>Ausreisser entdecken</strong> - Ungewöhnliche Datenpunkte visualisieren</li>
-              <li><strong>Zusammenhänge verstehen</strong> - Beziehungen zwischen Variablen erkennen</li>
-              <li><strong>Kommunikation verbessern</strong> - Komplexe Ergebnisse einfach darstellen</li>
-            </ul>
-            </section>
+
+      <section id="section1">
+        <h2>Warum Visualisierung?</h2>
+        <p>Visualisierung transformiert Rohdaten in verständliche Muster und Einblicke:</p>
+        <ul>
+          <li><strong>Muster erkennen</strong> - Trends, Cluster oder Zyklen identifizieren</li>
+          <li><strong>Ausreisser entdecken</strong> - Ungewöhnliche Datenpunkte visualisieren</li>
+          <li><strong>Zusammenhänge verstehen</strong> - Beziehungen zwischen Variablen erkennen</li>
+          <li><strong>Kommunikation verbessern</strong> - Komplexe Ergebnisse einfach darstellen</li>
+        </ul>
+      </section>
+
       <section id="section2">
         <h2>Plots: Barplot, Boxplot, Histogram</h2>
         <p>Wir erstellen verschiedene Plottypen, um Daten zu erkunden.<span class="badge">Tipp</span></p>
@@ -278,39 +281,39 @@ ggplot(data, aes(x = job_satisfaction)) +
       </section>
 
       <section id="section3">
-  <h2>Ästhetische Anpassungen</h2>
-  <p>Wir passen Titel, Farben und Positionen an, um Grafiken klarer zu gestalten.<span class="badge">Tipp</span></p>
-  
-  <div class="educational-content">
-    <p>Eine effektive Visualisierung ist nicht nur korrekt, sondern auch ästhetisch ansprechend und leicht verständlich. ggplot2 bietet umfangreiche Anpassungsmöglichkeiten:</p>
-    
-    <div class="key-point">
-      <h4>Gute Praxis für Visualisierungen</h4>
-      <ul>
-        <li><strong>Klare Titel und Beschriftungen</strong> - Jede Grafik sollte selbsterklärend sein</li>
-        <li><strong>Angemessene Skalierung</strong> - Vermeiden Sie irreführende Darstellungen</li>
-        <li><strong>Farben mit Bedeutung</strong> - Verwenden Sie Farben konsistent und zugänglich</li>
-        <li><strong>Vermeiden von Chartjunk</strong> - Entfernen Sie unnötige decorative Elemente</li>
-        <li><strong>Hervorhebung wichtiger Punkte</strong> - Lenken Sie die Aufmerksamkeit auf Schlüsselelemente</li>
-      </ul>
-    </div>
-    
-    <p>Die Anpassung des Erscheinungsbilds erfolgt in ggplot2 hauptsächlich durch das theme()-Argument und verschiedene Skalenfunktionen.</p>
-  </div>
-  
-  <button class="collapsible">R Code</button>
-  <div class="content">
-    <div class="r-console">
-      <div class="r-header">
-        <div class="r-window-controls">
-          <span class="r-window-control r-control-close"></span>
-          <span class="r-window-control r-control-minimize"></span>
-          <span class="r-window-control r-control-maximize"></span>
+        <h2>Ästhetische Anpassungen</h2>
+        <p>Wir passen Titel, Farben und Positionen an, um Grafiken klarer zu gestalten.<span class="badge">Tipp</span></p>
+        
+        <div class="educational-content">
+          <p>Eine effektive Visualisierung ist nicht nur korrekt, sondern auch ästhetisch ansprechend und leicht verständlich. ggplot2 bietet umfangreiche Anpassungsmöglichkeiten:</p>
+          
+          <div class="key-point">
+            <h4>Gute Praxis für Visualisierungen</h4>
+            <ul>
+              <li><strong>Klare Titel und Beschriftungen</strong> - Jede Grafik sollte selbsterklärend sein</li>
+              <li><strong>Angemessene Skalierung</strong> - Vermeiden Sie irreführende Darstellungen</li>
+              <li><strong>Farben mit Bedeutung</strong> - Verwenden Sie Farben konsistent und zugänglich</li>
+              <li><strong>Vermeiden von Chartjunk</strong> - Entfernen Sie unnötige decorative Elemente</li>
+              <li><strong>Hervorhebung wichtiger Punkte</strong> - Lenken Sie die Aufmerksamkeit auf Schlüsselelemente</li>
+            </ul>
+          </div>
+          
+          <p>Die Anpassung des Erscheinungsbilds erfolgt in ggplot2 hauptsächlich durch das theme()-Argument und verschiedene Skalenfunktionen.</p>
         </div>
-        <span>R Console</span>
-      </div>
-      <div class="r-content">
-        <pre class="r-code">
+        
+        <button class="collapsible">R Code</button>
+        <div class="content">
+          <div class="r-console">
+            <div class="r-header">
+              <div class="r-window-controls">
+                <span class="r-window-control r-control-close"></span>
+                <span class="r-window-control r-control-minimize"></span>
+                <span class="r-window-control r-control-maximize"></span>
+              </div>
+              <span>R Console</span>
+            </div>
+            <div class="r-content">
+              <pre class="r-code">
 # Load the ggplot2 package
 library(ggplot2)
 
@@ -356,12 +359,11 @@ ggplot(mtcars, aes(x = hp, y = mpg)) +  # hp on x-axis, mpg on y-axis
     legend.position = "bottom",     # move legend to bottom
     legend.background = element_rect(fill = "white", color = "black")
   )
-        </pre>
-      </div>
-    </div>
-  </div>
-</section>
-
+              </pre>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer>
