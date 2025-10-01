@@ -326,7 +326,38 @@ ggplot(mtcars, aes(x = hp, y = mpg)) +  # hp on x-axis, mpg on y-axis
   # Add titles and axis labels
   labs(
     title = "Horsepower vs. MPG",    # main title of the plot
-    subtitle = "Beispiel für Anpassungen", # optional subt
+    subtitle = "Beispiel für Anpassungen", # optional subtitle
+    x = "Horsepower (HP)",           # label for x-axis
+    y = "Miles per Gallon (MPG)"     # label for y-axis
+  ) +
+  
+  # Use theme() to change appearance of text, axes, legend, etc.
+  theme(
+    # Title and subtitle formatting
+    plot.title = element_text(size = 20, face = "bold", color = "#9b7bb5"),
+    plot.subtitle = element_text(size = 16, face = "italic", color = "#b9aadf"),
+    
+    # Axis labels
+    axis.title.x = element_text(size = 14, face = "bold"),   # x-axis title
+    axis.title.y = element_text(size = 14, face = "bold"),   # y-axis title
+    
+    # Axis text (numbers along axes)
+    axis.text = element_text(size = 12, color = "black"),
+    
+    # Background and grid
+    panel.background = element_rect(fill = "white"),         # plot background color
+    panel.grid.major = element_line(color = "grey80"),       # major grid lines
+    panel.grid.minor = element_blank(),                      # remove minor grid lines
+    
+    # Legend (only relevant if a color/fill aesthetic is mapped)
+    legend.position = "bottom",     # move legend to bottom
+    legend.background = element_rect(fill = "white", color = "black")
+  )
+        </pre>
+      </div>
+    </div>
+  </div>
+</section>
 
     </main>
 
