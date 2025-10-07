@@ -20,7 +20,7 @@
   <div class="main-content">
     <header>
       <h1>Quantitative Forschung</h1>
-      <p>Lernen Sie R für Visualisierung und statistische Tests</p>
+      <p>Lerne R für Visualisierung und statistische Tests</p>
     </header>
 
     <nav>
@@ -36,7 +36,7 @@
         <h2>Gute Gewohnheiten beim Programmieren</h2>
         
         <div class="educational-content">
-          <p>Eine der wichtigsten Gewohnheiten beim Programmieren in R ist das Schreiben von gut dokumentiertem und nachvollziehbarem Code. Dies erleichtert nicht nur die Zusammenarbeit mit anderen, sondern hilft auch Ihnen selbst, wenn Sie nach einiger Zeit zu Ihrem Code zurückkehren.</p>
+          <p>Eine der wichtigsten Gewohnheiten beim Programmieren in R ist das Schreiben von gut dokumentiertem und nachvollziehbarem Code. Dies erleichtert nicht nur die Zusammenarbeit mit anderen, sondern auch das spätere Wiederauffinden und Verstehen des eigenen Codes.</p>
           
           <div class="tips-box">
             <h4>Warum gute Gewohnheiten wichtig sind:</h4>
@@ -45,7 +45,6 @@
               <li>Erleichtert die Fehlersuche (Debugging)</li>
               <li>Ermöglicht die Wiederverwendung von Code</li>
               <li>Fördert die Reproduzierbarkeit von Analysen</li>
-              <li>Spart langfristig Zeit und Mühe</li>
             </ul>
           </div>
           
@@ -71,11 +70,10 @@
           <div class="tips-box">
             <h4>Tipps für gutes Kommentieren:</h4>
             <ul>
-              <li>Verwenden Sie Kommentare, um Abschnitte zu kennzeichnen (# 1. Abschnitt ----)</li>
-              <li>Erklären Sie den Zweck komplexerer Code-Blöcke</li>
-              <li>Halten Sie Kommentare kurz und prägnant</li>
-              <li>Aktualisieren Sie Kommentare, wenn Sie den Code ändern</li>
-              <li>Verwenden Sie aussagekräftige Variablennamen, die Kommentare teilweise überflüssig machen</li>
+              <li>Verwende Kommentare, um Abschnitte zu kennzeichnen (# 1. Abschnitt ----)</li>
+              <li>Erkläre den Zweck komplexerer Code-Blöcke</li>
+              <li>Halten Kommentare kurz und prägnant</li>
+              <li>Aktualisiere Kommentare, wenn der Code geändert wird</li>
             </ul>
           </div>
         </div>
@@ -84,18 +82,14 @@
   <h2>R-Skripte verwenden</h2>
   
   <div class="educational-content">
-    <p>Ein R-Skript ist eine Textdatei mit der Endung .R, die R-Code enthält. Anstatt Code direkt in der Konsole einzugeben, sollten Sie ihn in Skripten speichern. Dies hat mehrere Vorteile:</p>
+    <p>Ein R-Skript ist eine Textdatei mit der Endung .R, die R-Code enthält. Anstatt Code direkt in der Konsole einzugeben, ist es besser, ihn in Skripten zu speichern. Dies hat mehrere Vorteile:</p>
     
-    <div class="tips-box">
-      <h4>Vorteile von R-Skripten:</h4>
       <ul>
         <li>Code ist dauerhaft gespeichert und kann später wieder verwendet werden</li>
         <li>Einfaches Teilen von Code mit anderen</li>
         <li>Nachvollziehbare und reproduzierbare Analysen</li>
         <li>Einfacheres Debugging und Testen von Code</li>
-        <li>Versionierung mit Tools wie Git möglich</li>
       </ul>
-    </div>
     
     <h4>R Code: Struktur eines typischen R-Skripts</h4>
     
@@ -125,13 +119,12 @@ data <span class="r-operator">&lt;-</span> <span class="r-function">read.csv</sp
     </div>
     
     <div class="tips-box">
-      <h4>So arbeiten Sie mit R-Skripten:</h4>
-      <ul>
-        <li>Öffnen Sie RStudio und erstellen Sie ein neues Skript (File > New File > R Script)</li>
-        <li>Schreiben Sie Ihren Code im Skript-Editor</li>
-        <li>Führen Sie Codezeilen mit Strg+Enter (Windows) oder Cmd+Enter (Mac) aus</li>
-        <li>Speichern Sie Ihr Skript regelmäßig (mit der Endung .R)</li>
-        <li>Kommentieren Sie Code aus, den Sie vorübergehend deaktivieren möchten</li>
+      <h4>Deine ersten Schritte mit einem R-Skript:</h4> 
+      <ul> 
+        <li><strong>Öffne RStudio</strong> – deine neue Programmier-Heimat.</li> 
+        <li>Klicke oben auf <strong><em>File > New File > R Script</em></strong>. !</li> 
+        <li>Vor dir erscheint ein leeres Fenster. Das ist deine Schaltzentrale, in die du deinen Code schreibst.</li> 
+        <li><strong>Speichere dein Skript </strong> (z.B. als <code>mein_erstes_script.R</code>). So geht keine Arbeit verloren!</li> 
       </ul>
     </div>
   </div>
@@ -142,17 +135,7 @@ data <span class="r-operator">&lt;-</span> <span class="r-function">read.csv</sp
         
         <div class="educational-content">
           <p>Der Import von Daten ist oft der erste Schritt in jeder Datenanalyse. R bietet verschiedene Möglichkeiten, Daten aus unterschiedlichen Quellen und Formaten zu importieren.</p>
-          
-          <div class="tips-box">
-            <h4>Häufig verwendete Datenformate:</h4>
-            <ul>
-              <li>CSV (Comma-Separated Values) - weit verbreitetes Textformat</li>
-              <li>Excel (.xlsx, .xls) - Tabellenkalkulationsdateien</li>
-              <li>SPSS (.sav), SAS (.sas7bdat), Stata (.dta) - Formate statistischer Software</li>
-              <li>JSON - Format für strukturierte Daten</li>
-              <li>Datenbanken - SQLite, MySQL, PostgreSQL etc.</li>
-            </ul>
-          </div>
+
           
           <h4>R Code: Daten aus verschiedenen Quellen importieren</h4>
           
@@ -170,65 +153,55 @@ data <span class="r-operator">&lt;-</span> <span class="r-function">read.csv</sp
 data <span class="r-operator">&lt;-</span> <span class="r-function">read.csv</span>(<span class="r-string">"Desktop/healthcare_job_satisfaction.csv"</span>)</pre>
             </div>
           </div>
-          <div class="tips-box">
-            <h4>Tipps zum Datenimport:</h4>
-            <ul>
-              <li>Überprüfen Sie immer die Struktur der importierten Daten mit str()</li>
-              <li>Stellen Sie sicher, dass Dezimaltrennzeichen und Spaltentrennzeichen korrekt erkannt werden</li>
-              <li>Beachten Sie die Encoding-Einstellungen bei Umlauten (UTF-8 wird empfohlen)</li>
-              <li>Definieren Sie relative Pfade statt absoluter Pfade für bessere Portabilität</li>
-              <li>Speichern Sie importierte Daten als RData-Format für schnellere spätere Verwendung</li>
-            </ul>
-          </div>
         </div>
       </section>
 
       <section id="section4" class="section">
-        <h2>Pakete laden und installieren</h2>
-        
-        <div class="educational-content">
-          <p>R-Pakete sind Sammlungen von Funktionen, Daten und Dokumentation, die die Funktionalität von R erweitern. Die Fähigkeit, Pakete zu installieren und zu laden, ist entscheidend für effektives Arbeiten mit R.</p>
-          
-          <div class="tips-box">
-            <h4>Wichtige R-Pakete für Einsteiger:</h4>
+    <h2>Pakete laden und installieren</h2>
+    
+    <div class="educational-content">
+        <p>R-Pakete sind Sammlungen von Funktionen, Daten und Dokumentation, die die Funktionalität von R erweitern. Die Fähigkeit, Pakete zu installieren und zu laden, ist entscheidend für effektives Arbeiten mit R.</p>
+
+            <p>Das <strong>tidyverse</strong> ist eine Sammlung von R-Paketen, die speziell für die Datenwissenschaft entwickelt wurden. Für Beginner ist es der ideale Einstieg, weil:</p>
             <ul>
-              <li>tidyverse - Sammlung von Paketen für Datenwissenschaft (dplyr, ggplot2, etc.)</li>
+                <li>Alle Pakete folgen den gleichen Prinzipien und Syntax-Regeln</li>
+                <li>Die Funktionen haben konsistente und leicht verständliche Namen</li>
+                <li>Es deckt den gesamten Datenanalyse-Workflow ab: Import, Aufbereitung, Visualisierung und Modellierung</li>
+                <li>Die Dokumentation und Community-Unterstützung ist ausgezeichnet</li>
             </ul>
-          </div>
-          
-          <h4>R Code: Pakete installieren und laden</h4>
-          
-          <div class="r-console">
+            <p>Zu den wichtigsten Paketen im tidyverse gehören <strong>dplyr</strong> für Datenmanipulation und <strong>ggplot2</strong> für Grafiken.</p>
+
+        
+        <h4>R Code: Pakete installieren und laden</h4>
+        
+        <div class="r-console">
             <div class="r-header">
-              <span>R Terminal</span>
-              <div class="r-window-controls">
-                <div class="r-window-control r-control-close"></div>
-                <div class="r-window-control r-control-minimize"></div>
-                <div class="r-window-control r-control-maximize"></div>
-              </div>
+                <span>R Terminal</span>
+                <div class="r-window-controls">
+                    <div class="r-window-control r-control-close"></div>
+                    <div class="r-window-control r-control-minimize"></div>
+                    <div class="r-window-control r-control-maximize"></div>
+                </div>
             </div>
             <div class="r-content">
-              <pre class="r-code"><span class="r-comment"># 1. Pakete installieren</span>
-<span class="r-function">install.packages</span>(<span class="r-string">"tidyverse"</span>)   <span class="r-comment"># Einzelnes Paket</span>
+                <pre class="r-code"><span class="r-comment"># Paket installieren (nur einmal notwendig)</span>
+<span class="r-function">install.packages</span>(<span class="r-string">"tidyverse"</span>)
 
-<span class="r-comment"># 2. Pakete laden</span>
-<span class="r-function">library</span>(tidyverse)     <span class="r-comment"># Paket laden</span>
-</pre>
+<span class="r-comment"># Paket laden (in jeder R-Session notwendig)</span>
+<span class="r-function">library</span>(tidyverse)</pre>
             </div>
-          </div>
-          
-          <div class="tips-box">
-            <h4>Bewährte Praktiken für Pakete:</h4>
-            <ul>
-              <li>Laden Sie nur die Pakete, die Sie tatsächlich benötigen</li>
-              <li>Aktualisieren Sie Pakete regelmäßig mit update.packages()</li>
-              <li>Verwenden Sie library() am Anfang Ihres Skripts</li>
-              <li>Notieren Sie die verwendeten Pakete in der Dokumentation</li>
-              <li>Beheben Sie Konflikte zwischen Paketen mit package::function()</li>
-            </ul>
-          </div>
         </div>
-      </section>
+        
+        <div class="tips-box">
+            <h4>Wichtige Hinweise zur Paketverwaltung:</h4>
+            <ul>
+                <li>Pakete müssen nur einmal installiert (install.packages()) werden, aber in jeder neuen R-Session geladen werden (library())</li>
+                <li>Das Laden aller Pakete am Anfang eines Skripts ist empfehlenswert</li>
+                <li>Eine Dokumentation (library()) der verwendeten Pakete erleichtert die Reproduzierbarkeit</li>
+            </ul>
+        </div>
+    </div>
+</section>
     </main>
 
     <footer>
