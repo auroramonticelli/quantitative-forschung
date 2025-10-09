@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gute Praktiken in R - Quantitative Forschung</title>
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -26,7 +26,7 @@
 
     <nav>
       <a href="index.html">Startseite</a>
-      <a href="good-practices.html" style="background: #1c6ea4;">Good Practices</a>
+      <a href="good-practices.html" style="background: rgba(255,255,255,0.25);">Good Practices</a>
       <a href="visualization.html">Visualisierung</a>
       <a href="testing.html">Tests</a>
       <a href="materials.html">Materialien</a>
@@ -46,11 +46,12 @@
             <li><strong>Installation durchführen:</strong> Führe die heruntergeladenen Installationsdateien aus und folge den Anweisungen</li>
           </ol>
           
-          <h4>Die verschiedenen Fenster in R Studio</h4>
           <div class="image-container">
-  <img src="rstudio-panes-labeled.jpeg" alt="Beschreibung des Bildes">
-  <div class="image-caption">R studio screenshot</div>
-</div>
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Programmieren mit R Studio" class="screenshot medium-screenshot">
+            <div class="image-caption">R Studio bietet eine benutzerfreundliche Oberfläche für Datenanalyse</div>
+          </div>
+          
+          <h4>Die verschiedenen Fenster in R Studio</h4>
           <p>Nachdem du R Studio geöffnet hast, siehst du vier Hauptbereiche:</p>
           
           <div class="tips-box">
@@ -63,9 +64,19 @@
             <p>In der Konsole wird R-Code ausgeführt und die Ergebnisse werden angezeigt. Du kannst Code direkt in der Konsole eingeben, aber es ist besser, Code im Quelltext-Editor zu schreiben und dann zur Konsole zu senden, um ihn auszuführen.</p>
           </div>
           
+          <div class="image-container">
+            <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Code in der Konsole ausführen" class="screenshot small-screenshot">
+            <div class="image-caption">Die Konsole zeigt die Ausführung deines Codes und etwaige Fehlermeldungen an</div>
+          </div>
+          
           <div class="tips-box">
             <h4>3. Umgebung/Verlauf (Environment/History)</h4>
             <p>Dieser Bereich zeigt alle aktuell definierten Variablen, Daten und Funktionen. Im Verlaufsteil siehst du alle zuvor ausgeführten Befehle. Dies ist besonders nützlich, um den Überblick über deine Arbeit zu behalten.</p>
+          </div>
+          
+          <div class="image-container">
+            <img src="https://raw.githubusercontent.com/rstudio/cheatsheets/main/pngs/thumbnails/data-import-cheatsheet-thumbs.png" alt="R Studio Umgebung" class="screenshot small-screenshot">
+            <div class="image-caption">Die Umgebungsansicht zeigt alle aktiven Variablen und Daten</div>
           </div>
           
           <div class="tips-box">
@@ -80,12 +91,30 @@
             </p>
           </div>
           
+          <div class="image-container">
+            <img src="https://raw.githubusercontent.com/rstudio/cheatsheets/main/pngs/thumbnails/data-transformation-cheatsheet-thumbs.png" alt="R Studio Plots und Hilfe" class="screenshot medium-screenshot">
+            <div class="image-caption">Der Plot-Bereich zeigt Visualisierungen, die du mit R erstellst</div>
+          </div>
+          
           <h4>Was ist Code im Kontext von R?</h4>
           <p>In R ist <strong>Code</strong> eine Reihe von Anweisungen, die du dem Computer gibst, um bestimmte Aufgaben auszuführen. Diese Anweisungen werden in der R-Sprache geschrieben und folgen einer bestimmten Syntax (Grammatik der Programmiersprache).</p>
           
+          <div class="image-container">
+            <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Code-Beispiel" class="screenshot small-screenshot">
+            <div class="image-caption">R-Code besteht aus Anweisungen, die Daten analysieren und manipulieren</div>
+          </div>
+          
+          <p>Code in R kann verschiedene Zwecke haben:</p>
+          <ul>
+            <li><strong>Daten manipulieren:</strong> Daten sortieren, filtern, transformieren</li>
+            <li><strong>Berechnungen durchführen:</strong> Statistische Analysen, mathematische Operationen</li>
+            <li><strong>Visualisierungen erstellen:</strong> Grafiken, Diagramme, Plots</li>
+            <li><strong>Funktionen definieren:</strong> Eigene wiederverwendbare Code-Blöcke erstellen</li>
+          </ul>
+          
           <div class="r-console">
             <div class="r-header">
-              <span>R Source Editor</span>
+              <span>R Terminal</span>
               <div class="r-window-controls">
                 <div class="r-window-control r-control-close"></div>
                 <div class="r-window-control r-control-minimize"></div>
@@ -95,7 +124,23 @@
             <div class="r-content">
               <pre class="r-code"><span class="r-comment"># Einfache Berechnung - das ist Code!</span>
 <span class="r-number">5</span> <span class="r-operator">+</span> <span class="r-number">3</span>
+
+<span class="r-comment"># Eine Variable erstellen - das ist Code!</span>
+meine_zahl <span class="r-operator">&lt;-</span> <span class="r-number">10</span>
+
+<span class="r-comment"># Eine Funktion aufrufen - das ist Code!</span>
+<span class="r-function">mean</span>(<span class="r-function">c</span>(<span class="r-number">1</span>, <span class="r-number">2</span>, <span class="r-number">3</span>, <span class="r-number">4</span>, <span class="r-number">5</span>))</pre>
             </div>
+          </div>
+          
+          <div class="tips-box">
+            <h4>Warum Code verwenden?</h4>
+            <ul>
+              <li><strong>Reproduzierbarkeit:</strong> Jeder kann deine Analyse mit demselben Code und denselben Daten nachvollziehen</li>
+              <li><strong>Effizienz:</strong> Automatisierung wiederholbarer Aufgaben spart Zeit</li>
+              <li><strong>Fehlerreduzierung:</strong> Weniger manuelle Eingabefehler als bei Punkt-und-Klick-Methoden</li>
+              <li><strong>Dokumentation:</strong> Der Code dokumentiert deine Analyseschritte</li>
+            </ul>
           </div>
         </div>
       </section>
@@ -120,7 +165,7 @@
           
           <div class="r-console">
             <div class="r-header">
-              <span>R Source Editor</span>
+              <span>R Terminal</span>
               <div class="r-window-controls">
                 <div class="r-window-control r-control-close"></div>
                 <div class="r-window-control r-control-minimize"></div>
@@ -142,132 +187,6 @@
               <li>Erkläre den Zweck komplexerer Code-Blöcke</li>
               <li>Halten Kommentare kurz und prägnant</li>
               <li>Aktualisiere Kommentare, wenn der Code geändert wird</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-      
-      <!-- Rest of your existing sections remain unchanged -->
-      <section id="section2" class="section">
-        <h2>R-Skripte verwenden</h2>
-        
-        <div class="educational-content">
-          <p>Ein R-Skript ist eine Textdatei mit der Endung .R, die R-Code enthält. Anstatt Code direkt in der Konsole einzugeben, ist es besser, ihn in Skripten zu speichern. Dies hat mehrere Vorteile:</p>
-          
-            <ul>
-              <li>Code ist dauerhaft gespeichert und kann später wieder verwendet werden</li>
-              <li>Einfaches Teilen von Code mit anderen</li>
-              <li>Nachvollziehbare und reproduzierbare Analysen</li>
-              <li>Einfacheres Debugging und Testen von Code</li>
-            </ul>
-          
-          <h4>R Code: Struktur eines typischen R-Skripts</h4>
-          
-          <div class="r-console">
-            <div class="r-header">
-              <span>R Source Editor</span>
-              <div class="r-window-controls">
-                <div class="r-window-control r-control-close"></div>
-                <div class="r-window-control r-control-minimize"></div>
-                <div class="r-window-control r-control-maximize"></div>
-              </div>
-            </div>
-            <div class="r-content">
-              <pre class="r-code"><span class="r-comment"># Titel: Datenanalyse der Umfrage zur Arbeitszufridenheit</span>
-<span class="r-comment"># Autor: Aurora Monticelli</span>
-<span class="r-comment"># Datum: 2025-09-24</span>
-<span class="r-comment"># Beschreibung: Dieses Skript analysiert die Umfragedaten zur Arbeitszufriedenheit von</span>
-<span class="r-comment"># Gesundheitsfachpersonen in Basel-Stadt und Basel-Land </span>
-
-<span class="r-comment"># 1. Pakete laden ---------------------------------------</span>
-<span class="r-function">library</span>(tidyverse)  <span class="r-comment"># Sammlung von Paketen für Datenwissenschaft</span>
-
-<span class="r-comment"># 2. Daten importieren ---------------------------------</span>
-<span class="r-comment"># Daten aus CSV-Datei laden</span>
-data <span class="r-operator">&lt;-</span> <span class="r-function">read.csv</span>(<span class="r-string">"Desktop/healthcare_job_satisfaction.csv"</span>)</pre>
-            </div>
-          </div>
-          
-          <div class="tips-box">
-            <h4>Deine ersten Schritte mit einem R-Skript:</h4> 
-            <ul> 
-              <li><strong>Öffne RStudio</strong> – deine neue Programmier-Heimat.</li> 
-              <li>Klicke oben auf <strong><em>File > New File > R Script</em></strong>. !</li> 
-              <li>Vor dir erscheint ein leeres Fenster. Das ist deine Schaltzentrale, in die du deinen Code schreibst.</li> 
-              <li><strong>Speichere dein Skript </strong> (z.B. als <code>mein_erstes_script.R</code>). So geht keine Arbeit verloren!</li> 
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section id="section3" class="section">
-        <h2>Daten importieren</h2>
-        
-        <div class="educational-content">
-          <p>Der Import von Daten ist oft der erste Schritt in jeder Datenanalyse. R bietet verschiedene Möglichkeiten, Daten aus unterschiedlichen Quellen und Formaten zu importieren.</p>
-
-          
-          <h4>R Code: Daten aus verschiedenen Quellen importieren</h4>
-          
-          <div class="r-console">
-            <div class="r-header">
-              <span>R Source Editor</span>
-              <div class="r-window-controls">
-                <div class="r-window-control r-control-close"></div>
-                <div class="r-window-control r-control-minimize"></div>
-                <div class="r-window-control r-control-maximize"></div>
-              </div>
-            </div>
-            <div class="r-content">
-              <pre class="r-code"><span class="r-comment"># 1. Aus CSV-Datei importieren</span>
-data <span class="r-operator">&lt;-</span> <span class="r-function">read.csv</span>(<span class="r-string">"Desktop/healthcare_job_satisfaction.csv"</span>)</pre>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="section4" class="section">
-        <h2>Pakete laden und installieren</h2>
-        
-        <div class="educational-content">
-          <p>R-Pakete sind Sammlungen von Funktionen, Daten und Dokumentation, die die Funktionalität von R erweitern. Die Fähigkeit, Pakete zu installieren und zu laden, ist entscheidend für effektives Arbeiten mit R.</p>
-
-          <p>Das <strong>tidyverse</strong> ist eine Sammlung von R-Paketen, die speziell für die Datenwissenschaft entwickelt wurden. Für Beginner ist es der ideale Einstieg, weil:</p>
-          <ul>
-            <li>Alle Pakete folgen den gleichen Prinzipien und Syntax-Regeln</li>
-            <li>Die Funktionen haben konsistente und leicht verständliche Namen</li>
-            <li>Es deckt den gesamten Datenanalyse-Workflow ab: Import, Aufbereitung, Visualisierung und Modellierung</li>
-            <li>Die Dokumentation und Community-Unterstützung ist ausgezeichnet</li>
-          </ul>
-          <p>Zu den wichtigsten Paketen im tidyverse gehören <strong>dplyr</strong> für Datenmanipulation und <strong>ggplot2</strong> für Grafiken.</p>
-
-          
-          <h4>R Code: Pakete installieren und laden</h4>
-          
-          <div class="r-console">
-            <div class="r-header">
-              <span>R Source Editor</span>
-              <div class="r-window-controls">
-                <div class="r-window-control r-control-close"></div>
-                <div class="r-window-control r-control-minimize"></div>
-                <div class="r-window-control r-control-maximize"></div>
-              </div>
-            </div>
-            <div class="r-content">
-              <pre class="r-code"><span class="r-comment"># Paket installieren (nur einmal notwendig)</span>
-<span class="r-function">install.packages</span>(<span class="r-string">"tidyverse"</span>)
-
-<span class="r-comment"># Paket laden (in jeder R-Session notwendig)</span>
-<span class="r-function">library</span>(tidyverse)</pre>
-            </div>
-          </div>
-          
-          <div class="tips-box">
-            <h4>Wichtige Hinweise zur Paketverwaltung:</h4>
-            <ul>
-              <li>Pakete müssen nur einmal installiert (install.packages()) werden, aber in jeder neuen R-Session geladen werden (library())</li>
-              <li>Das Laden aller Pakete am Anfang eines Skripts ist empfehlenswert</li>
-              <li>Eine Dokumentation (library()) der verwendeten Pakete erleichtert die Reproduzierbarkeit</li>
             </ul>
           </div>
         </div>
