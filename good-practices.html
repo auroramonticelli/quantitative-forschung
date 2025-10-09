@@ -11,6 +11,7 @@
 <div class="page-wrapper">
   <div class="sidebar">
     <h3>Inhaltsverzeichnis</h3>
+    <a href="#section0">R Studio installieren</a>
     <a href="#section1">Gute Gewohnheiten beim Programmieren</a>
     <a href="#section2">R-Skripte verwenden</a>
     <a href="#section3">Daten importieren</a>
@@ -32,6 +33,73 @@
     </nav>
 
     <main>
+      <section id="section0" class="section">
+        <h2>R Studio installieren</h2>
+        
+        <div class="educational-content">
+          <p>Bevor du mit R programmieren kannst, musst du R und R Studio installieren. R ist die Programmiersprache selbst, während R Studio eine integrierte Entwicklungsumgebung (IDE) ist, die das Arbeiten mit R erleichtert.</p>
+          
+          <h4>Installationsschritte:</h4>
+          <ol>
+            <li><strong>R installieren:</strong> Gehe zu <a href="https://cran.r-project.org" target="_blank">CRAN</a> und lade R für dein Betriebssystem herunter</li>
+            <li><strong>R Studio installieren:</strong> Besuche <a href="https://posit.co/download/rstudio-desktop/" target="_blank">posit.co</a> und lade die kostenlose R Studio Desktop Version herunter</li>
+            <li><strong>Installation durchführen:</strong> Führe die heruntergeladenen Installationsdateien aus und folge den Anweisungen</li>
+          </ol>
+          
+          <h4>Die verschiedenen Fenster in R Studio</h4>
+          <div class="image-container">
+  <img src="rstudio-panes-labeled.jpeg" alt="Beschreibung des Bildes">
+  <div class="image-caption">R studio screenshot</div>
+</div>
+          <p>Nachdem du R Studio geöffnet hast, siehst du vier Hauptbereiche:</p>
+          
+          <div class="tips-box">
+            <h4>1. Quelltext-Editor (Source Editor)</h4>
+            <p>Dies ist der Bereich, in dem du deine R-Skripte schreibst und bearbeitest. Hier kannst du Code schreiben, speichern und organisieren. Der Vorteil gegenüber der direkten Eingabe in der Konsole ist, dass du deine Arbeit speichern und später wieder verwenden kannst.</p>
+          </div>
+          
+          <div class="tips-box">
+            <h4>2. Konsole (Console)</h4>
+            <p>In der Konsole wird R-Code ausgeführt und die Ergebnisse werden angezeigt. Du kannst Code direkt in der Konsole eingeben, aber es ist besser, Code im Quelltext-Editor zu schreiben und dann zur Konsole zu senden, um ihn auszuführen.</p>
+          </div>
+          
+          <div class="tips-box">
+            <h4>3. Umgebung/Verlauf (Environment/History)</h4>
+            <p>Dieser Bereich zeigt alle aktuell definierten Variablen, Daten und Funktionen. Im Verlaufsteil siehst du alle zuvor ausgeführten Befehle. Dies ist besonders nützlich, um den Überblick über deine Arbeit zu behalten.</p>
+          </div>
+          
+          <div class="tips-box">
+            <h4>4. Dateien/Plots/Pakete/Hilfe (Files/Plots/Packages/Help)</h4>
+            <p>Dieser Bereich hat mehrere Tabs:
+              <ul>
+                <li><strong>Files:</strong> Zeigt die Dateien in deinem Arbeitsverzeichnis</li>
+                <li><strong>Plots:</strong> Zeigt erstellte Grafiken</li>
+                <li><strong>Packages:</strong> Listet installierte Pakete auf und ermöglicht deren Verwaltung</li>
+                <li><strong>Help:</strong> Bietet Zugang zur R-Dokumentation und Hilfeseiten</li>
+              </ul>
+            </p>
+          </div>
+          
+          <h4>Was ist Code im Kontext von R?</h4>
+          <p>In R ist <strong>Code</strong> eine Reihe von Anweisungen, die du dem Computer gibst, um bestimmte Aufgaben auszuführen. Diese Anweisungen werden in der R-Sprache geschrieben und folgen einer bestimmten Syntax (Grammatik der Programmiersprache).</p>
+          
+          <div class="r-console">
+            <div class="r-header">
+              <span>R Source Editor</span>
+              <div class="r-window-controls">
+                <div class="r-window-control r-control-close"></div>
+                <div class="r-window-control r-control-minimize"></div>
+                <div class="r-window-control r-control-maximize"></div>
+              </div>
+            </div>
+            <div class="r-content">
+              <pre class="r-code"><span class="r-comment"># Einfache Berechnung - das ist Code!</span>
+<span class="r-number">5</span> <span class="r-operator">+</span> <span class="r-number">3</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="section1" class="section">
         <h2>Gute Gewohnheiten beim Programmieren</h2>
         
@@ -52,7 +120,7 @@
           
           <div class="r-console">
             <div class="r-header">
-              <span>R Terminal</span>
+              <span>R Source Editor</span>
               <div class="r-window-controls">
                 <div class="r-window-control r-control-close"></div>
                 <div class="r-window-control r-control-minimize"></div>
@@ -78,32 +146,34 @@
           </div>
         </div>
       </section>
+      
+      <!-- Rest of your existing sections remain unchanged -->
       <section id="section2" class="section">
-  <h2>R-Skripte verwenden</h2>
-  
-  <div class="educational-content">
-    <p>Ein R-Skript ist eine Textdatei mit der Endung .R, die R-Code enthält. Anstatt Code direkt in der Konsole einzugeben, ist es besser, ihn in Skripten zu speichern. Dies hat mehrere Vorteile:</p>
-    
-      <ul>
-        <li>Code ist dauerhaft gespeichert und kann später wieder verwendet werden</li>
-        <li>Einfaches Teilen von Code mit anderen</li>
-        <li>Nachvollziehbare und reproduzierbare Analysen</li>
-        <li>Einfacheres Debugging und Testen von Code</li>
-      </ul>
-    
-    <h4>R Code: Struktur eines typischen R-Skripts</h4>
-    
-    <div class="r-console">
-      <div class="r-header">
-        <span>R Terminal</span>
-        <div class="r-window-controls">
-          <div class="r-window-control r-control-close"></div>
-          <div class="r-window-control r-control-minimize"></div>
-          <div class="r-window-control r-control-maximize"></div>
-        </div>
-      </div>
-      <div class="r-content">
-        <pre class="r-code"><span class="r-comment"># Titel: Datenanalyse der Umfrage zur Arbeitszufridenheit</span>
+        <h2>R-Skripte verwenden</h2>
+        
+        <div class="educational-content">
+          <p>Ein R-Skript ist eine Textdatei mit der Endung .R, die R-Code enthält. Anstatt Code direkt in der Konsole einzugeben, ist es besser, ihn in Skripten zu speichern. Dies hat mehrere Vorteile:</p>
+          
+            <ul>
+              <li>Code ist dauerhaft gespeichert und kann später wieder verwendet werden</li>
+              <li>Einfaches Teilen von Code mit anderen</li>
+              <li>Nachvollziehbare und reproduzierbare Analysen</li>
+              <li>Einfacheres Debugging und Testen von Code</li>
+            </ul>
+          
+          <h4>R Code: Struktur eines typischen R-Skripts</h4>
+          
+          <div class="r-console">
+            <div class="r-header">
+              <span>R Source Editor</span>
+              <div class="r-window-controls">
+                <div class="r-window-control r-control-close"></div>
+                <div class="r-window-control r-control-minimize"></div>
+                <div class="r-window-control r-control-maximize"></div>
+              </div>
+            </div>
+            <div class="r-content">
+              <pre class="r-code"><span class="r-comment"># Titel: Datenanalyse der Umfrage zur Arbeitszufridenheit</span>
 <span class="r-comment"># Autor: Aurora Monticelli</span>
 <span class="r-comment"># Datum: 2025-09-24</span>
 <span class="r-comment"># Beschreibung: Dieses Skript analysiert die Umfragedaten zur Arbeitszufriedenheit von</span>
@@ -115,20 +185,20 @@
 <span class="r-comment"># 2. Daten importieren ---------------------------------</span>
 <span class="r-comment"># Daten aus CSV-Datei laden</span>
 data <span class="r-operator">&lt;-</span> <span class="r-function">read.csv</span>(<span class="r-string">"Desktop/healthcare_job_satisfaction.csv"</span>)</pre>
-      </div>
-    </div>
-    
-    <div class="tips-box">
-      <h4>Deine ersten Schritte mit einem R-Skript:</h4> 
-      <ul> 
-        <li><strong>Öffne RStudio</strong> – deine neue Programmier-Heimat.</li> 
-        <li>Klicke oben auf <strong><em>File > New File > R Script</em></strong>. !</li> 
-        <li>Vor dir erscheint ein leeres Fenster. Das ist deine Schaltzentrale, in die du deinen Code schreibst.</li> 
-        <li><strong>Speichere dein Skript </strong> (z.B. als <code>mein_erstes_script.R</code>). So geht keine Arbeit verloren!</li> 
-      </ul>
-    </div>
-  </div>
-</section>
+            </div>
+          </div>
+          
+          <div class="tips-box">
+            <h4>Deine ersten Schritte mit einem R-Skript:</h4> 
+            <ul> 
+              <li><strong>Öffne RStudio</strong> – deine neue Programmier-Heimat.</li> 
+              <li>Klicke oben auf <strong><em>File > New File > R Script</em></strong>. !</li> 
+              <li>Vor dir erscheint ein leeres Fenster. Das ist deine Schaltzentrale, in die du deinen Code schreibst.</li> 
+              <li><strong>Speichere dein Skript </strong> (z.B. als <code>mein_erstes_script.R</code>). So geht keine Arbeit verloren!</li> 
+            </ul>
+          </div>
+        </div>
+      </section>
 
       <section id="section3" class="section">
         <h2>Daten importieren</h2>
@@ -141,7 +211,7 @@ data <span class="r-operator">&lt;-</span> <span class="r-function">read.csv</sp
           
           <div class="r-console">
             <div class="r-header">
-              <span>R Terminal</span>
+              <span>R Source Editor</span>
               <div class="r-window-controls">
                 <div class="r-window-control r-control-close"></div>
                 <div class="r-window-control r-control-minimize"></div>
@@ -157,51 +227,51 @@ data <span class="r-operator">&lt;-</span> <span class="r-function">read.csv</sp
       </section>
 
       <section id="section4" class="section">
-    <h2>Pakete laden und installieren</h2>
-    
-    <div class="educational-content">
-        <p>R-Pakete sind Sammlungen von Funktionen, Daten und Dokumentation, die die Funktionalität von R erweitern. Die Fähigkeit, Pakete zu installieren und zu laden, ist entscheidend für effektives Arbeiten mit R.</p>
-
-            <p>Das <strong>tidyverse</strong> ist eine Sammlung von R-Paketen, die speziell für die Datenwissenschaft entwickelt wurden. Für Beginner ist es der ideale Einstieg, weil:</p>
-            <ul>
-                <li>Alle Pakete folgen den gleichen Prinzipien und Syntax-Regeln</li>
-                <li>Die Funktionen haben konsistente und leicht verständliche Namen</li>
-                <li>Es deckt den gesamten Datenanalyse-Workflow ab: Import, Aufbereitung, Visualisierung und Modellierung</li>
-                <li>Die Dokumentation und Community-Unterstützung ist ausgezeichnet</li>
-            </ul>
-            <p>Zu den wichtigsten Paketen im tidyverse gehören <strong>dplyr</strong> für Datenmanipulation und <strong>ggplot2</strong> für Grafiken.</p>
-
+        <h2>Pakete laden und installieren</h2>
         
-        <h4>R Code: Pakete installieren und laden</h4>
-        
-        <div class="r-console">
+        <div class="educational-content">
+          <p>R-Pakete sind Sammlungen von Funktionen, Daten und Dokumentation, die die Funktionalität von R erweitern. Die Fähigkeit, Pakete zu installieren und zu laden, ist entscheidend für effektives Arbeiten mit R.</p>
+
+          <p>Das <strong>tidyverse</strong> ist eine Sammlung von R-Paketen, die speziell für die Datenwissenschaft entwickelt wurden. Für Beginner ist es der ideale Einstieg, weil:</p>
+          <ul>
+            <li>Alle Pakete folgen den gleichen Prinzipien und Syntax-Regeln</li>
+            <li>Die Funktionen haben konsistente und leicht verständliche Namen</li>
+            <li>Es deckt den gesamten Datenanalyse-Workflow ab: Import, Aufbereitung, Visualisierung und Modellierung</li>
+            <li>Die Dokumentation und Community-Unterstützung ist ausgezeichnet</li>
+          </ul>
+          <p>Zu den wichtigsten Paketen im tidyverse gehören <strong>dplyr</strong> für Datenmanipulation und <strong>ggplot2</strong> für Grafiken.</p>
+
+          
+          <h4>R Code: Pakete installieren und laden</h4>
+          
+          <div class="r-console">
             <div class="r-header">
-                <span>R Terminal</span>
-                <div class="r-window-controls">
-                    <div class="r-window-control r-control-close"></div>
-                    <div class="r-window-control r-control-minimize"></div>
-                    <div class="r-window-control r-control-maximize"></div>
-                </div>
+              <span>R Source Editor</span>
+              <div class="r-window-controls">
+                <div class="r-window-control r-control-close"></div>
+                <div class="r-window-control r-control-minimize"></div>
+                <div class="r-window-control r-control-maximize"></div>
+              </div>
             </div>
             <div class="r-content">
-                <pre class="r-code"><span class="r-comment"># Paket installieren (nur einmal notwendig)</span>
+              <pre class="r-code"><span class="r-comment"># Paket installieren (nur einmal notwendig)</span>
 <span class="r-function">install.packages</span>(<span class="r-string">"tidyverse"</span>)
 
 <span class="r-comment"># Paket laden (in jeder R-Session notwendig)</span>
 <span class="r-function">library</span>(tidyverse)</pre>
             </div>
-        </div>
-        
-        <div class="tips-box">
+          </div>
+          
+          <div class="tips-box">
             <h4>Wichtige Hinweise zur Paketverwaltung:</h4>
             <ul>
-                <li>Pakete müssen nur einmal installiert (install.packages()) werden, aber in jeder neuen R-Session geladen werden (library())</li>
-                <li>Das Laden aller Pakete am Anfang eines Skripts ist empfehlenswert</li>
-                <li>Eine Dokumentation (library()) der verwendeten Pakete erleichtert die Reproduzierbarkeit</li>
+              <li>Pakete müssen nur einmal installiert (install.packages()) werden, aber in jeder neuen R-Session geladen werden (library())</li>
+              <li>Das Laden aller Pakete am Anfang eines Skripts ist empfehlenswert</li>
+              <li>Eine Dokumentation (library()) der verwendeten Pakete erleichtert die Reproduzierbarkeit</li>
             </ul>
+          </div>
         </div>
-    </div>
-</section>
+      </section>
     </main>
 
     <footer>
