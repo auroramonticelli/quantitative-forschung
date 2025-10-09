@@ -9,7 +9,7 @@ library(readxl)     # Für Excel-Dateien
 
 # 2. Daten importieren ---------------------------------
 # Daten aus CSV-Datei laden
-data <- read.csv("Desktop/healthcare_job_satisfaction.csv")
+data <- read.csv("healthcare_job_satisfaction.csv")
 
 # 3. Daten anschuaen ---------------------------------
 # Erste Zeilen anzeigen
@@ -27,20 +27,20 @@ sum(is.na(data))
 
 
 # 3. Visualisierung durch plots ---------------------------------
-## Barplot 
-ggplot(data, aes(x = factor(cyl))) + 
+# Barplot für Anzahl TeilnehmerInnen nach Geschlecht
+ggplot(data, aes(x = factor(gender))) + 
   geom_bar(fill = "#b9aadf") +
-  labs(title = "Anzahl der Autos nach Zylinderzahl", 
-       x = "Zylinder", y = "Anzahl")
+  labs(title = "Anzahl von TeilnehmerInnen nach Geschlecht", 
+       x = "Geschlecht", y = "Häufigkeit")
 
-# Boxplot 
-ggplot(data, aes(x = factor(cyl), y = mpg)) + 
-  geom_boxplot(fill = "#b9aadf") +
-  labs(title = "MPG Verteilung nach Zylinderzahl", 
-       x = "Zylinder", y = "MPG")
+# Boxplot für Arbeitszufriedenheit nach Geschlecht
+ggplot(data, aes(x = factor(gender), y = job_satisfaction)) + 
+  geom_boxplot(fill = "#B6CEB4") +
+  labs(title = "Arbeitszufriedenheit nach Geschlecht", 
+       x = "Geschlecht", y = "Arbeitszufriedenheit")
 
-# Histogram 
-ggplot(data, aes(x = mpg)) + 
-  geom_histogram(fill = "#b9aadf", bins = 10, color = "white") +
-  labs(title = "Verteilung der MPG Werte", 
-       x = "MPG", y = "Häufigkeit")
+# Histogram für Arbeitszufriedenheit
+ggplot(data, aes(x = job_satisfaction)) + 
+  geom_bar(fill = "#BBDCE5") +
+  labs(title = "Verteilung der Arbeitszufriedenheit", 
+       x = "Arbeitszufriedenheit", y = "Häufigkeit")

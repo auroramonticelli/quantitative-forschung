@@ -179,13 +179,13 @@
 
       <section id="section2">
         <h2>Plots: Barplot, Boxplot, Histogram</h2>
+        <div class="educational-content">
         <p>Wir erstellen verschiedene Plottypen, um Daten zu erkunden.<span class="badge">Tipp</span></p>
         
-        <div class="educational-content">
           <p>Die Auswahl des richtigen Diagrammtyps hängt von der Art Ihrer Daten und der Frage ab, die Sie beantworten möchten:</p>
           
           <div class="key-point">
-            <h4>Barplot (Balkendiagramm)</h4>
+            <h4>Barplot</h4>
             <p>Für kategorische Daten: Zeigt Häufigkeiten oder Mittelwerte für verschiedene Kategorien.</p>
             <div class="r-console">
               <div class="r-header">
@@ -202,14 +202,16 @@
 ggplot(data, aes(x = factor(gender))) + 
   geom_bar(fill = "#b9aadf") +
   labs(title = "Anzahl von TeilnehmerInnen nach Geschlecht", 
-       x = "Geschlecht", y = "Anzahl")
+       x = "Geschlecht", y = "Häufigkeit")
                 </pre>
               </div>
             </div>
           </div>
-          
+          <div class="image-container">
+            <img src="Rplot.png" alt="Plot" class="screenshot medium-screenshot">
+          </div>
           <div class="key-point">
-            <h4>Boxplot (Boxplot)</h4>
+            <h4>Boxplot</h4>
             <p>Für Verteilungen: Zeigt Median, Quartile und Ausreißer einer Verteilung.</p>
             <div class="r-console">
               <div class="r-header">
@@ -224,8 +226,8 @@ ggplot(data, aes(x = factor(gender))) +
                 <pre class="r-code">
 # Boxplot für Arbeitszufriedenheit nach Geschlecht
 ggplot(data, aes(x = factor(gender), y = job_satisfaction)) + 
-  geom_boxplot(fill = "#b9aadf") +
-  labs(title = "Arbeitszufriedenheit Verteilung nach Geschlecht", 
+  geom_boxplot(fill = "#B6CEB4") +
+  labs(title = "Arbeitszufriedenheit nach Geschlecht", 
        x = "Geschlecht", y = "Arbeitszufriedenheit")
                 </pre>
               </div>
@@ -233,7 +235,7 @@ ggplot(data, aes(x = factor(gender), y = job_satisfaction)) +
           </div>
           
           <div class="key-point">
-            <h4>Histogram (Histogramm)</h4>
+            <h4>Histogram</h4>
             <p>Für Verteilungen kontinuierlicher Daten: Zeigt die Häufigkeitsverteilung einer Variable.</p>
             <div class="r-console">
               <div class="r-header">
