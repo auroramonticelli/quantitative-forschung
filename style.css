@@ -143,6 +143,12 @@ h2 {
   margin-bottom: 20px;
 }
 
+h4 {
+  color: #345c7d;
+  margin: 25px 0 15px;
+  font-weight: 600;
+}
+
 .badge {
   display: inline-block;
   background-color: #345c7d;
@@ -152,6 +158,48 @@ h2 {
   font-size: 0.8rem;
   margin-left: 10px;
   vertical-align: middle;
+}
+
+/* Educational content */
+.educational-content {
+  background: #fdf3ef;
+  padding: 25px;
+  border-radius: 15px;
+  margin: 20px 0;
+}
+
+.tips-box {
+  background: #fff;
+  border-left: 4px solid #eb8b6e;
+  padding: 20px;
+  margin: 25px 0;
+  border-radius: 0 10px 10px 0;
+  box-shadow: 0 4px 12px rgba(235, 139, 110, 0.1);
+}
+
+.tips-box h4 {
+  color: #eb8b6e;
+  margin-top: 0;
+}
+
+/* Lists */
+ol, ul {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+/* Links */
+a {
+  color: #345c7d;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #eb8b6e;
 }
 
 /* Collapsible */
@@ -261,6 +309,7 @@ code {
   color: #eaeaea;
   font-size: 0.95rem;
   line-height: 1.5;
+  white-space: pre-wrap;
 }
 
 /* Syntax highlighting */
@@ -269,6 +318,56 @@ code {
 .r-operator { color: #f78c6c; }
 .r-number   { color: #d19a66; }
 .r-string   { color: #98c379; }
+
+/* Image styling */
+.image-container {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  border: 1px solid #f0e0d6;
+}
+
+/* Specific sizing for screenshots */
+.screenshot {
+  max-width: 800px; /* Limits the maximum width */
+  width: 100%; /* Makes it responsive */
+  margin: 0 auto; /* Centers the image */
+  display: block;
+}
+
+.small-screenshot {
+  max-width: 600px; /* Smaller maximum width */
+  width: 90%; /* Slightly smaller on mobile */
+}
+
+.medium-screenshot {
+  max-width: 700px; /* Medium maximum width */
+}
+
+.image-caption {
+  font-style: italic;
+  color: #7a7a7a;
+  margin-top: 12px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 0.9rem;
+}
+
+.code-caption {
+  text-align: center;
+  font-style: italic;
+  color: #7a7a7a;
+  margin-top: -10px;
+  margin-bottom: 25px;
+  font-size: 0.9rem;
+}
 
 footer {
   background: #345c7d;
@@ -327,5 +426,13 @@ footer {
   nav a {
     width: 80%;
     text-align: center;
+  }
+  
+  .screenshot {
+    max-width: 95%; /* Slightly smaller on mobile */
+  }
+  
+  .small-screenshot {
+    max-width: 90%;
   }
 }
