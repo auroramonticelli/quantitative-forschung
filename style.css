@@ -328,9 +328,9 @@ code {
 .image-container img {
   max-width: 100%;
   height: auto;
-  border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-  border: 1px solid #f0e0d6;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  filter: contrast(1.05); /* Slight sharpening */
 }
 
 /* Specific sizing for screenshots */
