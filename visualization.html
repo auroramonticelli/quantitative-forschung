@@ -207,6 +207,7 @@ ggplot(data, aes(x = factor(gender))) +
               </div>
             </div>
           </div>
+          <p>Der Barplot zeigt die Verteilung der Teilnehmerzahlen. Es sind deutlich mehr Frauen als Männer in der Stichprobe vertreten.</p>
           <div class="image-container">
             <img src="Rplot.png" alt="Plot">
           </div>
@@ -233,6 +234,7 @@ ggplot(data, aes(x = factor(gender), y = job_satisfaction)) +
               </div>
             </div>
           </div>
+          <p>Die Boxplots zeigen ähnliche Arbeitszufriedenheitswerte bei Frauen und Männern. Es gibt keine grossen Unterschiede zwischen den Gruppen.</p>
           <div class="image-container">
   <img src="Rplot02.png" alt="Plot">
 </div>
@@ -252,7 +254,7 @@ ggplot(data, aes(x = factor(gender), y = job_satisfaction)) +
                 <pre class="r-code">
 # Histogram für Arbeitszufriedenheit
 ggplot(data, aes(x = job_satisfaction)) + 
-  geom_histogram(fill = "#b9aadf", bins = 10, color = "white") +
+  geom_bar(fill = "#BBDCE5") +
   labs(title = "Verteilung der Arbeitszufriedenheit", 
        x = "Arbeitszufriedenheit", y = "Häufigkeit")
                 </pre>
@@ -260,6 +262,7 @@ ggplot(data, aes(x = job_satisfaction)) +
             </div>
           </div>
         </div>
+        <p>Das Histogramm verdeutlicht, dass die Zufriedenheitswerte 3 und 4 am häufigsten gewählt wurden.Die Tendenz geht eher zu Arbeitszufriedenheit.</p>
         <div class="image-container">
   <img src="Rplot03.png" alt="Plot">
 </div>
