@@ -268,8 +268,27 @@ male_total <span class="r-operator">&lt;-</span> <span class="r-function">sum</s
           </div>
           
           <h4>R Code: t-Test und Mann-Whitney mit Healthcare-Daten</h4>
-          
+          <p>Schauen wir in unseren Daten ob sich die Arbeitszufriedenheit Allgemein zwischen den Geschlechter unterscheidet.</p>
           <div class="r-console">
+            <div class="r-header">
+              <span>R Console</span>
+              <div class="r-window-controls">
+                <div class="r-window-control r-control-close"></div>
+                <div class="r-window-control r-control-minimize"></div>
+                <div class="r-window-control r-control-maximize"></div>
+              </div>
+            </div>
+            <div class="r-content">
+              <pre class="r-code"><span class="r-comment"># t-Test für unabhängige Stichproben: Zufriedenheit nach Geschlecht</span>
+<span class="r-function">t.test</span>(job_satisfaction <span class="r-operator">~</span> gender, data <span class="r-operator">=</span> data)
+
+<span class="r-comment"># Überprüfung der Normalverteilung mit Shapiro-Wilk-Test</span>
+<span class="r-function">shapiro.test</span>(data<span class="r-operator">$</span>job_satisfaction[healthcare_data<span class="r-operator">$</span>gender <span class="r-operator">==</span> <span class="r-string">"Female"</span>])
+<span class="r-function">shapiro.test</span>(data<span class="r-operator">$</span>job_satisfaction[healthcare_data<span class="r-operator">$</span>gender <span class="r-operator">==</span> <span class="r-string">"Male"</span>])</pre>
+            </div>
+          </div>
+<p>Der t-Test ist eigentlich nicht angemessen, weil Arbeitszufriedenheit nicht normalverteilt ist. Der t-Test ist wie ein empfindliches "Instrument"und kann bei schiefen Verteilungen falsche Ergebnisse liefern. In diesem Fall rettet uns der Mann-Whitney U-Test. Der braucht keine Normalverteilung und ist weniger empfindliche gegenüber Ausreissern.</p>
+<div class="r-console">
             <div class="r-header">
               <span>R Console</span>
               <div class="r-window-controls">
@@ -297,8 +316,7 @@ male_total <span class="r-operator">&lt;-</span> <span class="r-function">sum</s
 <span class="r-function">library</span>(effectsize)
 <span class="r-function">cohens_d</span>(job_satisfaction <span class="r-operator">~</span> gender, data <span class="r-operator">=</span> data)</pre>
             </div>
-          </div>
-          
+          </div>     
           <button class="collapsible">Interpretation der Ergebnisse</button>
 <div class="content">
   <div class="interpretation-box">
