@@ -171,7 +171,7 @@ chisq_result<span class="r-operator">$</span>residuals
           </div>
           
           <h4>R Code: Test für Proportionen mit Healthcare-Daten</h4>
-          
+          <p>Schauen wir in unseren Daten ob der Anteil weiblicher Beschäftigte signifikant höher als 50%.</p>
           <div class="r-console">
             <div class="r-header">
               <span>R Console</span>
@@ -192,13 +192,21 @@ total_count <span class="r-operator">&lt;-</span> <span class="r-function">nrow<
           <button class="collapsible">Interpretation der Ergebnisse</button>
 <div class="content">
   <div class="interpretation-box">
+    <div class="image-container">
+  <img src="prop-test-1-results.png" alt="R Outcome">
+</div>
     <p><strong>Forschungsfrage:</strong> Weicht der Anteil weiblicher Beschäftigter signifikant von 50% ab?</p>
-    <p><strong>p-Wert:</strong> p = 0.002 < 0.05 → Der Anteil weiblicher Beschäftigter (74%) unterscheidet sich signifikant von 50%</p>
-    <p><strong>Konfidenzintervall:</strong> [0.64, 0.82] enthält nicht 0.5 → signifikant</p>
-    <p><strong>Zwei-Stichproben Test:</strong> p = 0.45 > 0.05 → Kein signifikanter Unterschied in der Zufriedenheit zwischen Geschlechtern</p>
+    <p><strong>p-Wert:</strong> p = 2.192e-09; p < 0,001 → Hochsignifikantes Ergebnis</p>
+    <p><strong>Anteil weiblicher Beschäftigter:</strong> 71% ist signifikant höher als 50%. </p>
+    <p><strong>Konfidenzintervall:</strong> [65,2%; 100%], der wahre Anteil liegt mit 95% Sicherheit über 65,2%</p>
+    <p>Es gibt deutlich mehr weibliche Beschäftigte in den unserer Stichprobe.</p>
   </div>
 </div>
 
+
+
+
+<p>Schauen wir in unseren Daten ob sich der Anteil der Beschäftigten mit hoher Arbeitszufriedenheit (≥4) zwischen den Geschlechter unterscheidet.</p>
 <div class="r-console">
             <div class="r-header">
               <span>R Console</span>
@@ -210,7 +218,6 @@ total_count <span class="r-operator">&lt;-</span> <span class="r-function">nrow<
             </div>
             <div class="r-content">
               <pre class="r-code">
-
 <span class="r-comment"># Zwei-Stichproben Test: Vergleich der Zufriedenheitsanteile (≥4) zwischen Geschlechtern</span>
 female_high_satisfaction <span class="r-operator">&lt;-</span> <span class="r-function">sum</span>(data<span class="r-operator">$</span>gender <span class="r-operator">==</span> <span class="r-string">"Female"</span> <span class="r-operator">&</span> data<span class="r-operator">$</span>job_satisfaction <span class="r-operator">>=</span> <span class="r-number">4</span>)
 male_high_satisfaction <span class="r-operator">&lt;-</span> <span class="r-function">sum</span>(data<span class="r-operator">$</span>gender <span class="r-operator">==</span> <span class="r-string">"Male"</span> <span class="r-operator">&</span> data<span class="r-operator">$</span>job_satisfaction <span class="r-operator">>=</span> <span class="r-number">4</span>)
@@ -224,10 +231,14 @@ male_total <span class="r-operator">&lt;-</span> <span class="r-function">sum</s
           <button class="collapsible">Interpretation der Ergebnisse</button>
 <div class="content">
   <div class="interpretation-box">
-    <p><strong>Forschungsfrage:</strong> Weicht der Anteil weiblicher Beschäftigter signifikant von 50% ab?</p>
-    <p><strong>p-Wert:</strong> p = 0.002 < 0.05 → Der Anteil weiblicher Beschäftigter (74%) unterscheidet sich signifikant von 50%</p>
-    <p><strong>Konfidenzintervall:</strong> [0.64, 0.82] enthält nicht 0.5 → signifikant</p>
-    <p><strong>Zwei-Stichproben Test:</strong> p = 0.45 > 0.05 → Kein signifikanter Unterschied in der Zufriedenheit zwischen Geschlechtern</p>
+    <div class="image-container">
+  <img src="prop-test-2-results.png" alt="R Outcome">
+</div>
+    <p><strong>Forschungsfrage:</strong> Unterscheidet sich der Anteil der Beschäftigten mit hoher Arbeitszufriedenheit (≥4) zwischen den Geschlechter?</p>
+    <p><strong>Anteil hoch hoher Arbeitszufriedenheit:</strong> Frauen = 40,1%; Männer = 44,8%</p>
+    <p><strong>p-Wert:</strong> p = 0,651; p > 0.05 zeigt kein signifikanter Unterschied</p>
+    <p><strong>Konfidenzintervall:</strong> [-0,210; 0,117], die wahre Differenz könnte zwischen -21% und +12% liegen</p>
+    <p><strong>Zwei-Stichproben Test:</strong>Der beobachtete Unterschied von 4,7% ist statistisch nicht bedeutsam. Somit ist die ArbeitsZufriedenheit zwischen Geschlechtern vergleichbar.</p>
   </div>
 </div>
       </section>

@@ -102,11 +102,12 @@ chisq_result$residuals
 # Cramér's V als Effektstärke berechnen
 assocstats(table(data$gender, data$profession))
 
+
 ## Proportionen Test
 # Ein-Stichproben Test: Anteil weiblicher Beschäftigter vs. 50%
 female_count <- sum(data$gender == "Female")
 total_count <- nrow(data)
-prop.test(female_count, total_count, p = 0.5)
+prop.test(female_count, total_count, p = 0.5, alternative = "greater")
 
 # Zwei-Stichproben Test: Vergleich der Zufriedenheitsanteile (≥4) zwischen Geschlechtern
 female_high_satisfaction <- sum(data$gender == "Female" & data$job_satisfaction >= 4)
@@ -116,7 +117,3 @@ male_total <- sum(data$gender == "Male")
 
 prop.test(c(female_high_satisfaction, male_high_satisfaction), 
           c(female_total, male_total))
-
-# Exakter Test nach Fisher für kleine Stichproben
-fisher.test(matrix(c(female_high_satisfaction, female_total - female_high_satisfaction,
-                     male_high_satisfaction, male_total - male_high_satisfaction), nrow = 2))
