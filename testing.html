@@ -73,7 +73,7 @@
         <div class="content">
             <div class="interpretation-box">
                 <h4>Zusammenfassung der deskriptiven Analyse</h4>
-                <p><strong>Stichprobengröße:</strong> Daten von 100 Beschäftigten im Gesundheitswesen</p>
+                <p><strong>Stichprobengrösse:</strong> Daten von 100 Beschäftigten im Gesundheitswesen</p>
                 <p><strong>Geschlechterverteilung:</strong> 71 Frauen und 29 Männer (71% weiblich) </p>
                 <p><strong>Berufsverteilung:</strong> 38 Pflegekräfte, 24 Ärzte, 18 Psychologen, 11 Ernährungsberater, 9 Physiotherapeuten </p>
                 <p><strong>Job-Zufriedenheit:</strong> Durchschnitt: 3.07 von 6 Punkten (0 bis 5), mit einer von Standardabweichung 1.45. Der median liegt bei 3.</p>
@@ -134,13 +134,14 @@ chisq_result<span class="r-operator">$</span>residuals
           <button class="collapsible">Interpretation der Ergebnisse</button>
             <div class="content">
               <div class="image-container">
-  <img src="Chi-test-results" alt="Plot">
+  <img src="Chi-test-results.png" alt="R Outcome">
 </div>
               <div class="interpretation-box">
                 <p><strong>Forschungsfrage:</strong> Gibt es einen Zusammenhang zwischen Geschlecht und Beruf im Gesundheitswesen?</p>
-                <p><strong>p-Wert:</strong> p = 0.034 < 0.05 → Signifikanter Zusammenhang zwischen Geschlecht und Beruf</p>
-                <p><strong>χ²-Wert:</strong> 10.82 zeigt eine moderate Abweichung von der Unabhängigkeit</p>
-                <p><strong>Cramér's V:</strong> 0.33 → Mittlere Effektstärke</p>
+                <p><strong>p-Wert:</strong> p = 0,424; p > 0,05 → Dies ist deutlich grösser als das konventionelle. Signifikanzniveau von 0,05. Es gibt keine Evidenz für einen systematischen Zusammenhang zwischen Geschlecht und Beruf. </p>
+                <p><strong>χ²-Wert:</strong> 3,87 mit 4 Freiheitsgraden zeigt eine relativ kleine Teststatistik bei den gegebenen Freiheitsgraden. Der niedrige Wert unterstützt die Schlussfolgerung, dass kein signifikanter Zusammenhang besteht.</p>
+                <p><strong>Cramér's V:</strong> 0,139 zeigt einen sehr schwachen Zusammenhang an (Effektstärken: 0,1 = klein, 0,3 = mittel, 0,5 = gross)</p>
+                <p>Es gibt keine statistisch signifikante Evidenz für einen Zusammenhang zwischen Geschlecht und Beruf in diesem Gesundheitsdatensatz. Die Verteilung der Berufe scheint bei Männern und Frauen ähnlich zu sein, wobei kleinere Unterschiede wahrscheinlich auf zufällige Variation rather als auf systematische geschlechtsspezifische Muster zurückzuführen sind.</p>
               </div>
             </div>
           </div>
@@ -219,7 +220,7 @@ male_total <span class="r-operator">&lt;-</span> <span class="r-function">sum</s
             <h4>Anwendungsbedingungen: t-Test</h4>
             <ul>
               <li>Intervallskalierte abhängige Variable</li>
-              <li>Normalverteilung in beiden Gruppen (oder große Stichprobe)</li>
+              <li>Normalverteilung in beiden Gruppen (oder grosse Stichprobe)</li>
               <li>Varianzhomogenität (ggf. Welch-Korrektur verwenden)</li>
               <li>Unabhängige Beobachtungen</li>
             </ul>

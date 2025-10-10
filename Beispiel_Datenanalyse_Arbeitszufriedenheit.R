@@ -6,10 +6,12 @@
 # 1. Pakete laden ---------------------------------------
 library(tidyverse)  # Sammlung von Paketen für Datenwissenschaft
 library(readxl)     # Für Excel-Dateien
+library(vcd)
 
 # 2. Daten importieren ---------------------------------
 # Daten aus CSV-Datei laden
 data <- read.csv("healthcare_job_satisfaction.csv")
+data <- read.csv("healthcare_data.csv")
 
 # 3. Daten anschuaen ---------------------------------
 # Erste Zeilen anzeigen
@@ -81,13 +83,14 @@ mean(data$job_satisfaction)    # Mittelwert
 sd(data$job_satisfaction)      # Standardabweichung
 median(data$job_satisfaction)   # Median
 
+
 # 5. Inferenzstatistik   ----------------------------------------
 # Chi-Quadrat
 # Kreuztabelle erstellen: Geschlecht vs. Beruf
-table(data$gender, healthcare_data$profession)
+table(data$gender, data$profession)
 
 # Chi-Quadrat Test durchführen
-chisq_result <- chisq.test(table(data$gender, healthcare_data$profession))
+chisq_result <- chisq.test(table(data$gender, data$profession))
 print(chisq_result)
 
 # Erwartete Häufigkeiten anzeigen
@@ -97,5 +100,4 @@ chisq_result$expected
 chisq_result$residuals
 
 # Cramér's V als Effektstärke berechnen
-library(vcd)
-assocstats(table(healthcare_data$gender, healthcare_data$profession))
+assocstats(table(data$gender, data$profession))
