@@ -35,7 +35,7 @@
     <h2 class="test-header">Deskriptive Statistiken</h2>
     
     <div class="educational-content">
-        <p>Deskriptive Statistiken geben einen numerischen Überblick über die Daten. Sie quantifizieren die Muster, die bereits in der Visualisierung grafisch gesehen wurden.</p>
+        <p>Deskriptive Statistiken geben einen ersten Eindruck und Überblick über die Daten. Sie zeigen Muster, die bereits in der Visualisierung grafisch gesehen werden.</p>
         
         <div class="key-point">
             <p>Aus dem Visualisierungs-Modul sind die Funktionen <code>str()</code>, <code>head()</code>, <code>summary()</code> und <code>table()</code> bereits bekannt. Diese Funktionen bilden die Grundlage für deskriptive Statistiken.</p>
@@ -72,13 +72,12 @@
         <button class="collapsible">Interpretation der deskriptiven Analyse</button>
         <div class="content">
             <div class="interpretation-box">
-                <h4>Zusammenfassung der deskriptiven Analyse</h4>
-                <p><strong>Stichprobengrösse:</strong> Daten von 100 Beschäftigten im Gesundheitswesen</p>
-                <p><strong>Geschlechterverteilung:</strong> 71 Frauen und 29 Männer (71% weiblich) </p>
-                <p><strong>Berufsverteilung:</strong> 38 Pflegekräfte, 24 Ärzte, 18 Psychologen, 11 Ernährungsberater, 9 Physiotherapeuten </p>
-                <p><strong>Job-Zufriedenheit:</strong> Durchschnitt: 3.07 von 6 Punkten (0 bis 5), mit einer von Standardabweichung 1.45. Der median liegt bei 3.</p>
-                <p><strong>Datenqualität:</strong> Keine fehlenden Werte: die Daten sind vollständig</p>
-                <p><strong>Erste Erkenntnisse:</strong> Die Stichprobe ist überwiegend weiblich. Die Pflegekräfte stellen die grösste Berufsgruppe da. Die Zufriedenheit liegt im mittleren Bereich, zeigt jedoch eine breite Streuung von sehr unzufrieden (0) bis sehr zufrieden (5).</p>
+                <p><strong>Stichprobengrösse:</strong> Daten von 200 Arbeitnehmer aus dem Gesundheitswesen.</p>
+                <p><strong>Geschlechterverteilung:</strong> 142 Frauen und 58 Männer</p>
+                <p><strong>Berufsverteilung:</strong> 76 Pflegekräfte, 48 Ärzte, 36 Psychologen, 22 Ernährungsberater, 18 Physiotherapeuten </p>
+                <p><strong>Job-Zufriedenheit:</strong> Durchschnitt: 3.06 von 6 Punkten (0 bis 5), mit einer von Standardabweichung 1.48. Der median liegt bei 3.</p>
+                <p><strong>Datenqualität:</strong> Keine fehlenden Werte, die Daten sind vollständig</p>
+                <p><strong>Erste Erkenntnisse:</strong> In dieser Stichprobe ist die Mehrheit weiblich. Die Pflegekräfte representiert die grösste Berufsgruppe aus der Stichprobe. Die Zufriedenheit liegt im mittleren Bereich, zeigt jedoch eine breite Streuung von sehr unzufrieden (0) bis sehr zufrieden (5).</p>
             </div>
         </div>
     </div>
@@ -138,10 +137,10 @@ chisq_result<span class="r-operator">$</span>residuals
 </div>
               <div class="interpretation-box">
                 <p><strong>Forschungsfrage:</strong> Gibt es einen Zusammenhang zwischen Geschlecht und Beruf im Gesundheitswesen?</p>
-                <p><strong>p-Wert:</strong> p = 0,424; p > 0,05 → Dies ist deutlich grösser als das konventionelle. Signifikanzniveau von 0,05. Es gibt keine Evidenz für einen systematischen Zusammenhang zwischen Geschlecht und Beruf. </p>
+                <p><strong>p-Wert:</strong> p = 0,424; p > 0,05 → Dies ist deutlich grösser als das Signifikanzniveau von 0,05. Es gibt keine Evidenz für einen systematischen Zusammenhang zwischen Geschlecht und Beruf.</p>
                 <p><strong>χ²-Wert:</strong> 3,87 mit 4 Freiheitsgraden zeigt eine relativ kleine Teststatistik bei den gegebenen Freiheitsgraden. Der niedrige Wert unterstützt die Schlussfolgerung, dass kein signifikanter Zusammenhang besteht.</p>
                 <p><strong>Cramér's V:</strong> 0,139 zeigt einen sehr schwachen Zusammenhang an (Effektstärken: 0,1 = klein, 0,3 = mittel, 0,5 = gross)</p>
-                <p>Es gibt keine statistisch signifikante Evidenz für einen Zusammenhang zwischen Geschlecht und Beruf in diesem Gesundheitsdatensatz. Die Verteilung der Berufe scheint bei Männern und Frauen ähnlich zu sein, wobei kleinere Unterschiede wahrscheinlich auf zufällige Variation rather als auf systematische geschlechtsspezifische Muster zurückzuführen sind.</p>
+                <p>Es gibt keine statistisch signifikante Evidenz für einen Zusammenhang zwischen Geschlecht und Beruf in diesem Gesundheitsdatensatz. Die Verteilung der Berufe scheint bei Männern und Frauen ähnlich zu sein, wobei kleinere Unterschiede wahrscheinlich auf zufällige Variation als auf systematische geschlechtsspezifische Muster zurückzuführen sind.</p>
               </div>
             </div>
           </div>
@@ -238,7 +237,7 @@ male_total <span class="r-operator">&lt;-</span> <span class="r-function">sum</s
     <p><strong>Anteil hoch hoher Arbeitszufriedenheit:</strong> Frauen = 40,1%; Männer = 44,8%</p>
     <p><strong>p-Wert:</strong> p = 0,651; p > 0.05 zeigt kein signifikanter Unterschied</p>
     <p><strong>Konfidenzintervall:</strong> [-0,210; 0,117], die wahre Differenz könnte zwischen -21% und +12% liegen</p>
-    <p><strong>Zwei-Stichproben Test:</strong>Der beobachtete Unterschied von 4,7% ist statistisch nicht bedeutsam. Somit ist die ArbeitsZufriedenheit zwischen Geschlechtern vergleichbar.</p>
+    <p>Der beobachtete Unterschied von 4,7% ist statistisch nicht bedeutsam. Somit ist die Arbeitsufriedenheit zwischen den Geschlechtern vergleichbar.</p>
   </div>
 </div>
       </section>
@@ -268,7 +267,7 @@ male_total <span class="r-operator">&lt;-</span> <span class="r-function">sum</s
           </div>
           
           <h4>R Code: t-Test und Mann-Whitney mit Healthcare-Daten</h4>
-          <p>Schauen wir in unseren Daten ob sich die Arbeitszufriedenheit Allgemein zwischen den Geschlechter unterscheidet.</p>
+          <p>Schauen wir in unseren Daten ob sich die Verteilung der Arbeitszufriedenheit zwischen den Geschlechter unterscheidet.</p>
           <div class="r-console">
             <div class="r-header">
               <span>R Console</span>
@@ -287,6 +286,16 @@ male_total <span class="r-operator">&lt;-</span> <span class="r-function">sum</s
 <span class="r-function">shapiro.test</span>(data<span class="r-operator">$</span>job_satisfaction[healthcare_data<span class="r-operator">$</span>gender <span class="r-operator">==</span> <span class="r-string">"Male"</span>])</pre>
             </div>
           </div>
+          <button class="collapsible">Interpretation der Ergebnisse</button>
+<div class="content">
+  <div class="interpretation-box">
+    <p><strong>Forschungsfrage:</strong> Unterscheidet sich die Arbeitszufriedenheit zwischen weiblichen und männlichen Beschäftigten?</p>
+    <p><strong>p-Wert (t-Test):</strong> p = 0.776 > 0.05 → Kein signifikanter Mittelwertunterschied</p>
+    <p><strong>Mittelwerte:</strong> Weiblich (3.04) vs. Männlich (3.10)</p>
+    <p><strong>p-Wert (Shapiro-Wilk-Test Frauen):</strong> p < 0.001 zeigt, dass die Arbeitszufriedenheit der Frauen ist nicht normalverteilt ist.</p>
+    <p><strong>p-Wert (Shapiro-Wilk-Test Männer):</strong> p < 0.001 zeigt, dass die Arbeitszufriedenheit der Männern ist nicht normalverteilt ist.</p>
+  </div>
+</div>
 <p>Der t-Test ist eigentlich nicht angemessen, weil die Arbeitszufriedenheit nicht normalverteilt ist. Der t-Test ist  ein empfindliches "Instrument" und kann bei schiefen Verteilungen falsche Ergebnisse liefern. In diesem Fall rettet uns der Mann-Whitney U-Test. Dieser braucht keine Normalverteilung und ist weniger empfindlich gegenüber Ausreissern.</p>
 <div class="r-console">
             <div class="r-header">
