@@ -10,7 +10,7 @@ library(vcd)
 
 ### 2. Daten importieren ---------------------------------
 # Daten aus CSV-Datei laden
-data <- read.csv("healthcare_job_satisfaction.csv")
+# data <- read.csv("healthcare_job_satisfaction.csv")
 data <- read.csv("healthcare_data.csv")
 
 # 3. Daten anschuaen ---------------------------------
@@ -49,6 +49,22 @@ ggplot(data, aes(x = job_satisfaction)) +
 
 
 ### 4. Ästhetische Anpassungen ------------------------------------
+# Balkendiagramm mit einer Farbe
+ggplot(data, aes(x = profession)) +
+  geom_bar(fill = "#b9aadf")  # Lila Farbe für alle Balken
+
+# Balkendiagramm mit mehreren Farben
+ggplot(data, aes(x = profession, fill = profession)) +
+  geom_bar() +
+  scale_fill_brewer(palette = "Blues")
+
+# Balkendiagramm mit Farben nach Geschlecht aufgeteilt
+ggplot(data, aes(x = profession, fill = gender)) +
+  geom_bar(position = "dodge") +  # "dodge" = nebeneinander
+  scale_fill_brewer(palette = "Blues") +
+  theme_minimal()
+
+# Komplette Grafik mit allen Anpassungen
 ggplot(data, aes(x = profession, fill = profession)) +
   geom_bar() + #Basis des Balkendiagrams
   labs(
@@ -61,12 +77,8 @@ ggplot(data, aes(x = profession, fill = profession)) +
     plot.title = element_text(size = 16, face = "bold"),  # Titel-Stil
     axis.title = element_text(size = 12), # Achsen-Titel-Stil
     axis.text = element_text(size = 10), # Achsen-Titel-Stil
-    panel.background = element_rect(fill = "white"), # Weisser Hintergrund
-    panel.grid.major = element_line(color = "grey90") # Heller Gitternetz
   ) +
-  scale_fill_brewer(palette = "Blues")  # Farbpalette für die Balken
-
-
+  theme_minimal()
 
 ### 5. Descriptive Analyse   ----------------------------------------
 # Grundlegende Datenexploration (bereits bekannt)
@@ -117,3 +129,17 @@ male_total <- sum(data$gender == "Male")
 
 prop.test(c(female_high_satisfaction, male_high_satisfaction), 
           c(female_total, male_total))
+
+
+## t-Test 
+# t-Test für unabhängige Stichproben: Zufriedenheit nach Geschlecht
+t.test(job_satisfaction ~ gender, data = data)
+
+# Überprüfung der Normalverteilung mit Shapiro-Wilk-Test
+shapiro.test(data$job_satisfaction[data$gender == "Female"])
+shapiro.test(data$job_satisfaction[data$gender == "Male"])
+
+## Mann-Whitney U-Test
+# Mann-Whitney U-Test (nicht-parametrische Alternative)
+wilcox.test(job_satisfaction ~ gender, data = data)
+
