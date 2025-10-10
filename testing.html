@@ -113,10 +113,10 @@
             </div>
             <div class="r-content">
               <pre class="r-code"><span class="r-comment"># Kreuztabelle erstellen: Geschlecht vs. Beruf</span>
-<span class="r-function">table</span>(data<span class="r-operator">$</span>gender, healthcare_data<span class="r-operator">$</span>profession)
+<span class="r-function">table</span>(data<span class="r-operator">$</span>gender, data<span class="r-operator">$</span>profession)
 
 <span class="r-comment"># Chi-Quadrat Test durchführen</span>
-chisq_result <span class="r-operator">&lt;-</span> <span class="r-function">chisq.test</span>(<span class="r-function">table</span>(data<span class="r-operator">$</span>gender, healthcare_data<span class="r-operator">$</span>profession))
+chisq_result <span class="r-operator">&lt;-</span> <span class="r-function">chisq.test</span>(<span class="r-function">table</span>(data<span class="r-operator">$</span>gender, data<span class="r-operator">$</span>profession))
 <span class="r-function">print</span>(chisq_result)
 
 <span class="r-comment"># Erwartete Häufigkeiten anzeigen</span>
@@ -127,12 +127,15 @@ chisq_result<span class="r-operator">$</span>residuals
 
 <span class="r-comment"># Cramér's V als Effektstärke berechnen</span>
 <span class="r-function">library</span>(vcd)
-<span class="r-function">assocstats</span>(<span class="r-function">table</span>(healthcare_data<span class="r-operator">$</span>gender, healthcare_data<span class="r-operator">$</span>profession))</pre>
+<span class="r-function">assocstats</span>(<span class="r-function">table</span>(data<span class="r-operator">$</span>gender, data<span class="r-operator">$</span>profession))</pre>
             </div>
           </div>
           
           <button class="collapsible">Interpretation der Ergebnisse</button>
             <div class="content">
+              <div class="image-container">
+  <img src="Chi-test-results" alt="Plot">
+</div>
               <div class="interpretation-box">
                 <p><strong>Forschungsfrage:</strong> Gibt es einen Zusammenhang zwischen Geschlecht und Beruf im Gesundheitswesen?</p>
                 <p><strong>p-Wert:</strong> p = 0.034 < 0.05 → Signifikanter Zusammenhang zwischen Geschlecht und Beruf</p>
@@ -142,6 +145,7 @@ chisq_result<span class="r-operator">$</span>residuals
             </div>
           </div>
         </section>
+
 
 
       <section id="section2" class="test-section">
