@@ -68,7 +68,7 @@
               <li><strong>Fehlende Werte</strong> - Können zu verzerrten Ergebnissen führen</li>
               <li><strong>Ausreisser</strong> - Extreme Werte, die die Interpretation verfälschen können</li>
               <li><strong>Datentyp-Probleme</strong> - Zahlen, die als Text gespeichert sind</li>
-              <li><strong>Skalenunterschiede</strong> - Variablen in unterschiedlichen Maßstäben</li>
+              <li><strong>Skalenunterschiede</strong> - Variablen in unterschiedlichen Massstäben</li>
             </ul>
           </div>
           
@@ -213,7 +213,7 @@ ggplot(data, aes(x = factor(gender))) +
           </div>
           <div class="key-point">
             <h4>Boxplot</h4>
-            <p>Für Verteilungen: Zeigt Median, Quartile und Ausreißer einer Verteilung.</p>
+            <p>Für Verteilungen: Zeigt Median, Quartile und Ausreisser einer Verteilung.</p>
             <div class="r-console">
               <div class="r-header">
                 <div class="r-window-controls">
@@ -297,7 +297,7 @@ ggplot(data, aes(x = profession)) +
         </div>
 
         <h3>Schritt 2: Farben hinzufügen</h3>
-        <p>Jetzt fügen wir Farben hinzu, um die Balken ansprechender zu gestalten:</p>
+        <p>So kannst du Farben hinzufügen, um die Balken ansprechender zu gestalten:</p>
         
         <div class="r-console">
             <div class="r-header">
@@ -310,9 +310,20 @@ ggplot(data, aes(x = profession)) +
             </div>
             <div class="r-content">
                 <pre class="r-code">
-# Balkendiagramm mit Farbe
+# Balkendiagramm mit einer Farbe
 ggplot(data, aes(x = profession)) +
   geom_bar(fill = "#b9aadf")  # Lila Farbe für alle Balken
+
+# Balkendiagramm mit mehreren Farben
+ggplot(data, aes(x = profession, fill = profession)) + # Mit "fill = profession" plotest du eine Farbe pro Beruf
+    geom_bar() +
+    scale_fill_brewer(palette = "Blues")
+    
+# Balkendiagramm mit Farben nach Geschlecht aufgeteilt
+ggplot(data, aes(x = profession, fill = gender)) + 
+    geom_bar(position = "dodge") +  # "dodge" = nebeneinander
+    scale_fill_brewer(palette = "Blues") + # Das ist optional hier kannst du deine Farbpalette aussuchen
+    theme_minimal()
                 </pre>
             </div>
         </div>
@@ -333,7 +344,7 @@ ggplot(data, aes(x = profession)) +
                 <pre class="r-code">
 # Mit Titel und Achsenbeschriftungen
 ggplot(data, aes(x = profession)) +
-  geom_bar(fill = "#b9aadf") +
+  geom_bar() +
   labs(
     title = "Anzahl der Beschäftigten nach Beruf",
     x = "Beruf",           # X-Achse beschriften
@@ -343,8 +354,8 @@ ggplot(data, aes(x = profession)) +
             </div>
         </div>
 
-        <h3>Schritt 4: Textgrößen anpassen</h3>
-        <p>Mit theme() können wir die Textgrößen anpassen:</p>
+        <h3>Schritt 4: Textgrössen anpassen</h3>
+        <p>Mit theme() können wir die Textgrössen anpassen:</p>
         
         <div class="r-console">
             <div class="r-header">
@@ -357,25 +368,25 @@ ggplot(data, aes(x = profession)) +
             </div>
             <div class="r-content">
                 <pre class="r-code">
-# Textgrößen anpassen
+# Textgrössen anpassen
 ggplot(data, aes(x = profession)) +
-  geom_bar(fill = "#b9aadf") +
+  geom_bar() +
   labs(
     title = "Anzahl der Beschäftigten nach Beruf",
     x = "Beruf",
     y = "Anzahl"
   ) +
   theme(
-    plot.title = element_text(size = 16, face = "bold"),  # Titel größer und fett
-    axis.title = element_text(size = 12),                 # Achsentitel Größe
-    axis.text = element_text(size = 10)                   # Achsentext Größe
+    plot.title = element_text(size = 16, face = "bold"),  # Titel grösser und fett
+    axis.title = element_text(size = 12),                 # Achsentitel Grösse
+    axis.text = element_text(size = 10)                   # Achsentext Grösse
   )
                 </pre>
             </div>
         </div>
 
         <h3>Schritt 5: Hintergrund anpassen</h3>
-        <p>Wir können den Hintergrund der Grafik verbessern:</p>
+        <p>Wir können den Hintergrund der Grafik vereinfachen mit theme_minimal():</p>
         
         <div class="r-console">
             <div class="r-header">
@@ -401,10 +412,8 @@ ggplot(data, aes(x = profession, fill = profession)) +
     plot.title = element_text(size = 16, face = "bold"),  # Titel-Stil
     axis.title = element_text(size = 12), # Achsen-Titel-Stil
     axis.text = element_text(size = 10), # Achsen-Titel-Stil
-    panel.background = element_rect(fill = "white"), # Weisser Hintergrund
-    panel.grid.major = element_line(color = "grey90") # Heller Gitternetz
-  ) +
-  scale_fill_brewer(palette = "Blues")  # Farbpalette für die Balken
+    ) +
+    theme_minimal() # Hintergrund vereinfachen
                 </pre>
             </div>
         </div>

@@ -297,6 +297,7 @@ male_total <span class="r-operator">&lt;-</span> <span class="r-function">sum</s
   </div>
 </div>
 <p>Der t-Test ist eigentlich nicht angemessen, weil die Arbeitszufriedenheit nicht normalverteilt ist. Der t-Test ist  ein empfindliches "Instrument" und kann bei schiefen Verteilungen falsche Ergebnisse liefern. In diesem Fall rettet uns der Mann-Whitney U-Test. Dieser braucht keine Normalverteilung und ist weniger empfindlich gegenüber Ausreissern.</p>
+<p>Mann-Whitney U-Test vergleicht Ränge und Verteilungen. Stell dir vor: Wir sortieren alle Zufriedenheits-Werte von niedrig nach hoch und vergeben "Plätze" (Ränge). Dann schauen wir: Stehen Frauen und Männer gleichmäßig verteilt auf der Rangliste?</p>
 <div class="r-console">
             <div class="r-header">
               <span>R Console</span>
@@ -307,33 +308,19 @@ male_total <span class="r-operator">&lt;-</span> <span class="r-function">sum</s
               </div>
             </div>
             <div class="r-content">
-              <pre class="r-code"><span class="r-comment"># t-Test für unabhängige Stichproben: Zufriedenheit nach Geschlecht</span>
-<span class="r-function">t.test</span>(job_satisfaction <span class="r-operator">~</span> gender, data <span class="r-operator">=</span> data)
-
-<span class="r-comment"># Überprüfung der Normalverteilung mit Shapiro-Wilk-Test</span>
-<span class="r-function">shapiro.test</span>(data<span class="r-operator">$</span>job_satisfaction[healthcare_data<span class="r-operator">$</span>gender <span class="r-operator">==</span> <span class="r-string">"Female"</span>])
-<span class="r-function">shapiro.test</span>(data<span class="r-operator">$</span>job_satisfaction[healthcare_data<span class="r-operator">$</span>gender <span class="r-operator">==</span> <span class="r-string">"Male"</span>])
-
-<span class="r-comment"># Überprüfung der Varianzhomogenität mit Levene-Test</span>
-<span class="r-function">library</span>(car)
-<span class="r-function">leveneTest</span>(job_satisfaction <span class="r-operator">~</span> gender, data <span class="r-operator">=</span> data)
+              <pre class="r-code">
 
 <span class="r-comment"># Mann-Whitney U-Test (nicht-parametrische Alternative)</span>
-<span class="r-function">wilcox.test</span>(job_satisfaction <span class="r-operator">~</span> gender, data <span class="r-operator">=</span> data)
-
-<span class="r-comment"># Effektstärke berechnen (Cohen's d für t-Test)</span>
-<span class="r-function">library</span>(effectsize)
-<span class="r-function">cohens_d</span>(job_satisfaction <span class="r-operator">~</span> gender, data <span class="r-operator">=</span> data)</pre>
+<span class="r-function">wilcox.test</span>(job_satisfaction <span class="r-operator">~</span> gender, data <span class="r-operator">=</span> data)</pre>
             </div>
           </div>     
           <button class="collapsible">Interpretation der Ergebnisse</button>
 <div class="content">
   <div class="interpretation-box">
     <p><strong>Forschungsfrage:</strong> Unterscheidet sich die Arbeitszufriedenheit zwischen weiblichen und männlichen Beschäftigten?</p>
-    <p><strong>p-Wert (t-Test):</strong> p = 0.27 > 0.05 → Kein signifikanter Mittelwertunterschied</p>
-    <p><strong>Mittelwerte:</strong> Weiblich (3.15) vs. Männlich (3.42)</p>
-    <p><strong>Effektstärke:</strong> Cohen's d = 0.23 → Kleiner Effekt</p>
-    <p><strong>Mann-Whitney:</strong> p = 0.31 → Bestätigt das Ergebnis des t-Tests</p>
+    <p><strong>Teststatistik:</strong> W = 3957, diese Zahl führt uns zu unserem p-Wert.</p>
+    <p><strong>p-Wert:</strong> p-value = 0.6588; p > 0.05, zeigt kein signifikantes Testergebnis.</p>
+    <p>Es gibt keinen statistisch signifikanten Unterschied in der Arbeitszufriedenheit zwischen Frauen und Männern.</p>
   </div>
 </div>
 
