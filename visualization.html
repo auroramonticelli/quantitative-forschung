@@ -186,7 +186,99 @@
           
           <div class="key-point">
             <h4>Barplot</h4>
-            <p>Für kategorische Daten: Zeigt Häufigkeiten oder Mittelwerte für verschiedene Kategorien.</p>
+            <p><strong>Balkendiagramme eignen sich perfekt, um die <span class="highlight">Häufigkeiten von Kategorien</span> zu vergleichen!</strong> Zum Beispiel:</p>
+            <ul>
+                <li>Anzahl von Personen pro Geschlecht</li>
+                <li>Verkaufszahlen pro Produktkategorie</li>
+                <li>Anzahl Schüler pro Klassenstufe</li>
+                <li>Umfrageergebnisse mit Antwortkategorien</li>
+            </ul>
+            <p>Sie helfen dir, <span class="highlight">kategorische Daten</span> visuell darzustellen und Muster schnell zu erkennen.</p>
+            <p>Hier lernst du, wie du ein Balkendiagramm (engl. Barplot) in R mit dem <code>ggplot2</code>-Paket erstellst. Das Diagramm zeigt dir, wie viele Teilnehmerinnen und Teilnehmer es pro Geschlecht gibt.</p>
+            <p>Stell dir vor, du baust ein Haus. Du beginnst mit dem Fundament, fügst dann die Wände hinzu und dekorierst es am Schluss. Genau so funktioniert auch <code>ggplot2</code>!</p>
+            <strong style="font-size: 18px;">Das Fundament: <code>ggplot(data, aes(...))</code></strong>
+            
+            <div class="code-block">
+ggplot(data, aes(x = factor(gender)))
+            </div>
+
+            <ul>
+                <li><span class="highlight"><code>ggplot()</code></span>: Dies ist die Grundfunktion, die ein neues, leeres Diagramm erstellt. Sie sagt R: "Hey, ich möchte eine Grafik machen!"</li>
+                <li><span class="highlight"><code>data</code></span>: Hier sagst du R, welchen Datensatz (deine Tabelle) es für die Grafik verwenden soll.</li>
+                <li><span class="highlight"><code>aes(x = factor(gender))</code></span>: Das ist das "ästhetische Mapping" - es definiert, welche Daten wo im Diagramm erscheinen sollen.
+                    <ul>
+                        <li><span class="highlight"><code>x = ...</code></span>: Definiert die X-Achse (waagerecht)</li>
+                        <li><span class="highlight"><code>factor(gender)</code></span>: Verwandelt die Geschlechtsspalte in Kategorien</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="summary-box">
+                <strong>🎯 Zusammenfassung:</strong> Dieser Schritt legt fest: "Nimm den Datensatz <code>data</code> und zeichne die Kategorien aus der Spalte <code>gender</code> auf der X-Achse."
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-number">2</div>
+            <strong style="font-size: 18px;">Die Wände: <code>geom_bar()</code></strong>
+            
+            <div class="code-block">
+geom_bar(fill = "#b9aadf")
+            </div>
+
+            <ul>
+                <li><span class="highlight"><code>geom_bar()</code></span>: Dies ist die "Geometrie" - die eigentliche Form, die in deinem Diagramm erscheint. Es zählt automatisch die Häufigkeiten!</li>
+                <li><span class="highlight"><code>fill = "#b9aadf"</code></span>: Bestimmt die Füllfarbe der Balken <div class="color-example"></div>. Du könntest auch Farbnamen wie <code>"blue"</code> verwenden.</li>
+            </ul>
+
+            <div class="summary-box">
+                <strong>🎯 Zusammenfassung:</strong> Dieser Schritt sagt: "Zeichne die Balken für die gezählten Häufigkeiten und fülle sie mit einer lila Farbe."
+            </div>
+        </div>
+
+        <div class="step">
+            <div class="step-number">3</div>
+            <strong style="font-size: 18px;">Die Dekoration: <code>labs()</code></strong>
+            
+            <div class="code-block">
+labs(title = "Anzahl von TeilnehmerInnen nach Geschlecht", <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x = "Geschlecht", y = "Häufigkeit")
+            </div>
+
+            <ul>
+                <li><span class="highlight"><code>labs()</code></span>: Steht für "Labels" (Beschriftungen)</li>
+                <li><span class="highlight"><code>title = "..."</code></span>: Der Haupttitel deines Diagramms</li>
+                <li><span class="highlight"><code>x = "Geschlecht"</code></span>: Beschriftung der X-Achse</li>
+                <li><span class="highlight"><code>y = "Häufigkeit"</code></span>: Beschriftung der Y-Achse</li>
+            </ul>
+
+            <div class="summary-box">
+                <strong>🎯 Zusammenfassung:</strong> Dieser Schritt gibt deinem Diagramm den letzten Schliff, indem er klare und verständliche Beschriftungen hinzufügt.
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>➕ Das Wichtigste zum Schluss: Der <code>+</code> Operator</h2>
+            
+            <p>Siehst du das <span class="highlight"><code>+</code></span> Zeichen am Ende der ersten beiden Zeilen? Das ist das Herzstück von <code>ggplot2</code>! Es funktioniert wie ein <strong>Bauplan</strong>:</p>
+
+            <ol>
+                <li>Du beginnst mit dem leeren Fundament (<code>ggplot(...)</code>)</li>
+                <li>Dann <strong>fügst</strong> du mit <code>+</code> die Wände hinzu (<code>geom_bar</code>)</li>
+                <li>Dann <strong>fügst</strong> du mit <code>+</code> die Dekoration hinzu (<code>labs</code>)</li>
+            </ol>
+
+            <p>Jeder Baustein wird mit einem <code>+</code> an den vorherigen angehängt. So kannst du deine Grafik Stück für Stück aufbauen und sehr flexibel gestalten.</p>
+        </div>
+
+        <div class="tip-box">
+            <strong>💡 Wichtiger Tipp:</strong> Denk daran, dass du zuerst das <code>ggplot2</code>-Paket mit <code>library(ggplot2)</code> laden musst, bevor du den Code ausführen kannst!
+        </div>
+
+        <div class="use-case-box">
+            <h3>🎯 Nochmal zur Erinnerung:</h3>
+            <p><strong>Balkendiagramme sind ideal für kategorische Daten</strong> - also wenn du Antworten wie "männlich/weiblich/divers", "ja/nein/vielleicht" oder Produktkategorien vergleichen möchtest. Für kontinuierliche Daten (wie Alter, Gewicht, Zeit) sind andere Diagrammtypen oft besser geeignet.</p>
+            </div>
             <div class="r-console">
               <div class="r-header">
                 <div class="r-window-controls">
