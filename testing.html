@@ -119,14 +119,7 @@ chisq_result <span class="r-operator">&lt;-</span> <span class="r-function">chis
 <span class="r-function">print</span>(chisq_result)
 
 <span class="r-comment"># Erwartete Häufigkeiten anzeigen</span>
-chisq_result<span class="r-operator">$</span>expected
-
-<span class="r-comment"># Standardisierte Residuen analysieren</span>
-chisq_result<span class="r-operator">$</span>residuals
-
-<span class="r-comment"># Cramér's V als Effektstärke berechnen</span>
-<span class="r-function">library</span>(vcd)
-<span class="r-function">assocstats</span>(<span class="r-function">table</span>(data<span class="r-operator">$</span>gender, data<span class="r-operator">$</span>profession))</pre>
+chisq_result<span class="r-operator">$</span>expected</pre>
             </div>
           </div>
           
