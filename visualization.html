@@ -106,7 +106,7 @@
       <p>Die <code>str()</code> Funktion (kurz für "structure") zeigt dir die grundlegende Struktur deines Datensatzes:</p>
       
       <ul>
-        <li><strong>100 Beobachtungen:</strong> Dein Datensatz enthält 100 Personen</li>
+        <li><strong>200 Beobachtungen:</strong> Dein Datensatz enthält jetzt 200 Personen (verdoppelte Stichprobe)</li>
         <li><strong>4 Variablen:</strong> ID, Geschlecht, Beruf und Arbeitszufriedenheit</li>
         <li><strong>Datentypen:</strong> 
           <ul>
@@ -116,8 +116,6 @@
         </li>
         <li><strong>Erste Werte:</strong> Du siehst die ersten 10 Einträge jeder Variable</li>
       </ul>
-      
-      <p><strong>Warum ist das wichtig?</strong> <code>str()</code> gibt dir einen vollständigen Überblick über deine Daten. Du erkennst sofort die Größe deines Datensatzes, die Variablentypen und ob die Daten in der richtigen Form für deine Analysen vorliegen.</p>
     </div>
   </div>
 </div>
@@ -140,26 +138,25 @@
           <div class="code-explanation">
             <strong>Erklärung:</strong> <code>head()</code> zeigt die ersten 6 Zeilen des Datensatzes an, um einen ersten Eindruck von den Daten zu bekommen.
           </div>
-          <div class="key-point">
+<div class="key-point">
   <button class="collapsible">Erste Datenexploration mit head()</button>
   <div class="content">
-                    <div class="image-container">
-            <img src="rstudio-panes-labeled.jpeg" alt="Programmieren mit R Studio" class="screenshot medium-screenshot">
-            <div class="image-caption">R Studio Desktop</div>
-          </div>
+    <div class="image-container">
+      <img src="head-output-screenshot.png" alt="Ausgabe der head() Funktion">
+    </div>
 
     <div class="interpretation-box">
       <h4>Was siehst du in dieser Ausgabe?</h4>
-      <p>Die <code>head()</code> Funktion zeigt dir die ersten 6 Zeilen deines Datensatzes. Das ist dein erster Blick in die Daten:</p>
+      <p>Die <code>head()</code> Funktion zeigt dir die ersten 6 Zeilen deines erweiterten Datensatzes:</p>
       
       <ul>
         <li><strong>4 Spalten:</strong> ID, Geschlecht, Beruf und Arbeitszufriedenheit</li>
         <li><strong>Gemischte Datentypen:</strong> Text (Geschlecht, Beruf) und Zahlen (Zufriedenheit)</li>
         <li><strong>Verschiedene Berufe:</strong> Arzt, Pflegekraft, Ernährungsberater, Physiotherapeut</li>
-        <li><strong>Zufriedenheitsskala:</strong> Werte von 0 (sehr unzufrieden) bis 4 (sehr zufrieden)</li>
+        <li><strong>Zufriedenheitsskala:</strong> Werte von 0 (sehr unzufrieden) bis 5 (sehr zufrieden)</li>
       </ul>
       
-      <p><strong>Erste Erkenntnisse:</strong> Du siehst bereits, dass beide Geschlechter in verschiedenen Berufen vertreten sind und die Zufriedenheitswerte variieren. Diese Übersicht hilft dir, die Struktur deiner Daten zu verstehen bevor du mit der Analyse beginnst.</p>
+      <p><strong>Erste Erkenntnisse:</strong> Du siehst die erweiterte Stichprobe mit denselben Variablen. Die Datenstruktur ist konsistent geblieben - beide Geschlechter sind in verschiedenen Berufen vertreten und die Zufriedenheitswerte variieren weiterhin. Die Skala reicht jetzt bis 5, was auf eine erweiterte Bewertungsskala hindeuten könnte.</p>
     </div>
   </div>
 </div>
@@ -182,6 +179,34 @@
           <div class="code-explanation">
             <strong>Erklärung:</strong> <code>summary()</code> berechnet deskriptive Statistiken für alle Variablen im Datensatz (Mittelwert, Median, Min, Max, Quartile).
           </div>
+          <div class="key-point">
+  <button class="collapsible">Deskriptive Statistiken mit summary()</button>
+  <div class="content">
+    <div class="image-container">
+      <img src="summary-output-screenshot.png" alt="Ausgabe der summary() Funktion">
+    </div>
+
+    <div class="interpretation-box">
+      <h4>Was zeigt dir summary() über deine erweiterten Daten?</h4>
+      <p>Die <code>summary()</code> Funktion berechnet deskriptive Statistiken für deinen erweiterten Datensatz mit 200 Beobachtungen:</p>
+      
+      <ul>
+        <li><strong>ID:</strong> Gleichmäßig verteilt von 1 bis 200 (Median = 100.5)</li>
+        <li><strong>Geschlecht & Beruf:</strong> Werden weiterhin als Textvariablen erkannt</li>
+        <li><strong>Job-Zufriedenheit:</strong>
+          <ul>
+            <li><strong>Mittelwert:</strong> 3.055 - fast identisch zum vorherigen Wert von 3.07</li>
+            <li><strong>Median:</strong> 3 - unverändert geblieben</li>
+            <li><strong>Quartile:</strong> 25% haben ≤2, 75% haben ≤4 (gleiche Verteilung)</li>
+            <li><strong>Range:</strong> 0 bis 5 (gleiche Spannweite)</li>
+          </ul>
+        </li>
+      </ul>
+      
+      <p><strong>Wichtige Erkenntnis:</strong> Trotz Verdoppelung der Stichprobengröße sind die deskriptiven Statistiken der Job-Zufriedenheit nahezu identisch geblieben. Dies spricht für eine stabile Verteilung in deinen Daten und erhöht die Zuverlässigkeit deiner weiteren Analysen.</p>
+    </div>
+  </div>
+</div>
           
           <!-- Fourth R Console: Missing Values -->
           <div class="r-console">
@@ -203,6 +228,34 @@
             <strong>Erklärung:</strong> Dieser Code zählt die Gesamtzahl der fehlenden Werte (NA) im gesamten Datensatz.
           </div>
           
+          <div class="key-point">
+  <button class="collapsible">Überprüfung auf fehlende Werte</button>
+  <div class="content">
+    <div class="image-container">
+      <img src="missing-values-screenshot.png" alt="Ausgabe der fehlenden Werte Überprüfung">
+    </div>
+
+    <div class="interpretation-box">
+      <h4>Was bedeutet dieses Ergebnis?</h4>
+      <p>Der Code <code>sum(is.na(data))</code> zählt alle fehlenden Werte (NA = "Not Available") in deinem gesamten Datensatz:</p>
+      
+      <ul>
+        <li><strong>Ergebnis: 0</strong> - Das bedeutet, es gibt keine fehlenden Werte in deinen Daten</li>
+        <li><strong>is.na():</strong> Diese Funktion erkennt fehlende Werte und gibt TRUE zurück, wenn ein Wert fehlt</li>
+        <li><strong>sum():</strong> Zählt alle TRUE-Werte (also alle fehlenden Werte) zusammen</li>
+      </ul>
+      
+      <p><strong>Warum ist das wichtig?</strong> Fehlende Werte können statistische Analysen verfälschen. Ein Ergebnis von 0 bedeutet:</p>
+      <ul>
+        <li>Deine Daten sind vollständig - jede Person hat für alle Variablen einen Wert</li>
+        <li>Du kannst direkt mit den Analysen beginnen, ohne Daten bereinigen zu müssen</li>
+        <li>Die Ergebnisse deiner statistischen Tests werden zuverlässiger</li>
+      </ul>
+      
+      <p><strong>Perfekte Ausgangslage!</strong> Mit einem vollständigen Datensatz ohne fehlende Werte stehst deinen weiteren Analysen nichts im Weg.</p>
+    </div>
+  </div>
+</div>
           <!-- Fifth R Console: Frequencies -->
           <div class="r-console">
             <div class="r-header">
@@ -222,6 +275,31 @@
           <div class="code-explanation">
             <strong>Erklärung:</strong> <code>table()</code> erstellt eine Häufigkeitstabelle für kategoriale Variablen. Vor dem "$" gibt man den Datensatz an, nach dem "$" die gewünschte Variable.
           </div>
+          <div class="key-point">
+  <button class="collapsible">Häufigkeitsanalyse mit table()</button>
+  <div class="content">
+    <div class="image-container">
+      <img src="table-gender-screenshot.png" alt="Ausgabe der table() Funktion für Geschlecht">
+    </div>
+
+    <div class="interpretation-box">
+      <h4>Was zeigt dir table() über die Geschlechterverteilung?</h4>
+      <p>Die <code>table()</code> Funktion erstellt eine Häufigkeitstabelle für kategoriale Variablen wie Geschlecht:</p>
+      
+      <ul>
+        <li><strong>Female:</strong> 142 Personen (71% der Stichprobe)</li>
+        <li><strong>Male:</strong> 58 Personen (29% der Stichprobe)</li>
+        <li><strong>Gesamt:</strong> 200 Personen in der Stichprobe</li>
+      </ul>
+      
+      <p><strong>Syntax erklärt:</strong> <code>data$gender</code> bedeutet "die Variable gender aus dem Datensatz data". Das Dollar-Zeichen wählt eine bestimmte Spalte aus deinem Datensatz aus.</p>
+      
+      <p><strong>Wichtige Erkenntnis:</strong> Deine Stichprobe zeigt ein deutliches Ungleichgewicht in der Geschlechterverteilung. Frauen sind mit 71% deutlich überrepräsentiert. Dies ist typisch für Gesundheitsberufe, könnte aber bei späteren Gruppenvergleichen berücksichtigt werden.</p>
+      
+      <p><strong>Nächster Schritt:</strong> Du könntest jetzt mit <code>table(data$profession)</code> die Berufsverteilung analysieren oder mit <code>prop.table(table(data$gender))</code> die prozentuale Verteilung berechnen.</p>
+    </div>
+  </div>
+</div>
         </div>
       </section>
 
