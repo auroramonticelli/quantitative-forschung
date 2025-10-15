@@ -80,6 +80,15 @@
                 <p><strong>Erste Erkenntnisse:</strong> In dieser Stichprobe ist die Mehrheit weiblich. Die Pflegekräfte representiert die grösste Berufsgruppe aus der Stichprobe. Die Zufriedenheit liegt im mittleren Bereich, zeigt jedoch eine breite Streuung von sehr unzufrieden (0) bis sehr zufrieden (5).</p>
             </div>
         </div>
+        <div class="tips-box">
+    <h4>Versuch es selber!</h4> 
+    <ul> 
+        <li><code>mean(data$job_satisfaction)</code></li>
+        <li><code>table(data$gender)</code></li>
+        <li><code>summary(data)</code></li>
+    </ul>
+    <p><em>Was fällt dir auf? Welche Variable hat die grösste Streuung?</em></p>
+</div>
     </div>
 </section>
       
@@ -133,6 +142,13 @@ chisq_result <span class="r-operator">&lt;-</span> <span class="r-function">chis
                 <p>Es gibt keine statistisch signifikante Evidenz für einen Zusammenhang zwischen Geschlecht und Beruf in diesem Gesundheitsdatensatz. Die Verteilung der Berufe scheint bei Männern und Frauen ähnlich zu sein, wobei kleinere Unterschiede wahrscheinlich auf zufällige Variation als auf systematische geschlechtsspezifische Muster zurückzuführen sind.</p>
               </div>
             </div>
+            <div class="tips-box">
+    <h4>Versuch es selber!</h4> 
+    <ul> 
+        <li><code>chisq.test(table(data$gender, data$profession))</code></li>
+    </ul>
+    <p><em>Welche zwei kategorialen Variablen würdest du in deiner Forschung vergleichen?</em></p>
+</div>
           </div>
         </section>
 
@@ -229,6 +245,13 @@ male_total <span class="r-operator">&lt;-</span> <span class="r-function">sum</s
     <p><strong>Konfidenzintervall:</strong> [-0,210; 0,117], die wahre Differenz könnte zwischen -21% und +12% liegen</p>
     <p>Der beobachtete Unterschied von 4,7% ist statistisch nicht bedeutsam. Somit ist die Arbeitsufriedenheit zwischen den Geschlechtern vergleichbar.</p>
   </div>
+  <div class="tips-box">
+    <h4>Versuch es selber!</h4> 
+    <ul> 
+        <li><code>prop.test(sum(data$gender == "Female"), nrow(data), p = 0.5)</code></li>
+    </ul>
+    <p><em>Was wäre ein interessanter Schwellenwert für "hohe Zufriedenheit" in deinen Daten?</em></p>
+</div>
 </div>
       </section>
 
@@ -312,6 +335,14 @@ male_total <span class="r-operator">&lt;-</span> <span class="r-function">sum</s
     <p><strong>p-Wert:</strong> p-value = 0.6588; p > 0.05, zeigt kein signifikantes Testergebnis.</p>
     <p>Es gibt keinen statistisch signifikanten Unterschied in der Arbeitszufriedenheit zwischen Frauen und Männern.</p>
   </div>
+  <div class="tips-box">
+    <h4>Versuch es selber!</h4> 
+    <ul> 
+        <li><code>t.test(job_satisfaction ~ gender, data = data)</code></li>
+        <li><code>wilcox.test(job_satisfaction ~ gender, data = data)</code></li>
+    </ul>
+    <p><em>Bei welcher Forschungsfrage würdest du welchen Test wählen?</em></p>
+</div>
 </div>
 
       </section>
