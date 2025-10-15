@@ -245,13 +245,14 @@ male_total <span class="r-operator">&lt;-</span> <span class="r-function">sum</s
     <p><strong>Konfidenzintervall:</strong> [-0,210; 0,117], die wahre Differenz könnte zwischen -21% und +12% liegen</p>
     <p>Der beobachtete Unterschied von 4,7% ist statistisch nicht bedeutsam. Somit ist die Arbeitsufriedenheit zwischen den Geschlechtern vergleichbar.</p>
   </div>
+  </div>
   <div class="tips-box">
     <h4>Versuch es selber!</h4> 
     <ul> 
         <li><code>prop.test(sum(data$gender == "Female"), nrow(data), p = 0.5)</code></li>
     </ul>
     <p>Was wäre ein interessanter Schwellenwert für "hohe Zufriedenheit" in deinen Daten?</p>
-</div>
+
 </div>
       </section>
 
@@ -335,6 +336,7 @@ male_total <span class="r-operator">&lt;-</span> <span class="r-function">sum</s
     <p><strong>p-Wert:</strong> p-value = 0.6588; p > 0.05, zeigt kein signifikantes Testergebnis.</p>
     <p>Es gibt keinen statistisch signifikanten Unterschied in der Arbeitszufriedenheit zwischen Frauen und Männern.</p>
   </div>
+  </div>
   <div class="tips-box">
     <h4>Versuch es selber!</h4> 
     <ul> 
@@ -342,7 +344,7 @@ male_total <span class="r-operator">&lt;-</span> <span class="r-function">sum</s
         <li><code>wilcox.test(job_satisfaction ~ gender, data = data)</code></li>
     </ul>
     <p>Bei welcher Forschungsfrage würdest du welchen Test wählen?</p>
-</div>
+
 </div>
 
       </section>
