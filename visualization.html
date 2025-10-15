@@ -136,7 +136,7 @@
           </div>
           
           <div class="code-explanation">
-            <strong>Erklärung:</strong> <code>head()</code> zeigt die ersten 6 Zeilen des Datensatzes an, um einen ersten Eindruck von den Daten zu bekommen.
+            <code>head()</code> zeigt die ersten 6 Zeilen des Datensatzes an, um einen ersten Eindruck von den Daten zu bekommen.
           </div>
 <div class="key-point">
   <button class="collapsible">Erste Datenexploration mit head()</button>
@@ -177,7 +177,7 @@
           </div>
           
           <div class="code-explanation">
-            <strong>Erklärung:</strong> <code>summary()</code> berechnet deskriptive Statistiken für alle Variablen im Datensatz (Mittelwert, Median, Min, Max, Quartile).
+            <code>summary()</code> berechnet deskriptive Statistiken für alle Variablen im Datensatz (Mittelwert, Median, Min, Max, Quartile).
           </div>
          <div class="key-point">
   <button class="collapsible">Deskriptive Statistiken mit summary()</button>
@@ -225,7 +225,7 @@
           </div>
           
           <div class="code-explanation">
-            <strong>Erklärung:</strong> Dieser Code zählt die Gesamtzahl der fehlenden Werte (NA) im gesamten Datensatz.
+            Dieser Code zählt die Gesamtzahl der fehlenden Werte (NA) im gesamten Datensatz.
           </div>
           
           <div class="key-point">
@@ -273,7 +273,7 @@
           </div>
           
           <div class="code-explanation">
-            <strong>Erklärung:</strong> <code>table()</code> erstellt eine Häufigkeitstabelle für kategoriale Variablen. Vor dem "$" gibt man den Datensatz an, nach dem "$" die gewünschte Variable.
+            <code>table()</code> erstellt eine Häufigkeitstabelle für kategoriale Variablen. Vor dem "$" gibt man den Datensatz an, nach dem "$" die gewünschte Variable.
           </div>
           <div class="key-point">
   <button class="collapsible">Häufigkeitsanalyse mit table()</button>
@@ -296,9 +296,27 @@
       
       <p><strong>Wichtige Erkenntnis:</strong> Deine Stichprobe zeigt ein deutliches Ungleichgewicht in der Geschlechterverteilung. Frauen sind mit 71% deutlich überrepräsentiert. Dies ist typisch für Gesundheitsberufe, könnte aber bei späteren Gruppenvergleichen berücksichtigt werden.</p>
       
-      <p><strong>Nächster Schritt:</strong> Du könntest jetzt mit <code>table(data$profession)</code> die Berufsverteilung analysieren oder mit <code>prop.table(table(data$gender))</code> die prozentuale Verteilung berechnen.</p>
     </div>
   </div>
+</div>
+<div class="tips-box">
+    <h4>Versuch es selber mit deinen Daten!</h4> 
+    <ul> 
+        <li><strong>Lade die Vorlagen herunter</strong> – Hol dir das R-Skript und die Beispieldaten aus dem <a href="materials.html">Materialien-Bereich</a>.</li> 
+        <li><strong>Öffne das R-Skript</strong> in RStudio – dort findest du alle Code-Beispiele aus dieser Lektion.</li> 
+        <li><strong>Führe die Explorations-Befehle aus:</strong>
+            <ul>
+                <li><code>head(data)</code> – Sieh dir die ersten Zeilen an</li>
+                <li><code>str(data)</code> – Verstehe die Datenstruktur</li>
+                <li><code>summary(data)</code> – Berechne deskriptive Statistiken</li>
+                <li><code>table(data$gender)</code> – Analysiere Häufigkeiten</li>
+                <li><code>sum(is.na(data))</code> – Prüfe auf fehlende Werte</li>
+            </ul>
+        </li>
+        <li><strong>Experimentiere!</strong> Ändere die Variablennamen und passe den Code an deine eigenen Daten an.</li>
+        <li><strong>Vergleiche die Ergebnisse</strong> mit unseren Beispielen – was ist ähnlich, was unterscheidet sich?</li>
+    </ul>
+    <p><em>Tipp: Starte mit den Beispieldaten, bevor du deine eigenen Daten verwendest!</em></p>
 </div>
         </div>
       </section>
@@ -425,7 +443,7 @@ ggplot(data, aes(x = gender, y = job_satisfaction)) +
                 </div>
             </div>
             <div class="code-explanation">
-                <p><strong>Erklärung:</strong> Im Gegensatz zum Barplot benötigt der Boxplot zwei Variablen in der <code>aes()</code> Funktion: <code>x = gender</code> für die kategorische Gruppierungsvariable und <code>y = job_satisfaction</code> für die numerische Variable, deren Verteilung wir vergleichen möchten. <code>geom_boxplot()</code> erstellt dann für jede Kategorie auf der x-Achse einen eigenen Boxplot. Die Füllfarbe hilft, die Boxplots visuell voneinander zu unterscheiden.</p>
+                <p>Im Gegensatz zum Barplot benötigt der Boxplot zwei Variablen in der <code>aes()</code> Funktion: <code>x = gender</code> für die kategorische Gruppierungsvariable und <code>y = job_satisfaction</code> für die numerische Variable, deren Verteilung wir vergleichen möchten. <code>geom_boxplot()</code> erstellt dann für jede Kategorie auf der x-Achse einen eigenen Boxplot. Die Füllfarbe hilft, die Boxplots visuell voneinander zu unterscheiden.</p>
             </div>
 
             <div class="interpretation">
@@ -468,7 +486,7 @@ ggplot(data, aes(x = job_satisfaction)) +
                 </div>
             </div>
             <div class="code-explanation">
-                <p><strong>Erklärung:</strong> Warum funktioniert <code>geom_bar()</code> auch für numerische Daten? Wenn wir eine numerische Variable wie <code>job_satisfaction</code> auf der x-Achse verwenden, behandelt ggplot2 diese diskreten numerischen Werte (1, 2, 3, 4, 5) ähnlich wie Kategorien. <code>geom_bar()</code> zählt automatisch, wie oft jeder einzelne Wert vorkommt und erstellt dafür Balken. Dies ist besonders praktisch bei Skalen mit wenigen ganzzahligen Werten, wie es bei Zufriedenheitsskalen typisch ist. Für kontinuierliche Daten mit vielen verschiedenen Werten wäre <code>geom_histogram()</code> die bessere Wahl, da es die Werte in Intervalle gruppiert.</p>
+                <p>Warum funktioniert <code>geom_bar()</code> auch für numerische Daten? Wenn wir eine numerische Variable wie <code>job_satisfaction</code> auf der x-Achse verwenden, behandelt ggplot2 diese diskreten numerischen Werte (1, 2, 3, 4, 5) ähnlich wie Kategorien. <code>geom_bar()</code> zählt automatisch, wie oft jeder einzelne Wert vorkommt und erstellt dafür Balken. Dies ist besonders praktisch bei Skalen mit wenigen ganzzahligen Werten, wie es bei Zufriedenheitsskalen typisch ist. Für kontinuierliche Daten mit vielen verschiedenen Werten wäre <code>geom_histogram()</code> die bessere Wahl, da es die Werte in Intervalle gruppiert.</p>
             </div>
 
             <div class="interpretation">
