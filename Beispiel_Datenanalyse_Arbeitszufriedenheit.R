@@ -10,15 +10,15 @@ library(vcd)
 
 ### 2. Daten importieren ---------------------------------
 # Daten aus CSV-Datei laden
-# data <- read.csv("healthcare_job_satisfaction.csv")
-data <- read.csv("")
+data <- read.csv("Desktop/GitHub/quantitative-forschung/healthcare_data.csv")
+# data <- read.csv("")
 
-# 3. Daten anschuaen ---------------------------------
+# 3. Daten anschauen ---------------------------------
+# Datenstruktur untersuchen
+str(data)
+
 # Erste Zeilen anzeigen
 head(data)
-
-# Datenstruktur untersuchen
-print(data)
 
 # Zusammenfassende Statistiken
 summary(data)
@@ -26,6 +26,8 @@ summary(data)
 # Fehlende Werte
 sum(is.na(data))
 
+# Häufigkeiten einer kategoriale Variable
+table(data$gender)
 
 
 ### 3. Visualisierung durch plots ---------------------------------
