@@ -187,6 +187,66 @@
           <div class="key-point">
             <h4>Barplot</h4>
             <p>Für kategorische Daten: Ein Barplot (oder Balkendiagramm) ist ideal, um die Häufigkeiten verschiedener Kategorien darzustellen. In diesem Beispiel möchten wir visualisieren, wie viele TeilnehmerInnen es in jeder Geschlechtskategorie gibt.</p>
+            <div class="container">
+    <h1>ggplot2 Grundlagen - Verständlich erklärt</h1>
+
+    <h2>ggplot() - Der Grundaufbau</h2>
+    <div class="code-block">
+        ggplot(data, ...)
+    </div>
+    <div class="explanation">
+        <strong>ggplot()</strong> startet die Erstellung einer Grafik<br>
+        <strong>data</strong> bezieht sich auf Ihren Datensatz (Dataframe)<br>
+        Hier geben Sie an, welche Daten visualisiert werden sollen
+    </div>
+
+    <h2>aes() - Die Variablenzuweisung</h2>
+    <div class="code-block">
+        aes(x = factor(gender))
+    </div>
+    <div class="explanation">
+        <strong>aes()</strong> definiert die "ästhetischen" Zuordnungen<br>
+        <strong>x = factor(gender)</strong> platziert die Geschlechtsvariable auf der x-Achse<br>
+        <strong>factor()</strong> wandelt Geschlecht in eine kategorische Variable um
+    </div>
+
+    <h2>geom_bar() - Der Diagrammtyp</h2>
+    <div class="code-block">
+        geom_bar(fill = "#b9aadf")
+    </div>
+    <div class="explanation">
+        <strong>geom_bar()</strong> erstellt ein Balkendiagramm<br>
+        <strong>fill = "#b9aadf"</strong> setzt die Balkenfarbe auf Lila
+    </div>
+
+    <h2>labs() - Die Beschriftungen</h2>
+    <div class="code-block">
+        labs(title = "Anzahl von TeilnehmerInnen nach Geschlecht",<br>
+             x = "Geschlecht", y = "Häufigkeit")
+    </div>
+    <div class="explanation">
+        <strong>title</strong> setzt den Haupttitel der Grafik<br>
+        <strong>x</strong> und <strong>y</strong> beschriften die jeweiligen Achsen
+    </div>
+
+    <h2>Der vollständige Aufbau</h2>
+    <div class="step-list">
+        <p>Ihr Code folgt diesem logischen Aufbau:</p>
+        <ol>
+            <li><strong>Datenauswahl</strong> mit <code>ggplot(data)</code></li>
+            <li><strong>Variablenzuordnung</strong> mit <code>aes(x = gender)</code></li>
+            <li><strong>Diagrammtyp</strong> mit <code>geom_bar()</code></li>
+            <li><strong>Beschriftung</strong> mit <code>labs()</code></li>
+        </ol>
+    </div>
+
+    <div class="code-block">
+        ggplot(data, aes(x = factor(gender))) + <br>
+        &nbsp;&nbsp;geom_bar(fill = "#b9aadf") +<br>
+        &nbsp;&nbsp;labs(title = "Anzahl von TeilnehmerInnen nach Geschlecht", <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x = "Geschlecht", y = "Häufigkeit")
+    </div>
+</div>
             <div class="r-console">
               <div class="r-header">
                 <div class="r-window-controls">
