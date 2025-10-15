@@ -239,7 +239,7 @@
                 <p><strong>Erklärung:</strong> Die <code>labs()</code> Funktion (kurz für "labels") ermöglicht es uns, alle Textbeschriftungen der Grafik anzupassen. Hier setzen wir einen aussagekräftigen Titel, der den Inhalt der Grafik beschreibt, sowie klare Beschriftungen für beide Achsen. Eine gute Beschriftung ist essentiell, damit andere verstehen, was die Grafik darstellt.</p>
             </div>
 
-            <h5>Vollständiger Code für Barplot:</h5>
+            <p><strong>So sieht ein bollständiger Code für Barplot aus:</strong></p>
             <div class="r-console">
                 <div class="r-header">
                     <div class="r-window-controls">
@@ -259,8 +259,8 @@ ggplot(data, aes(x = gender)) +
             </div>
 
             <div class="interpretation">
-                <h5>Was zeigt uns dieser Barplot?</h5>
-                <p>Dieser Barplot visualisiert die Verteilung der Studienteilnehmer nach Geschlecht. Jeder Balken repräsentiert eine Geschlechtskategorie, und die Höhe des Balkens zeigt an, wie viele Personen dieser Kategorie angehören. In unserem Beispiel sehen wir deutlich, dass mehr Frauen als Männer an der Studie teilgenommen haben. Solche Verteilungsplots sind besonders nützlich, um Ungleichgewichte in Stichproben zu identifizieren oder um die Grundcharakteristika Ihrer Daten schnell zu erfassen.</p>
+                <p><strong>Was zeigt uns dieser Barplot?</strong></p>
+                <p>Dieser Barplot visualisiert die Verteilung der Studienteilnehmer nach Geschlecht. Jeder Balken repräsentiert eine Geschlechtskategorie, und die Höhe des Balkens zeigt an, wie viele Personen dieser Kategorie angehören. In unserem Beispiel sehen wir deutlich, dass mehr Frauen als Männer an der Studie teilgenommen haben.</p>
             </div>
             
             <div class="image-container">
@@ -295,15 +295,15 @@ ggplot(data, aes(x = gender, y = job_satisfaction)) +
             </div>
 
             <div class="interpretation">
-                <h5>Wie lese ich einen Boxplot?</h5>
+                <p><strong>Wie lese ich einen Boxplot?</strong></p>
                 <p>Ein Boxplot zeigt fünf wichtige statistische Kennwerte auf einen Blick:</p>
                 <ul>
                     <li><strong>Median (die dicke Linie in der Box):</strong> Zeigt den mittleren Wert - die Hälfte aller Werte liegt darüber, die andere Hälfte darunter</li>
                     <li><strong>Box (der farbige Bereich):</strong> Enthält die mittleren 50% der Daten, vom 25. bis zum 75. Perzentil</li>
-                    <li><strong>Whisker (die Linien oberhalb und unterhalb der Box):</strong> Zeigen den Bereich der "typischen" Werte, die nicht als Ausreißer gelten</li>
-                    <li><strong>Punkte außerhalb der Whisker:</strong> Mögliche Ausreißer - extreme Werte, die deutlich vom Rest der Daten abweichen</li>
+                    <li><strong>Whisker (die Linien oberhalb und unterhalb der Box):</strong> Zeigen den Bereich der "typischen" Werte, die nicht als Ausreisser gelten</li>
+                    <li><strong>Punkte ausserhalb der Whisker:</strong> Mögliche Ausreisser - extreme Werte, die deutlich vom Rest der Daten abweichen</li>
                 </ul>
-                <p>In unserem Beispiel sehen wir, dass die Arbeitszufriedenheit bei beiden Geschlechtern ähnlich verteilt ist. Die Mediane liegen nahe beieinander, und die Boxen überlappen sich stark. Dies deutet darauf hin, dass es in dieser Stichprobe keine großen geschlechtsspezifischen Unterschiede in der Arbeitszufriedenheit gibt.</p>
+                <p>In unserem Beispiel sehen wir, dass die Arbeitszufriedenheit bei beiden Geschlechtern ähnlich verteilt ist. Die Mediane liegen nahe beieinander, und die Boxen überlappen sich stark. Dies deutet darauf hin, dass es in dieser Stichprobe keine grossen geschlechtsspezifischen Unterschiede in der Arbeitszufriedenheit gibt.</p>
             </div>
             
             <div class="image-container">
@@ -314,7 +314,7 @@ ggplot(data, aes(x = gender, y = job_satisfaction)) +
         <!-- HISTOGRAM SECTION -->
         <div class="key-point">
             <h4>3. Histogram</h4>
-            <p>Ein Histogramm zeigt die Verteilung einer einzelnen numerischen Variable. Es hilft zu verstehen, wie die Werte einer Messung verteilt sind - ob sie eher niedrig, hoch, gleichmäßig oder in Clustern auftreten. Interessanterweise können wir für Histogramme sowohl <code>geom_histogram()</code> als auch <code>geom_bar()</code> verwenden, da beide die Häufigkeit von Werten darstellen.</p>
+            <p>Ein Histogramm zeigt die Verteilung einer einzelnen numerischen Variable. Es hilft zu verstehen, wie die Werte einer Messung verteilt sind - ob sie eher niedrig, hoch, gleichmässig oder in Clustern auftreten. Interessanterweise können wir für Histogramme sowohl <code>geom_histogram()</code> als auch <code>geom_bar()</code> verwenden, da beide die Häufigkeit von Werten darstellen.</p>
 
             <div class="r-console">
                 <div class="r-header">
@@ -338,11 +338,11 @@ ggplot(data, aes(x = job_satisfaction)) +
             </div>
 
             <div class="interpretation">
-                <h5>Was verrät uns das Histogramm?</h5>
+                <p><strong>Was verrät uns das Histogramm?</strong></p>
                 <p>Dieses Histogramm zeigt uns die Verteilung der Arbeitszufriedenheitswerte über alle Teilnehmer hinweg:</p>
                 <ul>
                     <li><strong>Jeder Balken</strong> repräsentiert einen bestimmten Zufriedenheitswert und seine Höhe zeigt, wie viele Personen genau diesen Wert angegeben haben</li>
-                    <li><strong>Die Form der Verteilung</strong> gibt Aufschluss über die allgemeine Stimmung: Konzentrieren sich die Werte auf der linken Seite (niedrige Zufriedenheit), rechts (hohe Zufriedenheit) oder sind sie gleichmäßig verteilt?</li>
+                    <li><strong>Die Form der Verteilung</strong> gibt Aufschluss über die allgemeine Stimmung: Konzentrieren sich die Werte auf der linken Seite (niedrige Zufriedenheit), rechts (hohe Zufriedenheit) oder sind sie gleichmässig verteilt?</li>
                     <li><strong>Besondere Muster</strong> wie zwei Gipfel (bimodale Verteilung) können auf unterschiedliche Untergruppen in den Daten hinweisen</li>
                 </ul>
                 <p>In unserer Grafik sehen wir, dass die Werte 3 und 4 am häufigsten vorkommen. Es gibt vergleichsweise wenige Personen mit sehr niedriger Zufriedenheit (Wert 0 oder 1), was auf eine insgesamt positive Grundstimmung hindeutet. Die Verteilung ist rechtsschief, was bedeutet, dass die Tendenz zu höherer Zufriedenheit geht.</p>
