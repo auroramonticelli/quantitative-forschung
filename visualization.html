@@ -300,23 +300,22 @@
   </div>
 </div>
 <div class="tips-box">
-    <h4>Versuch es selber mit deinen Daten!</h4> 
+    <h4>Versuch es selber</h4> 
     <ul> 
         <li><strong>Lade die Vorlagen herunter</strong> – Hol dir das R-Skript und die Beispieldaten aus dem <a href="materials.html">Materialien-Bereich</a>.</li> 
-        <li><strong>Öffne das R-Skript</strong> in RStudio – dort findest du alle Code-Beispiele aus dieser Lektion.</li> 
+        <li><strong>Öffne das R-Skript</strong> in RStudio, dort findest du alle Code-Beispiele aus dieser Lektion.</li> 
         <li><strong>Führe die Explorations-Befehle aus:</strong>
             <ul>
-                <li><code>head(data)</code> – Sieh dir die ersten Zeilen an</li>
-                <li><code>str(data)</code> – Verstehe die Datenstruktur</li>
-                <li><code>summary(data)</code> – Berechne deskriptive Statistiken</li>
-                <li><code>table(data$gender)</code> – Analysiere Häufigkeiten</li>
-                <li><code>sum(is.na(data))</code> – Prüfe auf fehlende Werte</li>
+                <li><code>head(data)</code>, Sieh dir die ersten Zeilen an</li>
+                <li><code>str(data)</code>, Verstehe die Datenstruktur</li>
+                <li><code>summary(data)</code>, Berechne deskriptive Statistiken</li>
+                <li><code>table(data$gender)</code>, Analysiere Häufigkeiten</li>
+                <li><code>sum(is.na(data))</code>, Prüfe auf fehlende Werte</li>
             </ul>
         </li>
         <li><strong>Experimentiere!</strong> Ändere die Variablennamen und passe den Code an deine eigenen Daten an.</li>
-        <li><strong>Vergleiche die Ergebnisse</strong> mit unseren Beispielen – was ist ähnlich, was unterscheidet sich?</li>
     </ul>
-    <p><em>Tipp: Starte mit den Beispieldaten, bevor du deine eigenen Daten verwendest!</em></p>
+
 </div>
         </div>
       </section>
@@ -505,6 +504,26 @@ ggplot(data, aes(x = job_satisfaction)) +
             </div>
         </div>
     </div>
+    <div class="tips-box">
+    <h4>Versuch es selber: Plots erstellen!</h4> 
+    <ul> 
+        <li><strong>Lade das Plot-Skript herunter</strong> aus dem <a href="materials.html">Materialien-Bereich</a></li> 
+        <li><strong>Öffne das Skript in RStudio</strong> und führe nacheinander aus:</li>
+        <ol>
+            <li>Barplot für Geschlechterverteilung</li>
+            <li>Boxplot für Zufriedenheit nach Geschlecht</li>
+            <li>Histogram für die Zufriedenheitsverteilung</li>
+        </ol>
+        <li><strong>Experimentiere mit den Variablen:</strong>
+            <ul>
+                <li>Teste andere Kombinationen wie <code>x = profession</code></li>
+                <li>Vergleiche verschiedene Gruppen miteinander</li>
+                <li>Ändere die Achsenbeschriftungen und Titel</li>
+            </ul>
+        </li>
+        <li><strong>Speichere deine besten Plots</strong> mit <code>ggsave()</code> für deine Forschung</li>
+    </ul>
+</div>
 </section>
 
       <section id="section3">
@@ -670,7 +689,28 @@ ggplot(data, aes(x = profession, fill = profession)) +
         </div>
 
         
-        
+        <div class="tips-box">
+    <h4>Versuch es selber: Farben anpassen!</h4> 
+    <ul> 
+        <li><strong>Besuche <a href="https://www.farb-tabelle.de/de/farbtabelle.htm" target="_blank">farb-tabelle.de</a></strong> und suche dir coole Farben aus</li> 
+        <li><strong>Kopiere den HEX-Code</strong> deiner Lieblingsfarbe (z.B. <code>6a994e</code>)</li>
+        <li><strong>Füge ein # vor den Code</strong> und verwende ihn in deinen Plots:</li>
+        <ul>
+            <li><code>fill = "#6a994e"</code> für grüne Balken</li>
+            <li><code>fill = "#ff6b6b"</code> für rote Balken</li>
+            <li><code>fill = "#4ecdc4"</code> für türkise Balken</li>
+        </ul>
+        <li><strong>Teste verschiedene Farbkombinationen:</strong>
+            <ul>
+                <li>Farben nach Gruppen mit <code>fill = gender</code></li>
+                <li>Farbpaletten mit <code>scale_fill_brewer(palette = "Set2")</code></li>
+                <li>Eigene Farben mit <code>scale_fill_manual()</code></li>
+            </ul>
+        </li>
+        <li><strong>Finde deinen persönlichen Plot-Stil!</strong></li>
+    </ul>
+    <p><em>Tipp: Achte auf gute Lesbarkeit – manche Farbkombinationen sind besser sichtbar als andere!</em></p>
+</div>
     </div>
 </section>
     </main>
