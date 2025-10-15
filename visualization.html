@@ -180,24 +180,13 @@
       <section id="section2">
     <h2>Plots: Barplot, Boxplot, Histogram</h2>
     <div class="educational-content">
-        <p>In diesem Abschnitt lernen Sie drei grundlegende Diagrammtypen kennen, die für verschiedene Arten von Daten geeignet sind.</p>
-        
-        <div class="key-point">
-            <h4>Wie wähle ich den richtigen Diagrammtyp?</h4>
-            <ul>
-                <li><strong>Barplot (Balkendiagramm):</strong> Für kategorische Daten (z.B. Geschlecht, Beruf)</li>
-                <li><strong>Boxplot:</strong> Für den Vergleich von Verteilungen zwischen Gruppen</li>
-                <li><strong>Histogram:</strong> Für die Verteilung einer numerischen Variable</li>
-            </ul>
-        </div>
+        <p>In diesem Abschnitt lernen Sie drei grundlegende Diagrammtypen kennen, die für verschiedene Arten von Daten geeignet sind. Jeder Plot-Typ hilft Ihnen, andere Aspekte Ihrer Daten zu verstehen und zu kommunizieren.</p>
 
         <!-- BARPLOT SECTION -->
         <div class="key-point">
             <h4>1. Barplot (Balkendiagramm)</h4>
-            <p><strong>Wann verwenden?</strong> Wenn Sie die Häufigkeiten von Kategorien darstellen möchten, z.B. wie viele Personen in jeder Geschlechtskategorie sind.</p>
+            <p>Ein Barplot zeigt die Häufigkeiten von verschiedenen Kategorien. Verwenden Sie ihn, wenn Sie darstellen möchten, wie viele Beobachtungen in jeder Kategorie vorkommen - zum Beispiel wie viele Personen jedem Geschlecht angehören oder welcher Beruf wie häufig vertreten ist.</p>
 
-            <h5>Schritt-für-Schritt Erklärung:</h5>
-            
             <div class="r-console">
                 <div class="r-header">
                     <div class="r-window-controls">
@@ -212,7 +201,7 @@
                 </div>
             </div>
             <div class="code-explanation">
-                <strong>Erklärung:</strong> <code>ggplot(data)</code> sagt R, dass wir mit unserem Datensatz "data" arbeiten. <code>aes(x = gender)</code> teilt mit, dass die Geschlechtsvariable auf der x-Achse dargestellt werden soll.
+                <p><strong>Erklärung:</strong> Mit <code>ggplot(data)</code> beginnen wir eine neue Visualisierung und sagen R, welchen Datensatz wir verwenden möchten. <code>aes(x = gender)</code> definiert, dass die Geschlechtsvariable auf der x-Achse dargestellt werden soll. Die y-Achse wird automatisch als Anzahl der Beobachtungen pro Kategorie berechnet.</p>
             </div>
 
             <div class="r-console">
@@ -229,7 +218,7 @@
                 </div>
             </div>
             <div class="code-explanation">
-                <strong>Erklärung:</strong> <code>geom_bar()</code> erstellt die Balken. <code>fill = "#b9aadf"</code> färbt die Balken lila. Die Farbe kann beliebig geändert werden.
+                <p><strong>Erklärung:</strong> <code>geom_bar()</code> ist die Funktion, die tatsächlich die Balken erstellt. Sie zählt automatisch, wie viele Beobachtungen in jeder Kategorie vorhanden sind. <code>fill = "#b9aadf"</code> färbt alle Balken in einem einheitlichen Lila-Ton. Sie können jeden beliebigen Farbcode verwenden oder Farbnamen wie "blue", "red" etc.</p>
             </div>
 
             <div class="r-console">
@@ -247,10 +236,10 @@
                 </div>
             </div>
             <div class="code-explanation">
-                <strong>Erklärung:</strong> <code>labs()</code> fügt Beschriftungen hinzu: Titel der Grafik, x-Achsen-Beschriftung und y-Achsen-Beschriftung.
+                <p><strong>Erklärung:</strong> Die <code>labs()</code> Funktion (kurz für "labels") ermöglicht es uns, alle Textbeschriftungen der Grafik anzupassen. Hier setzen wir einen aussagekräftigen Titel, der den Inhalt der Grafik beschreibt, sowie klare Beschriftungen für beide Achsen. Eine gute Beschriftung ist essentiell, damit andere verstehen, was die Grafik darstellt.</p>
             </div>
 
-            <h5>Vollständiger Code:</h5>
+            <h5>Vollständiger Code für Barplot:</h5>
             <div class="r-console">
                 <div class="r-header">
                     <div class="r-window-controls">
@@ -270,9 +259,8 @@ ggplot(data, aes(x = gender)) +
             </div>
 
             <div class="interpretation">
-                <h5>Interpretation des Barplots:</h5>
-                <p>Der Barplot zeigt die Verteilung der Teilnehmer nach Geschlecht. In diesem Beispiel sind deutlich mehr Frauen als Männer in der Stichprobe vertreten. Die y-Achse zeigt an, wie viele Personen in jeder Kategorie sind.</p>
-                <p><strong>Was Sie ablesen können:</strong> Welche Kategorie am häufigsten vorkommt und wie groß die Unterschiede zwischen den Kategorien sind.</p>
+                <h5>Was zeigt uns dieser Barplot?</h5>
+                <p>Dieser Barplot visualisiert die Verteilung der Studienteilnehmer nach Geschlecht. Jeder Balken repräsentiert eine Geschlechtskategorie, und die Höhe des Balkens zeigt an, wie viele Personen dieser Kategorie angehören. In unserem Beispiel sehen wir deutlich, dass mehr Frauen als Männer an der Studie teilgenommen haben. Solche Verteilungsplots sind besonders nützlich, um Ungleichgewichte in Stichproben zu identifizieren oder um die Grundcharakteristika Ihrer Daten schnell zu erfassen.</p>
             </div>
             
             <div class="image-container">
@@ -283,7 +271,7 @@ ggplot(data, aes(x = gender)) +
         <!-- BOXPLOT SECTION -->
         <div class="key-point">
             <h4>2. Boxplot</h4>
-            <p><strong>Wann verwenden?</strong> Wenn Sie die Verteilung einer numerischen Variable (z.B. Zufriedenheit) zwischen verschiedenen Gruppen vergleichen möchten.</p>
+            <p>Ein Boxplot ermöglicht den Vergleich von Verteilungen zwischen verschiedenen Gruppen. Er ist ideal, um zu untersuchen, ob sich numerische Werte (wie Zufriedenheitswerte, Alter oder Einkommen) zwischen Kategorien (wie Geschlecht, Berufsgruppen oder Standorten) unterscheiden.</p>
 
             <div class="r-console">
                 <div class="r-header">
@@ -303,19 +291,19 @@ ggplot(data, aes(x = gender, y = job_satisfaction)) +
                 </div>
             </div>
             <div class="code-explanation">
-                <strong>Erklärung:</strong> Hier haben wir zwei Variablen: <code>x = gender</code> (kategorisch) und <code>y = job_satisfaction</code> (numerisch). <code>geom_boxplot()</code> erstellt die Boxplots.
+                <p><strong>Erklärung:</strong> Im Gegensatz zum Barplot benötigt der Boxplot zwei Variablen in der <code>aes()</code> Funktion: <code>x = gender</code> für die kategorische Gruppierungsvariable und <code>y = job_satisfaction</code> für die numerische Variable, deren Verteilung wir vergleichen möchten. <code>geom_boxplot()</code> erstellt dann für jede Kategorie auf der x-Achse einen eigenen Boxplot. Die Füllfarbe hilft, die Boxplots visuell voneinander zu unterscheiden.</p>
             </div>
 
             <div class="interpretation">
-                <h5>Interpretation des Boxplots:</h5>
-                <p>Ein Boxplot zeigt fünf wichtige Informationen:</p>
+                <h5>Wie lese ich einen Boxplot?</h5>
+                <p>Ein Boxplot zeigt fünf wichtige statistische Kennwerte auf einen Blick:</p>
                 <ul>
-                    <li><strong>Median:</strong> Die Mitte der Verteilung (dicke Linie in der Box)</li>
-                    <li><strong>Box:</strong> Enthält die mittleren 50% der Daten (25.-75. Perzentil)</li>
-                    <li><strong>Whisker (Antennen):</strong> Zeigen den Bereich der "normalen" Werte</li>
-                    <li><strong>Punkte:</strong> Mögliche Ausreißer (extreme Werte)</li>
+                    <li><strong>Median (die dicke Linie in der Box):</strong> Zeigt den mittleren Wert - die Hälfte aller Werte liegt darüber, die andere Hälfte darunter</li>
+                    <li><strong>Box (der farbige Bereich):</strong> Enthält die mittleren 50% der Daten, vom 25. bis zum 75. Perzentil</li>
+                    <li><strong>Whisker (die Linien oberhalb und unterhalb der Box):</strong> Zeigen den Bereich der "typischen" Werte, die nicht als Ausreißer gelten</li>
+                    <li><strong>Punkte außerhalb der Whisker:</strong> Mögliche Ausreißer - extreme Werte, die deutlich vom Rest der Daten abweichen</li>
                 </ul>
-                <p>In diesem Beispiel zeigen die Boxplots ähnliche Arbeitszufriedenheitswerte bei Frauen und Männern. Die Mediane liegen nahe beieinander, was auf keine großen Unterschiede zwischen den Gruppen hindeutet.</p>
+                <p>In unserem Beispiel sehen wir, dass die Arbeitszufriedenheit bei beiden Geschlechtern ähnlich verteilt ist. Die Mediane liegen nahe beieinander, und die Boxen überlappen sich stark. Dies deutet darauf hin, dass es in dieser Stichprobe keine großen geschlechtsspezifischen Unterschiede in der Arbeitszufriedenheit gibt.</p>
             </div>
             
             <div class="image-container">
@@ -326,7 +314,7 @@ ggplot(data, aes(x = gender, y = job_satisfaction)) +
         <!-- HISTOGRAM SECTION -->
         <div class="key-point">
             <h4>3. Histogram</h4>
-            <p><strong>Wann verwenden?</strong> Wenn Sie die Verteilung einer einzelnen numerischen Variable verstehen möchten, z.B. wie die Arbeitszufriedenheitswerte verteilt sind.</p>
+            <p>Ein Histogramm zeigt die Verteilung einer einzelnen numerischen Variable. Es hilft zu verstehen, wie die Werte einer Messung verteilt sind - ob sie eher niedrig, hoch, gleichmäßig oder in Clustern auftreten. Interessanterweise können wir für Histogramme sowohl <code>geom_histogram()</code> als auch <code>geom_bar()</code> verwenden, da beide die Häufigkeit von Werten darstellen.</p>
 
             <div class="r-console">
                 <div class="r-header">
@@ -338,58 +326,31 @@ ggplot(data, aes(x = gender, y = job_satisfaction)) +
                     <span>R Console</span>
                 </div>
                 <div class="r-content">
-                    <pre class="r-code"># Histogram für Arbeitszufriedenheit
+                    <pre class="r-code"># Histogram für Arbeitszufriedenheit mit geom_bar()
 ggplot(data, aes(x = job_satisfaction)) + 
-  geom_histogram(binwidth = 1, fill = "#BBDCE5", color = "black") +
+  geom_bar(fill = "#BBDCE5") +
   labs(title = "Verteilung der Arbeitszufriedenheit", 
        x = "Arbeitszufriedenheit", y = "Häufigkeit")</pre>
                 </div>
             </div>
             <div class="code-explanation">
-                <strong>Erklärung:</strong> <code>geom_histogram()</code> erstellt das Histogramm. <code>binwidth = 1</code> legt die Breite der Balken fest (hier: 1 Punkt auf der Zufriedenheitsskala). <code>color = "black"</code> fügt schwarze Ränder hinzu für bessere Sichtbarkeit.
+                <p><strong>Erklärung:</strong> Warum funktioniert <code>geom_bar()</code> auch für numerische Daten? Wenn wir eine numerische Variable wie <code>job_satisfaction</code> auf der x-Achse verwenden, behandelt ggplot2 diese diskreten numerischen Werte (1, 2, 3, 4, 5) ähnlich wie Kategorien. <code>geom_bar()</code> zählt automatisch, wie oft jeder einzelne Wert vorkommt und erstellt dafür Balken. Dies ist besonders praktisch bei Skalen mit wenigen ganzzahligen Werten, wie es bei Zufriedenheitsskalen typisch ist. Für kontinuierliche Daten mit vielen verschiedenen Werten wäre <code>geom_histogram()</code> die bessere Wahl, da es die Werte in Intervalle gruppiert.</p>
             </div>
 
             <div class="interpretation">
-                <h5>Interpretation des Histogramms:</h5>
-                <p>Das Histogramm zeigt, wie häufig jeder Wert der Arbeitszufriedenheit vorkommt:</p>
+                <h5>Was verrät uns das Histogramm?</h5>
+                <p>Dieses Histogramm zeigt uns die Verteilung der Arbeitszufriedenheitswerte über alle Teilnehmer hinweg:</p>
                 <ul>
-                    <li><strong>Höhe der Balken:</strong> Zeigt an, wie viele Personen diesen Wert angegeben haben</li>
-                    <li><strong>Form der Verteilung:</strong> Zeigt, ob die Werte eher niedrig, hoch oder gleichmäßig verteilt sind</li>
+                    <li><strong>Jeder Balken</strong> repräsentiert einen bestimmten Zufriedenheitswert und seine Höhe zeigt, wie viele Personen genau diesen Wert angegeben haben</li>
+                    <li><strong>Die Form der Verteilung</strong> gibt Aufschluss über die allgemeine Stimmung: Konzentrieren sich die Werte auf der linken Seite (niedrige Zufriedenheit), rechts (hohe Zufriedenheit) oder sind sie gleichmäßig verteilt?</li>
+                    <li><strong>Besondere Muster</strong> wie zwei Gipfel (bimodale Verteilung) können auf unterschiedliche Untergruppen in den Daten hinweisen</li>
                 </ul>
-                <p>In diesem Beispiel wurden die Zufriedenheitswerte 3 und 4 am häufigsten gewählt. Die Verteilung zeigt eine Tendenz zu höherer Arbeitszufriedenheit.</p>
+                <p>In unserer Grafik sehen wir, dass die Werte 3 und 4 am häufigsten vorkommen. Es gibt vergleichsweise wenige Personen mit sehr niedriger Zufriedenheit (Wert 0 oder 1), was auf eine insgesamt positive Grundstimmung hindeutet. Die Verteilung ist rechtsschief, was bedeutet, dass die Tendenz zu höherer Zufriedenheit geht.</p>
             </div>
             
             <div class="image-container">
                 <img src="Rplot03.png" alt="Histogram: Verteilung der Arbeitszufriedenheit">
             </div>
-        </div>
-
-        <!-- ZUSAMMENFASSUNG -->
-        <div class="key-point">
-            <h4>Zusammenfassung</h4>
-            <p>Jeder Diagrammtyp beantwortet eine andere Frage:</p>
-            <table style="width:100%; border-collapse: collapse; margin: 20px 0;">
-                <tr style="background-color: #f2f2f2;">
-                    <th style="padding: 10px; border: 1px solid #ddd;">Diagrammtyp</th>
-                    <th style="padding: 10px; border: 1px solid #ddd;">Frage</th>
-                    <th style="padding: 10px; border: 1px solid #ddd;">Variablen</th>
-                </tr>
-                <tr>
-                    <td style="padding: 10px; border: 1px solid #ddd;">Barplot</td>
-                    <td style="padding: 10px; border: 1px solid #ddd;">Wie viele in jeder Kategorie?</td>
-                    <td style="padding: 10px; border: 1px solid #ddd;">Eine kategorische Variable</td>
-                </tr>
-                <tr>
-                    <td style="padding: 10px; border: 1px solid #ddd;">Boxplot</td>
-                    <td style="padding: 10px; border: 1px solid #ddd;">Wie unterscheiden sich Verteilungen zwischen Gruppen?</td>
-                    <td style="padding: 10px; border: 1px solid #ddd;">Eine kategorische und eine numerische Variable</td>
-                </tr>
-                <tr>
-                    <td style="padding: 10px; border: 1px solid #ddd;">Histogram</td>
-                    <td style="padding: 10px; border: 1px solid #ddd;">Wie sind die Werte einer Variable verteilt?</td>
-                    <td style="padding: 10px; border: 1px solid #ddd;">Eine numerische Variable</td>
-                </tr>
-            </table>
         </div>
     </div>
 </section>
