@@ -42,18 +42,46 @@
           <li><strong>Kommunikation zu verbessern</strong> - Komplexe Ergebnisse einfach darstellen</li>
         </ul>
         <div class="key-point">
-            <button class="collapsible">Der Visualisierungsprozess</button>
-            <div class="content">
-                <p>Ein effektiver Workflow für Datenvisualisierung:</p>
-                <ol>
-                    <li>Daten bereinigen und vorbereiten</li>
-                    <li>Forschungsfrage definieren</li>
-                    <li>Passenden Visualisierungstyp auswählen</li>
-                    <li>Grafik erstellen und anpassen</li>
-                    <li>Interpretieren und Insights ableiten</li>
-                </ol>
-            </div>
-          </div>
+  <button class="collapsible">Erste Datenexploration mit head()</button>
+  <div class="content">
+    <div class="r-console">
+      <div class="r-header">
+        <div class="r-window-controls">
+          <span class="r-window-control r-control-close"></span>
+          <span class="r-window-control r-control-minimize"></span>
+          <span class="r-window-control r-control-maximize"></span>
+        </div>
+        <span>R Console</span>
+      </div>
+      <div class="r-content">
+        <pre class="r-code"><span class="r-comment"># Erste Zeilen anzeigen</span>
+<span class="r-function">head</span>(data)
+
+  ID gender      profession job_satisfaction
+1  1 Female          Doctor                3
+2  2   Male           Nurse                0
+3  3 Female          Doctor                2
+4  4   Male    Nutritionist                4
+5  5   Male          Doctor                4
+6  6 Female Physiotherapist                1</pre>
+      </div>
+    </div>
+
+    <div class="interpretation-box">
+      <h4>Was siehst du in dieser Ausgabe?</h4>
+      <p>Die <code>head()</code> Funktion zeigt dir die ersten 6 Zeilen deines Datensatzes. Das ist dein erster Blick in die Daten:</p>
+      
+      <ul>
+        <li><strong>4 Spalten:</strong> ID, Geschlecht, Beruf und Arbeitszufriedenheit</li>
+        <li><strong>Gemischte Datentypen:</strong> Text (Geschlecht, Beruf) und Zahlen (Zufriedenheit)</li>
+        <li><strong>Verschiedene Berufe:</strong> Arzt, Pflegekraft, Ernährungsberater, Physiotherapeut</li>
+        <li><strong>Zufriedenheitsskala:</strong> Werte von 0 (sehr unzufrieden) bis 4 (sehr zufrieden)</li>
+      </ul>
+      
+      <p><strong>Erste Erkenntnisse:</strong> Du siehst bereits, dass beide Geschlechter in verschiedenen Berufen vertreten sind und die Zufriedenheitswerte variieren. Diese Übersicht hilft dir, die Struktur deiner Daten zu verstehen bevor du mit der Analyse beginnst.</p>
+    </div>
+  </div>
+</div>
       </section>
 
       <section id="section0">
@@ -91,10 +119,21 @@
             </div>
           </div>
           
-          <div class="code-explanation">
-            <strong>Erklärung:</strong> Die <code>str()</code> Funktion zeigt die Struktur des Datensatzes an - welche Variablen enthalten sind, ihre Datentypen und die ersten paar Werte.
-          </div>
-          
+
+            <p>>Die <code>str()</code> Funktion zeigt die Struktur des Datensatzes an - welche Variablen enthalten sind, ihre Datentypen und die ersten paar Werte.</p
+                    <button class="collapsible">Interpretation des Outputs</button>
+<div class="content">
+  <div class="interpretation-box">
+    <div class="image-container">
+  <img src="" alt="R Outcome">
+</div>
+    <p><strong>Forschungsfrage:</strong> Weicht der Anteil weiblicher Beschäftigter signifikant von 50% ab?</p>
+    <p><strong>p-Wert:</strong> p = 2.192e-09; p < 0,001 → Hochsignifikantes Ergebnis</p>
+    <p><strong>Anteil weiblicher Beschäftigter:</strong> 71% ist signifikant höher als 50%. </p>
+    <p><strong>Konfidenzintervall:</strong> [65,2%; 100%], der wahre Anteil liegt mit 95% Sicherheit über 65,2%</p>
+    <p>Es gibt deutlich mehr weibliche Beschäftigte in den unserer Stichprobe.</p>
+  </div>
+</div>
           <!-- Second R Console: First Rows -->
           <div class="r-console">
             <div class="r-header">

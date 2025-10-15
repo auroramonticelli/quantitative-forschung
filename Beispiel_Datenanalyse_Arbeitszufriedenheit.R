@@ -11,7 +11,7 @@ library(vcd)
 ### 2. Daten importieren ---------------------------------
 # Daten aus CSV-Datei laden
 # data <- read.csv("healthcare_job_satisfaction.csv")
-data <- read.csv("healthcare_data.csv")
+data <- read.csv("")
 
 # 3. Daten anschuaen ---------------------------------
 # Erste Zeilen anzeigen
