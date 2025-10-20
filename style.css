@@ -435,4 +435,107 @@ footer {
   .small-screenshot {
     max-width: 90%;
   }
+  
+  /* Course Content Section Styles */
+.explanation-box {
+  background: #fdf3ef;
+  border-left: 4px solid #eb8b6e;
+  padding: 25px;
+  margin: 25px 0;
+  border-radius: 0 10px 10px 0;
+  box-shadow: 0 4px 12px rgba(235, 139, 110, 0.1);
+}
+
+.explanation-box h3 {
+  color: #eb8b6e;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.explanation-link {
+  display: inline-block;
+  background: linear-gradient(135deg, #eb8b6e, #f39ab5);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 15px;
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow: 0 4px 15px rgba(235, 139, 110, 0.3);
+}
+
+.explanation-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(235, 139, 110, 0.4);
+  background: linear-gradient(135deg, #d87458, #e189a3);
+  color: white;
+}
+
+/* Video Section */
+.video-section {
+  margin: 30px 0;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  margin-top: 20px;
+  background-color: #fbf6f0;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(52, 92, 125, 0.1);
+}
+
+.video-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #345c7d, #4a7ca5);
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  border-radius: 15px;
+}
+
+.video-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+
+.video-placeholder h3 {
+  color: white;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.instructions {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 500px;
+  line-height: 1.5;
+}
+
+/* YouTube video styling when embedded */
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 15px;
+}
 }
