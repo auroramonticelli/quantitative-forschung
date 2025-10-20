@@ -475,16 +475,19 @@ footer {
 }
 
 /* Video Section */
+/* Make video section wider */
 .video-section {
-  margin: 30px 0;
+  margin: 40px 0;
+  width: 100%;
 }
 
 .video-container {
   position: relative;
-  width: 100%;
+  width: 90%; /* Increase width */
+  max-width: 1000px; /* Larger maximum size */
   height: 0;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
-  margin-top: 20px;
+  padding-bottom: 50.625%; /* 16:9 aspect ratio for wider container */
+  margin: 20px auto; /* Center it */
   background-color: #fbf6f0;
   border-radius: 15px;
   overflow: hidden;
