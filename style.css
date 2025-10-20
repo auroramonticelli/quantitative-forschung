@@ -473,7 +473,7 @@ footer {
   background: linear-gradient(135deg, #d87458, #e189a3);
   color: white;
 }
-
+}
 /* Video Section */
 /* Make video section wider */
 .video-section {
@@ -540,5 +540,4 @@ footer {
   height: 100%;
   border: none;
   border-radius: 15px;
-}
 }
