@@ -14,9 +14,7 @@ library(vcd)
 
 ### 2. Daten importieren --------------------------------------------
 # Daten aus CSV-Datei laden
-data <- read.csv("Desktop/GitHub/quantitative-forschung/healthcare_data.csv")
-# data <- read.csv("")
-
+data <- read.csv("healthcare_data.csv")
 
 
 # 3. Daten anschauen ------------------------------------------------

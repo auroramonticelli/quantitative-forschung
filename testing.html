@@ -77,7 +77,7 @@
 </div>
                 <p><strong>Stichprobengrösse:</strong> Daten von 200 Arbeitnehmer aus dem Gesundheitswesen.</p>
                 <p><strong>Geschlechterverteilung:</strong> 142 Frauen und 58 Männer</p>
-                <p><strong>Berufsverteilung:</strong> 76 Pflegekräfte, 48 Ärzte, 36 Psychologen, 22 Ernährungsberater, 18 Physiotherapeuten </p>
+                <p><strong>Berufsverteilung:</strong> 76 Pflegekräfte, 48 Ärzte/ÄrztInnen, 36 PsychologInnen, 22 ErnährungsberaterInnen, 18 PhysiotherapeutInnen </p>
                 <p><strong>Job-Zufriedenheit:</strong> Durchschnitt: 3.06 von 6 Punkten (0 bis 5), mit einer von Standardabweichung 1.48. Der median liegt bei 3.</p>
                 <p><strong>Datenqualität:</strong> Keine fehlenden Werte, die Daten sind vollständig</p>
                 <p><strong>Erste Erkenntnisse:</strong> In dieser Stichprobe ist die Mehrheit weiblich. Die Pflegekräfte representiert die grösste Berufsgruppe aus der Stichprobe. Die Zufriedenheit liegt im mittleren Bereich, zeigt jedoch eine breite Streuung von sehr unzufrieden (0) bis sehr zufrieden (5).</p>
@@ -94,8 +94,8 @@
     <p>Schaut euch diesen Datensatz an.</p>
     <ul> 
         <li>Liegen die Werte der Arbeitszufriedenheit eng beieinander oder sind sie stark gestreut?</li>
-        <li><code>Wie sieht die Geschlechterverteilung aus?</code></li>
-        <li><code>Was kannst du noch beschreiben?</code></li>
+        <li>Wie sieht die Geschlechterverteilung aus?</li>
+        <li>Was kannst du noch beschreiben?</li>
     </ul>
 </div>
     </div>
@@ -147,8 +147,7 @@ chisq_result <span class="r-operator">&lt;-</span> <span class="r-function">chis
                 <p><strong>Forschungsfrage:</strong> Gibt es einen Zusammenhang zwischen Geschlecht und Beruf im Gesundheitswesen?</p>
                 <p><strong>p-Wert:</strong> p = 0,424; p > 0,05 → Dies ist deutlich grösser als das Signifikanzniveau von 0,05. Es gibt keine Evidenz für einen systematischen Zusammenhang zwischen Geschlecht und Beruf.</p>
                 <p><strong>χ²-Wert:</strong> 3,87 mit 4 Freiheitsgraden zeigt eine relativ kleine Teststatistik bei den gegebenen Freiheitsgraden. Der niedrige Wert unterstützt die Schlussfolgerung, dass kein signifikanter Zusammenhang besteht.</p>
-                <p><strong>Cramér's V:</strong> 0,139 zeigt einen sehr schwachen Zusammenhang an (Effektstärken: 0,1 = klein, 0,3 = mittel, 0,5 = gross)</p>
-                <p>Es gibt keine statistisch signifikante Evidenz für einen Zusammenhang zwischen Geschlecht und Beruf in diesem Gesundheitsdatensatz. Die Verteilung der Berufe scheint bei Männern und Frauen ähnlich zu sein, wobei kleinere Unterschiede wahrscheinlich auf zufällige Variation als auf systematische geschlechtsspezifische Muster zurückzuführen sind.</p>
+                <p>Es gibt keine statistisch signifikante Evidenz für einen Zusammenhang zwischen Geschlecht und Beruf in diesem Datensatz. Die Verteilung der Berufe scheint bei Männern und Frauen ähnlich zu sein, wobei kleinere Unterschiede wahrscheinlich auf zufällige Variation als auf systematische geschlechtsspezifische Muster zurückzuführen sind.</p>
               </div>
             </div>
             <div class="tips-box">
@@ -210,7 +209,7 @@ total_count <span class="r-operator">&lt;-</span> <span class="r-function">nrow<
   <img src="proportionen1.png" alt="R Outcome">
 </div>
     <p><strong>Forschungsfrage:</strong> Weicht der Anteil weiblicher Beschäftigter signifikant von 50% ab?</p>
-    <p><strong>p-Wert:</strong> p = 2.192e-09; p < 0,001 → Hochsignifikantes Ergebnis</p>
+    <p><strong>p-Wert:</strong> p = 4.385e-09; p < 0,001 → Hochsignifikantes Ergebnis</p>
     <p><strong>Anteil weiblicher Beschäftigter:</strong> 71% ist signifikant höher als 50%. </p>
     <p><strong>Konfidenzintervall:</strong> [65,2%; 100%], der wahre Anteil liegt mit 95% Sicherheit über 65,2%</p>
     <p>Es gibt deutlich mehr weibliche Beschäftigte in den unserer Stichprobe.</p>
@@ -252,7 +251,7 @@ male_total <span class="r-operator">&lt;-</span> <span class="r-function">sum</s
     <p><strong>Anteil hoch hoher Arbeitszufriedenheit:</strong> Frauen = 40,1%; Männer = 44,8%</p>
     <p><strong>p-Wert:</strong> p = 0,651; p > 0.05 zeigt kein signifikanter Unterschied</p>
     <p><strong>Konfidenzintervall:</strong> [-0,210; 0,117], die wahre Differenz könnte zwischen -21% und +12% liegen</p>
-    <p>Der beobachtete Unterschied von 4,7% ist statistisch nicht bedeutsam. Somit ist die Arbeitsufriedenheit zwischen den Geschlechtern vergleichbar.</p>
+    <p>Der beobachtete Unterschied von 4,7% ist statistisch nicht bedeutsam. Somit gibt es zwischen den Geschlechtern keinen statistisch signifikanter Unterschied bei der hohen Arbeitszufriedenheit.</p>
   </div>
   </div>
   <div class="tips-box">
