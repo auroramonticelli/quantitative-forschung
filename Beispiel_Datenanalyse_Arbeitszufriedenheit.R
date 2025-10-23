@@ -166,8 +166,8 @@ prop.test(c(female_high_satisfaction, male_high_satisfaction),
 t.test(job_satisfaction ~ gender, data = data)
 
 # Überprüfung der Normalverteilung mit Shapiro-Wilk-Test
-shapiro.test(data$job_satisfaction[healthcare_data$gender == "Female"])
-shapiro.test(data$job_satisfaction[healthcare_data$gender == "Male"])
+shapiro.test(data$job_satisfaction[data$gender == "Female"])
+shapiro.test(data$job_satisfaction[data$gender == "Male"])
 
 ## Mann-Whitney U-Test
 # Mann-Whitney U-Test (nicht-parametrische Alternative)

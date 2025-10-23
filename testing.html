@@ -72,6 +72,9 @@
         <button class="collapsible">Interpretation der deskriptiven Analyse</button>
         <div class="content">
             <div class="interpretation-box">
+              <div class="image-container">
+  <img src="descriptive.png" alt="R Outcome">
+</div>
                 <p><strong>Stichprobengrösse:</strong> Daten von 200 Arbeitnehmer aus dem Gesundheitswesen.</p>
                 <p><strong>Geschlechterverteilung:</strong> 142 Frauen und 58 Männer</p>
                 <p><strong>Berufsverteilung:</strong> 76 Pflegekräfte, 48 Ärzte, 36 Psychologen, 22 Ernährungsberater, 18 Physiotherapeuten </p>
@@ -138,7 +141,7 @@ chisq_result <span class="r-operator">&lt;-</span> <span class="r-function">chis
           <button class="collapsible">Interpretation der Ergebnisse</button>
             <div class="content">
               <div class="image-container">
-  <img src="Chi-test-results.png" alt="R Outcome">
+  <img src="chi.png" alt="R Outcome">
 </div>
               <div class="interpretation-box">
                 <p><strong>Forschungsfrage:</strong> Gibt es einen Zusammenhang zwischen Geschlecht und Beruf im Gesundheitswesen?</p>
@@ -204,7 +207,7 @@ total_count <span class="r-operator">&lt;-</span> <span class="r-function">nrow<
 <div class="content">
   <div class="interpretation-box">
     <div class="image-container">
-  <img src="prop-test-1-results.png" alt="R Outcome">
+  <img src="proportionen1.png" alt="R Outcome">
 </div>
     <p><strong>Forschungsfrage:</strong> Weicht der Anteil weiblicher Beschäftigter signifikant von 50% ab?</p>
     <p><strong>p-Wert:</strong> p = 2.192e-09; p < 0,001 → Hochsignifikantes Ergebnis</p>
@@ -243,7 +246,7 @@ male_total <span class="r-operator">&lt;-</span> <span class="r-function">sum</s
 <div class="content">
   <div class="interpretation-box">
     <div class="image-container">
-  <img src="prop-test-2-results.png" alt="R Outcome">
+  <img src="proportionen2.png" alt="R Outcome">
 </div>
     <p><strong>Forschungsfrage:</strong> Unterscheidet sich der Anteil der Beschäftigten mit hoher Arbeitszufriedenheit (≥4) zwischen den Geschlechter?</p>
     <p><strong>Anteil hoch hoher Arbeitszufriedenheit:</strong> Frauen = 40,1%; Männer = 44,8%</p>
@@ -302,16 +305,22 @@ male_total <span class="r-operator">&lt;-</span> <span class="r-function">sum</s
 <span class="r-function">t.test</span>(job_satisfaction <span class="r-operator">~</span> gender, data <span class="r-operator">=</span> data)
 
 <span class="r-comment"># Überprüfung der Normalverteilung mit Shapiro-Wilk-Test</span>
-<span class="r-function">shapiro.test</span>(data<span class="r-operator">$</span>job_satisfaction[healthcare_data<span class="r-operator">$</span>gender <span class="r-operator">==</span> <span class="r-string">"Female"</span>])
-<span class="r-function">shapiro.test</span>(data<span class="r-operator">$</span>job_satisfaction[healthcare_data<span class="r-operator">$</span>gender <span class="r-operator">==</span> <span class="r-string">"Male"</span>])</pre>
+<span class="r-function">shapiro.test</span>(data<span class="r-operator">$</span>job_satisfaction[data<span class="r-operator">$</span>gender <span class="r-operator">==</span> <span class="r-string">"Female"</span>])
+<span class="r-function">shapiro.test</span>(data<span class="r-operator">$</span>job_satisfaction[data<span class="r-operator">$</span>gender <span class="r-operator">==</span> <span class="r-string">"Male"</span>])</pre>
             </div>
           </div>
           <button class="collapsible">Interpretation der Ergebnisse</button>
 <div class="content">
   <div class="interpretation-box">
+    <div class="image-container">
+  <img src="t-test.png" alt="R Outcome">
+</div>
     <p><strong>Forschungsfrage:</strong> Unterscheidet sich die Arbeitszufriedenheit zwischen weiblichen und männlichen Beschäftigten?</p>
     <p><strong>p-Wert (t-Test):</strong> p = 0.776 > 0.05 → Kein signifikanter Mittelwertunterschied</p>
     <p><strong>Mittelwerte:</strong> Weiblich (3.04) vs. Männlich (3.10)</p>
+    <div class="image-container">
+  <img src="shapiro-test.png" alt="R Outcome">
+</div>
     <p><strong>p-Wert (Shapiro-Wilk-Test Frauen):</strong> p < 0.001 zeigt, dass die Arbeitszufriedenheit der Frauen ist nicht normalverteilt ist.</p>
     <p><strong>p-Wert (Shapiro-Wilk-Test Männer):</strong> p < 0.001 zeigt, dass die Arbeitszufriedenheit der Männern ist nicht normalverteilt ist.</p>
   </div>
@@ -348,6 +357,9 @@ male_total <span class="r-operator">&lt;-</span> <span class="r-function">sum</s
           <button class="collapsible">Interpretation der Ergebnisse</button>
 <div class="content">
   <div class="interpretation-box">
+    <div class="image-container">
+  <img src="mann-whit.png" alt="R Outcome">
+</div>
     <p><strong>Forschungsfrage:</strong> Unterscheidet sich die Arbeitszufriedenheit zwischen weiblichen und männlichen Beschäftigten?</p>
     <p><strong>Teststatistik:</strong> W = 3957, diese Zahl führt uns zu unserem p-Wert.</p>
     <p><strong>p-Wert:</strong> p-value = 0.6588; p > 0.05, zeigt kein signifikantes Testergebnis.</p>
